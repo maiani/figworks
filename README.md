@@ -21,6 +21,23 @@ python -m pip install -e ".[dev]"
 
 ## Quick Start
 
+For the common case of placing SVG in Matplotlib axes, use `compose`. No
+`figforge.Figure` or manual placeholder is involved:
+
+```python
+import figforge
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.plot([0, 1], [0, 1])
+svg = figforge.compose({ax: "logo.svg"}, fig=fig)
+with open("figure.svg", "w", encoding="utf-8") as output:
+    output.write(svg)
+```
+
+Use `Figure` when you need explicit panels, physical layout, selectors, and
+annotations:
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,6 +70,7 @@ fig.save("example.png")
 
 The root package exposes:
 
+- `compose`
 - `Figure`
 - `Panel`
 - `Anchor`

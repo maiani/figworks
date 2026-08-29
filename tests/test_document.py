@@ -1,4 +1,6 @@
-from figforge.core.document import SVGDocument
+from lxml import etree
+
+from figforge.core.document import SVGDocument, element_box
 from figforge.core.element import SVG_NS
 
 
@@ -25,3 +27,11 @@ def test_import_svg_group():
     output = document.to_string()
     assert 'id="imported"' in output
     assert 'id="x"' in output
+
+
+def test_group_box_contains_its_painted_children():
+    group = etree.fromstring(
+        '<g xmlns="http://www.w3.org/2000/svg"><path d="M 20 30 L 60 30 L 60 80 L 20 80 z"/></g>'
+    )
+
+    assert element_box(group) == (20.0, 30.0, 40.0, 50.0)

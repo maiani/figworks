@@ -85,6 +85,45 @@ def connect(
     return patch
 
 
+def compose(
+    replacements: Mapping[Any, Any],
+    fig=None,
+    *,
+    preserve_aspect_ratio: bool = True,
+) -> str:
+    """Place SVG-producing sources into Matplotlib axes and return SVG.
+
+    ``replacements`` maps each target axes to an SVG string/path, Matplotlib
+    figure, Vectex fragment, or another SVG document provider.  This is the
+    lightweight entry point for callers that do not need :class:`Figure`.
+    """
+    from matplotlib.patches import Rectangle
+
+    target_figure = fig if fig is not None else plt.gcf()
+    by_id: dict[str, Any] = {}
+    placeholders: list[Rectangle] = []
+    for index, (axes, source) in enumerate(replacements.items()):
+        if not hasattr(axes, "add_artist") or not hasattr(axes, "transAxes"):
+            raise TypeError("compose replacement keys must be Matplotlib axes")
+        if getattr(axes, "figure", target_figure) is not target_figure:
+            raise ValueError("all replacement axes must belong to fig")
+        gid = f"figforge-compose-{index}"
+        placeholder = Rectangle((0, 0), 1, 1, transform=axes.transAxes)
+        placeholder.set_gid(gid)
+        axes.add_artist(placeholder)
+        placeholders.append(placeholder)
+        by_id[gid] = source
+    try:
+        return insert(
+            by_id,
+            fig=target_figure,
+            preserve_aspect_ratio=preserve_aspect_ratio,
+        )
+    finally:
+        for placeholder in placeholders:
+            placeholder.remove()
+
+
 def svg_to_image_artist(
     svg_string: str,
     gid: str | None = None,

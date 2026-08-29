@@ -2,6 +2,25 @@
 
 FigForge connects Matplotlib and SVG **in both directions**.
 
+## Simple SVG insertion
+
+The package root provides direct composition without the higher-level `Figure`
+interface or manual placeholders:
+
+```python
+import figforge
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+ax.plot([0, 1], [0, 1])
+svg = figforge.compose({ax: "annotation.svg"}, fig=fig)
+```
+
+`compose` maps axes to SVG strings and paths, Matplotlib figures, or Vectex
+fragments. The lower-level `connect`, `insert`, `box_artist`, and
+`svg_to_image_artist` helpers remain available from
+`figforge.backends.matplotlib` for custom placement workflows.
+
 ## Direction 1: Matplotlib embedded as SVG
 
 Export any Matplotlib figure to a vector SVG string, then embed it inside a

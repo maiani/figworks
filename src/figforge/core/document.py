@@ -253,7 +253,7 @@ def extract_path_box(node: etree._Element) -> tuple[float, float, float, float]:
 def element_box(node: etree._Element) -> tuple[float, float, float, float]:
     """Return (x, y, width, height) for an element's layout box."""
     name = etree.QName(node).localname
-    if name == "rect":
+    if name in {"image", "rect"}:
         x = float(node.get("x", 0.0))
         y = float(node.get("y", 0.0))
         w = float(node.get("width", 0.0))
@@ -261,4 +261,13 @@ def element_box(node: etree._Element) -> tuple[float, float, float, float]:
         return x, y, w, h
     if name in ("path", "polyline"):
         return extract_path_box(node)
+    if name == "g":
+        boxes = [element_box(child) for child in node]
+        boxes = [box for box in boxes if box[2] and box[3]]
+        if boxes:
+            min_x = min(box[0] for box in boxes)
+            min_y = min(box[1] for box in boxes)
+            max_x = max(box[0] + box[2] for box in boxes)
+            max_y = max(box[1] + box[3] for box in boxes)
+            return min_x, min_y, max_x - min_x, max_y - min_y
     return 0.0, 0.0, 0.0, 0.0

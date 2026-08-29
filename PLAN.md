@@ -15,6 +15,11 @@ whose `to_svg_document()` method returns a complete SVG document. Placeholder
 replacement remains available for post-processing an existing SVG by semantic
 ID; it is not a second composition model.
 
+For a Matplotlib figure with one or more SVG replacements, package-level
+`compose(...)` is the primary interface. It maps axes directly to SVG sources
+and does not require the higher-level `Figure` composition model or manual
+placeholders.
+
 ## Scope
 
 Keep the core limited to:

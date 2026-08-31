@@ -175,6 +175,26 @@ class Figure:
             preserve_aspect_ratio=preserve_aspect_ratio,
         )
 
+    def fill_plane(self, id: str, source: Any) -> etree._Element:
+        """Fill a unit-square group by id with content normalized to fit it.
+
+        Use this to place a plot, equation, or image *in* a plane of an
+        ``vecview`` scene, rather than flat on top of the figure::
+
+            scene.plane(15, origin, u_edge, v_edge, id="plot-plane")
+            panel.add(scene, id="geometry")
+            fig.fill_plane("plot-plane", mpl_fig)
+
+        Accepts a Matplotlib figure, an SVG file path, an SVG string, or any
+        object exposing ``to_svg_document()``.
+
+        The content is normalized onto the unit square, so shape the target
+        rectangle to the content's aspect ratio to avoid stretching it.
+        """
+        from figforge.core.element import resolve_svg_source
+
+        return self.document.fill_plane(id, resolve_svg_source(source))
+
     def add(
         self,
         source: Any,

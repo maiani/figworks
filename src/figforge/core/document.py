@@ -19,7 +19,7 @@ from figforge.core.element import (
     svg_to_lxml,
 )
 from figforge.core.selectors import Selection, select
-from figforge.core.units import svg_length
+from figforge.core.units import svg_length, to_px
 
 
 class SVGDocument:
@@ -28,10 +28,18 @@ class SVGDocument:
     def __init__(self, width: str | int | float, height: str | int | float):
         self.width = svg_length(width)
         self.height = svg_length(height)
+        self.width_px = to_px(width)
+        self.height_px = to_px(height)
+        # The canvas is declared in physical units but every element is placed in
+        # px user units, so the root needs a viewBox to bind the two.  Without it
+        # a renderer maps one user unit to one px at its own default 96 DPI while
+        # sizing the canvas from the physical attributes, and any export above
+        # 96 DPI leaves the content in a corner at the wrong scale.
         self.root = svg_to_lxml(
             svg.SVG(
                 width=self.width,
                 height=self.height,
+                viewBox=svg.ViewBoxSpec(0, 0, self.width_px, self.height_px),
                 extra={"version": "1.1"},
             )
         )
@@ -58,7 +66,9 @@ class SVGDocument:
         element: etree._Element,
         parent: etree._Element | None = None,
     ) -> etree._Element:
-        (parent or self.root).append(element)
+        # `parent or self.root` would silently retarget the root: an lxml
+        # element with no children is falsy, so an empty group is discarded.
+        (self.root if parent is None else parent).append(element)
         return element
 
     def group(
@@ -163,6 +173,37 @@ class SVGDocument:
                 if parent is not None:
                     parent.remove(label)
         return self._place_in_placeholder(target, box, svg_string, preserve_aspect_ratio)
+
+    def fill_plane(self, id: str, svg_string: str) -> etree._Element:
+        """Fill a unit-square group with SVG content, normalized to fit it.
+
+        The target is a group whose own transform maps content coordinates in
+        ``[0, 1]^2`` onto wherever it belongs -- typically an ``vecview`` scene
+        plane, whose transform sends the unit square onto a rectangle of a world
+        plane, so the content ends up lying *in* the scene rather than on top of
+        it.  This method only normalizes: it leaves the target's transform alone
+        and appends the content beneath it.
+
+        The normalization is non-uniform by construction -- content of any size
+        is mapped onto the same unit square -- so the target rectangle must be
+        shaped to the content's aspect ratio or the content comes out stretched.
+        For an ``vecview`` plane that means ``|u_edge| / |v_edge|`` equal to the
+        content's ``width / height``.
+
+        Returns the wrapping group holding the imported content.
+        """
+        targets = self.select(f"#{id}")
+        if len(targets) == 0:
+            raise KeyError(f"No element with id {id!r} in document")
+        target = targets.nodes[0]
+
+        width, height, min_x, min_y = svg_intrinsic_size(svg_string)
+        if not width or not height:
+            raise ValueError(f"Content for {id!r} has no intrinsic size to normalize")
+
+        shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
+        transform = f"scale({1 / width:g} {1 / height:g}){shift}"
+        return self.import_svg(svg_string, transform=transform, parent=target)
 
     def place(
         self,

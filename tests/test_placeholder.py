@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 from figforge import Figure, layout_svgs
-from figforge.backends.matplotlib import mpl_to_svg
+from figforge.matplotlib import mpl_to_svg
 
 
 def _svg(label="content"):

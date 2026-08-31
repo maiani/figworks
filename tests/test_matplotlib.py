@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 from figforge import Figure
-from figforge.backends.matplotlib import mpl_to_svg
+from figforge.matplotlib import mpl_to_svg
 
 
 def test_matplotlib_export_contains_gid_and_text():

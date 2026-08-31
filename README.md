@@ -98,7 +98,7 @@ Supported MVP operations include:
 FigForge bridges Matplotlib and SVG in both directions:
 
 ```python
-from figforge.backends.matplotlib import mpl_to_svg, connect, insert
+from figforge.matplotlib import mpl_to_svg, connect, insert
 
 svg = mpl_to_svg(mpl_fig)                 # Matplotlib -> SVG
 connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)   # reserve a placeholder in Matplotlib

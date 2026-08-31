@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "figforge"
-version = "0.0.0"
+dynamic = ["version"]
 description = "A Python framework for building publication-quality scientific SVG figures."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -29,6 +29,9 @@ dev = [
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.dynamic]
+version = { attr = "figforge.__version__" }
 
 [tool.ruff]
 line-length = 100

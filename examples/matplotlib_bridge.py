@@ -4,7 +4,7 @@ the SVG <-> Matplotlib bridge (SVG as a Matplotlib object and vice versa)."""
 import matplotlib.pyplot as plt
 
 from figforge import Figure, display_svg, layout_svgs
-from figforge.backends.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
+from figforge.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
 
 
 def make_plot(ylabel):

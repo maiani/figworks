@@ -44,7 +44,7 @@ inferred to be as square as possible.
 ```python
 import matplotlib.pyplot as plt
 from figforge import layout_svgs
-from figforge.backends.matplotlib import mpl_to_svg
+from figforge.matplotlib import mpl_to_svg
 
 panels = []
 for i in range(6):

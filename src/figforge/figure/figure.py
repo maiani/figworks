@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from figforge.backends.cairosvg import svg_to_pdf, svg_to_png
+from figforge._export import svg_to_pdf, svg_to_png
 from figforge.core.document import SVGDocument
 from figforge.core.selectors import Selection
 from figforge.core.units import to_px
@@ -14,16 +15,43 @@ from figforge.elements.shapes import circle, ellipse, line, path, polyline, rect
 from figforge.elements.text import text_element
 from figforge.figure.anchors import Anchor
 from figforge.figure.panel import Panel
-from figforge.themes import get_theme
 
 if TYPE_CHECKING:
     from lxml import etree
 
 
+@dataclass(frozen=True)
+class Theme:
+    """Small built-in style preset."""
+
+    font_family: str = "Arial"
+    base_font_size: str = "8pt"
+    stroke_width: str = "1pt"
+    stroke: str = "black"
+    panel_label_font_size: str = "10pt"
+
+
+paper = Theme()
+presentation = Theme(
+    base_font_size="11pt",
+    stroke_width="1.3pt",
+    panel_label_font_size="14pt",
+)
+
+
+def get_theme(theme: str | Theme) -> Theme:
+    if isinstance(theme, Theme):
+        return theme
+    return {
+        "paper": paper,
+        "presentation": presentation,
+    }[theme]
+
+
 class Figure:
     """Top-level FigForge SVG figure."""
 
-    def __init__(self, width: str | int | float, height: str | int | float, theme: str = "paper"):
+    def __init__(self, width: str | int | float, height: str | int | float, theme: str | Theme = "paper"):
         self.width = width
         self.height = height
         self.theme = get_theme(theme)

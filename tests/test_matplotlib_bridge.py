@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 import figforge
-from figforge.backends.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
+from figforge.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
 
 
 def test_insert_replaces_placeholder_by_id():

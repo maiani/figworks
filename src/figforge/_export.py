@@ -1,4 +1,4 @@
-"""CairoSVG export backend."""
+"""Internal SVG export helpers."""
 
 from __future__ import annotations
 

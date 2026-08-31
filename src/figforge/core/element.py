@@ -2,7 +2,7 @@
 
 This module is the canonical home for helpers that construct, parse, size, and
 place SVG content. Higher-level modules (:mod:`figforge.core.document`,
-:mod:`figforge.backends.matplotlib`) build on these primitives.
+:mod:`figforge.matplotlib`) build on these primitives.
 """
 
 from __future__ import annotations
@@ -133,7 +133,7 @@ def resolve_svg_source(source: Any) -> str:
 
     import matplotlib as mpl
 
-    from figforge.backends.matplotlib import mpl_to_svg
+    from figforge.matplotlib import mpl_to_svg
 
     if isinstance(source, mpl.figure.Figure):
         return mpl_to_svg(source)

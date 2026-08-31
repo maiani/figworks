@@ -28,10 +28,9 @@ The FigForge source is split into focused modules under `src/figforge/`:
 | `figure/panel.py` | `Panel` regions and anchors. |
 | `figure/anchors.py` | `Anchor` points. |
 | `figure/layout.py` | `layout_svgs` grid assembly. |
-| `backends/matplotlib.py` | Matplotlib ⇄ SVG bridge (export, import, insert). |
-| `backends/cairosvg.py` | PDF and PNG export. |
+| `matplotlib.py` | Matplotlib ⇄ SVG bridge (export, import, insert). |
+| `_export.py` | Internal PDF and PNG export helpers. |
 | `elements/` | Native shape, text, and arrow factories. |
-| `themes/` | Small built-in `Theme` presets. |
 
 ## Documentation
 

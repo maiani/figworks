@@ -27,7 +27,7 @@ def _to_svg(source) -> str:
     if isinstance(source, str):
         return source
     if isinstance(source, MplFigure):
-        from figforge.backends.matplotlib import mpl_to_svg
+        from figforge.matplotlib import mpl_to_svg
 
         return mpl_to_svg(source)
     if hasattr(source, "document") and hasattr(source.document, "to_string"):

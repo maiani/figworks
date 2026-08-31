@@ -1,0 +1,20 @@
+# Shared style for the figforge thesis_plots example.
+# Loaded through FigureCollection.apply_style() before every build.
+
+figure.facecolor : white
+savefig.facecolor : white
+savefig.dpi : 200
+
+font.family : serif
+font.size : 9
+
+axes.labelsize : 10
+axes.titlesize : 10
+axes.linewidth : 0.8
+
+xtick.labelsize : 8
+ytick.labelsize : 8
+
+lines.linewidth : 1.2
+
+legend.frameon : false

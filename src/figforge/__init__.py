@@ -1,15 +1,15 @@
 """Public FigForge API."""
 
-from figforge._version import __version__
-from figforge.backends.matplotlib import compose
+from figforge.collection import FigureCollection
 from figforge.core.display import display_svg
-from figforge.figure import Anchor, Figure, Panel
+from figforge.figure import Anchor, Figure, Panel, Theme
 from figforge.figure.layout import layout_svgs
-from figforge.themes import Theme
+from figforge.matplotlib import compose
 
 __all__ = [
     "Anchor",
     "Figure",
+    "FigureCollection",
     "Panel",
     "Theme",
     "__version__",
@@ -17,3 +17,5 @@ __all__ = [
     "display_svg",
     "layout_svgs",
 ]
+
+__version__ = "0.1.0"

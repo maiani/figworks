@@ -7,6 +7,28 @@ The canonical output is SVG. PDF and PNG export are supported through CairoSVG.
 
 FigForge is designed as an editable assembly layer between plotting code and final publication graphics. It does not try to replace Matplotlib, Inkscape, Illustrator, or LaTeX.
 
+## The suite
+
+FigForge is the composition layer of three projects developed together, each
+independently useful:
+
+| Project | Produces |
+| --- | --- |
+| **FigForge** | composed, exported multi-panel figures |
+| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
+| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+
+All three emit vector SVG with stable ids and deterministic output, so a figure
+can be regenerated from code, diffed in version control, and still hand-tuned in
+Inkscape. Vectex and vecview know nothing about FigForge: both simply expose
+`to_svg_document()`, and FigForge places anything that does — no adapter here, no
+import in either direction.
+
+The dependency edges are uneven by design: Vectex is a runtime requirement,
+vecview is optional and installed from a checkout, and neither depends on
+FigForge. [`AGENTS.md`](AGENTS.md#the-suite) records why the three are built
+apart but in step.
+
 ## Status
 
 This repository is an early MVP scaffold. The public API is intentionally small and unstable while the core figure model is being built.

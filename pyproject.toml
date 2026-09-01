@@ -20,6 +20,10 @@ dependencies = [
     "vectex>=0.1",
 ]
 
+[project.urls]
+Source = "https://github.com/maiani/figforge"
+Issues = "https://github.com/maiani/figforge/issues"
+
 [project.optional-dependencies]
 dev = [
     "pytest",

@@ -8,6 +8,43 @@ FigForge is an SVG-first Python package for assembling publication-quality scien
 
 Keep the package deterministic, small, and easy to inspect. The main design goal is semantic editability through stable IDs, classes, panels, and roles.
 
+## The Suite
+
+FigForge is the composition layer of three projects developed together:
+
+| Project | Produces |
+| --- | --- |
+| **FigForge** | composed, exported multi-panel figures |
+| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
+| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+
+Why they are separate projects, and why that matters for what you may change
+here:
+
+**One target.** A publication figure should be generated from code *and* remain
+editable afterwards. All three emit vector SVG with stable ids and deterministic,
+byte-identical output, so a figure can be regenerated, diffed in version control,
+and still opened in Inkscape to nudge a label. Anything that makes output
+non-deterministic or ids unstable breaks the shared premise, not just this
+package.
+
+**One contract.** FigForge coordinates maintained tools instead of reproducing
+them: Matplotlib already plots, TeX already typesets. The entire integration
+surface is an object exposing `to_svg_document()`.
+
+**Co-development is what tests the contract.** A one-method interface is easy to
+claim and hard to trust. Vectex and vecview share no code -- a TeX compiler and a
+3D projector -- and both integrate through that method alone, with no adapter
+here and no import in either direction. That is the evidence the contract is
+sufficient, and the standing reason to refuse base classes, registries, and
+plugin systems aimed at hypothetical future sources. A third producer is a chance
+to falsify it: if one genuinely cannot be served by `to_svg_document()`, that is a
+real finding and a design conversation, not a licence to add an adapter quietly.
+
+The dependency edges are deliberately uneven: Vectex is a runtime requirement,
+vecview is optional and installed from a checkout, and neither depends on
+FigForge. Do not make that symmetric for tidiness.
+
 ## Current Scope
 
 Focus on the MVP described in `PLAN.md`:
@@ -28,9 +65,9 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
 - Keep runtime dependencies limited to the planned core set unless `PLAN.md` is updated first.
 - Use `svg.py` for constructing native SVG elements wherever possible.
 - Integrate SVG-producing libraries through the `to_svg_document()` protocol only.
-  Vectex and vecview both work this way, with no adapter in FigForge and no import
-  in either direction. Do not add an adapter, base class, or registry for a new
-  source until that contract is demonstrably insufficient.
+  Do not add an adapter, base class, or registry for a new source until that
+  contract is demonstrably insufficient -- see **The Suite** for why that bar is
+  set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
   they must not appear in `dependencies`. vecview in particular is unpublished, so
   a dependency entry would resolve to an unrelated PyPI package.

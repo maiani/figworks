@@ -12,6 +12,16 @@ The canonical output is **SVG**. PDF and PNG export are supported through
 CairoSVG. Every element, panel, and role carries a stable identifier so the
 final graphic stays editable programmatically.
 
+## The suite
+
+FigForge is the composition layer of a three-project suite:
+[Vectex](https://github.com/maiani/vectex) renders TeX equations to SVG
+fragments, and [vecview](https://github.com/maiani/vecview) draws layered 3D
+schematics as SVG documents. Each is developed independently and usable alone.
+
+Both producers integrate through one method, `to_svg_document()`, so FigForge
+needs no adapter for either and neither imports FigForge.
+
 ## Why FigForge?
 
 * **SVG-native assembly** — build figures from real vector elements.

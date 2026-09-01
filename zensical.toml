@@ -1,11 +1,11 @@
 [project]
 site_name = "FigForge"
-site_url = "https://figforge.example.com/"
+site_url = "https://maiani.github.io/figforge/"
 site_description = "Assemble publication-quality scientific SVG figures from Matplotlib plots, native SVG elements, annotations, and semantic figure structure."
 site_author = "Andrea Maiani"
 
-repo_url = "https://github.com/example/figforge"
-repo_name = "example/figforge"
+repo_url = "https://github.com/maiani/figforge"
+repo_name = "maiani/figforge"
 edit_uri = "edit/main/docs/"
 
 nav = [

@@ -15,6 +15,7 @@ from figworks.elements.shapes import circle, ellipse, line, path, polyline, rect
 from figworks.elements.text import text_element
 from figworks.figure.anchors import Anchor
 from figworks.figure.panel import Panel
+from figworks.fonts import check_fonts
 
 if TYPE_CHECKING:
     from lxml import etree
@@ -22,9 +23,16 @@ if TYPE_CHECKING:
 
 @dataclass(frozen=True)
 class Theme:
-    """Small built-in style preset."""
+    """Small built-in style preset.
 
-    font_family: str = "Arial"
+    ``font_family`` is the one typeface of the figure: set on the root so every
+    source that names no font inherits it, and on FigWorks' own text.  Use
+    :func:`figworks.matplotlib.theme_rc` to give Matplotlib plots the same face.
+    The default, TeX Gyre Heros, is a free Helvetica clone that ships with TeX
+    Live and as ``fonts-texgyre`` on Debian and Ubuntu.
+    """
+
+    font_family: str = "TeX Gyre Heros"
     base_font_size: str = "8pt"
     stroke_width: str = "1pt"
     stroke: str = "black"
@@ -58,6 +66,8 @@ class Figure:
         self.height = height
         self.theme = get_theme(theme)
         self.document = SVGDocument(width, height)
+        # Inherited by every source that names no font of its own.
+        self.document.root.set("font-family", self.theme.font_family)
         self.panels: dict[str, Panel] = {}
 
     def panel(
@@ -244,12 +254,21 @@ class Figure:
         )
 
     def save(self, path: str | Path, dpi: int = 300) -> None:
+        """Write the figure as ``.svg``, ``.pdf``, or ``.png``.
+
+        PDF and PNG are rendered on this machine, so before rendering every font
+        the figure names is checked: a missing family or glyph raises
+        :class:`~figworks.fonts.FontError` rather than silently rendering in a
+        substitute.  SVG is written as is; its fonts are the viewer's concern.
+        """
         output = Path(path)
         suffix = output.suffix.lower()
         svg = self.document.to_string()
         if suffix == ".svg":
             output.write_text(svg, encoding="utf-8")
             return
+        if suffix in (".pdf", ".png"):
+            check_fonts(svg)
         if suffix == ".pdf":
             svg_to_pdf(svg, output)
             return

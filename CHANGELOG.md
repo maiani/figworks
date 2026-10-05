@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-10-05
+
+### Added
+
+- `Figure.save` checks fonts before rendering PDF or PNG, and raises
+  `figworks.fonts.FontError` instead of letting fontconfig substitute silently.
+  For each run of text it resolves the first family of its `font-family` (the
+  only one CairoSVG honours) in the run's weight and style, verifies the chosen
+  file's real family, and checks that every character has a glyph. A generic
+  family is reported too. The check reads the matched file with `fc-query`, so
+  a stale fontconfig cache that echoes the requested family back is caught.
+- `figworks.matplotlib.theme_rc(theme)`: Matplotlib settings for the theme's
+  typeface and size, math text included.
+
+### Changed
+
+- The default theme typeface is TeX Gyre Heros (was Arial), a free Helvetica
+  clone available with TeX Live and as `fonts-texgyre`. The figure root carries
+  it as `font-family`, so sources that name no font inherit it.
+- The examples set their plots in the theme typeface, and the VecWire example
+  labels its junction `JJ`: TeX Gyre Heros has no subscript `ⱼ`.
+
 ## [0.3.0] - 2026-10-05
 
 ### Added

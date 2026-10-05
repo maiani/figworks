@@ -20,8 +20,12 @@ import numpy as np
 from vecwire import Circuit
 
 from figworks import Figure
+from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
+
+# Plots use the figure's typeface, words and math alike.
+plt.rcParams.update(theme_rc())
 
 INK = "#262626"
 JUNCTION = "#c2185b"
@@ -44,7 +48,7 @@ def build_circuit() -> Circuit:
     circuit.ground("ground_node", id="ground")
 
     circuit.label("C", (left - 7, (top + bottom) / 2), id="label-C", anchor="rc")
-    circuit.label("Eⱼ", (right + 7, (top + bottom) / 2), id="label-EJ", anchor="lc")
+    circuit.label("JJ", (right + 7, (top + bottom) / 2), id="label-JJ", anchor="lc")
     circuit.label("φ", "phi", offset=(0, -3), id="label-phi", anchor="cb")
     return circuit
 
@@ -78,7 +82,7 @@ def main() -> None:
     # Ids given inside the circuit survive placement, so restyling reaches through.
     # A label's group sets the fill its text inherits; a symbol's strokes are set
     # on its children, so restyling a symbol group would not show.
-    fig.select("#label-EJ").set_style(fill=JUNCTION)
+    fig.select("#label-JJ").set_style(fill=JUNCTION)
 
     for suffix in (".svg", ".png"):
         fig.save(OUT / f"vecwire_panel{suffix}")

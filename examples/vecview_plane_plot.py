@@ -28,8 +28,12 @@ import numpy as np
 import vecview
 
 from figworks import Figure
+from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
+
+# Plots use the figure's typeface, words and math alike.
+plt.rcParams.update(theme_rc())
 
 AZIM, ELEV, SCALE = 35.0, 26.0, 62.0
 LX, LY, THICK = 12.0, 10.0, 0.7

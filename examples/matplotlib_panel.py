@@ -4,9 +4,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from figworks import Figure
+from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
 OUT.mkdir(exist_ok=True)
+
+# Plots use the figure's typeface, words and math alike.
+plt.rcParams.update(theme_rc())
 
 x = np.linspace(0, 2 * np.pi, 200)
 y = np.sin(x)

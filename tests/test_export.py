@@ -40,4 +40,5 @@ def test_png_is_rasterized_at_dpi_whatever_the_unit(tmp_path, width, height):
 
     fig.save(png, dpi=600)
 
-    assert Image.open(png).size == (600, 300)
+    with Image.open(png) as image:
+        assert image.size == (600, 300)

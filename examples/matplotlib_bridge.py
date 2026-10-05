@@ -6,10 +6,13 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 from figworks import Figure, display_svg, layout_svgs
-from figworks.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
+from figworks.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist, theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
 OUT.mkdir(exist_ok=True)
+
+# Plots use the figure's typeface, words and math alike.
+plt.rcParams.update(theme_rc())
 
 
 def make_plot(ylabel):

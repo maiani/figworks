@@ -112,6 +112,11 @@ mypy
 pytest
 ```
 
+Rendering tests and examples need TeX Gyre Heros and DejaVu Sans installed and
+fontconfig's `fc-match`/`fc-query` on `PATH` (Debian/Ubuntu: `fonts-texgyre
+fonts-dejavu-core fontconfig`): PDF and PNG export refuse to substitute a missing
+font. Unit tests of the check itself use a fake resolver.
+
 The package is typed (`py.typed`, `mypy --strict` over `src`). svg.py writes
 floats with `repr`, so numeric attributes go through `px_decimal` to keep the
 `%g` formatting; attributes FigWorks builds as strings (`transform`, `d`,

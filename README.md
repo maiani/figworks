@@ -31,6 +31,11 @@ python -m pip install -e /path/to/vecview
 python -m pip install -e /path/to/vecwire
 ```
 
+Figures are set in TeX Gyre Heros by default, a free Helvetica clone that comes
+with TeX Live and as `fonts-texgyre` on Debian and Ubuntu. PDF and PNG export
+check, through fontconfig, that every font a figure uses is installed and has
+every glyph it needs, and raise `FontError` rather than substitute silently.
+
 ## Quick start
 
 ```python
@@ -256,6 +261,8 @@ pytest
 ```
 
 Tests for VecView and VecWire skip when those packages are not installed.
+Rendering tests need TeX Gyre Heros, DejaVu Sans, and fontconfig's command-line
+tools (Debian/Ubuntu: `fonts-texgyre fonts-dejavu-core fontconfig`).
 
 ## Documentation
 

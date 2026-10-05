@@ -22,8 +22,12 @@ import numpy as np
 import vecview
 
 from figworks import Figure
+from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
+
+# Plots use the figure's typeface, words and math alike.
+plt.rcParams.update(theme_rc())
 
 SLAB = dict(center=(0.0, 0.0, -0.45), size=(11.0, 9.0, 0.9))
 PHI_Q = 22.5

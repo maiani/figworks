@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
 from io import BytesIO
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 
 import matplotlib.pyplot as plt
 from lxml import etree
@@ -29,6 +29,9 @@ from figworks.core.element import (
     svg_tag,
 )
 
+if TYPE_CHECKING:
+    from figworks.figure.figure import Theme
+
 # Matplotlib salts clip-path and marker ids with a random value unless one is set,
 # and stamps the export date, so without these two settings no export is byte-identical.
 SVG_METADATA = {"Date": None}
@@ -40,6 +43,38 @@ def mpl_svg_context() -> Iterator[None]:
 
     with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figworks"}):
         yield
+
+
+def theme_rc(theme: str | Theme = "paper") -> dict[str, Any]:
+    """Matplotlib rc settings that give a plot the figure theme's typeface.
+
+    Matplotlib fixes a text's font when the text is created, but chooses math
+    fonts when the figure is drawn, which for FigWorks is when it is placed.
+    Apply the settings once, at the top of the script, so both see them::
+
+        plt.rcParams.update(theme_rc())
+        mpl_fig, ax = plt.subplots(figsize=(3, 2))
+        ax.set_xlabel(r"$\\omega / \\omega_0$")
+
+    Math text uses the same face (``mathtext.fontset = "custom"``), upright,
+    italic, and bold, so a label's math matches its words and needs no font
+    beyond the theme's.  Tick labels and titles take the theme's base size.
+    """
+    from figworks.core.units import to_px
+    from figworks.figure.figure import get_theme
+
+    chosen = get_theme(theme)
+    family = chosen.font_family
+    size_pt = to_px(chosen.base_font_size) * 72 / 96
+    return {
+        "font.family": [family],
+        "font.size": size_pt,
+        "mathtext.fontset": "custom",
+        "mathtext.rm": family,
+        "mathtext.it": f"{family}:italic",
+        "mathtext.bf": f"{family}:bold",
+        "mathtext.sf": family,
+    }
 
 
 def mpl_to_svg(

@@ -46,12 +46,14 @@ when the plot is placed. VecTeX equations are glyph outlines and need no font.
 VecView's `text` defaults to DejaVu Sans; pass `font_family` to match.
 
 TeX Gyre Heros is a free Helvetica clone. It ships with TeX Live, and on Debian
-and Ubuntu as `fonts-texgyre`. To use another face, pass a `Theme`:
+and Ubuntu as `fonts-texgyre`. To use another face, set it in a
+[`style.md`](styles.md):
 
-```python
-from figworks import Figure, Theme
-
-fig = Figure("170mm", "76mm", theme=Theme(font_family="Source Sans 3"))
+```markdown
+---
+font:
+  family: Source Sans 3
+---
 ```
 
 **No silent substitution.** Before writing PDF or PNG, `save` checks every run

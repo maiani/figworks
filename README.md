@@ -180,6 +180,26 @@ right.add(circuit, id="transmon-circuit")
 fig.select("#JJ")  # a junction drawn with id="JJ"
 ```
 
+### One style document per publication
+
+```markdown
+---
+base: aps            # or nature, ieee, paper, presentation, another style.md
+color:
+  spin_up: "#d62828"
+cycle: [spin_up]
+---
+
+# Style guide: what each colour means, which weight is for what ...
+```
+
+A `style.md` holds the publication's design tokens in its YAML frontmatter and
+its style guide in prose. FigWorks generates Matplotlib settings from it
+(`theme_rc("style.md")`), styles its own elements with it
+(`Figure(..., theme="style.md")`), and builds figure sets under it
+(`FigureCollection(style=...)`). Built-in bases follow the figure guidelines of
+Nature, Physical Review, and IEEE. See [Styles](docs/usage/styles.md).
+
 ### Aligned Matplotlib panels
 
 ```python

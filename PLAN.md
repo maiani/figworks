@@ -10,6 +10,10 @@ coordinates maintained tools instead of reproducing them:
 - VecWire produces editable circuit schematics as vector SVG.
 - `lxml` handles selection and document assembly.
 - CairoSVG exports the assembled SVG to PDF and PNG.
+- PyYAML reads the frontmatter of a `style.md`, the one document holding a
+  publication's visual vocabulary (tokens) and its style guide (prose). Added
+  as a runtime dependency because YAML frontmatter is what Markdown tools and
+  GitHub render, which a stdlib-readable TOML block would not be.
 
 The canonical public operation is placement: `Figure.add(...)` and
 `Panel.add(...)` accept an SVG string/path, a Matplotlib figure, or any object

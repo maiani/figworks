@@ -11,9 +11,11 @@ fig = Figure(width="180mm", height="100mm", theme="paper")
 ```
 
 * `width`, `height` — physical dimensions using any supported unit.
-* `theme` — one of `"paper"` or `"presentation"`, or a `Theme` instance.
+* `theme` — a built-in style (`"paper"`, `"presentation"`, `"nature"`, `"aps"`,
+  `"ieee"`), the path of a `style.md`, or a loaded `Theme`.
 
-Themes control default fonts, font sizes, stroke widths, and colors.
+The theme sets the typeface, sizes, line weights, and colours of the figure's
+own elements; see [Styles](styles.md).
 
 ### Adding content
 

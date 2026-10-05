@@ -6,11 +6,7 @@ the collection builds, saves, and closes them:
 
     HERE = Path(__file__).resolve().parent
 
-    THESIS = FigureCollection(
-        outdir=HERE / "figures",
-        theme="paper",                       # typeface and base size
-        style_file=HERE / "thesis.mplstyle",  # optional: lines, colours
-    )
+    THESIS = FigureCollection(outdir=HERE / "figures", style=HERE / "style.md")
 
     @THESIS.figure("majorana_network")
     def majorana_network() -> Figure:
@@ -38,7 +34,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from figworks.figure.figure import Theme
+    from figworks.style import Theme
 
 # A builder takes no arguments and returns the finished figure.  The collection
 # owns styling, saving, and closing, so builders stay free of file paths.
@@ -72,17 +68,15 @@ class FigureCollection:
 
     Args:
         outdir: Where the files are written, one per figure and format.
-        theme: The FigWorks theme whose typeface and base size every
-            Matplotlib figure in the set uses, applied over ``style_file``.
-        style_file: Optional Matplotlib style sheet for plot cosmetics -- line
-            widths, colour cycle, legend frames.  Fonts come from ``theme``.
+        style: The set's style: a built-in name, a path to a ``style.md``, or a
+            loaded :class:`~figworks.style.Theme`.  Every Matplotlib figure is
+            built under the settings it generates.
         formats: File formats to write, from ``svg``, ``pdf``, and ``png``.
         dpi: Resolution of PNG output.
     """
 
     outdir: Path
-    theme: str | Theme = "paper"
-    style_file: Path | None = None
+    style: str | Path | Theme = "paper"
     formats: Sequence[str] = DEFAULT_FORMATS
     dpi: int = 300
     builders: dict[str, FigureBuilder] = field(default_factory=dict, init=False)
@@ -107,20 +101,15 @@ class FigureCollection:
         """Set Matplotlib to this collection's style, from a clean slate.
 
         Matplotlib's defaults first, so a run never inherits settings left by
-        an earlier import or notebook session; then the style sheet, if any;
-        then the theme's typeface and size on top, so every figure in the set
-        uses one face.  :meth:`build` restores the previous settings afterwards.
+        an earlier import or notebook session, then the settings the style
+        generates.  :meth:`build` restores the previous settings afterwards.
         """
         import matplotlib.pyplot as plt
 
-        from figworks.matplotlib import theme_rc
+        from figworks.style import load_theme
 
         plt.style.use("default")
-        if self.style_file is not None:
-            if not self.style_file.is_file():
-                raise FileNotFoundError(f"Missing style sheet: {self.style_file}")
-            plt.style.use(self.style_file)
-        plt.rcParams.update(theme_rc(self.theme))
+        plt.rcParams.update(load_theme(self.style).rc())
 
     def save_figure(self, name: str, fig: Any, outdir: Path | None = None) -> list[Path]:
         """Write one figure once per format; returns the paths written."""

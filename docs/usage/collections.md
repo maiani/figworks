@@ -13,11 +13,7 @@ from figworks import Figure, FigureCollection
 
 HERE = Path(__file__).resolve().parent
 
-THESIS = FigureCollection(
-    outdir=HERE / "figures",
-    theme="paper",  # typeface and base size
-    style_file=HERE / "thesis.mplstyle",  # optional: lines, colours
-)
+THESIS = FigureCollection(outdir=HERE / "figures", style=HERE / "style.md")
 
 
 @THESIS.figure("ldos")
@@ -64,27 +60,22 @@ format, so version control shows only the figures that really changed.
 ## Style
 
 Each build starts from Matplotlib's defaults, so a run never inherits settings
-from an earlier import or notebook session. The style sheet comes next, for plot
-cosmetics such as line widths, the colour cycle, and legend frames. The theme's
-typeface and base size go on top, through `theme_rc`, so every figure in the set
-uses one face, words and math alike. Fonts set in the style sheet are therefore
-overridden by the theme.
-
-`build` restores Matplotlib's previous settings when it finishes, so calling it
-from a notebook leaves the notebook's style alone.
+from an earlier import or notebook session, then applies the settings the
+collection's [style](styles.md) generates. Every figure in the set follows one
+document. `build` restores Matplotlib's previous settings when it finishes, so
+calling it from a notebook leaves the notebook's style alone.
 
 ## Options
 
 | Argument | Default | |
 | --- | --- | --- |
 | `outdir` | required | where files are written, one per figure and format |
-| `theme` | `"paper"` | typeface and base size, as a name or a `Theme` |
-| `style_file` | `None` | a Matplotlib style sheet for plot cosmetics |
+| `style` | `"paper"` | a built-in style, a `style.md` path, or a `Theme` |
 | `formats` | `("pdf", "svg", "png")` | any of `svg`, `pdf`, `png` |
 | `dpi` | `300` | resolution of PNG output |
 
 Each collection has its own registry, so a second one, slides with the
-`"presentation"` theme for instance, can live beside the first without mixing
+`"presentation"` style for instance, can live beside the first without mixing
 figures. Only `main` switches Matplotlib to its headless backend; importing
 FigWorks never changes the backend. The command prints the git revision it ran
 at, but does not write it into the files, which would make every file change

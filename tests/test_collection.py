@@ -63,20 +63,29 @@ def test_rebuilding_writes_identical_bytes(tmp_path: Path) -> None:
         assert a.read_bytes() == b.read_bytes(), a.name
 
 
-def test_the_theme_face_overrides_the_style_sheet(tmp_path: Path) -> None:
-    style = tmp_path / "set.mplstyle"
-    style.write_text("font.family : serif\nlines.linewidth : 3.5\n", encoding="utf-8")
-    figures = FigureCollection(outdir=tmp_path / "out", style_file=style, formats=("svg",))
+def test_figures_are_built_under_the_style(tmp_path: Path) -> None:
+    (tmp_path / "cosmetics.mplstyle").write_text(
+        "font.family : serif\nlines.dashed_pattern : 2, 1\n", encoding="utf-8"
+    )
+    (tmp_path / "style.md").write_text(
+        "---\nmatplotlib: cosmetics.mplstyle\nline:\n  data: 2pt\n---\n\nprose\n",
+        encoding="utf-8",
+    )
+    figures = FigureCollection(
+        outdir=tmp_path / "out", style=tmp_path / "style.md", formats=("svg",)
+    )
     seen: dict[str, object] = {}
 
     @figures.figure("probe")
     def probe() -> plt.Figure:
         seen["family"] = list(plt.rcParams["font.family"])
         seen["linewidth"] = plt.rcParams["lines.linewidth"]
+        seen["dashes"] = list(plt.rcParams["lines.dashed_pattern"])
         return plt.figure()
 
     figures.build(["probe"])
-    assert seen == {"family": ["TeX Gyre Heros"], "linewidth": 3.5}
+    # the token wins over the sheet's font; the sheet still supplies what tokens leave alone
+    assert seen == {"family": ["TeX Gyre Heros"], "linewidth": 2.0, "dashes": [2.0, 1.0]}
 
 
 def test_building_restores_matplotlib_settings(tmp_path: Path) -> None:

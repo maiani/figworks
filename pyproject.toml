@@ -29,6 +29,7 @@ dependencies = [
     "lxml",
     "matplotlib",
     "CairoSVG",
+    "PyYAML>=6",
     "vectex>=0.1",
 ]
 
@@ -40,6 +41,7 @@ Issues = "https://github.com/maiani/figworks/issues"
 dev = [
     "lxml-stubs>=0.5",
     "mypy>=1.10",
+    "types-PyYAML",
     "pytest>=8",
     "ruff>=0.12",
     "zensical",
@@ -49,7 +51,7 @@ dev = [
 where = ["src"]
 
 [tool.setuptools.package-data]
-figworks = ["py.typed"]
+figworks = ["py.typed", "styles/*.md"]
 
 [tool.setuptools.dynamic]
 version = { attr = "figworks.__version__" }

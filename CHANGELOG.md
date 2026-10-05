@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-10-05
+
+### Added
+
+- **`style.md`: a publication's look as one document.** Its YAML frontmatter
+  holds design tokens -- `font` (face and size scale), `line` (data, frame, and
+  hairline weights), `color` (named by meaning), `cycle`, `marker`, `page`
+  (named lengths such as column widths) -- and its Markdown body is the style
+  guide. A style names a `base` (a built-in or another `style.md`) and states
+  only its differences; `matplotlib` layers existing Matplotlib styles
+  underneath and `rcparams` overrides anything last. `load_theme(path)` loads
+  it; `Theme.rc()` generates validated Matplotlib settings, and `Theme.px()`
+  hands lengths to producers that draw in px.
+- Built-in styles following published journal figure guidelines: `nature`,
+  `aps` (Physical Review), and `ieee`, beside `paper` and `presentation`, which
+  are now `style.md` files themselves.
+- A "Styles" documentation page.
+
+### Changed
+
+- `Figure(theme=...)`, `theme_rc(...)`, and `FigureCollection(style=...)` accept
+  a built-in name, a `style.md` path, or a `Theme`. `theme_rc` now generates the
+  full settings a style implies (sizes, weights, colours), not only fonts.
+- `Theme` is the loaded form of a style; it is no longer constructed directly.
+- `FigureCollection` takes one `style` argument, replacing `theme` and
+  `style_file`; a style can layer a `.mplstyle` with its `matplotlib` key.
+- PyYAML is a runtime dependency, to read `style.md` frontmatter.
+- The thesis example's look is `examples/thesis_style.md`, built on `aps`.
+
 ## [0.6.0] - 2026-10-05
 
 ### Changed

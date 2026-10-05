@@ -14,6 +14,7 @@ nav = [
   { "Usage" = [
       { "Figure, Panel & anchors" = "usage/figure.md" },
       { "Units & sizes" = "usage/units.md" },
+      { "Styles" = "usage/styles.md" },
       { "Native SVG elements" = "usage/elements.md" },
       { "Selectors" = "usage/selectors.md" },
       { "Matplotlib integration" = "usage/matplotlib.md" },

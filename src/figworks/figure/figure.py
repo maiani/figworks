@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
@@ -16,55 +15,29 @@ from figworks.elements.text import text_element
 from figworks.figure.anchors import Anchor
 from figworks.figure.panel import Panel
 from figworks.fonts import check_fonts
+from figworks.style import Theme, load_theme
 
 if TYPE_CHECKING:
     from lxml import etree
-
-
-@dataclass(frozen=True)
-class Theme:
-    """Small built-in style preset.
-
-    ``font_family`` is the one typeface of the figure: set on the root so every
-    source that names no font inherits it, and on FigWorks' own text.  Use
-    :func:`figworks.matplotlib.theme_rc` to give Matplotlib plots the same face.
-    The default, TeX Gyre Heros, is a free Helvetica clone that ships with TeX
-    Live and as ``fonts-texgyre`` on Debian and Ubuntu.
-    """
-
-    font_family: str = "TeX Gyre Heros"
-    base_font_size: str = "8pt"
-    stroke_width: str = "1pt"
-    stroke: str = "black"
-    panel_label_font_size: str = "10pt"
-
-
-paper = Theme()
-presentation = Theme(
-    base_font_size="11pt",
-    stroke_width="1.3pt",
-    panel_label_font_size="14pt",
-)
-
-
-def get_theme(theme: str | Theme) -> Theme:
-    if isinstance(theme, Theme):
-        return theme
-    return {
-        "paper": paper,
-        "presentation": presentation,
-    }[theme]
 
 
 class Figure:
     """Top-level FigWorks SVG figure."""
 
     def __init__(
-        self, width: str | int | float, height: str | int | float, theme: str | Theme = "paper"
+        self,
+        width: str | int | float,
+        height: str | int | float,
+        theme: str | Path | Theme = "paper",
     ):
+        """A canvas of the given physical size, styled by ``theme``.
+
+        ``theme`` is a built-in style name (``"paper"``, ``"presentation"``), a
+        path to a ``style.md``, or a loaded :class:`~figworks.style.Theme`.
+        """
         self.width = width
         self.height = height
-        self.theme = get_theme(theme)
+        self.theme = load_theme(theme)
         self.document = SVGDocument(width, height)
         # Inherited by every source that names no font of its own.
         self.document.root.set("font-family", self.theme.font_family)

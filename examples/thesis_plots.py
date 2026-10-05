@@ -3,14 +3,14 @@
 Reproducible demo figures built with the FigWorks figure registry.
 
 This is a self-contained example of `figworks.FigureCollection`: register
-every figure exactly once, share one style sheet and one output directory,
+every figure exactly once, share one style document and one output directory,
 and regenerate the whole set (or a single figure) from a single command.
 
 A builder returns either a Matplotlib figure or a composed FigWorks `Figure`;
 the collection saves both to PDF (vector, for LaTeX), SVG (vector, for
 editing), and PNG (raster, for slides), byte-identically from run to run,
-without the builder knowing anything about file paths.  Every plot uses the
-theme's typeface; the style sheet adds the cosmetics.
+without the builder knowing anything about file paths.  Every plot follows
+`thesis_style.md`, which builds on the APS journal style.
 
 Running
 
@@ -37,13 +37,9 @@ from figworks import Figure, FigureCollection
 HERE = Path(__file__).resolve().parent
 
 # This example's collection: everything specific to this figure set lives here.
-# The style sheet and the output directory are the two things the collection
-# owns; the physics and the figure builders stay out of the machinery.
-DEMO = FigureCollection(
-    outdir=HERE / "out" / "thesis",
-    theme="paper",
-    style_file=HERE / "thesis_styles.mplstyle",
-)
+# The style and the output directory are the two things the collection owns;
+# the style is one document, tokens in its frontmatter and the guide in its prose.
+DEMO = FigureCollection(outdir=HERE / "out" / "thesis", style=HERE / "thesis_style.md")
 figure = DEMO.figure
 
 
@@ -91,7 +87,7 @@ def demo_two_panel_figure() -> Figure:
     its axes frame; the right panel holds native FigWorks elements (a label,
     text, and an arrow).  The builder returns the FigWorks `Figure` itself.
     """
-    canvas = Figure(width="140mm", height="70mm", theme="paper")
+    canvas = Figure(width="140mm", height="70mm", theme=HERE / "thesis_style.md")
     left = canvas.panel("left", x="14mm", y="8mm", w="50mm", h="48mm")
     right = canvas.panel("right", x="80mm", y="8mm", w="55mm", h="48mm")
 

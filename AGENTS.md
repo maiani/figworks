@@ -59,7 +59,7 @@ on FigWorks. Do not make that symmetric for tidiness.
 
 Focus on the MVP described in `PLAN.md`:
 
-- `Figure(width, height, theme="paper")`
+- `Figure(width, height, theme="paper")`, where a theme is a built-in or a `style.md`
 - `Figure.panel(id, x, y, w, h)`
 - `Panel.add(source, id=...)`
 - native text, labels, rectangles, lines, and arrows

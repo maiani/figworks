@@ -31,9 +31,9 @@ from figworks.core.element import (
 )
 
 if TYPE_CHECKING:
-    from matplotlib.typing import RcKeyType
+    from matplotlib import RcParams
 
-    from figworks.figure.figure import Theme
+    from figworks.style import Theme
 
 # Matplotlib salts clip-path and marker ids with a random value unless one is set,
 # and stamps the export date, so without these two settings no export is byte-identical.
@@ -48,36 +48,22 @@ def mpl_svg_context() -> Iterator[None]:
         yield
 
 
-def theme_rc(theme: str | Theme = "paper") -> dict[RcKeyType, Any]:
-    """Matplotlib rc settings that give a plot the figure theme's typeface.
+def theme_rc(theme: str | Path | Theme = "paper") -> RcParams:
+    """The Matplotlib settings a style generates: its typeface, sizes, weights, colours.
 
-    Matplotlib fixes a text's font when the text is created, but chooses math
-    fonts when the figure is drawn, which for FigWorks is when it is placed.
-    Apply the settings once, at the top of the script, so both see them::
+    ``theme`` is a built-in name, a path to a ``style.md``, or a loaded
+    :class:`~figworks.style.Theme`; see :meth:`Theme.rc` for the layers.
+    Matplotlib fixes a text's font when the text is created but chooses math
+    fonts when the figure is drawn, which for FigWorks is when it is placed, so
+    apply the settings once at the top of the script::
 
-        plt.rcParams.update(theme_rc())
+        plt.rcParams.update(theme_rc("style.md"))
         mpl_fig, ax = plt.subplots(figsize=(3, 2))
         ax.set_xlabel(r"$\\omega / \\omega_0$")
-
-    Math text uses the same face (``mathtext.fontset = "custom"``), upright,
-    italic, and bold, so a label's math matches its words and needs no font
-    beyond the theme's.  Tick labels and titles take the theme's base size.
     """
-    from figworks.core.units import to_px
-    from figworks.figure.figure import get_theme
+    from figworks.style import load_theme
 
-    chosen = get_theme(theme)
-    family = chosen.font_family
-    size_pt = to_px(chosen.base_font_size) * 72 / 96
-    return {
-        "font.family": [family],
-        "font.size": size_pt,
-        "mathtext.fontset": "custom",
-        "mathtext.rm": family,
-        "mathtext.it": f"{family}:italic",
-        "mathtext.bf": f"{family}:bold",
-        "mathtext.sf": family,
-    }
+    return load_theme(theme).rc()
 
 
 def mpl_to_svg(

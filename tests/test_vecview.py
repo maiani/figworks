@@ -209,7 +209,7 @@ class TestFillPlane:
 
     def test_corners_of_the_content_land_on_the_world_rectangle(self, plane_scene) -> None:
         """End to end: unit square -> plane matrix must equal projecting the corners."""
-        cam = plane_scene.cam
+        cam = plane_scene.camera
         origin = np.array([-4.0, -3.0, 0.01])
         u_edge, v_edge = np.array([0.0, 8.0, 0.0]), np.array([6.0, 0.0, 0.0])
         a, b, c, d, e, f = cam.plane_matrix(origin, u_edge, v_edge)
@@ -223,7 +223,7 @@ class TestFillPlane:
 
     def test_content_is_upright_for_this_plane(self, plane_scene) -> None:
         """a > 0 and d > 0, the rule that keeps labels from coming out mirrored."""
-        a, b, c, d, _, _ = plane_scene.cam.plane_matrix(
+        a, b, c, d, _, _ = plane_scene.camera.plane_matrix(
             (-4.0, -3.0, 0.01), (0.0, 8.0, 0.0), (6.0, 0.0, 0.0)
         )
         assert a > 0 and d > 0

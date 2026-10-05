@@ -17,7 +17,7 @@ FigWorks is the composition layer of four projects developed together:
 | **FigWorks** | composed, exported multi-panel figures |
 | [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
 | [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
-| VecWire | editable circuit schematics as SVG documents |
+| [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents |
 
 **Naming.** In prose the projects are FigWorks, VecTeX, VecView, and VecWire.
 Distribution names, import names, commands, and file paths are lowercase
@@ -52,7 +52,7 @@ is a real finding and a design conversation, not a licence to add an adapter
 quietly.
 
 The dependency edges are deliberately uneven: VecTeX is a runtime requirement,
-VecView and VecWire are optional and installed from a checkout, and none depends
+VecView and VecWire are optional and installed from GitHub, and none depends
 on FigWorks. Do not make that symmetric for tidiness.
 
 ## Current Scope
@@ -80,7 +80,7 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
   set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
   they must not appear in `dependencies`. VecView and VecWire in particular are
-  unpublished, so a dependency entry would not resolve.
+  not on PyPI, so a dependency entry would not resolve there.
 - Keep `lxml` focused on mutable DOM operations: parsing imported SVG, selection, deletion, style edits, and final serialization.
 - Use Matplotlib for plot generation and SVG export.
 - Use CairoSVG for PDF and PNG export.

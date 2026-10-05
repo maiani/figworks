@@ -11,3 +11,4 @@ site/
 *.pdf
 *.png
 !examples/*.py
+!docs/images/*.svg

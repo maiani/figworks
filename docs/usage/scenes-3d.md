@@ -32,10 +32,10 @@ uniformly, and centres it in the panel.
 
 ## Install
 
-`vecview` is **not on PyPI** yet, so install it from a checkout:
+`vecview` is **not on PyPI** yet, so install it from GitHub:
 
 ```bash
-python -m pip install -e /path/to/vecview
+python -m pip install "vecview @ git+https://github.com/maiani/vecview"
 ```
 
 It is deliberately not a FigWorks dependency. FigWorks places any object exposing
@@ -188,5 +188,5 @@ masked shape, use a gradient *fill* on a plain rectangle instead.
 | Matplotlib | scientific plots as vector SVG |
 | [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
 | [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
-| VecWire | editable circuit schematics as SVG documents |
+| [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents |
 | FigWorks | the composed, exported figure |

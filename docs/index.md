@@ -17,7 +17,7 @@ final graphic stays editable programmatically.
 FigWorks is the composition layer of a four-project suite:
 [VecTeX](https://github.com/maiani/vectex) renders TeX equations to SVG
 fragments, [VecView](https://github.com/maiani/vecview) draws layered 3D
-schematics as SVG documents, and VecWire draws editable circuit schematics as
+schematics as SVG documents, and [VecWire](https://github.com/maiani/vecwire) draws editable circuit schematics as
 SVG documents. Each is developed independently and usable alone.
 
 All three producers integrate through one method, `to_svg_document()`, so

@@ -6,6 +6,12 @@ elements. The figure is generated from code and stays editable afterwards:
 panels and elements keep stable ids, the same script writes byte-identical SVG,
 and the result opens in Inkscape for final adjustments.
 
+<p align="center">
+  <img src="docs/images/readme.svg" alt="A two-panel figure: a VecView slab with an in-plane spin texture, and a Matplotlib plot" width="720">
+</p>
+
+<p align="center"><sub>A VecView 3D scene and a Matplotlib plot composed into one labelled figure, from <code>examples/vecview_panel.py</code>.</sub></p>
+
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
 FigWorks is an assembly layer between plotting code and the final graphic. It
 does not replace Matplotlib, TeX, Inkscape, or Illustrator.
@@ -23,12 +29,13 @@ python -m pip install -e /path/to/figworks
 
 This pulls in Matplotlib, lxml, svg.py, CairoSVG, and VecTeX. Rendering
 equations with VecTeX also needs a TeX installation with `pdflatex` and
-`dvisvgm` on `PATH`. VecView and VecWire are optional and unpublished; install
-them from their own checkouts when you need them:
+`dvisvgm` on `PATH`. [VecView](https://github.com/maiani/vecview) and
+[VecWire](https://github.com/maiani/vecwire) are optional and not on PyPI; install them from
+GitHub when you need them:
 
 ```bash
-python -m pip install -e /path/to/vecview
-python -m pip install -e /path/to/vecwire
+python -m pip install "vecview @ git+https://github.com/maiani/vecview"
+python -m pip install "vecwire @ git+https://github.com/maiani/vecwire"
 ```
 
 Figures are set in TeX Gyre Heros by default, a free Helvetica clone that comes
@@ -269,8 +276,8 @@ independently useful:
 | --- | --- | --- |
 | **FigWorks** | composed, exported multi-panel figures | alpha: core API still settling |
 | [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
-| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: unpublished, install from a checkout |
-| VecWire | editable circuit schematics as SVG documents | pre-alpha: unpublished, first version |
+| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: on GitHub, not yet on PyPI |
+| [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents | pre-alpha: first version, on GitHub, not yet on PyPI |
 
 All four emit vector SVG with stable ids and byte-identical output for
 identical input, so a figure can be regenerated from code, diffed in version

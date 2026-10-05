@@ -116,10 +116,16 @@ def build_plot() -> plt.Figure:
     return mpl_fig
 
 
-def main() -> None:
-    OUT.mkdir(exist_ok=True)
+def build_figure(background: str | None = None) -> Figure:
+    """The composed figure: the scene in panel a, the plot in panel b.
 
-    fig = Figure(width="170mm", height="76mm")
+    ``background`` fills the whole canvas first, under everything else; the
+    default leaves it transparent, for placing on a page.
+    """
+    width, height = "170mm", "76mm"
+    fig = Figure(width=width, height=height)
+    if background is not None:
+        fig.rect(x=0, y=0, width=width, height=height, fill=background, id="background")
     # Panels start below and right of the margin so `label`'s default -3mm/-2mm
     # offset leaves the panel letters on the canvas.
     geometry = fig.panel("geometry", x="12mm", y="12mm", w="72mm", h="56mm")
@@ -133,7 +139,12 @@ def main() -> None:
 
     # Ids given inside the scene survive placement, so restyling reaches through.
     fig.select("#twist-arrow").set_style(fill="#c2185b")
+    return fig
 
+
+def main() -> None:
+    OUT.mkdir(exist_ok=True)
+    fig = build_figure()
     for suffix in (".svg", ".png"):
         fig.save(OUT / f"vecview_panel{suffix}")
     print(f"wrote {OUT / 'vecview_panel.svg'} and PNG")

@@ -74,7 +74,8 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
   set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
   they must not appear in `dependencies`. vecview and cirquit in particular are
-  unpublished; a vecview dependency entry would resolve to an unrelated PyPI package.
+  unpublished, and the name `cirquit` on PyPI belongs to an unrelated package, so a
+  dependency entry would install the wrong thing.
 - Keep `lxml` focused on mutable DOM operations: parsing imported SVG, selection, deletion, style edits, and final serialization.
 - Use Matplotlib for plot generation and SVG export.
 - Use CairoSVG for PDF and PNG export.
@@ -97,12 +98,19 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
 
-Validation:
+Validation (all must pass before reporting a change complete):
 
 ```bash
-pytest
+ruff format --check .
 ruff check .
+mypy
+pytest
 ```
+
+The package is typed (`py.typed`, `mypy --strict` over `src`). svg.py writes
+floats with `repr`, so numeric attributes go through `px_decimal` to keep the
+`%g` formatting; attributes FigForge builds as strings (`transform`, `d`,
+`points`) are passed to `svg_to_lxml(..., raw=...)` rather than cast.
 
 Examples:
 

@@ -6,8 +6,9 @@ from typing import TYPE_CHECKING, Any
 
 import svg
 
-from figforge.core.document import SVGDocument, svg_kwargs, svg_to_lxml
-from figforge.core.units import to_px
+from figforge.core.document import SVGDocument
+from figforge.core.element import svg_kwargs, svg_to_lxml
+from figforge.core.units import px_decimal
 
 if TYPE_CHECKING:
     from lxml import etree
@@ -15,9 +16,9 @@ if TYPE_CHECKING:
 
 def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._Element:
     marker_id = "figforge-arrowhead"
-    existing = document.root.xpath(f".//*[@id='{marker_id}']")
-    if existing:
-        return existing[0]
+    existing = document.root.find(f".//*[@id='{marker_id}']")
+    if existing is not None:
+        return existing
     marker = svg_to_lxml(
         svg.Marker(
             id=marker_id,
@@ -27,13 +28,12 @@ def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._
             refY=4,
             orient="auto",
             markerUnits="strokeWidth",
-            elements=[
-                svg.Path(
-                    d="M 0 0 L 8 4 L 0 8 z",
-                    fill=stroke,
-                    class_="figforge-arrowhead-path",
-                )
-            ],
+        )
+    )
+    marker.append(
+        svg_to_lxml(
+            svg.Path(fill=stroke, class_=["figforge-arrowhead-path"]),
+            raw={"d": "M 0 0 L 8 4 L 0 8 z"},
         )
     )
     document.defs().append(marker)
@@ -50,10 +50,10 @@ def line_arrow(
     attrs.setdefault("marker_end", "url(#figforge-arrowhead)")
     return svg_to_lxml(
         svg.Line(
-            x1=f"{to_px(x1):g}",
-            y1=f"{to_px(y1):g}",
-            x2=f"{to_px(x2):g}",
-            y2=f"{to_px(y2):g}",
+            x1=px_decimal(x1),
+            y1=px_decimal(y1),
+            x2=px_decimal(x2),
+            y2=px_decimal(y2),
             **svg_kwargs(attrs),
         )
     )

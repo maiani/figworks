@@ -116,9 +116,7 @@ def build_scene() -> vecview.Scene:
     )
     scene.plane(
         9,
-        origin=wall_centre
-        - (wu * wall_w + wv * wall_h) / 2
-        - np.array([0.0, 0.01, 0.0]),
+        origin=wall_centre - (wu * wall_w + wv * wall_h) / 2 - np.array([0.0, 0.01, 0.0]),
         u_edge=wu * wall_w,
         v_edge=wv * wall_h,
         id="plot-upright",

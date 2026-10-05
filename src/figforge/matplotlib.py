@@ -2,15 +2,20 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
 from io import BytesIO
-from typing import Any
+from typing import Any, Literal
 
 import matplotlib.pyplot as plt
 from lxml import etree
 from matplotlib import rc_context
+from matplotlib.artist import Artist
+from matplotlib.axes import Axes
+from matplotlib.figure import Figure
 from matplotlib.offsetbox import DrawingArea, OffsetImage
+from matplotlib.patches import Rectangle
+from matplotlib.transforms import Bbox
 
 from figforge.core.document import element_box
 from figforge.core.element import (
@@ -30,14 +35,20 @@ SVG_METADATA = {"Date": None}
 
 
 @contextmanager
-def mpl_svg_context():
+def mpl_svg_context() -> Iterator[None]:
     """Keep text as SVG text and ids deterministic while exporting Matplotlib figures."""
 
     with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figforge"}):
         yield
 
 
-def mpl_to_svg(fig, *, id: str | None = None, transparent: bool = True, bbox_inches="tight") -> str:
+def mpl_to_svg(
+    fig: Figure,
+    *,
+    id: str | None = None,
+    transparent: bool = True,
+    bbox_inches: Literal["tight"] | Bbox | None = "tight",
+) -> str:
     """Export a Matplotlib figure to an SVG string."""
 
     import io
@@ -59,7 +70,7 @@ def mpl_to_svg(fig, *, id: str | None = None, transparent: bool = True, bbox_inc
     return svg
 
 
-def set_gid(artist, gid: str):
+def set_gid[ArtistT: Artist](artist: ArtistT, gid: str) -> ArtistT:
     """Assign a semantic SVG ID to a Matplotlib artist."""
 
     artist.set_gid(gid)
@@ -67,19 +78,18 @@ def set_gid(artist, gid: str):
 
 
 def connect(
-    ax,
+    ax: Axes,
     gid: str,
     x: float = 0,
     y: float = 0,
     width: float = 1,
     height: float = 1,
-):
+) -> Rectangle:
     """Add a placeholder rectangle to a Matplotlib axes.
 
     The rectangle is exported with the given ``gid`` and can be replaced later
     with vector SVG content via :func:`insert`.
     """
-    from matplotlib.patches import Rectangle
 
     patch = Rectangle((x, y), width, height)
     ax.add_artist(patch)
@@ -89,7 +99,7 @@ def connect(
 
 def compose(
     replacements: Mapping[Any, Any],
-    fig=None,
+    fig: Figure | None = None,
     *,
     preserve_aspect_ratio: bool = True,
 ) -> str:
@@ -99,7 +109,6 @@ def compose(
     figure, Vectex fragment, or another SVG document provider.  This is the
     lightweight entry point for callers that do not need :class:`Figure`.
     """
-    from matplotlib.patches import Rectangle
 
     target_figure = fig if fig is not None else plt.gcf()
     by_id: dict[str, Any] = {}
@@ -153,7 +162,6 @@ def svg_to_image_artist(
 
 def box_artist(width: float, height: float, gid: str) -> DrawingArea:
     """Return a replaceable Matplotlib drawing area."""
-    from matplotlib.patches import Rectangle
 
     area = DrawingArea(width, height)
     patch = Rectangle((0, 0), width, height)
@@ -164,7 +172,7 @@ def box_artist(width: float, height: float, gid: str) -> DrawingArea:
 
 def insert(
     replacements: Mapping[str, Any],
-    fig=None,
+    fig: Figure | None = None,
     svg: str | None = None,
     *,
     preserve_aspect_ratio: bool = True,
@@ -185,7 +193,7 @@ def insert(
     resolved = {key: resolve_svg_source(value) for key, value in replacements.items()}
 
     root = parse_svg(svg)
-    idmap = {node.get("id"): node for node in root.iter() if node.get("id")}
+    idmap = {node_id: node for node in root.iter() if (node_id := node.get("id"))}
     parent_map = {child: parent for parent in root.iter() for child in parent}
 
     for key, replacement in resolved.items():

@@ -12,6 +12,18 @@ license = "MIT"
 authors = [
     { name = "Andrea Maiani" },
 ]
+keywords = ["svg", "figures", "matplotlib", "scientific-visualization", "publication"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
 dependencies = [
     "svg.py",
     "lxml",
@@ -26,13 +38,18 @@ Issues = "https://github.com/maiani/figforge/issues"
 
 [project.optional-dependencies]
 dev = [
-    "pytest",
+    "lxml-stubs>=0.5",
+    "mypy>=1.10",
+    "pytest>=8",
     "ruff>=0.12",
     "zensical",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+figforge = ["py.typed"]
 
 [tool.setuptools.dynamic]
 version = { attr = "figforge.__version__" }
@@ -49,6 +66,16 @@ ignore = ["S603"]
 # S314/S320: tests parse SVG this package just generated, not untrusted input.
 "tests/**" = ["S101", "S314", "S320"]
 "examples/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["figforge"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["svg.*", "cairosvg.*", "vectex.*", "IPython.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

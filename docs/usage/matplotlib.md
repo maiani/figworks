@@ -30,7 +30,7 @@ FigForge figure as an editable panel.
 from figforge.matplotlib import mpl_to_svg
 from figforge import Figure
 
-svg = mpl_to_svg(mpl_fig)                # figure -> SVG string
+svg = mpl_to_svg(mpl_fig)  # figure -> SVG string
 
 fig = Figure(width="120mm", height="70mm")
 panel = fig.panel("main", x="10mm", y="10mm", w="90mm", h="45mm")
@@ -86,11 +86,11 @@ connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)
 
 result = insert(
     {
-        "slot": mpl_fig,      # figure
+        "slot": mpl_fig,  # figure
         # "slot": "panel.svg",  # or a file path
         # "slot": svg_string,   # or an SVG string
     },
-    fig=mpl_fig,             # the base figure (or pass svg=...)
+    fig=mpl_fig,  # the base figure (or pass svg=...)
     preserve_aspect_ratio=True,
 )
 ```

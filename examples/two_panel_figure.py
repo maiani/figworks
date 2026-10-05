@@ -1,7 +1,12 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
 from figforge import Figure
+
+OUT = Path(__file__).resolve().parent / "out"
+OUT.mkdir(exist_ok=True)
 
 
 def make_plot(yfunc, gid):
@@ -24,6 +29,6 @@ fig.label("a", anchor=panel_a.nw)
 fig.label("b", anchor=panel_b.nw)
 fig.arrow(id="connector", start=panel_a.east, end=panel_b.west)
 
-fig.save("two_panel_figure.svg")
-fig.save("two_panel_figure.pdf")
-fig.save("two_panel_figure.png")
+fig.save(OUT / "two_panel_figure.svg")
+fig.save(OUT / "two_panel_figure.pdf")
+fig.save(OUT / "two_panel_figure.png")

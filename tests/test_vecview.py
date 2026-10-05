@@ -177,9 +177,7 @@ class TestFillPlane:
         """fill_plane only normalizes; the plane's own matrix carries the geometry."""
         figure = Figure(width="120mm", height="90mm")
         figure.panel("a", x="6mm", y="6mm", w="108mm", h="78mm").add(plane_scene, id="s")
-        before = figure.document.root.find(
-            f".//{{{SVG_NS}}}g[@id='plot-plane']"
-        ).get("transform")
+        before = figure.document.root.find(f".//{{{SVG_NS}}}g[@id='plot-plane']").get("transform")
         figure.fill_plane("plot-plane", self.content())
         after = figure.document.root.find(f".//{{{SVG_NS}}}g[@id='plot-plane']").get("transform")
         assert before == after
@@ -260,6 +258,53 @@ class TestFillPlane:
         figure = Figure(width="120mm", height="90mm")
         figure.panel("a", x="6mm", y="6mm", w="108mm", h="78mm").add(plane_scene, id="s")
         figure.fill_plane("plot-plane", self.content())
+        for suffix in (".svg", ".pdf", ".png"):
+            out = tmp_path / f"figure{suffix}"
+            figure.save(out)
+            assert out.stat().st_size > 0
+
+
+class TestFillSlot:
+    """Upright content pinned to a world point, kept at its own size."""
+
+    LABEL = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="12pt" height="6pt" viewBox="0 0 12 6">'
+        '<rect id="mark" x="0" y="0" width="12" height="6"/></svg>'
+    )
+
+    @pytest.fixture
+    def slotted(self, scene):
+        scene.slot(45, (5.5, 0, 0), 16.0, 8.0, id="label", align="west", dx=2.0)
+        return scene
+
+    def place(self, scene, w="84mm"):
+        figure = Figure(width="100mm", height="60mm")
+        figure.panel("a", x="8mm", y="8mm", w=w, h="44mm").add(scene, id="s")
+        figure.fill_slot("label", self.LABEL)
+        return figure
+
+    def test_label_sits_west_aligned_on_the_projected_anchor(self, slotted, ctm) -> None:
+        figure = self.place(slotted)
+        slot = figure.document.root.find(f".//{{{SVG_NS}}}g[@id='label']")
+        rect = figure.document.root.find(f".//{{{SVG_NS}}}rect[@id='mark']")
+        anchor = ctm(slot) @ [0, 0, 1]
+        corner = ctm(rect) @ [0, 0, 1]
+        far = ctm(rect) @ [12, 6, 1]
+        assert corner[0] == pytest.approx(anchor[0])
+        assert (corner[1] + far[1]) / 2 == pytest.approx(anchor[1])
+        # transforms are written to six significant figures
+        assert far[:2] - corner[:2] == pytest.approx([16.0, 8.0], rel=1e-5)
+
+    def test_label_size_does_not_follow_the_panel(self, slotted, ctm) -> None:
+        sizes = []
+        for w in ("84mm", "30mm"):
+            figure = self.place(slotted, w=w)
+            rect = figure.document.root.find(f".//{{{SVG_NS}}}rect[@id='mark']")
+            sizes.append((ctm(rect) @ [12, 6, 1] - ctm(rect) @ [0, 0, 1])[:2])
+        assert sizes[0] == pytest.approx(sizes[1])
+
+    def test_filled_slot_survives_export(self, slotted, tmp_path) -> None:
+        figure = self.place(slotted)
         for suffix in (".svg", ".pdf", ".png"):
             out = tmp_path / f"figure{suffix}"
             figure.save(out)

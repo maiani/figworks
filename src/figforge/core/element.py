@@ -7,7 +7,11 @@ place SVG content. Higher-level modules (:mod:`figforge.core.document`,
 
 from __future__ import annotations
 
+import math
+import re
+from collections.abc import Mapping
 from copy import deepcopy
+from dataclasses import fields
 from pathlib import Path
 from typing import Any
 
@@ -33,8 +37,22 @@ def parse_svg(svg_string: str, *, recover: bool = True) -> etree._Element:
     return etree.fromstring(svg_string.encode("utf-8"), parser=parser)
 
 
-def svg_to_lxml(element: svg.Element) -> etree._Element:
-    """Render an svg.py element and parse it into an lxml node."""
+def _attr_name(field: str) -> str:
+    """Map an svg.py field name to its attribute name, as svg.py does."""
+    return field.rstrip("_").replace("__", ":").replace("_", "-")
+
+
+def svg_to_lxml(
+    element: svg.Element,
+    *,
+    raw: Mapping[str, str | None] | None = None,
+) -> etree._Element:
+    """Render an svg.py element and parse it into an lxml node.
+
+    ``raw`` sets pre-formatted strings for fields svg.py types structurally
+    (``transform``, path ``d``, polyline ``points``), keyed by svg.py field name.
+    They land where svg.py would have written them, so attribute order matches.
+    """
     node = parse_svg(str(element), recover=False)
     for descendant in node.iter():
         if not isinstance(descendant.tag, str):
@@ -42,6 +60,19 @@ def svg_to_lxml(element: svg.Element) -> etree._Element:
         name = etree.QName(descendant)
         if name.namespace is None:
             descendant.tag = svg_tag(name.localname)
+
+    values = {_attr_name(key): value for key, value in (raw or {}).items() if value is not None}
+    if values:
+        rank = {_attr_name(field.name): index for index, field in enumerate(fields(element))}
+        existing = list(node.attrib.items())
+        # svg.py writes typed fields first, in field order, then data/extra attributes.
+        field_count = len(element.as_dict())
+        head = [(str(key), str(value)) for key, value in existing[:field_count]]
+        head = sorted([*head, *values.items()], key=lambda item: rank.get(item[0], len(rank)))
+        tail = [(str(key), str(value)) for key, value in existing[field_count:]]
+        node.attrib.clear()
+        for key, value in [*head, *tail]:
+            node.set(key, value)
     return node
 
 
@@ -87,6 +118,47 @@ def svg_intrinsic_size(svg_string: str) -> tuple[float, float, float, float]:
     width = to_px(root.get("width", "1px"))
     height = to_px(root.get("height", "1px"))
     return width, height, 0.0, 0.0
+
+
+def svg_physical_size(svg_string: str) -> tuple[float, float]:
+    """Return the (width, height) an SVG document asks to be drawn at, in px.
+
+    Taken from the root's ``width``/``height`` with their units, falling back to
+    the viewBox extents when either is missing.
+    """
+    from figforge.core.units import to_px
+
+    root = parse_svg(svg_string)
+    view_w, view_h, _, _ = svg_intrinsic_size(svg_string)
+    width, height = root.get("width"), root.get("height")
+    return (
+        to_px(width) if width is not None else view_w,
+        to_px(height) if height is not None else view_h,
+    )
+
+
+_TRANSFORM_RE = re.compile(r"([a-zA-Z]+)\s*\(([^)]*)\)")
+
+
+def accumulated_scale(node: etree._Element) -> float:
+    """Document px per user unit inside ``node``, from every ancestor transform.
+
+    The linear part of a transform chain scales area by the product of each
+    function's determinant, so the uniform scale is its square root. That is
+    exact for the translate/uniform-scale chains FigForge writes, and the mean
+    scale for anything else. The document root's viewBox is 1:1 by construction.
+    """
+    det = 1.0
+    current: etree._Element | None = node
+    while current is not None:
+        for name, args in _TRANSFORM_RE.findall(current.get("transform", "")):
+            values = [float(value) for value in args.replace(",", " ").split()]
+            if name == "scale":
+                det *= values[0] * (values[1] if len(values) > 1 else values[0])
+            elif name == "matrix":
+                det *= values[0] * values[3] - values[1] * values[2]
+        current = current.getparent()
+    return math.sqrt(abs(det))
 
 
 def fit_transform(

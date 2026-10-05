@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, Any
 
 import svg
 
-from figforge.core.document import svg_kwargs, svg_to_lxml
-from figforge.core.units import to_px
+from figforge.core.element import svg_kwargs, svg_to_lxml
+from figforge.core.units import px_decimal
 
 if TYPE_CHECKING:
     from lxml import etree
@@ -24,25 +24,25 @@ def text_element(
         return svg_to_lxml(
             svg.Text(
                 text=lines[0],
-                x=f"{to_px(x):g}",
-                y=f"{to_px(y):g}",
+                x=px_decimal(x),
+                y=px_decimal(y),
                 **svg_kwargs(attrs),
             )
         )
 
-    tspans = [
+    tspans: list[svg.Element] = [
         svg.TSpan(
             text=line,
-            x=f"{to_px(x):g}",
-            dy="0" if index == 0 else "1.2em",
+            x=px_decimal(x),
+            dy=0 if index == 0 else svg.Length(1.2, "em"),
         )
         for index, line in enumerate(lines)
     ]
     return svg_to_lxml(
         svg.Text(
             elements=tspans,
-            x=f"{to_px(x):g}",
-            y=f"{to_px(y):g}",
+            x=px_decimal(x),
+            y=px_decimal(y),
             **svg_kwargs(attrs),
         )
     )

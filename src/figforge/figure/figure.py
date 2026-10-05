@@ -197,6 +197,28 @@ class Figure:
 
         return self.document.fill_plane(id, resolve_svg_source(source))
 
+    def fill_slot(self, id: str, source: Any) -> etree._Element:
+        """Fill an anchor group by id with content kept at its own size.
+
+        Use this to pin an upright label or inset to a point of a vecview
+        scene.  The scene reserves the slot; the label keeps its declared
+        physical size however the scene is scaled to fit its panel::
+
+            scene.slot(45, tip, w, h, align="west", dx=1.6, id="label-x")
+            panel.add(scene, id="geometry")
+            fig.fill_slot("label-x", vectex.render("$x$", size_pt=8))
+
+        Accepts a Matplotlib figure, an SVG file path, an SVG string, or any
+        object exposing ``to_svg_document()``.
+
+        The room the scene reserved for the slot matches the content exactly
+        only when the scene is placed at 1:1; scaled down, the content
+        overhangs its reservation by the same factor.
+        """
+        from figforge.core.element import resolve_svg_source
+
+        return self.document.fill_slot(id, resolve_svg_source(source))
+
     def add(
         self,
         source: Any,

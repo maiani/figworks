@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, Any
 
 import svg
 
-from figforge.core.document import svg_kwargs, svg_to_lxml
-from figforge.core.units import to_px
+from figforge.core.element import svg_kwargs, svg_to_lxml
+from figforge.core.units import fmt_px, px_decimal
 
 if TYPE_CHECKING:
     from lxml import etree
@@ -22,10 +22,10 @@ def line(
 ) -> etree._Element:
     return svg_to_lxml(
         svg.Line(
-            x1=f"{to_px(x1):g}",
-            y1=f"{to_px(y1):g}",
-            x2=f"{to_px(x2):g}",
-            y2=f"{to_px(y2):g}",
+            x1=px_decimal(x1),
+            y1=px_decimal(y1),
+            x2=px_decimal(x2),
+            y2=px_decimal(y2),
             **svg_kwargs(attrs),
         )
     )
@@ -40,10 +40,10 @@ def rect(
 ) -> etree._Element:
     return svg_to_lxml(
         svg.Rect(
-            x=f"{to_px(x):g}",
-            y=f"{to_px(y):g}",
-            width=f"{to_px(width):g}",
-            height=f"{to_px(height):g}",
+            x=px_decimal(x),
+            y=px_decimal(y),
+            width=px_decimal(width),
+            height=px_decimal(height),
             **svg_kwargs(attrs),
         )
     )
@@ -56,7 +56,7 @@ def circle(
     **attrs: Any,
 ) -> etree._Element:
     return svg_to_lxml(
-        svg.Circle(cx=f"{to_px(cx):g}", cy=f"{to_px(cy):g}", r=f"{to_px(r):g}", **svg_kwargs(attrs))
+        svg.Circle(cx=px_decimal(cx), cy=px_decimal(cy), r=px_decimal(r), **svg_kwargs(attrs))
     )
 
 
@@ -69,10 +69,10 @@ def ellipse(
 ) -> etree._Element:
     return svg_to_lxml(
         svg.Ellipse(
-            cx=f"{to_px(cx):g}",
-            cy=f"{to_px(cy):g}",
-            rx=f"{to_px(rx):g}",
-            ry=f"{to_px(ry):g}",
+            cx=px_decimal(cx),
+            cy=px_decimal(cy),
+            rx=px_decimal(rx),
+            ry=px_decimal(ry),
             **svg_kwargs(attrs),
         )
     )
@@ -83,9 +83,9 @@ def polyline(
     **attrs: Any,
 ) -> etree._Element:
     if not isinstance(points, str):
-        points = " ".join(f"{to_px(x):g},{to_px(y):g}" for x, y in points)
-    return svg_to_lxml(svg.Polyline(points=points, **svg_kwargs(attrs)))
+        points = " ".join(f"{fmt_px(x)},{fmt_px(y)}" for x, y in points)
+    return svg_to_lxml(svg.Polyline(**svg_kwargs(attrs)), raw={"points": points})
 
 
 def path(d: str, **attrs: Any) -> etree._Element:
-    return svg_to_lxml(svg.Path(d=d, **svg_kwargs(attrs)))
+    return svg_to_lxml(svg.Path(**svg_kwargs(attrs)), raw={"d": d})

@@ -7,8 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-05
+
 ### Added
 
+- Type information: the package ships `py.typed` and passes `mypy --strict`.
+  Numeric attributes reach svg.py as `Decimal`s formatted like before, and
+  string-built attributes (`transform`, `d`, `points`) are set on the element
+  directly, so typing changed no output byte.
+- `Figure.fill_slot(id, source)` fills an anchor group, such as a vecview
+  `Scene.slot`, with content kept at its own physical size however the scene
+  was scaled to fit its panel, aligned on the anchor by the group's
+  `data-align`. Pinning a TeX label to a world point no longer needs an
+  invisible reservation rectangle, a hand-computed scene-to-figure offset, or a
+  panel sized to the scene at 1:1.
+  Fragments from Vectex before 0.2 declare their size without a unit and come
+  out at 3/4 size; use Vectex 0.2 or later.
 - cirquit circuit schematics place through `to_svg_document()` with no adapter,
   the third producer to do so. `tests/test_cirquit.py` covers placement, id and
   `data-component` survival, uniform scaling, export, and determinism, and
@@ -26,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Every example writes into `examples/out/` rather than the working directory.
 - **Python 3.12 is now the floor**, raised from 3.10, matching the sibling
   projects. Vectex already required 3.11, so the old floor could not resolve.
 - Ruff checks an explicit rule set (`B, E, F, I, N, RUF, S, UP`), matching
@@ -36,6 +51,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `Figure.save(path, dpi=...)` rasterizes PNG at `dpi` whatever unit the figure
+  size was given in. cairosvg applies `dpi` only to physical units, so a figure
+  sized in px came out at one pixel per px regardless of the requested
+  resolution.
 - Matplotlib panels are byte-identical from run to run. Matplotlib salts its
   clip-path and marker ids with a fresh random value per export and stamps the
   export date, so every figure containing a plot changed on each regeneration.

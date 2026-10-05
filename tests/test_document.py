@@ -50,9 +50,7 @@ def test_root_viewbox_binds_user_units_to_the_physical_canvas():
     document = SVGDocument("120mm", "70mm")
 
     assert document.root.get("viewBox") is not None
-    min_x, min_y, width, height = (
-        float(value) for value in document.root.get("viewBox").split()
-    )
+    min_x, min_y, width, height = (float(value) for value in document.root.get("viewBox").split())
     assert (min_x, min_y) == (0.0, 0.0)
     assert width == pytest.approx(to_px("120mm"))
     assert height == pytest.approx(to_px("70mm"))
@@ -77,9 +75,7 @@ def test_panel_geometry_stays_inside_the_viewbox():
     """A panel specified in mm must land within the px user-unit space."""
     figure = Figure(width="170mm", height="76mm")
     panel = figure.panel("main", x="12mm", y="12mm", w="72mm", h="56mm")
-    _, _, width, height = (
-        float(value) for value in figure.document.root.get("viewBox").split()
-    )
+    _, _, width, height = (float(value) for value in figure.document.root.get("viewBox").split())
 
     assert 0 <= panel.x < panel.x + panel.w <= width
     assert 0 <= panel.y < panel.y + panel.h <= height

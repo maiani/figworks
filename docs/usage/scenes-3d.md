@@ -32,8 +32,7 @@ uniformly, and centres it in the panel.
 
 ## Install
 
-`vecview` is **not on PyPI** — that name belongs to an unrelated wireframe library —
-so install it from a checkout:
+`vecview` is **not on PyPI** yet, so install it from a checkout:
 
 ```bash
 python -m pip install -e /path/to/vecview
@@ -103,11 +102,11 @@ selectors reach through.
 vecview ships five, all parallel projections:
 
 ```python
-vecview.OrthographicCamera(35, 24, 62)          # trimetric, the general case
-vecview.OrthographicCamera.isometric(62)        # all axes equal
-vecview.OrthographicCamera.dimetric(62)         # 1:1:0.5, the drafting standard
-vecview.ObliqueCamera.cavalier(62)              # front face true, full depth
-vecview.ObliqueCamera.cabinet(62)               # front face true, half depth
+vecview.OrthographicCamera(35, 24, 62)  # trimetric, the general case
+vecview.OrthographicCamera.isometric(62)  # all axes equal
+vecview.OrthographicCamera.dimetric(62)  # 1:1:0.5, the drafting standard
+vecview.ObliqueCamera.cavalier(62)  # front face true, full depth
+vecview.ObliqueCamera.cabinet(62)  # front face true, half depth
 ```
 
 A finished scene re-renders under any of them with `Scene.with_camera`, so a
@@ -161,6 +160,35 @@ drawn at a higher layer crosses over it.
 
 `examples/vecview_plane_plot.py` renders this, flat on a slab and upright on a
 back wall.
+
+## Pinning a label to the scene
+
+Labels usually should *not* lie in a plane: they read best upright, at the
+document's font size. A slot pins upright content to a world point instead:
+
+```python
+label = vectex.render(r"$x$", size_pt=8)
+pt = 96 / 72  # px per pt; the label's room is reserved in scene units
+scene.slot(45, axis_tip, label.width * pt, label.height * pt, align="west", dx=1.6, id="label-x")
+
+panel.add(scene, id="device")
+fig.fill_slot("label-x", label)
+```
+
+The scene reserves an empty group at the projected point, offset by `dx`/`dy` in
+screen units, and records which point of the label's box sits there
+(`align="west"` puts the anchor at the middle of its left edge). `fill_slot`
+places the content at the size its own document declares, so an 8 pt label stays
+8 pt however the scene is scaled to fit the panel. The anchor moves with the
+scene, and with the camera under `Scene.with_camera`.
+
+Only the label's *room* is in scene units: the `w` by `h` box the scene reserves
+grows the fitted viewBox so the label is not clipped. It matches the label
+exactly when the scene is placed at 1:1 — one scene unit per px — and leaves a
+proportionally different margin otherwise.
+
+Because the slot sits in the layer stack, a lead drawn on a higher layer can
+still cross in front of its label.
 
 ## Rasterization caveat
 

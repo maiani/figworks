@@ -5,7 +5,7 @@ from __future__ import annotations
 import base64
 
 
-def display_svg(source) -> None:
+def display_svg(source: object) -> None:
     """Render an SVG as an inline image in a Jupyter notebook.
 
     Accepts an SVG string, a matplotlib figure, or a :class:`figforge.Figure`.
@@ -21,7 +21,7 @@ def display_svg(source) -> None:
     display(HTML(f'<img src="data:image/svg+xml;base64,{data}" alt="FigForge SVG"/>'))
 
 
-def _to_svg(source) -> str:
+def _to_svg(source: object) -> str:
     from matplotlib.figure import Figure as MplFigure
 
     if isinstance(source, str):
@@ -30,6 +30,9 @@ def _to_svg(source) -> str:
         from figforge.matplotlib import mpl_to_svg
 
         return mpl_to_svg(source)
-    if hasattr(source, "document") and hasattr(source.document, "to_string"):
-        return source.document.to_string()
+    to_string = getattr(getattr(source, "document", None), "to_string", None)
+    if callable(to_string):
+        svg = to_string()
+        if isinstance(svg, str):
+            return svg
     raise TypeError("Expected an SVG string, a matplotlib Figure, or a figforge Figure")

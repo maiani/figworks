@@ -22,7 +22,7 @@ x = np.linspace(0, 2 * np.pi, 200)
 y = np.sin(x)
 
 mpl_fig, ax = plt.subplots(figsize=(3, 2))
-line, = ax.plot(x, y)
+(line,) = ax.plot(x, y)
 line.set_gid("sine-line")
 ax.set_xlabel("x")
 ax.set_ylabel("sin(x)")
@@ -51,7 +51,7 @@ python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
 ```
 
-Each example writes SVG, PDF, and PNG files.
+Each example writes its figures to `examples/out/`.
 
 ## Units
 
@@ -60,5 +60,5 @@ accepted: `px`, `pt`, `mm`, `cm`, and `in`. Bare numbers are treated as pixels.
 
 ```python
 to_px("25.4mm")  # 96.0
-to_px("1in")     # 96.0
+to_px("1in")  # 96.0
 ```

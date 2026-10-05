@@ -1,10 +1,15 @@
 """Two-way Matplotlib <-> SVG workflows: placeholders/fill, grid layout, and
 the SVG <-> Matplotlib bridge (SVG as a Matplotlib object and vice versa)."""
 
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 
 from figforge import Figure, display_svg, layout_svgs
 from figforge.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
+
+OUT = Path(__file__).resolve().parent / "out"
+OUT.mkdir(exist_ok=True)
 
 
 def make_plot(ylabel):
@@ -23,7 +28,7 @@ fig = Figure(width="160mm", height="80mm")
 fig.placeholder("slot", x="10mm", y="10mm", w="70mm", h="55mm", label="shared slot")
 fig.text("Fill a placeholder by id", x="10mm", y="72mm")
 fig.fill("slot", make_plot("shared"))
-fig.save("placeholder_fill.svg")
+fig.save(OUT / "placeholder_fill.svg")
 
 # 2. Assemble several panels into a single labelled grid figure.
 grid = layout_svgs(
@@ -32,7 +37,7 @@ grid = layout_svgs(
     outline=True,
     shape=(2, 2),
 )
-grid.save("grid_layout.svg")
+grid.save(OUT / "grid_layout.svg")
 
 # 3. SVG as a Matplotlib object: place an SVG image artist in an axes.
 mpl_fig, ax = plt.subplots()

@@ -12,7 +12,7 @@ fig = layout_svgs(
     [svg_a, svg_b, svg_c, svg_d],
     labels=["a", "b", "c", "d"],
     outline=True,
-    shape=(2, 2),          # optional; inferred otherwise
+    shape=(2, 2),  # optional; inferred otherwise
 )
 ```
 

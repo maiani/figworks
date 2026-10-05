@@ -22,9 +22,9 @@ Replace the placeholder's region with imported content. `fill` accepts a
 Matplotlib figure, an SVG file path, or an SVG string:
 
 ```python
-fig.fill("main-slot", mpl_fig)       # Matplotlib figure
-fig.fill("main-slot", "panel.svg")   # SVG file
-fig.fill("main-slot", svg_text)      # SVG string
+fig.fill("main-slot", mpl_fig)  # Matplotlib figure
+fig.fill("main-slot", "panel.svg")  # SVG file
+fig.fill("main-slot", svg_text)  # SVG string
 ```
 
 The content is scaled to fit inside the placeholder's bounding box while

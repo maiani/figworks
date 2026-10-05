@@ -155,9 +155,7 @@ class FigureCollection:
             help="figures to build (default: none; use --all or --list)",
         )
         parser.add_argument("--all", action="store_true", help="build every figure")
-        parser.add_argument(
-            "--list", action="store_true", help="list registered figures and exit"
-        )
+        parser.add_argument("--list", action="store_true", help="list registered figures and exit")
         parser.add_argument(
             "--outdir",
             type=Path,

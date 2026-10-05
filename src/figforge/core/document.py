@@ -9,6 +9,7 @@ import svg
 from lxml import etree
 
 from figforge.core.element import (
+    accumulated_scale,
     copy_element,
     ensure_defs,
     fit_transform,
@@ -16,10 +17,24 @@ from figforge.core.element import (
     parse_svg,
     svg_intrinsic_size,
     svg_kwargs,
+    svg_physical_size,
     svg_to_lxml,
 )
 from figforge.core.selectors import Selection, select
-from figforge.core.units import svg_length, to_px
+from figforge.core.units import px_decimal, svg_length, to_px
+
+# Which point of slot content sits on the slot's anchor, as fractions of its size.
+SLOT_ALIGN: dict[str, tuple[float, float]] = {
+    "center": (0.5, 0.5),
+    "north": (0.5, 0.0),
+    "south": (0.5, 1.0),
+    "east": (1.0, 0.5),
+    "west": (0.0, 0.5),
+    "northeast": (1.0, 0.0),
+    "northwest": (0.0, 0.0),
+    "southeast": (1.0, 1.0),
+    "southwest": (0.0, 1.0),
+}
 
 
 class SVGDocument:
@@ -37,11 +52,10 @@ class SVGDocument:
         # 96 DPI leaves the content in a corner at the wrong scale.
         self.root = svg_to_lxml(
             svg.SVG(
-                width=self.width,
-                height=self.height,
                 viewBox=svg.ViewBoxSpec(0, 0, self.width_px, self.height_px),
                 extra={"version": "1.1"},
-            )
+            ),
+            raw={"width": self.width, "height": self.height},
         )
 
     def element(self, tag: str, text: str | None = None, **attrs: Any) -> etree._Element:
@@ -78,7 +92,10 @@ class SVGDocument:
         transform: str | None = None,
         parent: etree._Element | None = None,
     ) -> etree._Element:
-        group = svg_to_lxml(svg.G(id=id, class_=class_, transform=transform))
+        group = svg_to_lxml(
+            svg.G(id=id, class_=None if class_ is None else [class_]),
+            raw={"transform": transform},
+        )
         return self.append(group, parent)
 
     def defs(self) -> etree._Element:
@@ -120,15 +137,15 @@ class SVGDocument:
         rect = svg_to_lxml(
             svg.Rect(
                 id=id,
-                class_="figforge-placeholder",
-                x=f"{x:g}",
-                y=f"{y:g}",
-                width=f"{w:g}",
-                height=f"{h:g}",
+                class_=["figforge-placeholder"],
+                x=px_decimal(x),
+                y=px_decimal(y),
+                width=px_decimal(w),
+                height=px_decimal(h),
                 fill="none",
                 stroke="#999999",
-                stroke_width="0.5",
-                stroke_dasharray="4 3",
+                stroke_width=px_decimal(0.5),
+                stroke_dasharray=[4, 3],
             )
         )
         self.append(rect)
@@ -137,9 +154,9 @@ class SVGDocument:
                 svg_to_lxml(
                     svg.Text(
                         text=label,
-                        x=f"{x + w / 2:g}",
-                        y=f"{y + h / 2:g}",
-                        class_="figforge-placeholder-label",
+                        x=px_decimal(x + w / 2),
+                        y=px_decimal(y + h / 2),
+                        class_=["figforge-placeholder-label"],
                         extra={"data-figforge-placeholder": id},
                         text_anchor="middle",
                         dominant_baseline="middle",
@@ -203,6 +220,43 @@ class SVGDocument:
 
         shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
         transform = f"scale({1 / width:g} {1 / height:g}){shift}"
+        return self.import_svg(svg_string, transform=transform, parent=target)
+
+    def fill_slot(self, id: str, svg_string: str) -> etree._Element:
+        """Fill an anchor group with SVG content at the content's own physical size.
+
+        The target is a group translated to an anchor point -- typically a
+        vecview ``Scene.slot`` -- whose ``data-align`` names the point of the
+        content's box that sits on the anchor (``center`` when absent).  The
+        content keeps the size its document declares however the enclosing
+        scene was scaled to fit its panel: an 8 pt label stays 8 pt.  The
+        anchor itself moves with the scene.
+
+        Returns the wrapping group holding the imported content.
+        """
+        targets = self.select(f"#{id}")
+        if len(targets) == 0:
+            raise KeyError(f"No element with id {id!r} in document")
+        target = targets.nodes[0]
+
+        align = target.get("data-align", "center")
+        if align not in SLOT_ALIGN:
+            raise ValueError(
+                f"Slot {id!r} has unknown data-align {align!r}; "
+                f"expected one of {sorted(SLOT_ALIGN)}"
+            )
+        view_w, view_h, min_x, min_y = svg_intrinsic_size(svg_string)
+        width, height = svg_physical_size(svg_string)
+        if not (view_w and view_h and width and height):
+            raise ValueError(f"Content for {id!r} has no intrinsic size to place")
+
+        fx, fy = SLOT_ALIGN[align]
+        shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
+        transform = (
+            f"scale({1 / accumulated_scale(target):g})"
+            f" translate({-fx * width:g} {-fy * height:g})"
+            f" scale({width / view_w:g} {height / view_h:g}){shift}"
+        )
         return self.import_svg(svg_string, transform=transform, parent=target)
 
     def place(

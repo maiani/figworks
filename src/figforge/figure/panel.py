@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 from figforge.core.units import to_px
 from figforge.figure.anchors import Anchor
 
 if TYPE_CHECKING:
+    from lxml import etree
+
     from figforge.figure.figure import Figure
 
 
@@ -68,7 +70,13 @@ class Panel:
             raise ValueError(f"Unknown panel anchor: {name!r}")
         return value
 
-    def add(self, source, id: str | None = None, *, preserve_aspect_ratio: bool = True):
+    def add(
+        self,
+        source: Any,
+        id: str | None = None,
+        *,
+        preserve_aspect_ratio: bool = True,
+    ) -> etree._Element:
         """Place an SVG document provider, Matplotlib figure, or SVG source."""
         return self.figure.add(
             source,
@@ -86,6 +94,6 @@ class Panel:
         x: str | int | float,
         y: str | int | float,
         id: str | None = None,
-        **attrs,
-    ):
+        **attrs: Any,
+    ) -> etree._Element:
         return self.figure.text(text, self.x + to_px(x), self.y + to_px(y), id=id, **attrs)

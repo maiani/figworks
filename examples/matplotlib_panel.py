@@ -1,7 +1,12 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
 
 from figforge import Figure
+
+OUT = Path(__file__).resolve().parent / "out"
+OUT.mkdir(exist_ok=True)
 
 x = np.linspace(0, 2 * np.pi, 200)
 y = np.sin(x)
@@ -19,6 +24,6 @@ fig.label("a", anchor=panel.nw)
 fig.text("A Matplotlib SVG panel", x="10mm", y="62mm", id="caption")
 fig.arrow(id="caption-arrow", start=("45mm", "58mm"), end=("70mm", "40mm"))
 
-fig.save("matplotlib_panel.svg")
-fig.save("matplotlib_panel.pdf")
-fig.save("matplotlib_panel.png")
+fig.save(OUT / "matplotlib_panel.svg")
+fig.save(OUT / "matplotlib_panel.pdf")
+fig.save(OUT / "matplotlib_panel.png")

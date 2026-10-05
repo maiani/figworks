@@ -6,9 +6,9 @@ provides a small, predictable selector engine returning a `Selection` object.
 ## Selecting
 
 ```python
-fig.select("#some-id")    # by id
-fig.select(".some-class") # by class
-fig.select("text")        # by SVG tag name
+fig.select("#some-id")  # by id
+fig.select(".some-class")  # by class
+fig.select("text")  # by SVG tag name
 ```
 
 A `Selection` is iterable and sized:

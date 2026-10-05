@@ -1,67 +1,39 @@
 # FigForge
 
-FigForge is a thin assembly layer for publication-quality figures built from
-Matplotlib plots, Vectex equations, vecview schematics, cirquit circuit
-schematics, and native SVG elements.
+FigForge assembles multi-panel publication figures from Matplotlib plots, Vectex
+equations, vecview 3D scenes, cirquit circuit schematics, and native SVG
+elements. The figure is generated from code and stays editable afterwards:
+panels and elements keep stable ids, the same script writes byte-identical SVG,
+and the result opens in Inkscape for final adjustments.
 
-The canonical output is SVG. PDF and PNG export are supported through CairoSVG.
+SVG is the canonical output; PDF and PNG are exported through CairoSVG.
+FigForge is an assembly layer between plotting code and the final graphic. It
+does not replace Matplotlib, TeX, Inkscape, or Illustrator.
 
-FigForge is designed as an editable assembly layer between plotting code and final publication graphics. It does not try to replace Matplotlib, Inkscape, Illustrator, or LaTeX.
-
-## The suite
-
-FigForge is the composition layer of four projects developed together, each
-independently useful:
-
-| Project | Produces |
-| --- | --- |
-| **FigForge** | composed, exported multi-panel figures |
-| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
-| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
-| cirquit | editable circuit schematics as SVG documents |
-
-All four emit vector SVG with stable ids and deterministic output, so a figure
-can be regenerated from code, diffed in version control, and still hand-tuned in
-Inkscape. Vectex, vecview, and cirquit know nothing about FigForge: all three
-simply expose `to_svg_document()`, and FigForge places anything that does — no adapter here, no
-import in either direction.
-
-The dependency edges are uneven by design: Vectex is a runtime requirement,
-vecview and cirquit are optional and installed from a checkout, and none depends
-on FigForge. cirquit is unpublished; install it from a local checkout with
-`python -m pip install -e /path/to/cirquit`. [`AGENTS.md`](AGENTS.md#the-suite)
-records why the four are built apart but in step.
-
-## Status
-
-This repository is an early MVP scaffold. The public API is intentionally small and unstable while the core figure model is being built.
+FigForge is alpha: the core figure model works and is tested, but the API is
+still settling and a minor release may change it.
 
 ## Install
 
+FigForge is not on PyPI, and the name `figforge` there belongs to an unrelated
+project, so `pip install figforge` installs the wrong package. Install from a
+checkout (Python 3.12 or newer):
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -e ".[dev]"
+python -m pip install -e /path/to/figforge
 ```
 
-## Quick Start
+This pulls in Matplotlib, lxml, svg.py, CairoSVG, and Vectex. Rendering
+equations with Vectex also needs a TeX installation with `pdflatex` and
+`dvisvgm` on `PATH`. vecview and cirquit are optional and unpublished; install
+them from their own checkouts when you need them:
 
-For the common case of placing SVG in Matplotlib axes, use `compose`. No
-`figforge.Figure` or manual placeholder is involved:
-
-```python
-import figforge
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots()
-ax.plot([0, 1], [0, 1])
-svg = figforge.compose({ax: "logo.svg"}, fig=fig)
-with open("figure.svg", "w", encoding="utf-8") as output:
-    output.write(svg)
+```bash
+python -m pip install -e /path/to/vecview
+python -m pip install -e /path/to/cirquit
 ```
 
-Use `Figure` when you need explicit panels, physical layout, selectors, and
-annotations:
+## Quick start
 
 ```python
 import numpy as np
@@ -70,10 +42,8 @@ import matplotlib.pyplot as plt
 from figforge import Figure
 
 x = np.linspace(0, 2 * np.pi, 200)
-y = np.sin(x)
-
 mpl_fig, ax = plt.subplots(figsize=(3, 2))
-line, = ax.plot(x, y)
+(line,) = ax.plot(x, np.sin(x))
 line.set_gid("sine-line")
 ax.set_xlabel("x")
 ax.set_ylabel("sin(x)")
@@ -88,52 +58,56 @@ fig.arrow(id="caption-arrow", start=("45mm", "58mm"), end=("70mm", "40mm"))
 
 fig.save("example.svg")
 fig.save("example.pdf")
-fig.save("example.png")
+fig.save("example.png", dpi=300)
 ```
 
-## Current API
+Coordinates and sizes accept `px`, `pt`, `mm`, `cm`, or `in`; bare numbers are
+px. The artist id `sine-line` survives into `example.svg`, so
+`fig.select("#sine-line")` and Inkscape both find it.
 
-The root package exposes:
-
-- `compose`
-- `Figure`
-- `Panel`
-- `Anchor`
-- `Theme`
-- `layout_svgs`
-- `display_svg`
-
-Supported MVP operations include:
-
-- creating an SVG canvas with physical dimensions,
-- adding rectangular panels,
-- placing Matplotlib figures, Vectex fragments, vecview scenes, cirquit circuits, and SVG documents through one API,
-- importing SVG as Matplotlib artists and swapping placeholders by id (SVG embedded as Matplotlib),
-- adding native text, labels, rectangles, lines, and arrows,
-- drawing placeholders and filling them by id with SVG content,
-- laying out many SVG panels into a labelled grid,
-- selecting elements by `#id`, `.class`, or tag name,
-- deleting selected elements,
-- setting inline style on selected elements,
-- saving to `.svg`, `.pdf`, and `.png`,
-- displaying figures inline in notebooks.
-
-## Matplotlib integration
-
-FigForge bridges Matplotlib and SVG in both directions:
+For the common case of dropping SVG into existing Matplotlib axes, `compose`
+needs no `Figure` at all:
 
 ```python
-from figforge.matplotlib import mpl_to_svg, connect, insert
+import figforge
+import matplotlib.pyplot as plt
 
-svg = mpl_to_svg(mpl_fig)                 # Matplotlib -> SVG
-connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)   # reserve a placeholder in Matplotlib
-result = insert({"slot": panel_fig}, fig=mpl_fig)  # swap in vector SVG by id
+fig, ax = plt.subplots()
+ax.plot([0, 1], [0, 1])
+svg = figforge.compose({ax: "logo.svg"}, fig=fig)
+with open("figure.svg", "w", encoding="utf-8") as output:
+    output.write(svg)
 ```
 
-## Vectex integration
+## What it does
 
-Vectex fragments implement FigForge's small SVG-document protocol, so no
-adapter or manual serialization is needed:
+The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
+`layout_svgs`, `display_svg`, and `FigureCollection`. With them you can:
+
+- create an SVG canvas with physical dimensions and a theme (`"paper"` or
+  `"presentation"`);
+- add rectangular panels with named anchors (`panel.nw`, `panel.center`, …);
+- place Matplotlib figures, Vectex fragments, vecview scenes, cirquit circuits,
+  SVG files, and SVG strings through one call, `Panel.add`;
+- add native text, panel labels, rectangles, lines, circles, ellipses,
+  polylines, paths, and arrows;
+- reserve placeholders and fill them by id later;
+- lay out many SVGs into a labelled grid;
+- select elements by `#id`, `.class`, or tag name, then delete them or set
+  attributes and inline style;
+- save to `.svg`, `.pdf`, and `.png`, and display figures inline in notebooks.
+
+`Panel.add` reads each source's intrinsic size from its `viewBox`, scales it
+uniformly, and centres it in the panel. Placement wraps the source in a group
+but does not rewrite its ids, so selectors reach inside placed content.
+
+## Sources
+
+Everything except Matplotlib integrates through one method: FigForge places any
+object exposing `to_svg_document()`. Vectex, vecview, and cirquit implement it
+without importing FigForge, and FigForge has no adapter for any of them.
+
+### Vectex equations
 
 ```python
 import vectex
@@ -143,87 +117,164 @@ panel.add(equation, id="equation-panel")
 fig.select("#equation-root").set_attr("fill", "navy")
 ```
 
-## 3D scene integration
-
-[vecview](https://github.com/maiani/vecview) scenes implement the same SVG-document
-protocol, so a 3D schematic places like any other panel source:
+### vecview scenes
 
 ```python
 import vecview
 
 cam = vecview.OrthographicCamera(azim_deg=35, elev_deg=24, scale=62)
 scene = vecview.Scene(cam, pad=6)
-scene.faces(10, cam.visible(vecview.box_faces((0, 0, -0.45), (11, 9, 0.9))), fill="#cfd6e0")
+slab = vecview.box_faces(center=(0, 0, -0.45), size=(11, 9, 0.9))
+scene.faces(10, slab, cull=True, fill="#cfd6e0")
 
 panel.add(scene, id="slab-scene")
 ```
 
-A plot can also be placed *in* a plane of the scene instead of its own panel:
-`scene.plane(...)` reserves the rectangle and `fig.fill_plane(id, mpl_fig)` fills
-it, so the plot lies on the slab, foreshortened with the geometry.
+Leave the scene's `background` unset and keep `pad` small: the scene is scaled
+to fit its panel, so padding shrinks the drawing.
 
-vecview is not a FigForge dependency; install it from a checkout. See
-`docs/usage/scenes-3d.md`.
+A scene can also hold content of its own. `Scene.plane` reserves a rectangle of
+a world plane and `Figure.fill_plane` puts a plot *in* it, foreshortened with
+the geometry. `Scene.slot` pins an empty, upright group to a world point and
+`Figure.fill_slot` fills it with content kept at its own physical size, so an
+8 pt TeX label stays 8 pt however the scene was scaled:
 
-## Grid layout
+```python
+scene.plane(15, origin=(-4.2, -2.9, 0.01), u_edge=(0, 8.4, 0), v_edge=(5.8, 0, 0), id="plot-plane")
+
+label = vectex.render(r"$\hat{z}$", size_pt=8)
+px_per_pt = 96 / 72  # the slot's room is reserved in scene units
+scene.slot(
+    45,
+    (5.5, 4.5, 0),
+    label.width * px_per_pt,
+    label.height * px_per_pt,
+    align="west",
+    dx=1.6,
+    id="label-z",
+)
+
+panel.add(scene, id="device")
+fig.fill_plane("plot-plane", mpl_fig)
+fig.fill_slot("label-z", label)
+```
+
+`fill_plane` normalizes content onto the unit square, so shape the plane to the
+plot's aspect ratio. [3D scenes](docs/usage/scenes-3d.md) covers orientation,
+line weights, and export caveats.
+
+### cirquit circuits
+
+A `cirquit.Circuit` places like any other source, and its component ids and
+`data-component` attributes survive placement:
+
+```python
+right = fig.panel("schematic", x="120mm", y="8mm", w="40mm", h="56mm")
+right.add(circuit, id="transmon-circuit")
+fig.select("#JJ")  # a junction drawn with id="JJ"
+```
+
+### Matplotlib, both directions
+
+```python
+from figforge.matplotlib import connect, insert, mpl_to_svg
+
+svg = mpl_to_svg(mpl_fig)  # Matplotlib -> SVG
+connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)  # reserve a placeholder in the axes
+result = insert({"slot": panel_fig}, fig=mpl_fig)  # swap in vector SVG by id
+```
+
+Matplotlib exports are made deterministic: FigForge pins the id salt and drops
+the export date, which otherwise change on every run.
+
+## Placeholders and grids
+
+```python
+fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")
+fig.fill("main-slot", mpl_fig)  # a figure, an SVG file path, or an SVG string
+```
 
 ```python
 from figforge import layout_svgs
 
-fig = layout_svgs([svg_a, svg_b, svg_c], labels=["a", "b", "c"], outline=True)
+grid = layout_svgs([svg_a, svg_b, svg_c], labels=["a", "b", "c"], outline=True)
+grid.save("grid.svg")
 ```
 
-## Placeholders
+## Known limitations
 
-```python
-fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")
-fig.fill("main-slot", mpl_fig)   # accept a figure, file path, or SVG string
-```
+Imported ids, including `<defs>` children, are copied verbatim. Two sources that
+share an id collide, and `url(#…)` resolves to the first, so give each source
+distinct ids. A gradient-filled `<mask>` does not survive CairoSVG and vanishes
+from PDF and PNG exports without a warning.
 
 ## Examples
 
-Run examples from the repository root:
+Run from the repository root:
 
 ```bash
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
-python examples/vecview_panel.py     # requires vecview
-python examples/cirquit_panel.py     # requires cirquit
+python examples/matplotlib_bridge.py
+python examples/vecview_panel.py         # requires vecview
+python examples/vecview_plane_plot.py    # requires vecview; a plot in a 3D plane
+python examples/cirquit_panel.py         # requires cirquit
 ```
 
-Each example writes SVG, PDF, and PNG files.
+Each example writes its figures into `examples/out/`.
+
+## The suite
+
+FigForge is the composition layer of four projects developed together, each
+independently useful:
+
+| Project | Produces | Maturity |
+| --- | --- | --- |
+| **FigForge** | composed, exported multi-panel figures | alpha: core API still settling |
+| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
+| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: unpublished, install from a checkout |
+| cirquit | editable circuit schematics as SVG documents | pre-alpha: unpublished, first version |
+
+All four emit vector SVG with stable ids and byte-identical output for
+identical input, so a figure can be regenerated from code, diffed in version
+control, and still hand-tuned in Inkscape. All four are pre-1.0 and make no
+backward-compatibility promise; deterministic output is the one guarantee they
+share.
+
+The dependency edges are uneven by design: Vectex is a runtime requirement,
+vecview and cirquit are optional, and none of the three depends on FigForge.
+[`AGENTS.md`](AGENTS.md#the-suite) records why the four are built apart but in
+step.
 
 ## Development
 
 ```bash
+python -m venv .venv
 source .venv/bin/activate
-pytest
+python -m pip install -e ".[dev]"
+ruff format --check .
 ruff check .
+mypy
+pytest
 ```
+
+Tests for vecview and cirquit skip when those packages are not installed.
 
 ## Documentation
 
-The docs are built with [Zensical](https://zensical.org):
+The docs in `docs/` are built with [Zensical](https://zensical.org):
 
 ```bash
-python -m pip install zensical
 zensical serve    # preview at http://localhost:8000
 zensical build    # static build into site/
 ```
 
-The implementation uses a modern `src/` layout. `lxml` is the internal SVG document representation. Matplotlib figures are exported to SVG strings and imported as editable SVG groups. CairoSVG handles PDF and PNG export.
+## Non-goals
 
-## Non-Goals For The MVP
-
-FigForge is not currently attempting to provide:
-
-- a GUI,
-- a full SVG path editor,
-- an Inkscape replacement,
-- declarative YAML figure specs,
-- automatic AI editing,
-- a complete CSS selector engine.
+FigForge does not currently attempt to provide a GUI, a full SVG path editor,
+an Inkscape replacement, declarative YAML figure specs, or a complete CSS
+selector engine.
 
 ## License
 

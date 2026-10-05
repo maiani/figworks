@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    # 3.15 is tracked before it is supported: until its final release, and
+    # until lxml, numpy and PyYAML ship wheels for it, it may fail without
+    # failing the run.
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13", "3.14"]
+        experimental: [false]
+        include:
+          - python-version: "3.15"
+            experimental: true
+    steps:
+      - uses: actions/checkout@v4
+      # PDF and PNG export refuse to substitute a missing font, so the render
+      # tests need the real ones, and fontconfig to find them.
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            fonts-texgyre fonts-dejavu-core fontconfig libcairo2
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras --locked --python ${{ matrix.python-version }}
+      - run: uv run ruff format --check .
+      - run: uv run ruff check .
+      - run: uv run mypy
+      - run: uv run pytest
+      - run: uv run python examples/minimal_svg.py
+      - run: uv run python examples/matplotlib_panel.py
+      - run: uv run python examples/two_panel_figure.py
+      # VecView and VecWire are optional, so the tests above skip them.  Here
+      # they come from their public main branches, to test the
+      # to_svg_document() contract against what each producer actually ships.
+      - run: >-
+          uv pip install
+          "vecview @ git+https://github.com/maiani/vecview"
+          "vecwire @ git+https://github.com/maiani/vecwire"
+      - run: uv run --no-sync pytest tests/test_vecview.py tests/test_vecwire.py

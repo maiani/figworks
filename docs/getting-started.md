@@ -56,7 +56,9 @@ Each example writes its figures to `examples/out/`.
 ## Units
 
 FigWorks understands physical units everywhere coordinates and sizes are
-accepted: `px`, `pt`, `mm`, `cm`, and `in`. Bare numbers are treated as pixels.
+accepted: `px`, `pt`, `mm`, `cm`, and `in`. Bare numbers are treated as pixels,
+at 96 per inch. [Units & sizes](usage/units.md) covers how each source's size is
+used when it is placed and exported.
 
 ```python
 to_px("25.4mm")  # 96.0

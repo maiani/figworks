@@ -106,6 +106,85 @@ def copy_element(child: etree._Element) -> etree._Element:
     return deepcopy(child)
 
 
+_XLINK_HREF = "{http://www.w3.org/1999/xlink}href"
+
+
+def _unique(candidate: str, taken: set[str]) -> str:
+    """``candidate``, or ``candidate-2``, ``candidate-3``... if already taken."""
+    name, n = candidate, 1
+    while name in taken:
+        n += 1
+        name = f"{candidate}-{n}"
+    return name
+
+
+def _rewrite_references(root: etree._Element, renamed: dict[str, str]) -> None:
+    """Point every ``url(#id)`` and ``href="#id"`` inside ``root`` at the renamed ids."""
+    if not renamed:
+        return
+    pattern = re.compile(
+        r"url\(\s*(['\"]?)#(" + "|".join(re.escape(old) for old in renamed) + r")\1\s*\)"
+    )
+
+    def swap(match: re.Match[str]) -> str:
+        quote = match.group(1)
+        return f"url({quote}#{renamed[match.group(2)]}{quote})"
+
+    for node in root.iter():
+        if not isinstance(node.tag, str):
+            continue
+        for key, value in node.attrib.items():
+            if not isinstance(value, str):
+                continue
+            if key in ("href", _XLINK_HREF) and value.startswith("#") and value[1:] in renamed:
+                node.set(key, "#" + renamed[value[1:]])
+            elif "url(" in value:
+                node.set(key, pattern.sub(swap, value))
+        if local_name(node) == "style" and node.text and "url(" in node.text:
+            node.text = pattern.sub(swap, node.text)
+
+
+def _canonical(node: etree._Element) -> bytes:
+    """Serialization that ignores inherited namespace declarations and tail text."""
+    return etree.tostring(node, method="c14n", exclusive=True, with_tail=False)
+
+
+def resolve_id_collisions(
+    fragment: etree._Element, document: etree._Element, namespace: str
+) -> set[etree._Element]:
+    """Rename ids in ``fragment`` that already exist in ``document``, in place.
+
+    An id that does not collide is kept, so ids survive placement in the common
+    case.  A colliding id becomes ``{namespace}-{id}`` (suffixed further if that
+    is taken too), and every reference to it inside the fragment follows.  A
+    colliding definition identical to the document's own is not renamed but
+    returned, so the caller can drop it and let both share one definition.
+    """
+    existing = {key: node for node in document.iter() if (key := node.get("id"))}
+    # A new name must avoid the fragment's own ids as well as the document's.
+    taken = set(existing) | {key for node in fragment.iter() if (key := node.get("id"))}
+    duplicates: set[etree._Element] = set()
+    renamed: dict[str, str] = {}
+    for node in fragment.iter():
+        old = node.get("id")
+        if not old or old not in existing:
+            continue
+        parent = node.getparent()
+        if (
+            parent is not None
+            and local_name(parent) == "defs"
+            and _canonical(node) == _canonical(existing[old])
+        ):
+            duplicates.add(node)
+            continue
+        new = _unique(f"{namespace}-{old}", taken)
+        taken.add(new)
+        renamed[old] = new
+        node.set("id", new)
+    _rewrite_references(fragment, renamed)
+    return duplicates
+
+
 def svg_intrinsic_size(svg_string: str) -> tuple[float, float, float, float]:
     """Return (width, height, min_x, min_y) of an SVG string."""
     root = parse_svg(svg_string)

@@ -113,14 +113,11 @@ def test_scene_survives_export(scene, tmp_path):
         assert out.stat().st_size > 0
 
 
-def test_duplicate_def_ids_across_scenes_collide(scene):
-    """Known limitation: `<defs>` children are hoisted without namespacing.
+def test_colliding_def_ids_are_renamed_per_scene(scene):
+    """Two scenes may reuse a gradient id; each must keep its own gradient.
 
-    Two independently-authored scenes may reuse a gradient id. `import_svg`
-    copies defs into the document's `<defs>` verbatim, so both survive with the
-    same id and `url(#...)` resolves to the first — the second scene silently
-    gets the first one's gradient. Give scenes distinct def ids until FigWorks
-    rewrites ids on import.
+    The second scene's ``glow`` is renamed ``s2-glow`` and its ``url(#glow)``
+    references follow, so it no longer silently takes the first scene's colour.
     """
     import svg
 
@@ -140,8 +137,18 @@ def test_duplicate_def_ids_across_scenes_collide(scene):
     figure.panel("a", x="5mm", y="5mm", w="50mm", h="50mm").add(with_glow("red"), id="s1")
     figure.panel("b", x="60mm", y="5mm", w="50mm", h="50mm").add(with_glow("blue"), id="s2")
 
-    ids = [node.get("id") for node in figure.document.root.iter() if node.get("id")]
-    assert ids.count("glow") == 2, "documents the collision; update when ids are rewritten"
+    root = figure.document.root
+    ids = [node.get("id") for node in root.iter() if node.get("id")]
+    assert len(ids) == len(set(ids)), "every id in the figure is unique"
+    for group, gradient in (("s1", "glow"), ("s2", "s2-glow")):
+        fills = {
+            node.get("fill")
+            for node in root.find(f".//*[@id='{group}']").iter()
+            if node.get("fill")
+        }
+        assert fills == {f"url(#{gradient})"}
+    blue = root.find(f".//{{{SVG_NS}}}radialGradient[@id='s2-glow']/{{{SVG_NS}}}stop")
+    assert blue is not None and blue.get("stop-color") == "blue"
 
 
 class TestFillPlane:

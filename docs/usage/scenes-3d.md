@@ -78,24 +78,9 @@ scene.polygon(20, axis_marker, id="absorption-axis", fill="#d62828")
 fig.select("#absorption-axis").set_style(fill="navy")
 ```
 
-Panel placement wraps the scene in a group but does not rewrite ids, so `#id`
-selectors reach through.
-
-!!! warning "Definition ids are not namespaced"
-
-    A scene's `<defs>` children — gradients, markers, clip paths — are hoisted
-    into the figure's `<defs>` **verbatim**. If two placed scenes use the same
-    def id, both survive and `url(#id)` resolves to the first, so the second
-    scene silently takes the first one's gradient.
-
-    Until FigWorks rewrites ids on import, give each scene distinct def ids:
-
-    ```python
-    scene.add_def(svg.RadialGradient(id=f"glow-{panel_name}", ...))
-    ```
-
-    This affects any SVG source with `<defs>`, not just `vecview`. Matplotlib
-    happens to avoid it by hashing its clip-path ids.
+Panel placement wraps the scene in a group and keeps its ids, so `#id`
+selectors reach through. When two placed scenes use the same id, see
+[Ids across sources](selectors.md#ids-across-sources).
 
 ## Choosing a projection
 

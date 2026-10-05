@@ -15,6 +15,7 @@ from figworks.core.element import (
     fit_transform,
     local_name,
     parse_svg,
+    resolve_id_collisions,
     svg_intrinsic_size,
     svg_kwargs,
     svg_physical_size,
@@ -41,6 +42,7 @@ class SVGDocument:
     """Canonical lxml-backed SVG document."""
 
     def __init__(self, width: str | int | float, height: str | int | float):
+        self._imports = 0
         self.width = svg_length(width)
         self.height = svg_length(height)
         self.width_px = to_px(width)
@@ -107,16 +109,33 @@ class SVGDocument:
         id: str | None = None,
         transform: str | None = None,
         parent: etree._Element | None = None,
+        *,
+        namespace: str | None = None,
     ) -> etree._Element:
+        """Import an SVG document's content as a group, keeping its ids unique.
+
+        Imported ids are kept unless one already exists in this document; a
+        colliding id is prefixed with ``namespace`` (default: ``id``) and its
+        references inside the content follow.  See
+        :func:`~figworks.core.element.resolve_id_collisions`.
+        """
+        if id is not None and self.root.find(f".//*[@id='{id}']") is not None:
+            raise ValueError(f"Id {id!r} is already used in this figure")
         imported_root = parse_svg(svg_string)
         group = self.group(id=id, transform=transform, parent=parent)
+        self._imports += 1
+        prefix = namespace or id or f"import{self._imports}"
+        for duplicate in resolve_id_collisions(imported_root, self.root, prefix):
+            # Identical to a definition already in the document: share that one.
+            parent = duplicate.getparent()
+            if parent is not None:
+                parent.remove(duplicate)
 
         for child in imported_root:
-            copied = copy_element(child)
             if local_name(child) == "defs":
-                self.defs().extend(list(copied))
+                self.defs().extend(copy_element(definition) for definition in child)
             else:
-                group.append(copied)
+                group.append(copy_element(child))
 
         return group
 
@@ -220,7 +239,7 @@ class SVGDocument:
 
         shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
         transform = f"scale({1 / width:g} {1 / height:g}){shift}"
-        return self.import_svg(svg_string, transform=transform, parent=target)
+        return self.import_svg(svg_string, transform=transform, parent=target, namespace=id)
 
     def fill_slot(self, id: str, svg_string: str) -> etree._Element:
         """Fill an anchor group with SVG content at the content's own physical size.
@@ -257,7 +276,7 @@ class SVGDocument:
             f" translate({-fx * width:g} {-fy * height:g})"
             f" scale({width / view_w:g} {height / view_h:g}){shift}"
         )
-        return self.import_svg(svg_string, transform=transform, parent=target)
+        return self.import_svg(svg_string, transform=transform, parent=target, namespace=id)
 
     def place(
         self,
@@ -299,7 +318,7 @@ class SVGDocument:
             preserve_aspect_ratio=preserve_aspect_ratio,
         )
 
-        group = self.import_svg(svg_string)
+        group = self.import_svg(svg_string, namespace=target.get("id"))
         if not preserve_aspect_ratio:
             group.set("preserveAspectRatio", "none")
         parent.insert(index, group)

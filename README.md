@@ -201,10 +201,8 @@ grid.save("grid.svg")
 
 ## Known limitations
 
-Imported ids, including `<defs>` children, are copied verbatim. Two sources that
-share an id collide, and `url(#…)` resolves to the first, so give each source
-distinct ids. A gradient-filled `<mask>` does not survive CairoSVG and vanishes
-from PDF and PNG exports without a warning.
+A gradient-filled `<mask>` does not survive CairoSVG and vanishes from PDF and
+PNG exports without a warning.
 
 ## Examples
 

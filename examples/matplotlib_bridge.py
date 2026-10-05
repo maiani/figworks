@@ -47,10 +47,9 @@ ax.add_artist(artist)
 # 4. Reserve a placeholder in Matplotlib, then swap in vector SVG by id.
 connect(ax, "slot", 0.1, 0.1, 0.7, 0.7)
 assembled = insert({"slot": panel_svg("injected")}, fig=mpl_fig)
-with open("matplotlib_insert.svg", "w", encoding="utf-8") as handle:
-    handle.write(assembled)
+(OUT / "matplotlib_insert.svg").write_text(assembled, encoding="utf-8")
 
 # 5. Display a figure inline in a notebook (no-op without IPython).
 display_svg(fig)
 
-print("wrote placeholder_fill.svg, grid_layout.svg, matplotlib_insert.svg")
+print(f"wrote placeholder_fill.svg, grid_layout.svg, matplotlib_insert.svg to {OUT}")

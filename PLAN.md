@@ -45,11 +45,9 @@ contract is insufficient in a demonstrated workflow.
 ## Near-term release work
 
 - Exercise Matplotlib and VecTeX together in publication-scale examples.
-- Keep generated SVG IDs deterministic and collision-free.
-- Namespace ids when importing SVG. Definitions are currently hoisted into the
-  figure's `<defs>` verbatim, so two sources sharing a def id collide silently
-  and the second takes the first's gradient. Pinned by
-  `tests/test_vecview.py::test_duplicate_def_ids_across_scenes_collide`.
+- Keep generated SVG IDs deterministic and collision-free. Imported ids are kept
+  unless they collide, prefixed with the placement id when they do, and shared
+  when the colliding definition is identical; see `tests/test_ids.py`.
 - Test fitting for non-zero viewBox origins and nested definitions. VecView
   scenes exercise the non-zero-origin path, since a fitted viewBox is centred
   on its content.

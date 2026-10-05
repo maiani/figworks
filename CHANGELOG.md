@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-05
+
+### Added
+
+- A "Units & sizes" page: how the canvas, each source's declared size, every
+  placement operation, and export handle units, which operations honour a
+  source's physical size (only `fill_slot`), how to place a VecView scene at
+  exactly 1:1, and what a new producer should declare.
+
+### Fixed
+
+- Imported ids are unique across sources. A colliding id is prefixed with the
+  placement id (or the slot, plane, or placeholder it fills) and its `url(#…)`
+  and `href` references follow; an identical colliding definition is shared
+  instead. Two scenes with a `glow` gradient no longer silently share the first
+  one's colour, and two circuits with the same node names stay separately
+  selectable. Free ids are kept, so selection by id works as before. Reusing a
+  placement id now raises `ValueError`.
+
 ## [0.2.0] - 2026-10-05
 
 ### Changed

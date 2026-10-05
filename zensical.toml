@@ -13,6 +13,7 @@ nav = [
   { "Getting started" = "getting-started.md" },
   { "Usage" = [
       { "Figure, Panel & anchors" = "usage/figure.md" },
+      { "Units & sizes" = "usage/units.md" },
       { "Native SVG elements" = "usage/elements.md" },
       { "Selectors" = "usage/selectors.md" },
       { "Matplotlib integration" = "usage/matplotlib.md" },

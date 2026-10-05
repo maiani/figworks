@@ -91,17 +91,19 @@ def test_placement_is_deterministic():
     assert first.document.to_string() == second.document.to_string()
 
 
-def test_duplicate_ids_across_circuits_collide():
-    """Known limitation: imported ids are copied verbatim, without namespacing.
+def test_colliding_ids_are_prefixed_with_the_placement_id():
+    """Two circuits built from the same node names stay separately selectable.
 
-    VecWire names node groups after their nodes, so two circuits built from the
-    same node names both carry ``id="top_left"`` once placed, and ``#top_left``
-    matches the first. Use distinct node and component ids per circuit until
-    FigWorks rewrites ids on import.
+    The first circuit keeps its ids; the second's colliding ids are prefixed with
+    its placement id, so ``#L`` is the first inductor and ``#lc2-L`` the second.
     """
     figure = Figure(width="100mm", height="60mm")
     figure.panel("a", x="5mm", y="5mm", w="40mm", h="50mm").add(build_circuit(), id="lc1")
     figure.panel("b", x="55mm", y="5mm", w="40mm", h="50mm").add(build_circuit(), id="lc2")
 
-    ids = [node.get("id") for node in figure.document.root.iter() if node.get("id")]
-    assert ids.count("L") == 2, "documents the collision; update when ids are rewritten"
+    root = figure.document.root
+    ids = [node.get("id") for node in root.iter() if node.get("id")]
+    assert len(ids) == len(set(ids)), "every id in the figure is unique"
+    first = root.find(".//*[@id='lc1']//*[@id='L']")
+    second = root.find(".//*[@id='lc2']//*[@id='lc2-L']")
+    assert first is not None and second is not None

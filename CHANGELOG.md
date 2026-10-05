@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-10-05
+
+### Changed
+
+- **`FigureCollection` is reworked.** A builder may return a FigWorks `Figure`,
+  which is now saved as a vector figure with `Figure.save`; the example used to
+  rasterize composed figures through a PNG so the collection could save them as
+  Matplotlib figures. Matplotlib figures are saved deterministically (pinned SVG
+  ids, no creation dates) after a font check. Each build applies Matplotlib's
+  defaults, then the optional style sheet, then the theme's typeface and size,
+  and restores the previous settings afterwards. The constructor takes `outdir`,
+  `theme`, `style_file` (now optional), `formats`, and `dpi`; `name` is gone
+  (the program name comes from the command line) and `--style` with it. `build`
+  returns the paths it wrote.
+
+### Added
+
+- `figworks.matplotlib.save_figure(fig, path, dpi=...)`: write a Matplotlib
+  figure byte-identically, after checking its fonts.
+- A "Figure collections" documentation page, and tests for the collection.
+
+### Fixed
+
+- Importing FigWorks no longer switches Matplotlib to the Agg backend, which
+  silently disabled interactive plotting in notebooks. Only the collection's
+  command-line entry point selects it.
+- PDF output is byte-identical across runs: cairo's creation date is omitted.
+
 ## [0.5.0] - 2026-10-05
 
 ### Added

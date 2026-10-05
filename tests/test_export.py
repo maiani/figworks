@@ -42,3 +42,16 @@ def test_png_is_rasterized_at_dpi_whatever_the_unit(tmp_path, width, height):
 
     with Image.open(png) as image:
         assert image.size == (600, 300)
+
+
+def test_pdf_export_is_byte_identical_across_runs(tmp_path):
+    """Cairo stamps a creation date unless told not to; a second apart shows it."""
+    import time
+
+    fig = Figure(width="100px", height="50px")
+    fig.text("hello", x=10, y=20)
+    first, second = tmp_path / "a.pdf", tmp_path / "b.pdf"
+    fig.save(first)
+    time.sleep(1.1)
+    fig.save(second)
+    assert first.read_bytes() == second.read_bytes()

@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
 from io import BytesIO
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
 import matplotlib.pyplot as plt
@@ -30,6 +31,8 @@ from figworks.core.element import (
 )
 
 if TYPE_CHECKING:
+    from matplotlib.typing import RcKeyType
+
     from figworks.figure.figure import Theme
 
 # Matplotlib salts clip-path and marker ids with a random value unless one is set,
@@ -45,7 +48,7 @@ def mpl_svg_context() -> Iterator[None]:
         yield
 
 
-def theme_rc(theme: str | Theme = "paper") -> dict[str, Any]:
+def theme_rc(theme: str | Theme = "paper") -> dict[RcKeyType, Any]:
     """Matplotlib rc settings that give a plot the figure theme's typeface.
 
     Matplotlib fixes a text's font when the text is created, but chooses math
@@ -103,6 +106,30 @@ def mpl_to_svg(
         root.set("id", id)
         svg = etree.tostring(root, encoding="unicode")
     return svg
+
+
+# Matplotlib stamps creation dates into PDF and SVG; dropping them is what lets
+# a regenerated file come out byte-identical.
+_SAVE_METADATA = {"svg": SVG_METADATA, "pdf": {"CreationDate": None}}
+
+
+def save_figure(fig: Figure, path: str | Path, *, dpi: float = 300) -> None:
+    """Write a Matplotlib figure deterministically, after checking its fonts.
+
+    The same file comes out on every run: SVG ids are pinned and creation dates
+    dropped, as for figures placed in FigWorks.  Fonts are checked first, as
+    :meth:`figworks.Figure.save` does, so a missing face raises
+    :class:`~figworks.fonts.FontError` instead of being substituted.
+    """
+    from figworks.fonts import check_fonts
+
+    output = Path(path)
+    suffix = output.suffix.lower().lstrip(".")
+    if suffix not in ("svg", "pdf", "png"):
+        raise ValueError(f"Unsupported export format: {output.suffix}")
+    check_fonts(mpl_to_svg(fig))
+    with mpl_svg_context():
+        fig.savefig(output, dpi=dpi, metadata=_SAVE_METADATA.get(suffix))
 
 
 def axes_frame(fig: Figure) -> tuple[float, float, float, float]:

@@ -20,6 +20,7 @@ nav = [
       { "3D scenes" = "usage/scenes-3d.md" },
       { "Placeholders & fill" = "usage/placeholders.md" },
       { "Grid layout" = "usage/layout.md" },
+      { "Figure collections" = "usage/collections.md" },
       { "Export & display" = "usage/export.md" },
   ] },
   { "Development" = "development.md" },

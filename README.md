@@ -98,11 +98,14 @@ The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
 - lay out many SVGs into a labelled grid;
 - select elements by `#id`, `.class`, or tag name, then delete them or set
   attributes and inline style;
-- save to `.svg`, `.pdf`, and `.png`, and display figures inline in notebooks.
+- save to `.svg`, `.pdf`, and `.png`, byte-identically from run to run, and
+  display figures inline in notebooks;
+- regenerate a whole set of figures from one command with `FigureCollection`.
 
 `Panel.add` reads each source's intrinsic size from its `viewBox`, scales it
 uniformly, and centres it in the panel. Placement wraps the source in a group
-but does not rewrite its ids, so selectors reach inside placed content.
+and keeps its ids, prefixing only those that collide with ids already in the
+figure, so selectors reach inside placed content.
 
 ## Sources
 

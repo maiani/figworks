@@ -6,17 +6,17 @@ This is a self-contained example of `figworks.FigureCollection`: register
 every figure exactly once, share one style sheet and one output directory,
 and regenerate the whole set (or a single figure) from a single command.
 
-Each figure is a plain Matplotlib `Figure`, so the collection can save it to
-PDF (vector, for LaTeX), SVG (vector, for editing), and PNG (raster, for
-slides) without the builder knowing anything about file paths.  The FigWorks
-`Figure` assembly shown below is exported through the same path.
+A builder returns either a Matplotlib figure or a composed FigWorks `Figure`;
+the collection saves both to PDF (vector, for LaTeX), SVG (vector, for
+editing), and PNG (raster, for slides), byte-identically from run to run,
+without the builder knowing anything about file paths.  Every plot uses the
+theme's typeface; the style sheet adds the cosmetics.
 
 Running
 
     python examples/thesis_plots.py --all
 
-regenerates every registered figure into `examples/output_plots/`.  See the
-module-level `FigureCollection` docstring for the full usage contract.
+regenerates every registered figure into `examples/out/thesis/`.
 
 Usage
 -----
@@ -40,38 +40,15 @@ HERE = Path(__file__).resolve().parent
 # The style sheet and the output directory are the two things the collection
 # owns; the physics and the figure builders stay out of the machinery.
 DEMO = FigureCollection(
-    name="thesis_plots.py",
+    outdir=HERE / "out" / "thesis",
+    theme="paper",
     style_file=HERE / "thesis_styles.mplstyle",
-    outdir=HERE / "output_plots",
 )
 figure = DEMO.figure
 
 
 def _demo_lorentzian(energy: np.ndarray, eps: float, width: float) -> np.ndarray:
     return width / np.pi / ((energy - eps) ** 2 + width**2)
-
-
-def _figworks_as_matplotlib(canvas: Figure) -> plt.Figure:
-    """Wrap a FigWorks `Figure` so the collection can save it.
-
-    A FigWorks `Figure` exports through its own `save`, which needs a file
-    path with an extension; the collection hands Matplotlib `Figure`s to
-    `pyplot.savefig`.  PNG through a temporary file is the natural bridge.
-    """
-    import tempfile
-
-    import matplotlib.image as mpimg
-
-    with tempfile.TemporaryDirectory() as tmp:
-        png = Path(tmp) / "canvas.png"
-        canvas.save(png, dpi=150)
-        image = mpimg.imread(png)
-
-    fig, ax = plt.subplots(figsize=(7, 3.5))
-    ax.imshow(image, aspect="auto", interpolation="nearest")
-    ax.axis("off")
-    fig.tight_layout()
-    return fig
 
 
 @figure("demo_ldos_curves")
@@ -107,29 +84,28 @@ def demo_ldos_curves():
 
 
 @figure("demo_two_panel_figure")
-def demo_two_panel_figure():
-    """A figworks-assembled two-panel figure: one inside a `Figure` canvas.
+def demo_two_panel_figure() -> Figure:
+    """A composed two-panel figure, saved as a vector figure like any plot.
 
-    The left panel is a Matplotlib plot embedded with `panel.add(...)`; the
-    right panel holds native FigWorks elements (a label, text, and an arrow).
-    Both are wrapped in a FigWorks `Figure`, exported to PNG, and handed back
-    as a Matplotlib figure so the collection manages it like any other.
+    The left panel is a Matplotlib plot made to the panel's size and placed by
+    its axes frame; the right panel holds native FigWorks elements (a label,
+    text, and an arrow).  The builder returns the FigWorks `Figure` itself.
     """
-    x = np.linspace(0, 2 * np.pi, 200)
-    curve, ax = plt.subplots(figsize=(3, 2))
-    ax.plot(x, np.sin(x), gid="sine-line")
-    ax.set_title("panel a")
-
     canvas = Figure(width="140mm", height="70mm", theme="paper")
-    left = canvas.panel("left", x="5mm", y="5mm", w="60mm", h="55mm")
-    right = canvas.panel("right", x="75mm", y="5mm", w="60mm", h="55mm")
-    left.add(curve, id="sine")
+    left = canvas.panel("left", x="14mm", y="8mm", w="50mm", h="48mm")
+    right = canvas.panel("right", x="80mm", y="8mm", w="55mm", h="48mm")
+
+    x = np.linspace(0, 2 * np.pi, 200)
+    curve, ax = left.subplots()
+    ax.plot(x, np.sin(x), gid="sine-line")
+    ax.set_xlabel(r"$\theta$")
+    left.add(curve, id="sine", fit="axes")
+
     canvas.label("a", anchor=left.nw)
     canvas.label("b", anchor=right.nw)
-    canvas.text("native text", x="80mm", y="30mm", id="caption")
-    canvas.arrow(id="callout", start=("52mm", "30mm"), end=("70mm", "30mm"))
-
-    return _figworks_as_matplotlib(canvas)
+    canvas.text("native text", x="88mm", y="32mm", id="caption")
+    canvas.arrow(id="callout", start=("66mm", "31mm"), end=("86mm", "31mm"))
+    return canvas
 
 
 @figure("demo_stacked_layout")

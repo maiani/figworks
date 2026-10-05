@@ -1,15 +1,9 @@
-# Shared style for the figworks thesis_plots example.
-# Loaded through FigureCollection.apply_style() before every build.
+# Plot cosmetics for the thesis_plots example, applied by FigureCollection
+# before the theme. The theme owns the typeface and base size; the collection
+# owns the PNG resolution.
 
-figure.facecolor : white
-savefig.facecolor : white
-savefig.dpi : 200
-
-font.family : serif
-font.size : 9
-
-axes.labelsize : 10
-axes.titlesize : 10
+axes.labelsize : 9
+axes.titlesize : 9
 axes.linewidth : 0.8
 
 xtick.labelsize : 8

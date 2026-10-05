@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Literal
 
 from figworks._export import svg_to_pdf, svg_to_png
 from figworks.core.document import SVGDocument
@@ -239,10 +239,37 @@ class Figure:
         h: str | int | float,
         id: str | None = None,
         preserve_aspect_ratio: bool = True,
+        fit: Literal["content", "axes"] = "content",
     ) -> etree._Element:
-        """Place any supported SVG-producing source in a figure box."""
-        from figworks.core.element import resolve_svg_source
+        """Place any supported SVG-producing source in a figure box.
 
+        ``fit="content"`` fits the source's drawn content into the box.  For a
+        Matplotlib figure, ``fit="axes"`` fits its *axes frame* instead -- the
+        union of its axes -- and lets tick and axis labels hang outside the
+        box.  Panels placed that way have frames exactly where their boxes are,
+        so frames in a row line up whatever their labels.  With a figure from
+        :meth:`Panel.subplots`, the frame is the box's size and the plot is
+        placed at 1:1, so its text keeps its nominal size.
+        """
+        from figworks.core.element import fit_transform, resolve_svg_source
+
+        if fit == "axes":
+            import matplotlib as mpl
+
+            from figworks.matplotlib import axes_frame, mpl_to_svg
+
+            if not isinstance(source, mpl.figure.Figure):
+                raise ValueError("fit='axes' needs a Matplotlib figure")
+            # Export first: drawing applies any layout engine, fixing the frame.
+            svg = mpl_to_svg(source, bbox_inches=None)
+            transform = fit_transform(
+                (to_px(x), to_px(y), to_px(w), to_px(h)),
+                axes_frame(source),
+                preserve_aspect_ratio=preserve_aspect_ratio,
+            )
+            return self.document.import_svg(svg, id=id, transform=transform)
+        if fit != "content":
+            raise ValueError(f"fit must be 'content' or 'axes', got {fit!r}")
         return self.document.place(
             resolve_svg_source(source),
             to_px(x),

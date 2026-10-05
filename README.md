@@ -177,6 +177,18 @@ right.add(circuit, id="transmon-circuit")
 fig.select("#JJ")  # a junction drawn with id="JJ"
 ```
 
+### Aligned Matplotlib panels
+
+```python
+panel = fig.panel("a", x="18mm", y="8mm", w="62mm", h="48mm")
+mpl_fig, ax = panel.subplots()  # axes frame exactly the panel, at 1:1
+ax.plot(x, y)
+panel.add(mpl_fig, id="plot-a", fit="axes")
+```
+
+Plots made this way keep their nominal text size, and their axes frames sit
+exactly on their panels, so frames in a row line up whatever their tick labels.
+
 ### Matplotlib, both directions
 
 ```python

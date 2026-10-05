@@ -55,6 +55,39 @@ set_gid(line, "sine-line")
 fig.select("#sine-line").set_style(stroke_width="2pt")
 ```
 
+## Aligning axes across panels
+
+`Panel.add` fits a plot's drawn content into the panel by default. For a row of
+plots that misaligns the axes frames: a plot with wider tick labels has its
+frame pushed further in and scaled differently, and fitting rescales its text
+away from the nominal size.
+
+Make each plot with `Panel.subplots` and place it with `fit="axes"` instead:
+
+```python
+panel = fig.panel("spectrum", x="18mm", y="8mm", w="62mm", h="48mm")
+mpl_fig, ax = panel.subplots()  # a figure whose axes frame is the panel
+ax.plot(x, y)
+panel.add(mpl_fig, id="spectrum-plot", fit="axes")
+```
+
+- `Panel.subplots` returns a Matplotlib figure exactly the panel's physical size,
+  with its axes grid filling it edge to edge. It takes the arguments of
+  `plt.subplots` (`nrows`, `ncols`, `sharex`, `gridspec_kw={"wspace": ...}`, …),
+  but sets the figure size, the grid's outer edges, and no layout engine itself,
+  since those would move the frame.
+- `fit="axes"` maps the figure's *axes frame*, the union of its axes, onto the
+  panel, and lets tick and axis labels hang outside it. A figure from
+  `Panel.subplots` lands at exactly 1:1, so 8 pt stays 8 pt.
+- Panels in a row with the same `y` and `h` then have frames whose tops and
+  bottoms coincide, whatever their labels. Leave room for the labels around the
+  panels when laying them out: the panel is the frame, not the whole plot.
+
+`fit="axes"` also accepts an ordinary figure, made with any `figsize` and layout
+engine. Its frame is then fitted into the panel, scaled uniformly and centred,
+which aligns frames but rescales text. `examples/two_panel_figure.py` shows two
+aligned panels with very different tick labels.
+
 ## Direction 2: SVG imported as a Matplotlib object
 
 Import an SVG string as a Matplotlib artist so it can be placed directly into a

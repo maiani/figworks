@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-10-05
+
+### Added
+
+- `Panel.subplots(nrows, ncols, **kwargs)`: a Matplotlib figure exactly the
+  panel's physical size, whose axes grid fills it edge to edge, so the panel is
+  the axes frame and tick labels fall outside it.
+- `fit="axes"` for `Panel.add` and `Figure.add`: place a Matplotlib figure by its
+  axes frame (the union of its axes) rather than its drawn content, with labels
+  hanging outside. With `Panel.subplots` the plot lands at exactly 1:1, so text
+  keeps its nominal size and frames in a row line up whatever their tick labels.
+  `fit="content"` remains the default.
+- `figworks.matplotlib.axes_frame(fig)`.
+
+### Changed
+
+- `examples/two_panel_figure.py` shows two aligned panels with very different
+  tick labels.
+
 ## [0.4.0] - 2026-10-05
 
 ### Added

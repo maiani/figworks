@@ -105,6 +105,26 @@ def mpl_to_svg(
     return svg
 
 
+def axes_frame(fig: Figure) -> tuple[float, float, float, float]:
+    """The union of a figure's visible axes, as ``(width, height, x, y)`` in points.
+
+    Measured from the figure's top-left corner, y downward, which is the
+    coordinate system of the figure's own SVG export with ``bbox_inches=None``.
+    The order matches :func:`~figworks.core.element.svg_intrinsic_size`, so the
+    frame can stand in for a document's intrinsic box when fitting.  Read it
+    after the figure is drawn, so a layout engine's positions are final.
+    """
+    frames = [ax.get_position() for ax in fig.axes if ax.get_visible()]
+    if not frames:
+        raise ValueError("the figure has no visible axes to align by")
+    width_pt, height_pt = (float(v) * 72 for v in fig.get_size_inches())
+    left = min(frame.x0 for frame in frames) * width_pt
+    right = max(frame.x1 for frame in frames) * width_pt
+    top = (1 - max(frame.y1 for frame in frames)) * height_pt
+    bottom = (1 - min(frame.y0 for frame in frames)) * height_pt
+    return right - left, bottom - top, left, top
+
+
 def set_gid[ArtistT: Artist](artist: ArtistT, gid: str) -> ArtistT:
     """Assign a semantic SVG ID to a Matplotlib artist."""
 

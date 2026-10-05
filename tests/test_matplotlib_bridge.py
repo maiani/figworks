@@ -19,7 +19,7 @@ def test_insert_replaces_placeholder_by_id():
 
 
 def test_insert_raises_for_unknown_id():
-    mpl_fig, ax = plt.subplots()
+    mpl_fig, _ = plt.subplots()
     import pytest
 
     with pytest.raises(UserWarning):

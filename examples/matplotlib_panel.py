@@ -1,8 +1,7 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 from figforge import Figure
-
 
 x = np.linspace(0, 2 * np.pi, 200)
 y = np.sin(x)

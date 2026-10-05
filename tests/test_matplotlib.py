@@ -16,6 +16,30 @@ def test_matplotlib_export_contains_gid_and_text():
     assert "x axis" in svg
 
 
+def test_matplotlib_export_is_byte_identical():
+    """Clip-path ids are salted and the date stamped unless FigForge pins both."""
+
+    def export():
+        mpl_fig, ax = plt.subplots()
+        ax.plot([0, 1], [0, 1], marker="o")
+        svg = mpl_to_svg(mpl_fig)
+        plt.close(mpl_fig)
+        return svg
+
+    first = export()
+    assert "clipPath" in first, "the export must contain the salted ids this guards"
+    assert first == export()
+    assert "<dc:date>" not in first
+
+
+def test_matplotlib_export_restores_rcparams():
+    before = {key: plt.rcParams[key] for key in ("svg.fonttype", "svg.hashsalt")}
+    mpl_fig, _ = plt.subplots()
+    mpl_to_svg(mpl_fig)
+    plt.close(mpl_fig)
+    assert {key: plt.rcParams[key] for key in before} == before
+
+
 def test_panel_imports_matplotlib_svg():
     mpl_fig, ax = plt.subplots()
     ax.plot([0, 1], [0, 1])

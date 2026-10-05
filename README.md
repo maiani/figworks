@@ -1,7 +1,8 @@
 # FigForge
 
 FigForge is a thin assembly layer for publication-quality figures built from
-Matplotlib plots, Vectex equations, vecview schematics, and native SVG elements.
+Matplotlib plots, Vectex equations, vecview schematics, cirquit circuit
+schematics, and native SVG elements.
 
 The canonical output is SVG. PDF and PNG export are supported through CairoSVG.
 
@@ -9,7 +10,7 @@ FigForge is designed as an editable assembly layer between plotting code and fin
 
 ## The suite
 
-FigForge is the composition layer of three projects developed together, each
+FigForge is the composition layer of four projects developed together, each
 independently useful:
 
 | Project | Produces |
@@ -17,17 +18,19 @@ independently useful:
 | **FigForge** | composed, exported multi-panel figures |
 | [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
 | [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+| cirquit | editable circuit schematics as SVG documents |
 
-All three emit vector SVG with stable ids and deterministic output, so a figure
+All four emit vector SVG with stable ids and deterministic output, so a figure
 can be regenerated from code, diffed in version control, and still hand-tuned in
-Inkscape. Vectex and vecview know nothing about FigForge: both simply expose
-`to_svg_document()`, and FigForge places anything that does — no adapter here, no
+Inkscape. Vectex, vecview, and cirquit know nothing about FigForge: all three
+simply expose `to_svg_document()`, and FigForge places anything that does — no adapter here, no
 import in either direction.
 
 The dependency edges are uneven by design: Vectex is a runtime requirement,
-vecview is optional and installed from a checkout, and neither depends on
-FigForge. [`AGENTS.md`](AGENTS.md#the-suite) records why the three are built
-apart but in step.
+vecview and cirquit are optional and installed from a checkout, and none depends
+on FigForge. cirquit is unpublished; install it from a local checkout with
+`python -m pip install -e /path/to/cirquit`. [`AGENTS.md`](AGENTS.md#the-suite)
+records why the four are built apart but in step.
 
 ## Status
 
@@ -104,7 +107,7 @@ Supported MVP operations include:
 
 - creating an SVG canvas with physical dimensions,
 - adding rectangular panels,
-- placing Matplotlib figures, Vectex fragments, vecview scenes, and SVG documents through one API,
+- placing Matplotlib figures, Vectex fragments, vecview scenes, cirquit circuits, and SVG documents through one API,
 - importing SVG as Matplotlib artists and swapping placeholders by id (SVG embedded as Matplotlib),
 - adding native text, labels, rectangles, lines, and arrows,
 - drawing placeholders and filling them by id with SVG content,
@@ -186,6 +189,7 @@ python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
 python examples/vecview_panel.py     # requires vecview
+python examples/cirquit_panel.py     # requires cirquit
 ```
 
 Each example writes SVG, PDF, and PNG files.

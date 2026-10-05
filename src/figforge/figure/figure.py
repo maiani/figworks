@@ -51,7 +51,9 @@ def get_theme(theme: str | Theme) -> Theme:
 class Figure:
     """Top-level FigForge SVG figure."""
 
-    def __init__(self, width: str | int | float, height: str | int | float, theme: str | Theme = "paper"):
+    def __init__(
+        self, width: str | int | float, height: str | int | float, theme: str | Theme = "paper"
+    ):
         self.width = width
         self.height = height
         self.theme = get_theme(theme)

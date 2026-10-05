@@ -7,13 +7,14 @@ coordinates maintained tools instead of reproducing them:
 - Matplotlib produces scientific plots as vector SVG.
 - Vectex produces editable TeX equations as vector SVG.
 - vecview produces layered 3D schematics as vector SVG.
+- cirquit produces editable circuit schematics as vector SVG.
 - `lxml` handles selection and document assembly.
 - CairoSVG exports the assembled SVG to PDF and PNG.
 
 The canonical public operation is placement: `Figure.add(...)` and
 `Panel.add(...)` accept an SVG string/path, a Matplotlib figure, or any object
-whose `to_svg_document()` method returns a complete SVG document. Vectex and
-vecview both integrate through that protocol alone, with no adapter in FigForge
+whose `to_svg_document()` method returns a complete SVG document. Vectex,
+vecview, and cirquit all integrate through that protocol alone, with no adapter in FigForge
 and no import in either direction -- the evidence that the contract is
 sufficient, and the reason not to generalize it further. Placeholder
 replacement remains available for post-processing an existing SVG by semantic

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import math
-from typing import Sequence
+from collections.abc import Sequence
 
 from figforge.figure.figure import Figure
 
@@ -59,7 +59,7 @@ def layout_svgs(
     fig = Figure(width=f"{width_total}px", height=f"{height_total}px")
 
     outlines = _outline_list(outline, count)
-    for index, (svg, label, draw_outline) in enumerate(zip(svgs, labels, outlines)):
+    for index, (svg, label, draw_outline) in enumerate(zip(svgs, labels, outlines, strict=True)):
         row, col = divmod(index, ncols)
         cell_x = col * (cell_w + gap_px)
         cell_y = row * (cell_h + gap_px) + (label_gap if has_label else 0)
@@ -94,8 +94,8 @@ def _grid_shape(count: int, shape: tuple[int, int] | None) -> tuple[int, int]:
         if nrows * ncols != count:
             raise ValueError("shape must contain exactly len(svgs) cells")
         return nrows, ncols
-    nrows = int(math.ceil(math.sqrt(count)))
-    ncols = int(math.ceil(count / nrows))
+    nrows = math.ceil(math.sqrt(count))
+    ncols = math.ceil(count / nrows)
     return nrows, ncols
 
 

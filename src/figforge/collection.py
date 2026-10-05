@@ -35,6 +35,7 @@ Run the collection file instead, e.g. `python examples/thesis_plots.py --all`.
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, field
@@ -59,9 +60,12 @@ DEFAULT_FORMATS: tuple[str, ...] = ("pdf", "svg", "png")
 
 def git_revision(cwd: Path) -> str:
     """Short commit the figures were generated from, for provenance."""
+    git = shutil.which("git")
+    if git is None:
+        return "unknown"
     try:
         out = subprocess.run(
-            ["git", "rev-parse", "--short", "HEAD"],
+            [git, "rev-parse", "--short", "HEAD"],
             cwd=cwd,
             capture_output=True,
             text=True,

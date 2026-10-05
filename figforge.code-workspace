@@ -1,13 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "../svg3d"
-		},
-		{
 			"path": "."
 		},
 		{
 			"path": "../vectex"
+		},
+		{
+			"path": "../vecview"
+		},
+		{
+			"path": "../cirquit"
 		}
 	],
 	"settings": {}

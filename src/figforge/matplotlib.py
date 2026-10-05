@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from contextlib import contextmanager
 from io import BytesIO
-from typing import Any, Mapping
+from typing import Any
 
 import matplotlib.pyplot as plt
 from lxml import etree
-from matplotlib import rcParams
+from matplotlib import rc_context
 from matplotlib.offsetbox import DrawingArea, OffsetImage
 
+from figforge.core.document import element_box
 from figforge.core.element import (
     copy_element,
     ensure_defs,
@@ -21,19 +23,18 @@ from figforge.core.element import (
     svg_intrinsic_size,
     svg_tag,
 )
-from figforge.core.document import element_box
+
+# Matplotlib salts clip-path and marker ids with a random value unless one is set,
+# and stamps the export date, so without these two settings no export is byte-identical.
+SVG_METADATA = {"Date": None}
 
 
 @contextmanager
 def mpl_svg_context():
-    """Preserve text as SVG text while exporting Matplotlib figures."""
+    """Keep text as SVG text and ids deterministic while exporting Matplotlib figures."""
 
-    old_fonttype = rcParams.get("svg.fonttype")
-    rcParams["svg.fonttype"] = "none"
-    try:
+    with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figforge"}):
         yield
-    finally:
-        rcParams["svg.fonttype"] = old_fonttype
 
 
 def mpl_to_svg(fig, *, id: str | None = None, transparent: bool = True, bbox_inches="tight") -> str:
@@ -48,6 +49,7 @@ def mpl_to_svg(fig, *, id: str | None = None, transparent: bool = True, bbox_inc
             format="svg",
             transparent=transparent,
             bbox_inches=bbox_inches,
+            metadata=SVG_METADATA,
         )
     svg = buffer.getvalue()
     if id:
@@ -201,7 +203,7 @@ def _current_figure_svg() -> str:
 
     buffer = io.StringIO()
     with mpl_svg_context():
-        plt.savefig(buffer, format="svg")
+        plt.savefig(buffer, format="svg", metadata=SVG_METADATA)
     return buffer.getvalue()
 
 
@@ -213,7 +215,6 @@ def _swap_node(
     preserve_aspect_ratio: bool,
 ) -> None:
     box = element_box(node)
-    x, y, width, height = box
     parent = parent_map.get(node)
     index = list(parent).index(node) if parent is not None else 0
     if parent is not None:
@@ -221,8 +222,8 @@ def _swap_node(
 
     try:
         replacement_root = parse_svg(replacement_svg)
-    except etree.XMLSyntaxError:
-        raise ValueError("Replacement is not valid SVG")
+    except etree.XMLSyntaxError as err:
+        raise ValueError("Replacement is not valid SVG") from err
 
     transform = fit_transform(
         box, svg_intrinsic_size(replacement_svg), preserve_aspect_ratio=preserve_aspect_ratio

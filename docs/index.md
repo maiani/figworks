@@ -14,13 +14,14 @@ final graphic stays editable programmatically.
 
 ## The suite
 
-FigForge is the composition layer of a three-project suite:
+FigForge is the composition layer of a four-project suite:
 [Vectex](https://github.com/maiani/vectex) renders TeX equations to SVG
-fragments, and [vecview](https://github.com/maiani/vecview) draws layered 3D
-schematics as SVG documents. Each is developed independently and usable alone.
+fragments, [vecview](https://github.com/maiani/vecview) draws layered 3D
+schematics as SVG documents, and cirquit draws editable circuit schematics as
+SVG documents. Each is developed independently and usable alone.
 
-Both producers integrate through one method, `to_svg_document()`, so FigForge
-needs no adapter for either and neither imports FigForge.
+All three producers integrate through one method, `to_svg_document()`, so
+FigForge needs no adapter for any of them and none imports FigForge.
 
 ## Why FigForge?
 

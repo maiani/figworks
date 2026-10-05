@@ -40,7 +40,7 @@ class Selection:
     def __len__(self) -> int:
         return len(self.nodes)
 
-    def delete(self) -> "Selection":
+    def delete(self) -> Selection:
         for node in list(self.nodes):
             parent = node.getparent()
             if parent is not None:
@@ -48,13 +48,13 @@ class Selection:
         self.nodes.clear()
         return self
 
-    def set_attr(self, name: str, value: str | int | float) -> "Selection":
+    def set_attr(self, name: str, value: str | int | float) -> Selection:
         attr = name.replace("_", "-")
         for node in self.nodes:
             node.set(attr, str(value))
         return self
 
-    def set_style(self, **style: str | int | float) -> "Selection":
+    def set_style(self, **style: str | int | float) -> Selection:
         for node in self.nodes:
             current = _style_to_dict(node.get("style"))
             for key, value in style.items():

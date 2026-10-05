@@ -4,25 +4,26 @@ Guidance for coding agents working on FigForge.
 
 ## Project Intent
 
-FigForge is an SVG-first Python package for assembling publication-quality scientific figures from Matplotlib plots, Vectex equations, vecview 3D scenes, native SVG elements, annotations, and semantic figure objects.
+FigForge is an SVG-first Python package for assembling publication-quality scientific figures from Matplotlib plots, Vectex equations, vecview 3D scenes, cirquit circuit schematics, native SVG elements, annotations, and semantic figure objects.
 
 Keep the package deterministic, small, and easy to inspect. The main design goal is semantic editability through stable IDs, classes, panels, and roles.
 
 ## The Suite
 
-FigForge is the composition layer of three projects developed together:
+FigForge is the composition layer of four projects developed together:
 
 | Project | Produces |
 | --- | --- |
 | **FigForge** | composed, exported multi-panel figures |
 | [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
 | [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+| cirquit | editable circuit schematics as SVG documents |
 
 Why they are separate projects, and why that matters for what you may change
 here:
 
 **One target.** A publication figure should be generated from code *and* remain
-editable afterwards. All three emit vector SVG with stable ids and deterministic,
+editable afterwards. All four emit vector SVG with stable ids and deterministic,
 byte-identical output, so a figure can be regenerated, diffed in version control,
 and still opened in Inkscape to nudge a label. Anything that makes output
 non-deterministic or ids unstable breaks the shared premise, not just this
@@ -33,17 +34,20 @@ them: Matplotlib already plots, TeX already typesets. The entire integration
 surface is an object exposing `to_svg_document()`.
 
 **Co-development is what tests the contract.** A one-method interface is easy to
-claim and hard to trust. Vectex and vecview share no code -- a TeX compiler and a
-3D projector -- and both integrate through that method alone, with no adapter
-here and no import in either direction. That is the evidence the contract is
-sufficient, and the standing reason to refuse base classes, registries, and
-plugin systems aimed at hypothetical future sources. A third producer is a chance
-to falsify it: if one genuinely cannot be served by `to_svg_document()`, that is a
-real finding and a design conversation, not a licence to add an adapter quietly.
+claim and hard to trust. Vectex, vecview, and cirquit share no code -- a TeX
+compiler, a 3D projector, and a circuit drawer -- and all three integrate through
+that method alone, with no adapter here and no import in either direction. That
+is the evidence the contract is sufficient, and the standing reason to refuse base
+classes, registries, and plugin systems aimed at hypothetical future sources.
+cirquit was a third producer and a chance to falsify the contract; it integrated
+without an adapter, which is further evidence, not proof. Every new producer is
+another such test: if one genuinely cannot be served by `to_svg_document()`, that
+is a real finding and a design conversation, not a licence to add an adapter
+quietly.
 
 The dependency edges are deliberately uneven: Vectex is a runtime requirement,
-vecview is optional and installed from a checkout, and neither depends on
-FigForge. Do not make that symmetric for tidiness.
+vecview and cirquit are optional and installed from a checkout, and none depends
+on FigForge. Do not make that symmetric for tidiness.
 
 ## Current Scope
 
@@ -69,8 +73,8 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
   contract is demonstrably insufficient -- see **The Suite** for why that bar is
   set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
-  they must not appear in `dependencies`. vecview in particular is unpublished, so
-  a dependency entry would resolve to an unrelated PyPI package.
+  they must not appear in `dependencies`. vecview and cirquit in particular are
+  unpublished; a vecview dependency entry would resolve to an unrelated PyPI package.
 - Keep `lxml` focused on mutable DOM operations: parsing imported SVG, selection, deletion, style edits, and final serialization.
 - Use Matplotlib for plot generation and SVG export.
 - Use CairoSVG for PDF and PNG export.
@@ -108,6 +112,7 @@ python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
 python examples/vecview_panel.py         # requires vecview from a checkout
 python examples/vecview_plane_plot.py    # a plot projected onto a plane in 3D
+python examples/cirquit_panel.py         # requires cirquit from a checkout
 ```
 
 ## Code Style

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 class Panel:
     """Rectangular figure region with local content."""
 
-    figure: "Figure"
+    figure: Figure
     id: str
     x: float
     y: float

@@ -175,4 +175,5 @@ masked shape, use a gradient *fill* on a plain rectangle instead.
 | Matplotlib | scientific plots as vector SVG |
 | [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
 | [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+| cirquit | editable circuit schematics as SVG documents |
 | FigForge | the composed, exported figure |

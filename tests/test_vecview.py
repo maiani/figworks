@@ -92,7 +92,7 @@ def test_placed_scene_geometry_lands_within_the_panel(scene):
     rendered = etree.fromstring(etree.tostring(tree))
     assert rendered is not None
 
-    width, height, min_x, min_y = svg_intrinsic_size(scene.to_svg_document())
+    width, height, _, _ = svg_intrinsic_size(scene.to_svg_document())
     fitted = min(panel.w / width, panel.h / height)
     drawn_w, drawn_h = width * fitted, height * fitted
 

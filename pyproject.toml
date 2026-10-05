@@ -7,7 +7,7 @@ name = "figforge"
 dynamic = ["version"]
 description = "A Python framework for building publication-quality scientific SVG figures."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = "MIT"
 authors = [
     { name = "Andrea Maiani" },
@@ -27,7 +27,7 @@ Issues = "https://github.com/maiani/figforge/issues"
 [project.optional-dependencies]
 dev = [
     "pytest",
-    "ruff",
+    "ruff>=0.12",
     "zensical",
 ]
 
@@ -39,7 +39,16 @@ version = { attr = "figforge.__version__" }
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "N", "RUF", "S", "UP"]
+ignore = ["S603"]
+
+[tool.ruff.lint.per-file-ignores]
+# S314/S320: tests parse SVG this package just generated, not untrusted input.
+"tests/**" = ["S101", "S314", "S320"]
+"examples/**" = ["S101"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

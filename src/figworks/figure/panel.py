@@ -5,13 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any
 
-from figforge.core.units import to_px
-from figforge.figure.anchors import Anchor
+from figworks.core.units import to_px
+from figworks.figure.anchors import Anchor
 
 if TYPE_CHECKING:
     from lxml import etree
 
-    from figforge.figure.figure import Figure
+    from figworks.figure.figure import Figure
 
 
 @dataclass

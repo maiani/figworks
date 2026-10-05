@@ -6,16 +6,16 @@ from typing import TYPE_CHECKING, Any
 
 import svg
 
-from figforge.core.document import SVGDocument
-from figforge.core.element import svg_kwargs, svg_to_lxml
-from figforge.core.units import px_decimal
+from figworks.core.document import SVGDocument
+from figworks.core.element import svg_kwargs, svg_to_lxml
+from figworks.core.units import px_decimal
 
 if TYPE_CHECKING:
     from lxml import etree
 
 
 def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._Element:
-    marker_id = "figforge-arrowhead"
+    marker_id = "figworks-arrowhead"
     existing = document.root.find(f".//*[@id='{marker_id}']")
     if existing is not None:
         return existing
@@ -32,7 +32,7 @@ def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._
     )
     marker.append(
         svg_to_lxml(
-            svg.Path(fill=stroke, class_=["figforge-arrowhead-path"]),
+            svg.Path(fill=stroke, class_=["figworks-arrowhead-path"]),
             raw={"d": "M 0 0 L 8 4 L 0 8 z"},
         )
     )
@@ -47,7 +47,7 @@ def line_arrow(
     y2: str | int | float,
     **attrs: Any,
 ) -> etree._Element:
-    attrs.setdefault("marker_end", "url(#figforge-arrowhead)")
+    attrs.setdefault("marker_end", "url(#figworks-arrowhead)")
     return svg_to_lxml(
         svg.Line(
             x1=px_decimal(x1),

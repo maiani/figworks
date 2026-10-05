@@ -17,8 +17,8 @@ from matplotlib.offsetbox import DrawingArea, OffsetImage
 from matplotlib.patches import Rectangle
 from matplotlib.transforms import Bbox
 
-from figforge.core.document import element_box
-from figforge.core.element import (
+from figworks.core.document import element_box
+from figworks.core.element import (
     copy_element,
     ensure_defs,
     fit_transform,
@@ -38,7 +38,7 @@ SVG_METADATA = {"Date": None}
 def mpl_svg_context() -> Iterator[None]:
     """Keep text as SVG text and ids deterministic while exporting Matplotlib figures."""
 
-    with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figforge"}):
+    with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figworks"}):
         yield
 
 
@@ -106,7 +106,7 @@ def compose(
     """Place SVG-producing sources into Matplotlib axes and return SVG.
 
     ``replacements`` maps each target axes to an SVG string/path, Matplotlib
-    figure, Vectex fragment, or another SVG document provider.  This is the
+    figure, VecTeX fragment, or another SVG document provider.  This is the
     lightweight entry point for callers that do not need :class:`Figure`.
     """
 
@@ -118,7 +118,7 @@ def compose(
             raise TypeError("compose replacement keys must be Matplotlib axes")
         if getattr(axes, "figure", target_figure) is not target_figure:
             raise ValueError("all replacement axes must belong to fig")
-        gid = f"figforge-compose-{index}"
+        gid = f"figworks-compose-{index}"
         placeholder = Rectangle((0, 0), 1, 1, transform=axes.transAxes)
         placeholder.set_gid(gid)
         axes.add_artist(placeholder)
@@ -185,7 +185,7 @@ def insert(
     returned SVG string has each matching element replaced with the imported
     vector content, scaled and positioned to fit the original element's box.
     """
-    from figforge.core.element import resolve_svg_source
+    from figworks.core.element import resolve_svg_source
 
     if svg is None:
         svg = mpl_to_svg(fig) if fig is not None else _current_figure_svg()

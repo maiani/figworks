@@ -31,13 +31,13 @@ fig.document.to_string()
 
 ## Display inline (notebooks)
 
-Render an SVG, a Matplotlib figure, or a FigForge figure directly in a Jupyter
+Render an SVG, a Matplotlib figure, or a FigWorks figure directly in a Jupyter
 notebook.
 
 ```python
-from figforge import display_svg
+from figworks import display_svg
 
-display_svg(fig)  # a figforge Figure
+display_svg(fig)  # a figworks Figure
 display_svg(mpl_fig)  # a Matplotlib figure
 display_svg(svg_text)  # a raw SVG string
 ```

@@ -1,4 +1,4 @@
-from figforge.core.units import to_px
+from figworks.core.units import to_px
 
 
 def test_to_px_supported_units():

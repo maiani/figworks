@@ -1,8 +1,8 @@
 """Shared low-level SVG/XML helpers and element primitives.
 
 This module is the canonical home for helpers that construct, parse, size, and
-place SVG content. Higher-level modules (:mod:`figforge.core.document`,
-:mod:`figforge.matplotlib`) build on these primitives.
+place SVG content. Higher-level modules (:mod:`figworks.core.document`,
+:mod:`figworks.matplotlib`) build on these primitives.
 """
 
 from __future__ import annotations
@@ -113,7 +113,7 @@ def svg_intrinsic_size(svg_string: str) -> tuple[float, float, float, float]:
     if view_box:
         min_x, min_y, width, height = [float(value) for value in view_box.replace(",", " ").split()]
         return width, height, min_x, min_y
-    from figforge.core.units import to_px
+    from figworks.core.units import to_px
 
     width = to_px(root.get("width", "1px"))
     height = to_px(root.get("height", "1px"))
@@ -126,7 +126,7 @@ def svg_physical_size(svg_string: str) -> tuple[float, float]:
     Taken from the root's ``width``/``height`` with their units, falling back to
     the viewBox extents when either is missing.
     """
-    from figforge.core.units import to_px
+    from figworks.core.units import to_px
 
     root = parse_svg(svg_string)
     view_w, view_h, _, _ = svg_intrinsic_size(svg_string)
@@ -145,7 +145,7 @@ def accumulated_scale(node: etree._Element) -> float:
 
     The linear part of a transform chain scales area by the product of each
     function's determinant, so the uniform scale is its square root. That is
-    exact for the translate/uniform-scale chains FigForge writes, and the mean
+    exact for the translate/uniform-scale chains FigWorks writes, and the mean
     scale for anything else. The document root's viewBox is 1:1 by construction.
     """
     det = 1.0
@@ -192,8 +192,8 @@ def fit_transform(
 def resolve_svg_source(source: Any) -> str:
     """Resolve an SVG document, Matplotlib figure, path, or SVG string.
 
-    SVG-producing libraries can integrate without a FigForge adapter by
-    exposing ``to_svg_document()``.  Vectex fragments implement this small
+    SVG-producing libraries can integrate without a FigWorks adapter by
+    exposing ``to_svg_document()``.  VecTeX fragments implement this small
     protocol directly.
     """
     to_svg_document = getattr(source, "to_svg_document", None)
@@ -205,7 +205,7 @@ def resolve_svg_source(source: Any) -> str:
 
     import matplotlib as mpl
 
-    from figforge.matplotlib import mpl_to_svg
+    from figworks.matplotlib import mpl_to_svg
 
     if isinstance(source, mpl.figure.Figure):
         return mpl_to_svg(source)

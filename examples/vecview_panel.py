@@ -1,8 +1,8 @@
-"""Place a vecview scene beside a Matplotlib plot in one composed figure.
+"""Place a VecView scene beside a Matplotlib plot in one composed figure.
 
 The point of the example is that no adapter is involved: `vecview.Scene` exposes
-`to_svg_document()`, which is the whole protocol `Panel.add` needs, so FigForge
-treats a 3D schematic exactly as it treats a Matplotlib figure or a Vectex
+`to_svg_document()`, which is the whole protocol `Panel.add` needs, so FigWorks
+treats a 3D schematic exactly as it treats a Matplotlib figure or a VecTeX
 equation.
 
 Usage:
@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import vecview
 
-from figforge import Figure
+from figworks import Figure
 
 OUT = Path(__file__).resolve().parent / "out"
 
@@ -35,7 +35,7 @@ def build_scene() -> vecview.Scene:
 
     `background` is left transparent and `pad` kept small: a white rectangle would
     cover a neighbouring panel's overhang, and padding shrinks the drawing inside
-    its panel because FigForge scales the scene to fit.
+    its panel because FigWorks scales the scene to fit.
     """
     cam = vecview.OrthographicCamera(azim_deg=35.0, elev_deg=24.0, scale=62.0)
     scene = vecview.Scene(cam, pad=6.0)

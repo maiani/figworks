@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import vecview
 
-from figforge import Figure
+from figworks import Figure
 
 OUT = Path(__file__).resolve().parent / "out"
 

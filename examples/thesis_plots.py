@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Reproducible demo figures built with the figforge figure registry.
+Reproducible demo figures built with the FigWorks figure registry.
 
-This is a self-contained example of `figforge.FigureCollection`: register
+This is a self-contained example of `figworks.FigureCollection`: register
 every figure exactly once, share one style sheet and one output directory,
 and regenerate the whole set (or a single figure) from a single command.
 
 Each figure is a plain Matplotlib `Figure`, so the collection can save it to
 PDF (vector, for LaTeX), SVG (vector, for editing), and PNG (raster, for
-slides) without the builder knowing anything about file paths.  The figforge
+slides) without the builder knowing anything about file paths.  The FigWorks
 `Figure` assembly shown below is exported through the same path.
 
 Running
@@ -32,7 +32,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from figforge import Figure, FigureCollection
+from figworks import Figure, FigureCollection
 
 HERE = Path(__file__).resolve().parent
 
@@ -51,10 +51,10 @@ def _demo_lorentzian(energy: np.ndarray, eps: float, width: float) -> np.ndarray
     return width / np.pi / ((energy - eps) ** 2 + width**2)
 
 
-def _figforge_as_matplotlib(canvas: Figure) -> plt.Figure:
-    """Wrap a figforge `Figure` so the collection can save it.
+def _figworks_as_matplotlib(canvas: Figure) -> plt.Figure:
+    """Wrap a FigWorks `Figure` so the collection can save it.
 
-    A figforge `Figure` exports through its own `save`, which needs a file
+    A FigWorks `Figure` exports through its own `save`, which needs a file
     path with an extension; the collection hands Matplotlib `Figure`s to
     `pyplot.savefig`.  PNG through a temporary file is the natural bridge.
     """
@@ -108,11 +108,11 @@ def demo_ldos_curves():
 
 @figure("demo_two_panel_figure")
 def demo_two_panel_figure():
-    """A figforge-assembled two-panel figure: one inside a `Figure` canvas.
+    """A figworks-assembled two-panel figure: one inside a `Figure` canvas.
 
     The left panel is a Matplotlib plot embedded with `panel.add(...)`; the
-    right panel holds native figforge elements (a label, text, and an arrow).
-    Both are wrapped in a figforge `Figure`, exported to PNG, and handed back
+    right panel holds native FigWorks elements (a label, text, and an arrow).
+    Both are wrapped in a FigWorks `Figure`, exported to PNG, and handed back
     as a Matplotlib figure so the collection manages it like any other.
     """
     x = np.linspace(0, 2 * np.pi, 200)
@@ -129,7 +129,7 @@ def demo_two_panel_figure():
     canvas.text("native text", x="80mm", y="30mm", id="caption")
     canvas.arrow(id="callout", start=("52mm", "30mm"), end=("70mm", "30mm"))
 
-    return _figforge_as_matplotlib(canvas)
+    return _figworks_as_matplotlib(canvas)
 
 
 @figure("demo_stacked_layout")

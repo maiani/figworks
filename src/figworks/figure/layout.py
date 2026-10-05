@@ -5,7 +5,7 @@ from __future__ import annotations
 import math
 from collections.abc import Sequence
 
-from figforge.figure.figure import Figure
+from figworks.figure.figure import Figure
 
 
 def layout_svgs(
@@ -20,7 +20,7 @@ def layout_svgs(
     """Assemble multiple SVG strings into a single grid figure.
 
     Each SVG is given equal space in a grid, with optional per-cell labels and
-    outlines. The result is a :class:`figforge.Figure` whose cells are native
+    outlines. The result is a :class:`figworks.Figure` whose cells are native
     SVG imports.
 
     :param svgs: list of SVG strings (or sources accepted by :func:`fill`).
@@ -31,9 +31,9 @@ def layout_svgs(
     :param cell: ``(width, height)`` of each cell in points.
     :param gap: spacing between cells in points.
     :param fontsize: label font size.
-    :returns: a populated :class:`figforge.Figure`.
+    :returns: a populated :class:`figworks.Figure`.
     """
-    from figforge.core.units import to_px
+    from figworks.core.units import to_px
 
     count = len(svgs)
     if count == 0:
@@ -70,7 +70,7 @@ def layout_svgs(
                 y=cell_y,
                 width=cell_w,
                 height=cell_h,
-                class_="figforge-cell-outline",
+                class_="figworks-cell-outline",
                 fill="none",
                 stroke="black",
             )
@@ -79,7 +79,7 @@ def layout_svgs(
                 label,
                 x=cell_x + cell_w / 2,
                 y=cell_y - 3,
-                class_="figforge-cell-label",
+                class_="figworks-cell-label",
                 text_anchor="middle",
                 font_size=fontsize,
             )

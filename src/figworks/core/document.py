@@ -8,7 +8,7 @@ from typing import Any
 import svg
 from lxml import etree
 
-from figforge.core.element import (
+from figworks.core.element import (
     accumulated_scale,
     copy_element,
     ensure_defs,
@@ -20,8 +20,8 @@ from figforge.core.element import (
     svg_physical_size,
     svg_to_lxml,
 )
-from figforge.core.selectors import Selection, select
-from figforge.core.units import px_decimal, svg_length, to_px
+from figworks.core.selectors import Selection, select
+from figworks.core.units import px_decimal, svg_length, to_px
 
 # Which point of slot content sits on the slot's anchor, as fractions of its size.
 SLOT_ALIGN: dict[str, tuple[float, float]] = {
@@ -137,7 +137,7 @@ class SVGDocument:
         rect = svg_to_lxml(
             svg.Rect(
                 id=id,
-                class_=["figforge-placeholder"],
+                class_=["figworks-placeholder"],
                 x=px_decimal(x),
                 y=px_decimal(y),
                 width=px_decimal(w),
@@ -156,8 +156,8 @@ class SVGDocument:
                         text=label,
                         x=px_decimal(x + w / 2),
                         y=px_decimal(y + h / 2),
-                        class_=["figforge-placeholder-label"],
-                        extra={"data-figforge-placeholder": id},
+                        class_=["figworks-placeholder-label"],
+                        extra={"data-figworks-placeholder": id},
                         text_anchor="middle",
                         dominant_baseline="middle",
                     )
@@ -185,7 +185,7 @@ class SVGDocument:
         target = targets.nodes[0]
         box = element_box(target)
         for label in self.root.iter():
-            if label.get("data-figforge-placeholder") == id:
+            if label.get("data-figworks-placeholder") == id:
                 parent = label.getparent()
                 if parent is not None:
                     parent.remove(label)
@@ -226,7 +226,7 @@ class SVGDocument:
         """Fill an anchor group with SVG content at the content's own physical size.
 
         The target is a group translated to an anchor point -- typically a
-        vecview ``Scene.slot`` -- whose ``data-align`` names the point of the
+        VecView ``Scene.slot`` -- whose ``data-align`` names the point of the
         content's box that sits on the anchor (``center`` when absent).  The
         content keeps the size its document declares however the enclosing
         scene was scaled to fit its panel: an 8 pt label stays 8 pt.  The

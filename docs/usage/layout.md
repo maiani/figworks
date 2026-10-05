@@ -1,12 +1,12 @@
 # Grid layout
 
 Assemble many SVG panels into a single labelled figure with
-:func:`figforge.layout_svgs`.
+:func:`figworks.layout_svgs`.
 
 ## Basic usage
 
 ```python
-from figforge import layout_svgs
+from figworks import layout_svgs
 
 fig = layout_svgs(
     [svg_a, svg_b, svg_c, svg_d],
@@ -16,7 +16,7 @@ fig = layout_svgs(
 )
 ```
 
-The returned object is a fully-populated :class:`figforge.Figure`, ready to be
+The returned object is a fully-populated :class:`figworks.Figure`, ready to be
 saved or further annotated.
 
 ```python
@@ -43,8 +43,8 @@ inferred to be as square as possible.
 
 ```python
 import matplotlib.pyplot as plt
-from figforge import layout_svgs
-from figforge.matplotlib import mpl_to_svg
+from figworks import layout_svgs
+from figworks.matplotlib import mpl_to_svg
 
 panels = []
 for i in range(6):

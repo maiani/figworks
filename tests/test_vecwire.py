@@ -1,6 +1,6 @@
-"""Placing a cirquit circuit.
+"""Placing a VecWire circuit.
 
-cirquit is an optional source, not a dependency: FigForge places any object
+VecWire is an optional source, not a dependency: FigWorks places any object
 exposing ``to_svg_document()``, so these tests skip when it is absent.
 """
 
@@ -8,15 +8,15 @@ from __future__ import annotations
 
 import pytest
 
-from figforge import Figure
-from figforge.core.element import SVG_NS, resolve_svg_source, svg_intrinsic_size
+from figworks import Figure
+from figworks.core.element import SVG_NS, resolve_svg_source, svg_intrinsic_size
 
-cirquit = pytest.importorskip("cirquit", reason="cirquit is an optional source")
+vecwire = pytest.importorskip("vecwire", reason="VecWire is an optional source")
 
 
 def build_circuit(**kwargs):
     """An LC loop: shunt capacitor on the left, inductor on the right."""
-    circuit = cirquit.Circuit(72, 100, **kwargs)
+    circuit = vecwire.Circuit(72, 100, **kwargs)
     circuit.row(12, top_left=16, top_right=56, dots={"top_left"})
     circuit.row(88, bottom_left=16, bottom_right=56)
     circuit.wire("top_left", "top_right", id="upper-rail")
@@ -94,10 +94,10 @@ def test_placement_is_deterministic():
 def test_duplicate_ids_across_circuits_collide():
     """Known limitation: imported ids are copied verbatim, without namespacing.
 
-    cirquit names node groups after their nodes, so two circuits built from the
+    VecWire names node groups after their nodes, so two circuits built from the
     same node names both carry ``id="top_left"`` once placed, and ``#top_left``
     matches the first. Use distinct node and component ids per circuit until
-    FigForge rewrites ids on import.
+    FigWorks rewrites ids on import.
     """
     figure = Figure(width="100mm", height="60mm")
     figure.panel("a", x="5mm", y="5mm", w="40mm", h="50mm").add(build_circuit(), id="lc1")

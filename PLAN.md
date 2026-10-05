@@ -1,20 +1,20 @@
-# FigForge direction
+# FigWorks direction
 
-FigForge is a thin, SVG-first composition layer for scientific figures. It
+FigWorks is a thin, SVG-first composition layer for scientific figures. It
 coordinates maintained tools instead of reproducing them:
 
 - `svg.py` constructs native annotations and shapes.
 - Matplotlib produces scientific plots as vector SVG.
-- Vectex produces editable TeX equations as vector SVG.
-- vecview produces layered 3D schematics as vector SVG.
-- cirquit produces editable circuit schematics as vector SVG.
+- VecTeX produces editable TeX equations as vector SVG.
+- VecView produces layered 3D schematics as vector SVG.
+- VecWire produces editable circuit schematics as vector SVG.
 - `lxml` handles selection and document assembly.
 - CairoSVG exports the assembled SVG to PDF and PNG.
 
 The canonical public operation is placement: `Figure.add(...)` and
 `Panel.add(...)` accept an SVG string/path, a Matplotlib figure, or any object
-whose `to_svg_document()` method returns a complete SVG document. Vectex,
-vecview, and cirquit all integrate through that protocol alone, with no adapter in FigForge
+whose `to_svg_document()` method returns a complete SVG document. VecTeX,
+VecView, and VecWire all integrate through that protocol alone, with no adapter in FigWorks
 and no import in either direction -- the evidence that the contract is
 sufficient, and the reason not to generalize it further. Placeholder
 replacement remains available for post-processing an existing SVG by semantic
@@ -44,13 +44,13 @@ contract is insufficient in a demonstrated workflow.
 
 ## Near-term release work
 
-- Exercise Matplotlib and Vectex together in publication-scale examples.
+- Exercise Matplotlib and VecTeX together in publication-scale examples.
 - Keep generated SVG IDs deterministic and collision-free.
 - Namespace ids when importing SVG. Definitions are currently hoisted into the
   figure's `<defs>` verbatim, so two sources sharing a def id collide silently
   and the second takes the first's gradient. Pinned by
   `tests/test_vecview.py::test_duplicate_def_ids_across_scenes_collide`.
-- Test fitting for non-zero viewBox origins and nested definitions. vecview
+- Test fitting for non-zero viewBox origins and nested definitions. VecView
   scenes exercise the non-zero-origin path, since a fitted viewBox is centred
   on its content.
 - Document the difference between direct placement and gid replacement.
@@ -59,12 +59,12 @@ contract is insufficient in a demonstrated workflow.
 ## Recently added
 
 - `fill_plane(id, source)` places content in a group whose transform maps the unit
-  square onto its target, which is how a vecview scene plane receives a plot. The
+  square onto its target, which is how a VecView scene plane receives a plot. The
   normalization is non-uniform by construction, so the target rectangle must match
   the content's aspect ratio.
 
 ## Non-goals
 
-FigForge is not a plotting library, TeX compiler, SVG path editor, GUI, scene
+FigWorks is not a plotting library, TeX compiler, SVG path editor, GUI, scene
 renderer, 3D projection layer, or declarative workflow engine. Those responsibilities belong to its
 inputs and backends.

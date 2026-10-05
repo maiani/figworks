@@ -317,7 +317,7 @@ wheels = [
 ]
 
 [[package]]
-name = "figforge"
+name = "figworks"
 source = { editable = "." }
 dependencies = [
     { name = "cairosvg" },

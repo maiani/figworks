@@ -1,36 +1,34 @@
-# FigForge
+# FigWorks
 
-FigForge assembles multi-panel publication figures from Matplotlib plots, Vectex
-equations, vecview 3D scenes, cirquit circuit schematics, and native SVG
+FigWorks assembles multi-panel publication figures from Matplotlib plots, VecTeX
+equations, VecView 3D scenes, VecWire circuit schematics, and native SVG
 elements. The figure is generated from code and stays editable afterwards:
 panels and elements keep stable ids, the same script writes byte-identical SVG,
 and the result opens in Inkscape for final adjustments.
 
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
-FigForge is an assembly layer between plotting code and the final graphic. It
+FigWorks is an assembly layer between plotting code and the final graphic. It
 does not replace Matplotlib, TeX, Inkscape, or Illustrator.
 
-FigForge is alpha: the core figure model works and is tested, but the API is
+FigWorks is alpha: the core figure model works and is tested, but the API is
 still settling and a minor release may change it.
 
 ## Install
 
-FigForge is not on PyPI, and the name `figforge` there belongs to an unrelated
-project, so `pip install figforge` installs the wrong package. Install from a
-checkout (Python 3.12 or newer):
+FigWorks is not on PyPI yet. Install it from a checkout (Python 3.12 or newer):
 
 ```bash
-python -m pip install -e /path/to/figforge
+python -m pip install -e /path/to/figworks
 ```
 
-This pulls in Matplotlib, lxml, svg.py, CairoSVG, and Vectex. Rendering
-equations with Vectex also needs a TeX installation with `pdflatex` and
-`dvisvgm` on `PATH`. vecview and cirquit are optional and unpublished; install
+This pulls in Matplotlib, lxml, svg.py, CairoSVG, and VecTeX. Rendering
+equations with VecTeX also needs a TeX installation with `pdflatex` and
+`dvisvgm` on `PATH`. VecView and VecWire are optional and unpublished; install
 them from their own checkouts when you need them:
 
 ```bash
 python -m pip install -e /path/to/vecview
-python -m pip install -e /path/to/cirquit
+python -m pip install -e /path/to/vecwire
 ```
 
 ## Quick start
@@ -39,7 +37,7 @@ python -m pip install -e /path/to/cirquit
 import numpy as np
 import matplotlib.pyplot as plt
 
-from figforge import Figure
+from figworks import Figure
 
 x = np.linspace(0, 2 * np.pi, 200)
 mpl_fig, ax = plt.subplots(figsize=(3, 2))
@@ -69,12 +67,12 @@ For the common case of dropping SVG into existing Matplotlib axes, `compose`
 needs no `Figure` at all:
 
 ```python
-import figforge
+import figworks
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax.plot([0, 1], [0, 1])
-svg = figforge.compose({ax: "logo.svg"}, fig=fig)
+svg = figworks.compose({ax: "logo.svg"}, fig=fig)
 with open("figure.svg", "w", encoding="utf-8") as output:
     output.write(svg)
 ```
@@ -87,7 +85,7 @@ The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
 - create an SVG canvas with physical dimensions and a theme (`"paper"` or
   `"presentation"`);
 - add rectangular panels with named anchors (`panel.nw`, `panel.center`, …);
-- place Matplotlib figures, Vectex fragments, vecview scenes, cirquit circuits,
+- place Matplotlib figures, VecTeX fragments, VecView scenes, VecWire circuits,
   SVG files, and SVG strings through one call, `Panel.add`;
 - add native text, panel labels, rectangles, lines, circles, ellipses,
   polylines, paths, and arrows;
@@ -103,11 +101,11 @@ but does not rewrite its ids, so selectors reach inside placed content.
 
 ## Sources
 
-Everything except Matplotlib integrates through one method: FigForge places any
-object exposing `to_svg_document()`. Vectex, vecview, and cirquit implement it
-without importing FigForge, and FigForge has no adapter for any of them.
+Everything except Matplotlib integrates through one method: FigWorks places any
+object exposing `to_svg_document()`. VecTeX, VecView, and VecWire implement it
+without importing FigWorks, and FigWorks has no adapter for any of them.
 
-### Vectex equations
+### VecTeX equations
 
 ```python
 import vectex
@@ -117,7 +115,7 @@ panel.add(equation, id="equation-panel")
 fig.select("#equation-root").set_attr("fill", "navy")
 ```
 
-### vecview scenes
+### VecView scenes
 
 ```python
 import vecview
@@ -163,9 +161,9 @@ fig.fill_slot("label-z", label)
 plot's aspect ratio. [3D scenes](docs/usage/scenes-3d.md) covers orientation,
 line weights, and export caveats.
 
-### cirquit circuits
+### VecWire circuits
 
-A `cirquit.Circuit` places like any other source, and its component ids and
+A `vecwire.Circuit` places like any other source, and its component ids and
 `data-component` attributes survive placement:
 
 ```python
@@ -177,14 +175,14 @@ fig.select("#JJ")  # a junction drawn with id="JJ"
 ### Matplotlib, both directions
 
 ```python
-from figforge.matplotlib import connect, insert, mpl_to_svg
+from figworks.matplotlib import connect, insert, mpl_to_svg
 
 svg = mpl_to_svg(mpl_fig)  # Matplotlib -> SVG
 connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)  # reserve a placeholder in the axes
 result = insert({"slot": panel_fig}, fig=mpl_fig)  # swap in vector SVG by id
 ```
 
-Matplotlib exports are made deterministic: FigForge pins the id salt and drops
+Matplotlib exports are made deterministic: FigWorks pins the id salt and drops
 the export date, which otherwise change on every run.
 
 ## Placeholders and grids
@@ -195,7 +193,7 @@ fig.fill("main-slot", mpl_fig)  # a figure, an SVG file path, or an SVG string
 ```
 
 ```python
-from figforge import layout_svgs
+from figworks import layout_svgs
 
 grid = layout_svgs([svg_a, svg_b, svg_c], labels=["a", "b", "c"], outline=True)
 grid.save("grid.svg")
@@ -219,22 +217,22 @@ python examples/two_panel_figure.py
 python examples/matplotlib_bridge.py
 python examples/vecview_panel.py         # requires vecview
 python examples/vecview_plane_plot.py    # requires vecview; a plot in a 3D plane
-python examples/cirquit_panel.py         # requires cirquit
+python examples/vecwire_panel.py         # requires vecwire
 ```
 
 Each example writes its figures into `examples/out/`.
 
 ## The suite
 
-FigForge is the composition layer of four projects developed together, each
+FigWorks is the composition layer of four projects developed together, each
 independently useful:
 
 | Project | Produces | Maturity |
 | --- | --- | --- |
-| **FigForge** | composed, exported multi-panel figures | alpha: core API still settling |
-| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
-| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: unpublished, install from a checkout |
-| cirquit | editable circuit schematics as SVG documents | pre-alpha: unpublished, first version |
+| **FigWorks** | composed, exported multi-panel figures | alpha: core API still settling |
+| [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
+| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: unpublished, install from a checkout |
+| VecWire | editable circuit schematics as SVG documents | pre-alpha: unpublished, first version |
 
 All four emit vector SVG with stable ids and byte-identical output for
 identical input, so a figure can be regenerated from code, diffed in version
@@ -242,8 +240,8 @@ control, and still hand-tuned in Inkscape. All four are pre-1.0 and make no
 backward-compatibility promise; deterministic output is the one guarantee they
 share.
 
-The dependency edges are uneven by design: Vectex is a runtime requirement,
-vecview and cirquit are optional, and none of the three depends on FigForge.
+The dependency edges are uneven by design: VecTeX is a runtime requirement,
+VecView and VecWire are optional, and none of the three depends on FigWorks.
 [`AGENTS.md`](AGENTS.md#the-suite) records why the four are built apart but in
 step.
 
@@ -259,7 +257,7 @@ mypy
 pytest
 ```
 
-Tests for vecview and cirquit skip when those packages are not installed.
+Tests for VecView and VecWire skip when those packages are not installed.
 
 ## Documentation
 
@@ -272,7 +270,7 @@ zensical build    # static build into site/
 
 ## Non-goals
 
-FigForge does not currently attempt to provide a GUI, a full SVG path editor,
+FigWorks does not currently attempt to provide a GUI, a full SVG path editor,
 an Inkscape replacement, declarative YAML figure specs, or a complete CSS
 selector engine.
 

@@ -1,12 +1,12 @@
 # 3D scenes
 
-[vecview](https://github.com/maiani/vecview) draws layered 3D schematics — a slab, a
-beam, a crystal lattice, an optical bench — as a single SVG document. Like Vectex
-fragments, an `vecview.Scene` implements FigForge's SVG-document protocol, so it
+[VecView](https://github.com/maiani/vecview) draws layered 3D schematics — a slab, a
+beam, a crystal lattice, an optical bench — as a single SVG document. Like VecTeX
+fragments, an `vecview.Scene` implements FigWorks's SVG-document protocol, so it
 needs no adapter:
 
 ```python
-import figforge
+import figworks
 import vecview
 
 cam = vecview.OrthographicCamera(azim_deg=35, elev_deg=24, scale=62)
@@ -15,7 +15,7 @@ scene = vecview.Scene(cam, pad=8)
 slab = vecview.box_faces(center=(0, 0, -0.45), size=(11, 9, 0.9))
 scene.faces(10, cam.visible(slab), fill="#cfd6e0", stroke="#8b96a6", stroke_width=1.6)
 
-fig = figforge.Figure(width="170mm", height="80mm")
+fig = figworks.Figure(width="170mm", height="80mm")
 geometry = fig.panel("geometry", x="8mm", y="8mm", w="72mm", h="64mm")
 geometry.add(scene, id="slab-scene")
 
@@ -38,20 +38,20 @@ uniformly, and centres it in the panel.
 python -m pip install -e /path/to/vecview
 ```
 
-It is deliberately not a FigForge dependency. FigForge places any object exposing
+It is deliberately not a FigWorks dependency. FigWorks places any object exposing
 `to_svg_document()`, so the integration costs nothing when `vecview` is absent.
 
 ## Settings that matter when composing
 
 Configure `pad` and `background` on the `Scene` constructor, not at a `render`
-call — FigForge invokes `to_svg_document()` with no arguments:
+call — FigWorks invokes `to_svg_document()` with no arguments:
 
 - **`pad`** is in scene units and survives into the panel as margin. Because the
   scene is scaled to fit, padding shrinks the drawing within its panel. Use a
   small value, or `0`, when the panel layout already provides spacing.
 - **`background`** should stay `None`. A white rectangle behind one scene covers a
   neighbouring panel's overhang and defeats a figure meant for a coloured page.
-- **`scale`** does not affect fit, since FigForge normalizes it away. It does set
+- **`scale`** does not affect fit, since FigWorks normalizes it away. It does set
   stroke widths and font sizes *relative* to the geometry, so keep it consistent
   across scenes that share a figure — otherwise one panel's labels come out
   visibly heavier than another's.
@@ -88,7 +88,7 @@ selectors reach through.
     def id, both survive and `url(#id)` resolves to the first, so the second
     scene silently takes the first one's gradient.
 
-    Until FigForge rewrites ids on import, give each scene distinct def ids:
+    Until FigWorks rewrites ids on import, give each scene distinct def ids:
 
     ```python
     scene.add_def(svg.RadialGradient(id=f"glow-{panel_name}", ...))
@@ -99,7 +99,7 @@ selectors reach through.
 
 ## Choosing a projection
 
-vecview ships five, all parallel projections:
+VecView ships five, all parallel projections:
 
 ```python
 vecview.OrthographicCamera(35, 24, 62)  # trimetric, the general case
@@ -201,7 +201,7 @@ masked shape, use a gradient *fill* on a plain rectangle instead.
 | Package | Produces |
 | --- | --- |
 | Matplotlib | scientific plots as vector SVG |
-| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
-| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
-| cirquit | editable circuit schematics as SVG documents |
-| FigForge | the composed, exported figure |
+| [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
+| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+| VecWire | editable circuit schematics as SVG documents |
+| FigWorks | the composed, exported figure |

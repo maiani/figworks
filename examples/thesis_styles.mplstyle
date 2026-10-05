@@ -1,4 +1,4 @@
-# Shared style for the figforge thesis_plots example.
+# Shared style for the figworks thesis_plots example.
 # Loaded through FigureCollection.apply_style() before every build.
 
 figure.facecolor : white

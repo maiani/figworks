@@ -1,4 +1,4 @@
-from figforge.core.document import SVGDocument
+from figworks.core.document import SVGDocument
 
 
 def test_id_class_and_tag_selection():

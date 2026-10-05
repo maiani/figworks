@@ -1,10 +1,10 @@
-"""Place a cirquit schematic beside a Matplotlib plot in one composed figure.
+"""Place a VecWire schematic beside a Matplotlib plot in one composed figure.
 
-As with vecview, no adapter is involved: `cirquit.Circuit` exposes
+As with VecView, no adapter is involved: `vecwire.Circuit` exposes
 `to_svg_document()`, which is the whole protocol `Panel.add` needs.
 
 Usage:
-    python examples/cirquit_panel.py     # requires cirquit from a checkout
+    python examples/vecwire_panel.py     # requires VecWire from a checkout
 """
 
 from __future__ import annotations
@@ -17,9 +17,9 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import numpy as np
-from cirquit import Circuit
+from vecwire import Circuit
 
-from figforge import Figure
+from figworks import Figure
 
 OUT = Path(__file__).resolve().parent / "out"
 
@@ -81,8 +81,8 @@ def main() -> None:
     fig.select("#label-EJ").set_style(fill=JUNCTION)
 
     for suffix in (".svg", ".png"):
-        fig.save(OUT / f"cirquit_panel{suffix}")
-    print(f"wrote {OUT / 'cirquit_panel.svg'} and PNG")
+        fig.save(OUT / f"vecwire_panel{suffix}")
+    print(f"wrote {OUT / 'vecwire_panel.svg'} and PNG")
 
 
 if __name__ == "__main__":

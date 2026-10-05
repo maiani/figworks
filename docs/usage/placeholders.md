@@ -1,13 +1,13 @@
 # Placeholders & fill
 
 Sometimes you want to reserve a region on a figure and decide what lives in it
-later. FigForge lets you draw a lightweight placeholder and fill it with
+later. FigWorks lets you draw a lightweight placeholder and fill it with
 imported SVG content by id.
 
 ## Create a placeholder
 
 ```python
-from figforge import Figure
+from figworks import Figure
 
 fig = Figure(width="200px", height="100px")
 fig.placeholder("main-slot", x=10, y=10, w=160, h=70, label="reserved")
@@ -43,9 +43,9 @@ fig.document.placeholder("main-slot", 10, 10, 80, 70, label="x")
 fig.document.fill("main-slot", svg_text)
 ```
 
-`fill` uses the same box placement logic as `FigForge`'s Matplotlib
+`fill` uses the same box placement logic as `FigWorks`'s Matplotlib
 integration, so a placeholder behaves consistently whether it lives in a
-FigForge figure or a Matplotlib canvas.
+FigWorks figure or a Matplotlib canvas.
 
 !!! tip
 

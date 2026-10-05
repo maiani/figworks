@@ -1,23 +1,29 @@
 # AGENTS.md
 
-Guidance for coding agents working on FigForge.
+Guidance for coding agents working on FigWorks.
 
 ## Project Intent
 
-FigForge is an SVG-first Python package for assembling publication-quality scientific figures from Matplotlib plots, Vectex equations, vecview 3D scenes, cirquit circuit schematics, native SVG elements, annotations, and semantic figure objects.
+FigWorks is an SVG-first Python package for assembling publication-quality scientific figures from Matplotlib plots, VecTeX equations, VecView 3D scenes, VecWire circuit schematics, native SVG elements, annotations, and semantic figure objects.
 
 Keep the package deterministic, small, and easy to inspect. The main design goal is semantic editability through stable IDs, classes, panels, and roles.
 
 ## The Suite
 
-FigForge is the composition layer of four projects developed together:
+FigWorks is the composition layer of four projects developed together:
 
 | Project | Produces |
 | --- | --- |
-| **FigForge** | composed, exported multi-panel figures |
-| [Vectex](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
-| [vecview](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
-| cirquit | editable circuit schematics as SVG documents |
+| **FigWorks** | composed, exported multi-panel figures |
+| [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments |
+| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents |
+| VecWire | editable circuit schematics as SVG documents |
+
+**Naming.** In prose the projects are FigWorks, VecTeX, VecView, and VecWire.
+Distribution names, import names, commands, and file paths are lowercase
+(`figworks`, `vectex`, `vecview`, `vecwire`), and so is anything inside code
+spans. FigWorks was FigForge and VecWire was cirquit until both PyPI names
+turned out to be taken.
 
 Why they are separate projects, and why that matters for what you may change
 here:
@@ -29,25 +35,25 @@ and still opened in Inkscape to nudge a label. Anything that makes output
 non-deterministic or ids unstable breaks the shared premise, not just this
 package.
 
-**One contract.** FigForge coordinates maintained tools instead of reproducing
+**One contract.** FigWorks coordinates maintained tools instead of reproducing
 them: Matplotlib already plots, TeX already typesets. The entire integration
 surface is an object exposing `to_svg_document()`.
 
 **Co-development is what tests the contract.** A one-method interface is easy to
-claim and hard to trust. Vectex, vecview, and cirquit share no code -- a TeX
+claim and hard to trust. VecTeX, VecView, and VecWire share no code -- a TeX
 compiler, a 3D projector, and a circuit drawer -- and all three integrate through
 that method alone, with no adapter here and no import in either direction. That
 is the evidence the contract is sufficient, and the standing reason to refuse base
 classes, registries, and plugin systems aimed at hypothetical future sources.
-cirquit was a third producer and a chance to falsify the contract; it integrated
+VecWire was a third producer and a chance to falsify the contract; it integrated
 without an adapter, which is further evidence, not proof. Every new producer is
 another such test: if one genuinely cannot be served by `to_svg_document()`, that
 is a real finding and a design conversation, not a licence to add an adapter
 quietly.
 
-The dependency edges are deliberately uneven: Vectex is a runtime requirement,
-vecview and cirquit are optional and installed from a checkout, and none depends
-on FigForge. Do not make that symmetric for tidiness.
+The dependency edges are deliberately uneven: VecTeX is a runtime requirement,
+VecView and VecWire are optional and installed from a checkout, and none depends
+on FigWorks. Do not make that symmetric for tidiness.
 
 ## Current Scope
 
@@ -73,9 +79,8 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
   contract is demonstrably insufficient -- see **The Suite** for why that bar is
   set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
-  they must not appear in `dependencies`. vecview and cirquit in particular are
-  unpublished, and the name `cirquit` on PyPI belongs to an unrelated package, so a
-  dependency entry would install the wrong thing.
+  they must not appear in `dependencies`. VecView and VecWire in particular are
+  unpublished, so a dependency entry would not resolve.
 - Keep `lxml` focused on mutable DOM operations: parsing imported SVG, selection, deletion, style edits, and final serialization.
 - Use Matplotlib for plot generation and SVG export.
 - Use CairoSVG for PDF and PNG export.
@@ -109,7 +114,7 @@ pytest
 
 The package is typed (`py.typed`, `mypy --strict` over `src`). svg.py writes
 floats with `repr`, so numeric attributes go through `px_decimal` to keep the
-`%g` formatting; attributes FigForge builds as strings (`transform`, `d`,
+`%g` formatting; attributes FigWorks builds as strings (`transform`, `d`,
 `points`) are passed to `svg_to_lxml(..., raw=...)` rather than cast.
 
 Examples:
@@ -120,7 +125,7 @@ python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
 python examples/vecview_panel.py         # requires vecview from a checkout
 python examples/vecview_plane_plot.py    # a plot projected onto a plane in 3D
-python examples/cirquit_panel.py         # requires cirquit from a checkout
+python examples/vecwire_panel.py         # requires vecwire from a checkout
 ```
 
 ## Code Style

@@ -17,7 +17,7 @@ ruff check .
 
 ## Document layout
 
-The FigForge source is split into focused modules under `src/figforge/`:
+The FigWorks source is split into focused modules under `src/figworks/`:
 
 | Module | Responsibility |
 |--------|----------------|

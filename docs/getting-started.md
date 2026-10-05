@@ -16,7 +16,7 @@ python -m pip install -e ".[dev]"
 import numpy as np
 import matplotlib.pyplot as plt
 
-from figforge import Figure
+from figworks import Figure
 
 x = np.linspace(0, 2 * np.pi, 200)
 y = np.sin(x)
@@ -55,7 +55,7 @@ Each example writes its figures to `examples/out/`.
 
 ## Units
 
-FigForge understands physical units everywhere coordinates and sizes are
+FigWorks understands physical units everywhere coordinates and sizes are
 accepted: `px`, `pt`, `mm`, `cm`, and `in`. Bare numbers are treated as pixels.
 
 ```python

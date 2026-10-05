@@ -28,7 +28,7 @@ Because each collection carries its own registry, a second collection (say
 `slides_plots.py`, with a larger-font style sheet) can coexist with the first
 without their figures mixing.
 
-Not meant to be run directly: `figforge/collection.py` defines no figures.
+Not meant to be run directly: `figworks/collection.py` defines no figures.
 Run the collection file instead, e.g. `python examples/thesis_plots.py --all`.
 """
 

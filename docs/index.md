@@ -2,9 +2,9 @@
 icon: lucide/rocket
 ---
 
-# FigForge
+# FigWorks
 
-FigForge is an SVG-first Python framework for assembling **publication-quality
+FigWorks is an SVG-first Python framework for assembling **publication-quality
 scientific figures** from Matplotlib plots, native SVG elements, annotations,
 and semantic figure structure.
 
@@ -14,16 +14,16 @@ final graphic stays editable programmatically.
 
 ## The suite
 
-FigForge is the composition layer of a four-project suite:
-[Vectex](https://github.com/maiani/vectex) renders TeX equations to SVG
-fragments, [vecview](https://github.com/maiani/vecview) draws layered 3D
-schematics as SVG documents, and cirquit draws editable circuit schematics as
+FigWorks is the composition layer of a four-project suite:
+[VecTeX](https://github.com/maiani/vectex) renders TeX equations to SVG
+fragments, [VecView](https://github.com/maiani/vecview) draws layered 3D
+schematics as SVG documents, and VecWire draws editable circuit schematics as
 SVG documents. Each is developed independently and usable alone.
 
 All three producers integrate through one method, `to_svg_document()`, so
-FigForge needs no adapter for any of them and none imports FigForge.
+FigWorks needs no adapter for any of them and none imports FigWorks.
 
-## Why FigForge?
+## Why FigWorks?
 
 * **SVG-native assembly** — build figures from real vector elements.
 * **Matplotlib integration** — embed Matplotlib figures as SVG, and import SVG
@@ -34,7 +34,7 @@ FigForge needs no adapter for any of them and none imports FigForge.
 
 !!! note
 
-    FigForge is designed as an *editable assembly layer* between your plotting
+    FigWorks is designed as an *editable assembly layer* between your plotting
     code and the final publication graphic. It does not try to replace
     Matplotlib, Inkscape, Illustrator, or LaTeX.
 

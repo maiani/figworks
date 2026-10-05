@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-from figforge import Figure, layout_svgs
-from figforge.matplotlib import mpl_to_svg
+from figworks import Figure, layout_svgs
+from figworks.matplotlib import mpl_to_svg
 
 
 def _svg(label="content"):
@@ -17,12 +17,12 @@ def test_placeholder_and_fill_native():
 
     out = fig.document.to_string()
     assert 'id="slot"' in out
-    assert 'class="figforge-placeholder"' in out
+    assert 'class="figworks-placeholder"' in out
 
     fig.document.fill("slot", _svg("native"))
     out = fig.document.to_string()
     assert "native" in out
-    assert 'class="figforge-placeholder"' not in out
+    assert 'class="figworks-placeholder"' not in out
     assert "reserved" not in out
 
 
@@ -68,5 +68,5 @@ def test_layout_svgs_grid_with_labels_and_outlines():
     out = fig.document.to_string()
     for label in ("A", "B", "C", "D"):
         assert label in out
-    assert out.count("figforge-cell-label") == 4
-    assert out.count("figforge-cell-outline") == 4
+    assert out.count("figworks-cell-label") == 4
+    assert out.count("figworks-cell-outline") == 4

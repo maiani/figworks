@@ -6,8 +6,8 @@ from typing import TYPE_CHECKING, Any
 
 import svg
 
-from figforge.core.element import svg_kwargs, svg_to_lxml
-from figforge.core.units import px_decimal
+from figworks.core.element import svg_kwargs, svg_to_lxml
+from figworks.core.units import px_decimal
 
 if TYPE_CHECKING:
     from lxml import etree

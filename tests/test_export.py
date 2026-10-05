@@ -1,7 +1,7 @@
 import pytest
 from PIL import Image
 
-from figforge import Figure
+from figworks import Figure
 
 
 def test_svg_export(tmp_path):

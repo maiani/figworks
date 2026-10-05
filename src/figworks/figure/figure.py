@@ -6,15 +6,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
-from figforge._export import svg_to_pdf, svg_to_png
-from figforge.core.document import SVGDocument
-from figforge.core.selectors import Selection
-from figforge.core.units import to_px
-from figforge.elements.arrows import ensure_arrow_marker, line_arrow
-from figforge.elements.shapes import circle, ellipse, line, path, polyline, rect
-from figforge.elements.text import text_element
-from figforge.figure.anchors import Anchor
-from figforge.figure.panel import Panel
+from figworks._export import svg_to_pdf, svg_to_png
+from figworks.core.document import SVGDocument
+from figworks.core.selectors import Selection
+from figworks.core.units import to_px
+from figworks.elements.arrows import ensure_arrow_marker, line_arrow
+from figworks.elements.shapes import circle, ellipse, line, path, polyline, rect
+from figworks.elements.text import text_element
+from figworks.figure.anchors import Anchor
+from figworks.figure.panel import Panel
 
 if TYPE_CHECKING:
     from lxml import etree
@@ -49,7 +49,7 @@ def get_theme(theme: str | Theme) -> Theme:
 
 
 class Figure:
-    """Top-level FigForge SVG figure."""
+    """Top-level FigWorks SVG figure."""
 
     def __init__(
         self, width: str | int | float, height: str | int | float, theme: str | Theme = "paper"
@@ -109,7 +109,7 @@ class Figure:
             x + to_px(dx),
             y + to_px(dy),
             id=id,
-            class_="figforge-label",
+            class_="figworks-label",
             **attrs,
         )
 
@@ -169,7 +169,7 @@ class Figure:
 
         Accepts a matplotlib figure, an SVG file path, or an SVG string.
         """
-        from figforge.core.element import resolve_svg_source
+        from figworks.core.element import resolve_svg_source
 
         return self.document.fill(
             id,
@@ -193,14 +193,14 @@ class Figure:
         The content is normalized onto the unit square, so shape the target
         rectangle to the content's aspect ratio to avoid stretching it.
         """
-        from figforge.core.element import resolve_svg_source
+        from figworks.core.element import resolve_svg_source
 
         return self.document.fill_plane(id, resolve_svg_source(source))
 
     def fill_slot(self, id: str, source: Any) -> etree._Element:
         """Fill an anchor group by id with content kept at its own size.
 
-        Use this to pin an upright label or inset to a point of a vecview
+        Use this to pin an upright label or inset to a point of a VecView
         scene.  The scene reserves the slot; the label keeps its declared
         physical size however the scene is scaled to fit its panel::
 
@@ -215,7 +215,7 @@ class Figure:
         only when the scene is placed at 1:1; scaled down, the content
         overhangs its reservation by the same factor.
         """
-        from figforge.core.element import resolve_svg_source
+        from figworks.core.element import resolve_svg_source
 
         return self.document.fill_slot(id, resolve_svg_source(source))
 
@@ -231,7 +231,7 @@ class Figure:
         preserve_aspect_ratio: bool = True,
     ) -> etree._Element:
         """Place any supported SVG-producing source in a figure box."""
-        from figforge.core.element import resolve_svg_source
+        from figworks.core.element import resolve_svg_source
 
         return self.document.place(
             resolve_svg_source(source),

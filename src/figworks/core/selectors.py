@@ -1,4 +1,4 @@
-"""Minimal selector support for FigForge SVG documents."""
+"""Minimal selector support for FigWorks SVG documents."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from lxml import etree
 
-from figforge.core.element import local_name
+from figworks.core.element import local_name
 
 
 def _style_to_dict(style: str | None) -> dict[str, str]:

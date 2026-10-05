@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-from figforge import Figure
-from figforge.matplotlib import mpl_to_svg
+from figworks import Figure
+from figworks.matplotlib import mpl_to_svg
 
 
 def test_matplotlib_export_contains_gid_and_text():
@@ -17,7 +17,7 @@ def test_matplotlib_export_contains_gid_and_text():
 
 
 def test_matplotlib_export_is_byte_identical():
-    """Clip-path ids are salted and the date stamped unless FigForge pins both."""
+    """Clip-path ids are salted and the date stamped unless FigWorks pins both."""
 
     def export():
         mpl_fig, ax = plt.subplots()

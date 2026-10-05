@@ -1,6 +1,6 @@
 # Matplotlib integration
 
-FigForge connects Matplotlib and SVG **in both directions**.
+FigWorks connects Matplotlib and SVG **in both directions**.
 
 ## Simple SVG insertion
 
@@ -8,27 +8,27 @@ The package root provides direct composition without the higher-level `Figure`
 interface or manual placeholders:
 
 ```python
-import figforge
+import figworks
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax.plot([0, 1], [0, 1])
-svg = figforge.compose({ax: "annotation.svg"}, fig=fig)
+svg = figworks.compose({ax: "annotation.svg"}, fig=fig)
 ```
 
-`compose` maps axes to SVG strings and paths, Matplotlib figures, or Vectex
+`compose` maps axes to SVG strings and paths, Matplotlib figures, or VecTeX
 fragments. The lower-level `connect`, `insert`, `box_artist`, and
 `svg_to_image_artist` helpers remain available from
-`figforge.matplotlib` for custom placement workflows.
+`figworks.matplotlib` for custom placement workflows.
 
 ## Direction 1: Matplotlib embedded as SVG
 
 Export any Matplotlib figure to a vector SVG string, then embed it inside a
-FigForge figure as an editable panel.
+FigWorks figure as an editable panel.
 
 ```python
-from figforge.matplotlib import mpl_to_svg
-from figforge import Figure
+from figworks.matplotlib import mpl_to_svg
+from figworks import Figure
 
 svg = mpl_to_svg(mpl_fig)  # figure -> SVG string
 
@@ -46,7 +46,7 @@ Give Matplotlib artists a gid up front; it survives export and lets you select,
 style, or delete them later.
 
 ```python
-from figforge.matplotlib import set_gid
+from figworks.matplotlib import set_gid
 
 line = ax.plot(x, y)[0]
 set_gid(line, "sine-line")
@@ -61,7 +61,7 @@ Import an SVG string as a Matplotlib artist so it can be placed directly into a
 Matplotlib figure or axes.
 
 ```python
-from figforge.matplotlib import svg_to_image_artist, box_artist, connect
+from figworks.matplotlib import svg_to_image_artist, box_artist, connect
 
 # A raster preview artist you can add to an axes / offsetbox:
 artist = svg_to_image_artist(svg_text, gid="my-svg")
@@ -80,7 +80,7 @@ real vector SVG content by id. The replacement may be a Matplotlib figure, an
 SVG file path, or an SVG string.
 
 ```python
-from figforge.matplotlib import insert, connect
+from figworks.matplotlib import insert, connect
 
 connect(ax, "slot", 0.2, 0.2, 0.6, 0.6)
 

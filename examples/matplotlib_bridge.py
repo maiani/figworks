@@ -5,8 +5,8 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-from figforge import Figure, display_svg, layout_svgs
-from figforge.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
+from figworks import Figure, display_svg, layout_svgs
+from figworks.matplotlib import connect, insert, mpl_to_svg, svg_to_image_artist
 
 OUT = Path(__file__).resolve().parent / "out"
 OUT.mkdir(exist_ok=True)
@@ -23,7 +23,7 @@ def panel_svg(ylabel):
     return mpl_to_svg(make_plot(ylabel))
 
 
-# 1. Reserve a region in a FigForge figure, then fill it by id.
+# 1. Reserve a region in a FigWorks figure, then fill it by id.
 fig = Figure(width="160mm", height="80mm")
 fig.placeholder("slot", x="10mm", y="10mm", w="70mm", h="55mm", label="shared slot")
 fig.text("Fill a placeholder by id", x="10mm", y="72mm")

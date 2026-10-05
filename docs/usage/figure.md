@@ -5,7 +5,7 @@
 `Figure` is the top-level SVG canvas and assembly API.
 
 ```python
-from figforge import Figure
+from figworks import Figure
 
 fig = Figure(width="180mm", height="100mm", theme="paper")
 ```

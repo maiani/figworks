@@ -1,6 +1,6 @@
 # Native SVG elements
 
-FigForge constructs SVG elements through lightweight factories and appends
+FigWorks constructs SVG elements through lightweight factories and appends
 them to the document as editable `lxml` nodes. All factories accept `id=`,
 `class_=`, and additional SVG attributes; underscores in keyword arguments are
 converted to hyphens.
@@ -8,7 +8,7 @@ converted to hyphens.
 ## Shapes
 
 ```python
-from figforge.elements import circle, ellipse, line, path, polyline, rect
+from figworks.elements import circle, ellipse, line, path, polyline, rect
 
 line(x1=0, y1=0, x2=10, y2=10)
 rect(x=0, y=0, width=20, height=10)
@@ -23,7 +23,7 @@ path("M 0 0 L 10 10")
 Multi-line strings are split into `<tspan>` runs automatically.
 
 ```python
-from figforge.elements.text import text_element
+from figworks.elements.text import text_element
 
 text_element("Line one\nLine two", x=10, y=20, font_size="8pt")
 ```
@@ -31,7 +31,7 @@ text_element("Line one\nLine two", x=10, y=20, font_size="8pt")
 ## Arrows
 
 ```python
-from figforge.elements.arrows import line_arrow, ensure_arrow_marker
+from figworks.elements.arrows import line_arrow, ensure_arrow_marker
 
 ensure_arrow_marker(document)
 line_arrow(0, 0, 10, 10, stroke="black")

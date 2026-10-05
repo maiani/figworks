@@ -1,15 +1,15 @@
 import pytest
 from lxml import etree
 
-from figforge import Figure
-from figforge.core.document import SVGDocument, element_box
-from figforge.core.element import SVG_NS
-from figforge.core.units import to_px
+from figworks import Figure
+from figworks.core.document import SVGDocument, element_box
+from figworks.core.element import SVG_NS
+from figworks.core.units import to_px
 
 
 def test_document_creation_and_group():
     document = SVGDocument("100mm", "50mm")
-    document.group(id="panel", class_="figforge-panel")
+    document.group(id="panel", class_="figworks-panel")
     output = document.to_string()
 
     assert 'width="100mm"' in output

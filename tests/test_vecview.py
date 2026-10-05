@@ -1,6 +1,6 @@
-"""Placing a vecview scene.
+"""Placing a VecView scene.
 
-vecview is an optional source, not a dependency: FigForge places any object
+VecView is an optional source, not a dependency: FigWorks places any object
 exposing ``to_svg_document()``, so these tests skip when it is absent.
 """
 
@@ -10,10 +10,10 @@ import numpy as np
 import pytest
 from lxml import etree
 
-from figforge import Figure
-from figforge.core.element import SVG_NS, resolve_svg_source, svg_intrinsic_size
+from figworks import Figure
+from figworks.core.element import SVG_NS, resolve_svg_source, svg_intrinsic_size
 
-vecview = pytest.importorskip("vecview", reason="vecview is an optional source")
+vecview = pytest.importorskip("vecview", reason="VecView is an optional source")
 
 
 @pytest.fixture
@@ -119,7 +119,7 @@ def test_duplicate_def_ids_across_scenes_collide(scene):
     Two independently-authored scenes may reuse a gradient id. `import_svg`
     copies defs into the document's `<defs>` verbatim, so both survive with the
     same id and `url(#...)` resolves to the first — the second scene silently
-    gets the first one's gradient. Give scenes distinct def ids until FigForge
+    gets the first one's gradient. Give scenes distinct def ids until FigWorks
     rewrites ids on import.
     """
     import svg

@@ -1,6 +1,6 @@
 # Selectors
 
-Every element in the document can be addressed by a stable identifier. FigForge
+Every element in the document can be addressed by a stable identifier. FigWorks
 provides a small, predictable selector engine returning a `Selection` object.
 
 ## Selecting

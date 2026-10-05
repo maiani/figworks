@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 from lxml import etree
 
-from figforge import Figure
-from figforge.core.element import SVG_NS, accumulated_scale, svg_physical_size
+from figworks import Figure
+from figworks.core.element import SVG_NS, accumulated_scale, svg_physical_size
 
 # 12 pt x 6 pt is 16 px x 8 px; the viewBox is deliberately in other units.
 LABEL = (

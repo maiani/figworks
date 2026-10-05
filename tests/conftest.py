@@ -32,5 +32,5 @@ def _ctm(node: etree._Element) -> np.ndarray:
 
 @pytest.fixture
 def ctm() -> Callable[[etree._Element], np.ndarray]:
-    """Independent of FigForge's own transform handling, so it can check it."""
+    """Independent of FigWorks's own transform handling, so it can check it."""
     return _ctm

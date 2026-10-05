@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "figforge"
+name = "figworks"
 dynamic = ["version"]
 description = "A Python framework for building publication-quality scientific SVG figures."
 readme = "README.md"
@@ -33,8 +33,8 @@ dependencies = [
 ]
 
 [project.urls]
-Source = "https://github.com/maiani/figforge"
-Issues = "https://github.com/maiani/figforge/issues"
+Source = "https://github.com/maiani/figworks"
+Issues = "https://github.com/maiani/figworks/issues"
 
 [project.optional-dependencies]
 dev = [
@@ -49,10 +49,10 @@ dev = [
 where = ["src"]
 
 [tool.setuptools.package-data]
-figforge = ["py.typed"]
+figworks = ["py.typed"]
 
 [tool.setuptools.dynamic]
-version = { attr = "figforge.__version__" }
+version = { attr = "figworks.__version__" }
 
 [tool.ruff]
 line-length = 100
@@ -70,7 +70,7 @@ ignore = ["S603"]
 [tool.mypy]
 python_version = "3.12"
 strict = true
-packages = ["figforge"]
+packages = ["figworks"]
 mypy_path = "src"
 
 [[tool.mypy.overrides]]

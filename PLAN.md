@@ -60,6 +60,11 @@ contract is insufficient in a demonstrated workflow.
 
 ## Recently added
 
+- `Figure.grid` calculates ordinary named panel rectangles from a name matrix,
+  relative row/column sizes, physical margins and gaps, and rectangular spans.
+  The grid is resolved once; it does not introduce a constraint solver or a
+  separate composition model.
+
 - `fill_plane(id, source)` places content in a group whose transform maps the unit
   square onto its target, which is how a VecView scene plane receives a plot. The
   normalization is non-uniform by construction, so the target rectangle must match

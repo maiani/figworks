@@ -47,6 +47,9 @@ fig.arrow(id="callout", start=("45mm", "58mm"), end=("70mm", "40mm"))
 panel = fig.panel("main", x="10mm", y="10mm", w="80mm", h="60mm")
 ```
 
+`Figure.grid` calculates these rectangles for a named grid with unequal row
+and column sizes, spanning panels, and physical gutters; see [Grid layout](layout.md).
+
 Panels track their own `x`, `y`, `w`, `h` in pixels. They host imported
 Matplotlib plots and panel-local annotations:
 

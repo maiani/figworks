@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `Figure.grid` creates named panels with row and column ratios, rectangular
+  spans, empty cells, and physical margins and gaps. Returned panels work with
+  the existing placement, anchors, and Matplotlib API.
+
 ### Changed
 
 - Use ty for type checking in development and CI instead of mypy.

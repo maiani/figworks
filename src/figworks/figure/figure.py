@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
@@ -13,6 +14,7 @@ from figworks.elements.arrows import ensure_arrow_marker, line_arrow
 from figworks.elements.shapes import circle, ellipse, line, path, polyline, rect
 from figworks.elements.text import text_element
 from figworks.figure.anchors import Anchor
+from figworks.figure.grid import Gap, GridLayout, Margins, grid_boxes
 from figworks.figure.panel import Panel
 from figworks.fonts import check_fonts
 from figworks.style import Theme, load_theme
@@ -56,6 +58,48 @@ class Figure:
         panel = Panel(self, id, to_px(x), to_px(y), to_px(w), to_px(h))
         self.panels[id] = panel
         return panel
+
+    def grid(
+        self,
+        layout: GridLayout,
+        *,
+        width_ratios: Sequence[float] | None = None,
+        height_ratios: Sequence[float] | None = None,
+        margins: Margins = 0,
+        gap: Gap = 0,
+    ) -> dict[str, Panel]:
+        """Create named panels from a rectangular grid, in first-occurrence order.
+
+        Repeat an ID across cells to span a filled rectangle; ``None`` leaves
+        a cell empty. Ratios divide the space remaining after physical margins
+        and gaps. A spanning panel includes the gaps between its cells::
+
+            panels = fig.grid(
+                [["device", "device"], ["spectrum", "response"]],
+                width_ratios=(2, 1), height_ratios=(1, 2),
+                margins="8mm", gap=("12mm", "16mm"),
+            )
+            panels["device"].add(scene, id="device-scene")
+
+        ``margins`` is one length or ``(top, right, bottom, left)``; ``gap``
+        is one length or ``(row_gap, column_gap)``. Bare numbers are px.
+        Leave room for labels around panels used with ``fit="axes"``.
+        All inputs and existing panel IDs are checked before creating panels.
+        Panels are fixed rectangles; resizing requires a new figure and grid.
+        """
+        boxes = grid_boxes(
+            layout,
+            self.document.width_px,
+            self.document.height_px,
+            width_ratios=width_ratios,
+            height_ratios=height_ratios,
+            margins=margins,
+            gap=gap,
+        )
+        duplicates = boxes.keys() & self.panels.keys()
+        if duplicates:
+            raise ValueError(f"Panel already exists: {sorted(duplicates)[0]!r}")
+        return {name: self.panel(name, *box) for name, box in boxes.items()}
 
     def select(self, selector: str) -> Selection:
         return self.document.select(selector)

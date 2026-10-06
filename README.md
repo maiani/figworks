@@ -30,11 +30,11 @@ python -m pip install -e /path/to/figworks
 This pulls in Matplotlib, lxml, svg.py, CairoSVG, and VecTeX. Rendering
 equations with VecTeX also needs a TeX installation with `pdflatex` and
 `dvisvgm` on `PATH`. [VecView](https://github.com/maiani/vecview) and
-[VecWire](https://github.com/maiani/vecwire) are optional and not on PyPI; install them from
-GitHub when you need them:
+[VecWire](https://github.com/maiani/vecwire) are optional. VecView is available
+on PyPI; VecWire is installed from GitHub:
 
 ```bash
-python -m pip install "vecview @ git+https://github.com/maiani/vecview"
+python -m pip install "vecview>=0.2"
 python -m pip install "vecwire @ git+https://github.com/maiani/vecwire"
 ```
 
@@ -234,6 +234,30 @@ the export date, which otherwise change on every run.
 
 ## Placeholders and grids
 
+Create named panels without calculating their coordinates:
+
+```python
+fig = Figure(width="180mm", height="110mm")
+panels = fig.grid(
+    [["device", "device"], ["spectrum", "response"]],
+    width_ratios=(3, 2),
+    height_ratios=(1, 2),
+    margins=("8mm", "6mm", "12mm", "16mm"),  # top, right, bottom, left
+    gap=("16mm", "22mm"),  # between rows, between columns
+)
+panels["device"].add(scene, id="device-scene")
+mpl_fig, ax = panels["spectrum"].subplots()
+ax.plot(x, y)
+panels["spectrum"].add(mpl_fig, id="spectrum-plot", fit="axes")
+fig.label("b", panels["spectrum"].nw)
+```
+
+Repeating a name spans a rectangle; `None` reserves an empty cell. Ratios
+divide the space remaining after margins and gaps, which keep their physical
+size when you build a figure at another width. The returned dictionary holds
+ordinary `Panel` objects in first-occurrence order. See [Grid layout](docs/usage/layout.md)
+and [the complete example](examples/panel_grid.py).
+
 ```python
 fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")
 fig.fill("main-slot", mpl_fig)  # a figure, an SVG file path, or an SVG string
@@ -259,6 +283,7 @@ Run from the repository root:
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
+python examples/panel_grid.py
 python examples/matplotlib_bridge.py
 python examples/vecview_panel.py         # requires vecview
 python examples/vecview_plane_plot.py    # requires vecview; a plot in a 3D plane
@@ -276,7 +301,7 @@ independently useful:
 | --- | --- | --- |
 | **FigWorks** | composed, exported multi-panel figures | alpha: core API still settling |
 | [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
-| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: on GitHub, not yet on PyPI |
+| [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: on PyPI, API may change before 1.0 |
 | [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents | pre-alpha: first version, on GitHub, not yet on PyPI |
 
 All four emit vector SVG with stable ids and byte-identical output for

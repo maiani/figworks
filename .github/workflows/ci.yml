@@ -39,6 +39,7 @@ jobs:
       - run: uv run python examples/minimal_svg.py
       - run: uv run python examples/matplotlib_panel.py
       - run: uv run python examples/two_panel_figure.py
+      - run: uv run python examples/panel_grid.py
       # VecView and VecWire are optional, so the tests above skip them.  Here
       # they come from their public main branches, to test the
       # to_svg_document() contract against what each producer actually ships.

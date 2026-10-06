@@ -32,10 +32,10 @@ uniformly, and centres it in the panel.
 
 ## Install
 
-`vecview` is **not on PyPI** yet, so install it from GitHub:
+VecView is available on PyPI:
 
 ```bash
-python -m pip install "vecview @ git+https://github.com/maiani/vecview"
+python -m pip install "vecview>=0.2"
 ```
 
 It is deliberately not a FigWorks dependency. FigWorks places any object exposing

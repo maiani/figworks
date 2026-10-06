@@ -52,8 +52,9 @@ is a real finding and a design conversation, not a licence to add an adapter
 quietly.
 
 The dependency edges are deliberately uneven: VecTeX is a runtime requirement,
-VecView and VecWire are optional and installed from GitHub, and none depends
-on FigWorks. Do not make that symmetric for tidiness.
+VecView and VecWire are optional. VecView is available on PyPI; VecWire is
+installed from GitHub. Neither depends on FigWorks. Do not make that symmetric
+for tidiness.
 
 ## Current Scope
 
@@ -79,8 +80,8 @@ Do not implement the declarative YAML layer, GUI, CLI polish, advanced path geom
   contract is demonstrably insufficient -- see **The Suite** for why that bar is
   set where it is.
 - Keep optional sources optional: their tests must use `pytest.importorskip`, and
-  they must not appear in `dependencies`. VecView and VecWire in particular are
-  not on PyPI, so a dependency entry would not resolve there.
+  they must not appear in `dependencies`. VecWire is not on PyPI, so a dependency
+  entry would not resolve there.
 - Keep `lxml` focused on mutable DOM operations: parsing imported SVG, selection, deletion, style edits, and final serialization.
 - Use Matplotlib for plot generation and SVG export.
 - Use CairoSVG for PDF and PNG export.
@@ -128,6 +129,7 @@ Examples:
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
+python examples/panel_grid.py
 python examples/vecview_panel.py         # requires vecview from a checkout
 python examples/vecview_plane_plot.py    # a plot projected onto a plane in 3D
 python examples/vecwire_panel.py         # requires vecwire from a checkout

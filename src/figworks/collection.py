@@ -113,7 +113,7 @@ class FigureCollection:
 
     def save_figure(self, name: str, fig: Any, outdir: Path | None = None) -> list[Path]:
         """Write one figure once per format; returns the paths written."""
-        import matplotlib as mpl
+        from matplotlib.figure import Figure as MplFigure
 
         from figworks.figure.figure import Figure
         from figworks.matplotlib import save_figure
@@ -125,7 +125,7 @@ class FigureCollection:
             path = outdir / f"{name}.{suffix}"
             if isinstance(fig, Figure):
                 fig.save(path, dpi=self.dpi)
-            elif isinstance(fig, mpl.figure.Figure):
+            elif isinstance(fig, MplFigure):
                 save_figure(fig, path, dpi=self.dpi)
             else:
                 raise TypeError(
@@ -141,8 +141,8 @@ class FigureCollection:
         Matplotlib's settings are restored afterwards, so building from a
         notebook leaves its style alone.
         """
-        import matplotlib as mpl
         import matplotlib.pyplot as plt
+        from matplotlib.figure import Figure as MplFigure
 
         written: list[Path] = []
         with plt.rc_context():
@@ -152,7 +152,7 @@ class FigureCollection:
                 try:
                     paths = self.save_figure(name, fig, outdir)
                 finally:
-                    if isinstance(fig, mpl.figure.Figure):
+                    if isinstance(fig, MplFigure):
                         plt.close(fig)
                     # Plots placed into a FigWorks figure stay open otherwise.
                     plt.close("all")

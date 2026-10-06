@@ -282,11 +282,11 @@ def resolve_svg_source(source: Any) -> str:
             raise TypeError("to_svg_document() must return an SVG string")
         return document
 
-    import matplotlib as mpl
+    from matplotlib.figure import Figure as MplFigure
 
     from figworks.matplotlib import mpl_to_svg
 
-    if isinstance(source, mpl.figure.Figure):
+    if isinstance(source, MplFigure):
         return mpl_to_svg(source)
     if isinstance(source, str):
         stripped = source.lstrip()

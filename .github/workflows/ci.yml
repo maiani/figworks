@@ -34,7 +34,7 @@ jobs:
       - run: uv sync --all-extras --locked --python ${{ matrix.python-version }}
       - run: uv run ruff format --check .
       - run: uv run ruff check .
-      - run: uv run mypy
+      - run: uv run ty check
       - run: uv run pytest
       - run: uv run python examples/minimal_svg.py
       - run: uv run python examples/matplotlib_panel.py

@@ -9,7 +9,7 @@ import cairosvg
 from cairosvg.surface import PDFSurface, cairo
 
 
-class _ReproduciblePDF(PDFSurface):  # type: ignore[misc]  # cairosvg ships no types
+class _ReproduciblePDF(PDFSurface):
     """CairoSVG's PDF surface without the creation date cairo stamps by default.
 
     The date makes every PDF differ from the last; an empty value omits it.

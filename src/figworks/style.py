@@ -261,21 +261,20 @@ def _pt(value: Any, token: str) -> float:
         ) from exc
 
 
-def _section[T](cls: type[T], data: Mapping[str, Any], name: str) -> T:
+def _section[T: (Font, Lines)](cls: type[T], data: Mapping[str, Any], name: str) -> T:
     values = dict(data.get(name) or {})
-    names = [f.name for f in fields(cls)]  # type: ignore[arg-type]
+    names = [f.name for f in fields(cls)]
     unknown = sorted(set(values) - set(names))
     if unknown:
         raise ValueError(f"unknown {name} token(s) {', '.join(unknown)}; expected {names}")
     missing = sorted(set(names) - set(values))
     if missing:
         raise ValueError(f"{name} token(s) {', '.join(missing)} are not set anywhere in the chain")
-    return cls(
-        **{
-            key: str(value) if key == "family" else _pt(value, f"{name}.{key}")
-            for key, value in values.items()
-        }
-    )
+    tokens: dict[str, Any] = {
+        key: str(value) if key == "family" else _pt(value, f"{name}.{key}")
+        for key, value in values.items()
+    }
+    return cls(**tokens)
 
 
 def load_theme(source: str | Path | Theme = "paper") -> Theme:

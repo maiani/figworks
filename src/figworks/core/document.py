@@ -41,7 +41,7 @@ SLOT_ALIGN: dict[str, tuple[float, float]] = {
 class SVGDocument:
     """Canonical lxml-backed SVG document."""
 
-    def __init__(self, width: str | int | float, height: str | int | float):
+    def __init__(self, width: str | int | float, height: str | int | float) -> None:
         self._imports = 0
         self.width = svg_length(width)
         self.height = svg_length(height)

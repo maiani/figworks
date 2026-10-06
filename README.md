@@ -298,7 +298,7 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ruff format --check .
 ruff check .
-mypy
+ty check
 pytest
 ```
 

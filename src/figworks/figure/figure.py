@@ -29,7 +29,7 @@ class Figure:
         width: str | int | float,
         height: str | int | float,
         theme: str | Path | Theme = "paper",
-    ):
+    ) -> None:
         """A canvas of the given physical size, styled by ``theme``.
 
         ``theme`` is a built-in style name (``"paper"``, ``"presentation"``), a
@@ -227,11 +227,11 @@ class Figure:
         from figworks.core.element import fit_transform, resolve_svg_source
 
         if fit == "axes":
-            import matplotlib as mpl
+            from matplotlib.figure import Figure as MplFigure
 
             from figworks.matplotlib import axes_frame, mpl_to_svg
 
-            if not isinstance(source, mpl.figure.Figure):
+            if not isinstance(source, MplFigure):
                 raise ValueError("fit='axes' needs a Matplotlib figure")
             # Export first: drawing applies any layout engine, fixing the frame.
             svg = mpl_to_svg(source, bbox_inches=None)

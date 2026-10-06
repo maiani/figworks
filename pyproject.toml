@@ -41,7 +41,7 @@ Issues = "https://github.com/maiani/figworks/issues"
 [project.optional-dependencies]
 dev = [
     "lxml-stubs>=0.5",
-    "mypy>=1.10",
+    "ty>=0.0.84",
     "types-PyYAML",
     "pytest>=8",
     "ruff>=0.12",
@@ -62,23 +62,22 @@ line-length = 100
 target-version = "py312"
 
 [tool.ruff.lint]
+# Keep library signatures annotated; ty checks their types.
+extend-select = ["ANN001", "ANN002", "ANN003", "ANN201", "ANN202", "ANN204", "ANN205", "ANN206"]
 select = ["B", "E", "F", "I", "N", "RUF", "S", "UP"]
 ignore = ["S603"]
 
 [tool.ruff.lint.per-file-ignores]
 # S314/S320: tests parse SVG this package just generated, not untrusted input.
-"tests/**" = ["S101", "S314", "S320"]
-"examples/**" = ["S101"]
+"tests/**" = ["ANN", "S101", "S314", "S320"]
+"examples/**" = ["ANN", "S101"]
 
-[tool.mypy]
-python_version = "3.12"
-strict = true
-packages = ["figworks"]
-mypy_path = "src"
+[tool.ty.analysis]
+# Notebook display is optional and imported only when requested.
+allowed-unresolved-imports = ["IPython.display"]
 
-[[tool.mypy.overrides]]
-module = ["svg.*", "cairosvg.*", "vectex.*", "IPython.*"]
-ignore_missing_imports = true
+[tool.ty.src]
+include = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

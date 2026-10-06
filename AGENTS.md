@@ -108,7 +108,7 @@ Validation (all must pass before reporting a change complete):
 ```bash
 ruff format --check .
 ruff check .
-mypy
+ty check
 pytest
 ```
 
@@ -117,7 +117,7 @@ fontconfig's `fc-match`/`fc-query` on `PATH` (Debian/Ubuntu: `fonts-texgyre
 fonts-dejavu-core fontconfig`): PDF and PNG export refuse to substitute a missing
 font. Unit tests of the check itself use a fake resolver.
 
-The package is typed (`py.typed`, `mypy --strict` over `src`). svg.py writes
+The package is typed (`py.typed`, `ty check` over `src`). svg.py writes
 floats with `repr`, so numeric attributes go through `px_decimal` to keep the
 `%g` formatting; attributes FigWorks builds as strings (`transform`, `d`,
 `points`) are passed to `svg_to_lxml(..., raw=...)` rather than cast.

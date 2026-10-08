@@ -118,6 +118,11 @@ fontconfig's `fc-match`/`fc-query` on `PATH` (Debian/Ubuntu: `fonts-texgyre
 fonts-dejavu-core fontconfig`): PDF and PNG export refuse to substitute a missing
 font. Unit tests of the check itself use a fake resolver.
 
+`tests/test_vectex.py` renders real TeX and skips without `pdflatex` and
+`dvisvgm` (and `mutool`, which dvisvgm needs to read PDF beside a current
+Ghostscript). CI's `tex` job installs them and fails if one is missing, so the
+one required sibling is exercised on every push.
+
 The package is typed (`py.typed`, `ty check` over `src`). Typing serves the
 code, not the other way round: type public signatures and what types
 naturally, and where precise types would contort the code use a looser

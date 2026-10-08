@@ -370,7 +370,8 @@ ty check
 pytest
 ```
 
-Tests for VecView and VecWire skip when those packages are not installed.
+Tests for VecView and VecWire skip when those packages are not installed, and
+tests that render VecTeX skip without `pdflatex` and `dvisvgm`.
 Rendering tests need TeX Gyre Heros, DejaVu Sans, and fontconfig's command-line
 tools (Debian/Ubuntu: `fonts-texgyre fonts-dejavu-core fontconfig`).
 

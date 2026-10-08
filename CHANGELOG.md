@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Physical Review two-column figure, composing a VecView device with TeX labels
   pinned in 3D, a VecWire circuit, and two Matplotlib panels on one grid. It is
   the first example to place VecTeX output.
+- Tests that place real VecTeX output -- ids, recolouring, a slot label's point
+  size -- and a CI job that installs TeX to run them and the transmon example.
+  FigWorks had no test of the one sibling it requires.
 
 ### Changed
 

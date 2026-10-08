@@ -48,3 +48,41 @@ jobs:
           "vecview @ git+https://github.com/maiani/vecview"
           "vecwire @ git+https://github.com/maiani/vecwire"
       - run: uv run --no-sync pytest tests/test_vecview.py tests/test_vecwire.py
+
+  tex:
+    # VecTeX is the one sibling FigWorks requires, and its tests skip without
+    # TeX, so this job installs it. Slow, like VecTeX's own integration job:
+    # pushes get it, pull requests the fast checks above.
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # dvisvgm is its own package, which texlive-binaries only recommends, and
+      # it reads PDF through mutool: the runner's Ghostscript is too new.
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            fonts-texgyre fonts-dejavu-core fontconfig libcairo2 \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended texlive-binaries dvisvgm mupdf-tools
+      # The tests skip when a tool is missing, so a broken install would pass.
+      - run: |
+          status=0
+          for tool in pdflatex dvisvgm mutool; do
+            if ! command -v "$tool" >/dev/null; then
+              echo "::error::$tool is missing; the VecTeX tests would silently skip"
+              status=1
+            fi
+          done
+          exit "$status"
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - run: uv sync --all-extras --locked --python 3.14
+      - run: uv run pytest tests/test_vectex.py
+      # The README figure: every producer at once, through the real toolchain.
+      - run: >-
+          uv pip install
+          "vecview @ git+https://github.com/maiani/vecview"
+          "vecwire @ git+https://github.com/maiani/vecwire"
+      - run: uv run --no-sync python examples/transmon_figure.py

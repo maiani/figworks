@@ -31,7 +31,7 @@ dependencies = [
     "matplotlib",
     "CairoSVG",
     "PyYAML>=6",
-    "vectex>=0.1",
+    "vectex>=0.4",
 ]
 
 [project.urls]

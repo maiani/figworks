@@ -286,7 +286,7 @@ requires-dist = [
     { name = "svg-py" },
     { name = "ty", marker = "extra == 'dev'", specifier = ">=0.0.84" },
     { name = "types-pyyaml", marker = "extra == 'dev'" },
-    { name = "vectex", specifier = ">=0.1" },
+    { name = "vectex", specifier = ">=0.4" },
     { name = "zensical", marker = "extra == 'dev'" },
 ]
 provides-extras = ["dev"]
@@ -1194,15 +1194,15 @@ wheels = [
 
 [[package]]
 name = "vectex"
-version = "0.1.0"
+version = "0.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "lxml" },
     { name = "typer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3f/bb/5bdad3e547113dcf67cbf3c5ca3f8b48a76d36a99d2e3cb3c054c1427c14/vectex-0.1.0.tar.gz", hash = "sha256:cc6220dc26497882deb09811708b788261e199d7078c1619f95498397bb4fe4b", size = 43415, upload-time = "2026-08-30T08:39:54.591Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/93/3d/2dbd00dc7478b4626f1ef0b1d7c9fd6305fa1419b148c77b5fbeceda56d3/vectex-0.4.0.tar.gz", hash = "sha256:29f78f3011f6213eb9efb007bea33ef3992efe902f97305a2d744d1254f76ec5", size = 65275, upload-time = "2026-10-08T08:23:05.199Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fc/6a/a2dc684749408f263bd377185d251b3f3472c2f36881cb7f9ebe4d198139/vectex-0.1.0-py3-none-any.whl", hash = "sha256:eb6f755b769de83f11e744d6c9535f837cef908e8e30e040f4454d38303613da", size = 31788, upload-time = "2026-08-30T08:39:53.241Z" },
+    { url = "https://files.pythonhosted.org/packages/de/a4/bd46867a4e08e8789102be9833429460e5a9e3df66969dd5c8b75ad6d569/vectex-0.4.0-py3-none-any.whl", hash = "sha256:e6d10d92b28894eb437af1dd3e30acc21db4b98016a0792a112acbf06be472f7", size = 35987, upload-time = "2026-10-08T08:23:03.771Z" },
 ]
 
 [[package]]

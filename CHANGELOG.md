@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Use ty for type checking in development and CI instead of mypy.
+- VecTeX 0.4 or newer is required; CI had been testing against 0.1.0. Since
+  VecTeX 0.3 a label's glyphs use `currentColor`, so recolour a placed label
+  with `color`, not `fill`, and size a VecView slot with its `width_px` and
+  `height_px`.
 
 ## [0.7.0] - 2026-10-05
 

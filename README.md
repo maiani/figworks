@@ -127,7 +127,7 @@ import vectex
 
 equation = vectex.render(r"\[E = mc^2\]", id_prefix="equation")
 panel.add(equation, id="equation-panel")
-fig.select("#equation-root").set_attr("fill", "navy")
+fig.select("#equation-root").set_attr("color", "navy")  # VecTeX glyphs use currentColor
 ```
 
 ### VecView scenes
@@ -156,16 +156,7 @@ the geometry. `Scene.slot` pins an empty, upright group to a world point and
 scene.plane(15, origin=(-4.2, -2.9, 0.01), u_edge=(0, 8.4, 0), v_edge=(5.8, 0, 0), id="plot-plane")
 
 label = vectex.render(r"$\hat{z}$", size_pt=8)
-px_per_pt = 96 / 72  # the slot's room is reserved in scene units
-scene.slot(
-    45,
-    (5.5, 4.5, 0),
-    label.width * px_per_pt,
-    label.height * px_per_pt,
-    align="west",
-    dx=1.6,
-    id="label-z",
-)
+scene.slot(45, (5.5, 4.5, 0), label.width_px, label.height_px, align="west", dx=1.6, id="label-z")
 
 panel.add(scene, id="device")
 fig.fill_plane("plot-plane", mpl_fig)

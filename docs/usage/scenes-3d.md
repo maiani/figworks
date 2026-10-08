@@ -153,8 +153,7 @@ document's font size. A slot pins upright content to a world point instead:
 
 ```python
 label = vectex.render(r"$x$", size_pt=8)
-pt = 96 / 72  # px per pt; the label's room is reserved in scene units
-scene.slot(45, axis_tip, label.width * pt, label.height * pt, align="west", dx=1.6, id="label-x")
+scene.slot(45, axis_tip, label.width_px, label.height_px, align="west", dx=1.6, id="label-x")
 
 panel.add(scene, id="device")
 fig.fill_slot("label-x", label)

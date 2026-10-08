@@ -75,6 +75,35 @@ def test_identical_definitions_are_shared_not_duplicated() -> None:
     assert "p2-dot" not in ids(figure)
 
 
+def test_an_identical_definition_pointing_at_a_renamed_one_is_not_shared() -> None:
+    """`wash` reads the same in both sources, but each one's points at its own `g`."""
+    wash = '<defs><rect id="wash" fill="url(#g)"/></defs><use href="#wash"/>'
+    figure = two_panels(source("red", extra=wash), source("blue", extra=wash))
+    assert node(figure, "wash").get("fill") == "url(#g)"
+    assert node(figure, "p2-wash").get("fill") == "url(#p2-g)"
+    assert list(node(figure, "p2").iter(f"{{{SVG_NS}}}use"))[-1].get("href") == "#p2-wash"
+
+
+def animation(second: str) -> str:
+    """Frames stepped through by an animated ``href``, as VecView writes them."""
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><defs>'
+        '<circle id="frame0-ball" r="1"/>'
+        f'<circle id="frame1-ball" r="{second}"/></defs>'
+        '<use href="#frame0-ball"><animate attributeName="href" calcMode="discrete" '
+        'values="#frame0-ball;#frame1-ball" keyTimes="0;1" dur="1s"/></use></svg>'
+    )
+
+
+def test_animated_references_follow_the_rename() -> None:
+    """The first frames are alike and shared; each panel keeps its own second one."""
+    figure = two_panels(animation("2"), animation("3"))
+    timing = node(figure, "p2").find(f".//{{{SVG_NS}}}animate")
+    assert timing.get("values") == "#frame0-ball;#p2-frame1-ball"
+    assert node(figure, "p2-frame1-ball").get("r") == "3"
+    assert "p2-frame0-ball" not in ids(figure)
+
+
 def test_identical_matplotlib_panels_share_their_markers() -> None:
     """Matplotlib content-hashes marker and clip-path ids, so equal plots collide."""
 

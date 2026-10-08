@@ -118,17 +118,47 @@ def _unique(candidate: str, taken: set[str]) -> str:
     return name
 
 
-def _rewrite_references(root: etree._Element, renamed: dict[str, str]) -> None:
-    """Point every ``url(#id)`` and ``href="#id"`` inside ``root`` at the renamed ids."""
-    if not renamed:
-        return
-    pattern = re.compile(
-        r"url\(\s*(['\"]?)#(" + "|".join(re.escape(old) for old in renamed) + r")\1\s*\)"
+_URL = re.compile(r"url\(\s*(['\"]?)#([^)'\"\s]+)\1\s*\)")
+# The values an animation of href steps through are references too.
+_ANIMATED_HREF = ("values", "from", "to", "by")
+
+
+def _animates_href(node: etree._Element) -> bool:
+    return local_name(node) in ("animate", "set") and node.get("attributeName") in (
+        "href",
+        "xlink:href",
     )
 
+
+def _references(root: etree._Element) -> set[str]:
+    """The ids ``root`` and its descendants point at."""
+    found: set[str] = set()
+    for node in root.iter():
+        if not isinstance(node.tag, str):
+            continue
+        for key, value in node.attrib.items():
+            if key in ("href", _XLINK_HREF) and value.startswith("#"):
+                found.add(value[1:])
+            elif key in _ANIMATED_HREF and _animates_href(node):
+                found.update(v.strip()[1:] for v in value.split(";") if v.strip().startswith("#"))
+            found.update(match[2] for match in _URL.finditer(value))
+        if local_name(node) == "style" and node.text:
+            found.update(match[2] for match in _URL.finditer(node.text))
+    return found
+
+
+def _rewrite_references(root: etree._Element, renamed: dict[str, str]) -> None:
+    """Point every ``url(#id)``, ``href="#id"``, and animated ``href`` at the renamed ids."""
+    if not renamed:
+        return
+
     def swap(match: re.Match[str]) -> str:
-        quote = match.group(1)
-        return f"url({quote}#{renamed[match.group(2)]}{quote})"
+        quote, old = match.group(1), match.group(2)
+        return f"url({quote}#{renamed.get(old, old)}{quote})"
+
+    def target(value: str) -> str:
+        name = value.strip()
+        return "#" + renamed[name[1:]] if name.startswith("#") and name[1:] in renamed else value
 
     for node in root.iter():
         if not isinstance(node.tag, str):
@@ -136,12 +166,14 @@ def _rewrite_references(root: etree._Element, renamed: dict[str, str]) -> None:
         for key, value in node.attrib.items():
             if not isinstance(value, str):
                 continue
-            if key in ("href", _XLINK_HREF) and value.startswith("#") and value[1:] in renamed:
-                node.set(key, "#" + renamed[value[1:]])
+            if key in ("href", _XLINK_HREF):
+                node.set(key, target(value))
+            elif key in _ANIMATED_HREF and _animates_href(node):
+                node.set(key, ";".join(target(v) for v in value.split(";")))
             elif "url(" in value:
-                node.set(key, pattern.sub(swap, value))
+                node.set(key, _URL.sub(swap, value))
         if local_name(node) == "style" and node.text and "url(" in node.text:
-            node.text = pattern.sub(swap, node.text)
+            node.text = _URL.sub(swap, node.text)
 
 
 def _canonical(node: etree._Element) -> bytes:
@@ -158,13 +190,22 @@ def resolve_id_collisions(
     case.  A colliding id becomes ``{namespace}-{id}`` (suffixed further if that
     is taken too), and every reference to it inside the fragment follows.  A
     colliding definition identical to the document's own is not renamed but
-    returned, so the caller can drop it and let both share one definition.
+    returned, so the caller can drop it and let both share one definition --
+    unless it points at an id that is renamed, since the document's copy points
+    at the document's own.
     """
     existing = {key: node for node in document.iter() if (key := node.get("id"))}
     # A new name must avoid the fragment's own ids as well as the document's.
     taken = set(existing) | {key for node in fragment.iter() if (key := node.get("id"))}
-    duplicates: set[etree._Element] = set()
+    duplicates: dict[etree._Element, str] = {}
     renamed: dict[str, str] = {}
+
+    def rename(node: etree._Element, old: str) -> None:
+        new = _unique(f"{namespace}-{old}", taken)
+        taken.add(new)
+        renamed[old] = new
+        node.set("id", new)
+
     for node in fragment.iter():
         old = node.get("id")
         if not old or old not in existing:
@@ -175,14 +216,14 @@ def resolve_id_collisions(
             and local_name(parent) == "defs"
             and _canonical(node) == _canonical(existing[old])
         ):
-            duplicates.add(node)
+            duplicates[node] = old
             continue
-        new = _unique(f"{namespace}-{old}", taken)
-        taken.add(new)
-        renamed[old] = new
-        node.set("id", new)
+        rename(node, old)
+    while stale := [node for node in duplicates if _references(node) & renamed.keys()]:
+        for node in stale:
+            rename(node, duplicates.pop(node))
     _rewrite_references(fragment, renamed)
-    return duplicates
+    return set(duplicates)
 
 
 def svg_intrinsic_size(svg_string: str) -> tuple[float, float, float, float]:

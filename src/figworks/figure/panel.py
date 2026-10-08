@@ -77,11 +77,13 @@ class Panel:
         id: str | None = None,
         *,
         preserve_aspect_ratio: bool = True,
-        fit: Literal["content", "axes"] = "content",
+        fit: Literal["content", "axes", "none"] = "content",
+        align: str = "center",
     ) -> etree._Element:
         """Place an SVG document provider, Matplotlib figure, or SVG source.
 
-        See :meth:`Figure.add` for ``fit``.
+        See :meth:`Figure.add` for ``fit`` and ``align``; ``fit="none"`` keeps
+        the source's own physical size.
         """
         return self.figure.add(
             source,
@@ -92,6 +94,7 @@ class Panel:
             id=id,
             preserve_aspect_ratio=preserve_aspect_ratio,
             fit=fit,
+            align=align,
         )
 
     def subplots(self, nrows: int = 1, ncols: int = 1, **kwargs: Any) -> tuple[MplFigure, Any]:

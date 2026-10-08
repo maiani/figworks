@@ -16,6 +16,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Physical Review two-column figure, composing a VecView device with TeX labels
   pinned in 3D, a VecWire circuit, and two Matplotlib panels on one grid. It is
   the first example to place VecTeX output.
+- `fit="none"` on `Figure.add` and `Panel.add` places a source at the physical
+  size its document declares instead of scaling it to the panel, so a circuit
+  or equation drawn with 8 pt text prints at 8 pt; larger content overhangs.
+  `align` (`"center"`, `"north"`, `"northwest"`, …, the slot names) picks the
+  point of the panel it sits on, and with the scaling fits places content in
+  the room a kept aspect ratio leaves. The transmon example's circuit, scaled
+  to 95 % before, is placed this way, and `vecwire_panel.py`'s, whose labels
+  printed at 12 pt beside a plot shrunk to 6.6 pt text, now prints both at
+  their drawn size: the circuit unscaled, the plot by its axes frame.
 - Tests that place real VecTeX output -- ids, recolouring, a slot label's point
   size -- and a CI job that installs TeX to run them and the transmon example.
   FigWorks had no test of the one sibling it requires.

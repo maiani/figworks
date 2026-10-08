@@ -3,8 +3,8 @@
 Four producers meet in one Physical Review two-column figure, each through
 `Panel.add`: a VecView scene of the device, a VecWire circuit, and two
 Matplotlib panels whose axes frames sit exactly on the grid. The TeX labels are
-VecTeX fragments; those pinned into the 3D scene keep their 8 pt size however
-the scene was scaled to fit its panel.
+VecTeX fragments and all print at 8 pt: those pinned into the 3D scene however
+the scene was scaled, and the circuit's because it is placed at its own size.
 
 Usage:
     python examples/transmon_figure.py     # requires vecview and vecwire
@@ -118,10 +118,10 @@ def device_scene(labels: dict[str, vectex.VectexFragment]) -> vecview.Scene:
 
 def circuit_diagram(labels: dict[str, vectex.VectexFragment]) -> Circuit:
     """The junction shunted by C_B, coupled through C_g to an L_r C_r resonator."""
-    circuit = Circuit(134, 104, stroke=INK)
+    circuit = Circuit(126, 104, stroke=INK)  # in pt; placed at this size
     top, bottom = 16, 64
-    circuit.row(top, jj_top=16, phi=32, cb_top=48, cr_top=86, lr_top=114, dots={"phi"})
-    circuit.row(bottom, jj_bot=16, cb_bot=48, gnd=67, cr_bot=86, lr_bot=114)
+    circuit.row(top, jj_top=14, phi=29, cb_top=44, cr_top=78, lr_top=104, dots={"phi"})
+    circuit.row(bottom, jj_bot=14, cb_bot=44, gnd=61, cr_bot=78, lr_bot=104)
 
     circuit.wire("jj_top", "phi", "cb_top", id="transmon-rail")
     circuit.wire("cr_top", "lr_top", id="resonator-rail")
@@ -134,13 +134,13 @@ def circuit_diagram(labels: dict[str, vectex.VectexFragment]) -> Circuit:
     circuit.ground("gnd", id="ground")
 
     middle = (top + bottom) / 2
-    circuit.label(labels["EJ"], (8, middle), anchor="rc", id="circuit-EJ")
-    circuit.label(labels["CB"], (58, middle), anchor="lc", id="circuit-CB")
-    circuit.label(labels["Cg"], (67, top - 9), anchor="cb", id="circuit-Cg")
-    circuit.label(labels["Cr"], (96, middle), anchor="lc", id="circuit-Cr")
-    circuit.label(labels["Lr"], (123, middle), anchor="lc", id="circuit-Lr")
+    circuit.label(labels["EJ"], (6, middle), anchor="rc", id="circuit-EJ")
+    circuit.label(labels["CB"], (54, middle), anchor="lc", id="circuit-CB")
+    circuit.label(labels["Cg"], (61, top - 9), anchor="cb", id="circuit-Cg")
+    circuit.label(labels["Cr"], (88, middle), anchor="lc", id="circuit-Cr")
+    circuit.label(labels["Lr"], (113, middle), anchor="lc", id="circuit-Lr")
     circuit.label(labels["phi"], "phi", offset=(0, -3), anchor="cb", id="circuit-phi")
-    circuit.label(labels["H"], (67, 88), anchor="cc", id="hamiltonian")
+    circuit.label(labels["H"], (63, 88), anchor="cc", id="hamiltonian")
     return circuit
 
 
@@ -209,7 +209,7 @@ def build_figure() -> Figure:
     for name in ("EJ", "CB", "Cg", "res"):
         fig.fill_slot(f"label-{name}", labels[name])
 
-    panels["circuit"].add(circuit_diagram(labels), id="circuit")
+    panels["circuit"].add(circuit_diagram(labels), id="circuit", fit="none")
 
     mpl_fig, ax = panels["potential"].subplots()
     plot_potential(ax)

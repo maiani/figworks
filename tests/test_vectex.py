@@ -82,3 +82,18 @@ def test_a_label_in_a_slot_keeps_its_point_size(
     x0, _, width, _ = label.view_box
     left, right = ctm(root) @ [x0, 0, 1], ctm(root) @ [x0 + width, 0, 1]
     assert right[0] - left[0] == pytest.approx(label.width_px, rel=1e-4)  # %g transforms
+
+
+def test_an_equation_placed_without_fitting_keeps_its_point_size(
+    ctm: Callable[[etree._Element], np.ndarray],
+) -> None:
+    equation = vectex.render(r"$E = mc^2$", size_pt=8, id_prefix="einstein")
+    fig = Figure(width="80mm", height="40mm")
+    fig.panel("p", 0, 0, "80mm", "40mm").add(equation, id="eq", fit="none", align="north")
+
+    root = fig.document.root.find(f".//{{{SVG_NS}}}g[@id='einstein-root']")
+    assert root is not None
+    x0, y0, width, _ = equation.view_box
+    left, right = ctm(root) @ [x0, y0, 1], ctm(root) @ [x0 + width, y0, 1]
+    assert right[0] - left[0] == pytest.approx(equation.width_px, rel=1e-4)
+    assert left[1] == pytest.approx(0.0, abs=1e-3)  # flush with the panel's top

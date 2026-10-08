@@ -9,6 +9,7 @@ import svg
 from lxml import etree
 
 from figworks.core.element import (
+    ALIGN,
     accumulated_scale,
     copy_element,
     ensure_defs,
@@ -23,19 +24,6 @@ from figworks.core.element import (
 )
 from figworks.core.selectors import Selection, select
 from figworks.core.units import px_decimal, svg_length, to_px
-
-# Which point of slot content sits on the slot's anchor, as fractions of its size.
-SLOT_ALIGN: dict[str, tuple[float, float]] = {
-    "center": (0.5, 0.5),
-    "north": (0.5, 0.0),
-    "south": (0.5, 1.0),
-    "east": (1.0, 0.5),
-    "west": (0.0, 0.5),
-    "northeast": (1.0, 0.0),
-    "northwest": (0.0, 0.0),
-    "southeast": (1.0, 1.0),
-    "southwest": (0.0, 1.0),
-}
 
 
 class SVGDocument:
@@ -259,17 +247,16 @@ class SVGDocument:
         target = targets.nodes[0]
 
         align = target.get("data-align", "center")
-        if align not in SLOT_ALIGN:
+        if align not in ALIGN:
             raise ValueError(
-                f"Slot {id!r} has unknown data-align {align!r}; "
-                f"expected one of {sorted(SLOT_ALIGN)}"
+                f"Slot {id!r} has unknown data-align {align!r}; expected one of {sorted(ALIGN)}"
             )
         view_w, view_h, min_x, min_y = svg_intrinsic_size(svg_string)
         width, height = svg_physical_size(svg_string)
         if not (view_w and view_h and width and height):
             raise ValueError(f"Content for {id!r} has no intrinsic size to place")
 
-        fx, fy = SLOT_ALIGN[align]
+        fx, fy = ALIGN[align]
         shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
         transform = (
             f"scale({1 / accumulated_scale(target):g})"
@@ -289,12 +276,14 @@ class SVGDocument:
         id: str | None = None,
         preserve_aspect_ratio: bool = True,
         parent: etree._Element | None = None,
+        align: str = "center",
     ) -> etree._Element:
         """Place SVG content directly in a layout box."""
         transform = fit_transform(
             (x, y, width, height),
             svg_intrinsic_size(svg_string),
             preserve_aspect_ratio=preserve_aspect_ratio,
+            align=align,
         )
         return self.import_svg(svg_string, id=id, transform=transform, parent=parent)
 

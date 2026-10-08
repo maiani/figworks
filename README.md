@@ -31,7 +31,7 @@ panels["device"].add(device_scene(labels), id="device-scene")  # a vecview.Scene
 for name in ("EJ", "CB", "Cg", "res"):
     fig.fill_slot(f"label-{name}", labels[name])  # pinned in 3D, still 8 pt
 
-panels["circuit"].add(circuit_diagram(labels), id="circuit")  # a vecwire.Circuit
+panels["circuit"].add(circuit_diagram(labels), id="circuit", fit="none")  # at its own size
 
 mpl_fig, ax = panels["potential"].subplots()  # its axes frame is the panel
 plot_potential(ax)
@@ -46,10 +46,11 @@ for letter, panel in zip("abcd", panels.values(), strict=True):
 fig.save("transmon_figure.pdf")
 ```
 
-`device_scene`, `circuit_diagram`, and the two plot functions are plain VecView,
-VecWire, and Matplotlib code in the example. The grid fixes the panels in
-millimetres, the plots' frames land exactly on them, the text is set at the
-style's sizes, and the export refuses to substitute a missing font.
+`device_scene` returns a `vecview.Scene`, `circuit_diagram` a `vecwire.Circuit`,
+and the plot functions are plain Matplotlib, all in the example. The grid fixes
+the panels in millimetres, the plots' frames land exactly on them, the circuit
+is placed at the size it was drawn, so every label prints at the style's 8 pt,
+and the export refuses to substitute a missing font.
 
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
 FigWorks is an assembly layer between plotting code and the final graphic. It
@@ -162,7 +163,9 @@ The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
 - regenerate a whole set of figures from one command with `FigureCollection`.
 
 `Panel.add` reads each source's intrinsic size from its `viewBox`, scales it
-uniformly, and centres it in the panel. Placement wraps the source in a group
+uniformly, and centres it in the panel; `fit="none"` keeps the size the source
+declares instead, so an 8 pt label prints at 8 pt, and `align` picks the point
+of the panel it sits on. Placement wraps the source in a group
 and keeps its ids, prefixing only those that collide with ids already in the
 figure, so selectors reach inside placed content.
 

@@ -58,6 +58,33 @@ panel.add(mpl_fig, id="plot")
 panel.text("subtitle", x="5mm", y="5mm")
 ```
 
+### Fitting content into a panel
+
+`add` decides the size content is drawn at with `fit`, and where it sits with
+`align`:
+
+| `fit` | Size |
+| --- | --- |
+| `"content"` (default) | scaled uniformly until the content fills the panel |
+| `"axes"` | a Matplotlib figure scaled so its axes frame fills the panel; see [Matplotlib](matplotlib.md) |
+| `"none"` | the physical size the source's document declares, whatever the panel |
+
+Scaling to fit rescales text and line weights with everything else: a circuit
+drawn with 8 pt labels and placed in a panel 5 % too small prints them at
+7.6 pt. Use `fit="none"` when the source was drawn at its final size -- a
+VecWire circuit in pt, a VecTeX equation, a plot made at its printed size:
+
+```python
+panel.add(circuit, id="circuit", fit="none")  # 8 pt labels print at 8 pt
+panel.add(equation, id="hamiltonian", fit="none", align="north")
+```
+
+Content larger than its panel then overhangs it rather than shrinking. `align`
+names the point of the content that sits on the same point of the panel:
+`"center"` (the default), `"north"`, `"south"`, `"east"`, `"west"`, and the
+corners `"northwest"`, `"northeast"`, `"southwest"`, `"southeast"`. With the
+scaling fits it places the content in the room a kept aspect ratio leaves.
+
 ## Anchor
 
 `Anchor` is a named absolute point. Every panel exposes nine anchors:

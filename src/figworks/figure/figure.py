@@ -257,19 +257,27 @@ class Figure:
         h: str | int | float,
         id: str | None = None,
         preserve_aspect_ratio: bool = True,
-        fit: Literal["content", "axes"] = "content",
+        fit: Literal["content", "axes", "none"] = "content",
+        align: str = "center",
     ) -> etree._Element:
         """Place any supported SVG-producing source in a figure box.
 
-        ``fit="content"`` fits the source's drawn content into the box.  For a
-        Matplotlib figure, ``fit="axes"`` fits its *axes frame* instead -- the
+        ``fit="content"`` scales the source's drawn content to fit the box.  For
+        a Matplotlib figure, ``fit="axes"`` fits its *axes frame* instead -- the
         union of its axes -- and lets tick and axis labels hang outside the
         box.  Panels placed that way have frames exactly where their boxes are,
         so frames in a row line up whatever their labels.  With a figure from
         :meth:`Panel.subplots`, the frame is the box's size and the plot is
         placed at 1:1, so its text keeps its nominal size.
+
+        ``fit="none"`` scales nothing: the source keeps the physical size its
+        document declares, so an 8 pt label prints at 8 pt, and overhangs the
+        box if it is larger.  ``align`` (``"center"``, ``"north"``,
+        ``"northwest"``, …) puts that point of the content on the same point of
+        the box; with the other fits it places content in the room a kept
+        aspect ratio leaves over.
         """
-        from figworks.core.element import fit_transform, resolve_svg_source
+        from figworks.core.element import fit_transform, natural_transform, resolve_svg_source
 
         if fit == "axes":
             from matplotlib.figure import Figure as MplFigure
@@ -284,10 +292,16 @@ class Figure:
                 (to_px(x), to_px(y), to_px(w), to_px(h)),
                 axes_frame(source),
                 preserve_aspect_ratio=preserve_aspect_ratio,
+                align=align,
             )
             return self.document.import_svg(svg, id=id, transform=transform)
+        if fit == "none":
+            svg = resolve_svg_source(source)
+            box = (to_px(x), to_px(y), to_px(w), to_px(h))
+            transform = natural_transform(box, svg, align=align)
+            return self.document.import_svg(svg, id=id, transform=transform)
         if fit != "content":
-            raise ValueError(f"fit must be 'content' or 'axes', got {fit!r}")
+            raise ValueError(f"fit must be 'content', 'axes', or 'none', got {fit!r}")
         return self.document.place(
             resolve_svg_source(source),
             to_px(x),
@@ -296,6 +310,7 @@ class Figure:
             to_px(h),
             id=id,
             preserve_aspect_ratio=preserve_aspect_ratio,
+            align=align,
         )
 
     def save(self, path: str | Path, dpi: int = 300) -> None:

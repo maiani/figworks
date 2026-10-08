@@ -281,25 +281,49 @@ def accumulated_scale(node: etree._Element) -> float:
     return math.sqrt(abs(det))
 
 
+# Which point of a box an alignment names, as fractions of its width and height.
+ALIGN: dict[str, tuple[float, float]] = {
+    "center": (0.5, 0.5),
+    "north": (0.5, 0.0),
+    "south": (0.5, 1.0),
+    "east": (1.0, 0.5),
+    "west": (0.0, 0.5),
+    "northeast": (1.0, 0.0),
+    "northwest": (0.0, 0.0),
+    "southeast": (1.0, 1.0),
+    "southwest": (0.0, 1.0),
+}
+
+
+def align_fractions(align: str) -> tuple[float, float]:
+    try:
+        return ALIGN[align]
+    except KeyError:
+        raise ValueError(f"align must be one of {sorted(ALIGN)}, got {align!r}") from None
+
+
 def fit_transform(
     box: tuple[float, float, float, float],
     intrinsic: tuple[float, float, float, float],
     *,
     preserve_aspect_ratio: bool = True,
+    align: str = "center",
 ) -> str:
     """Build a transform that fits ``intrinsic`` content inside ``box``.
 
     ``box`` is ``(x, y, width, height)`` and ``intrinsic`` is the result of
     :func:`svg_intrinsic_size`. When aspect ratio is preserved the content is
-    scaled uniformly and centered; otherwise it is stretched to fill the box.
+    scaled uniformly and placed by ``align`` in the room left over; otherwise
+    it is stretched to fill the box.
     """
     x, y, width, height = box
     src_w, src_h, min_x, min_y = intrinsic
+    fx, fy = align_fractions(align)
 
     if src_w and src_h and width and height and preserve_aspect_ratio:
         scale = min(width / src_w, height / src_h)
-        dx = x + (width - src_w * scale) / 2
-        dy = y + (height - src_h * scale) / 2
+        dx = x + (width - src_w * scale) * fx
+        dy = y + (height - src_h * scale) * fy
         shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
         return f"translate({dx:g} {dy:g}) scale({scale:g}){shift}"
     if src_w and src_h and width and height:
@@ -307,6 +331,27 @@ def fit_transform(
         scale_y = height / src_h
         return f"translate({x:g} {y:g}) scale({scale_x:g} {scale_y:g})"
     return f"translate({x:g} {y:g})"
+
+
+def natural_transform(
+    box: tuple[float, float, float, float], svg_string: str, *, align: str = "center"
+) -> str:
+    """Place content at the physical size its document declares, aligned in ``box``.
+
+    Nothing is scaled to fit: an 8 pt label stays 8 pt, and content larger
+    than the box overhangs it.
+    """
+    x, y, width, height = box
+    view_w, view_h, min_x, min_y = svg_intrinsic_size(svg_string)
+    own_w, own_h = svg_physical_size(svg_string)
+    if not (view_w and view_h and own_w and own_h):
+        raise ValueError("content has no intrinsic size to place at")
+    fx, fy = align_fractions(align)
+    shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
+    return (
+        f"translate({x + (width - own_w) * fx:g} {y + (height - own_h) * fy:g})"
+        f" scale({own_w / view_w:g} {own_h / view_h:g}){shift}"
+    )
 
 
 def resolve_svg_source(source: Any) -> str:

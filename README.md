@@ -312,8 +312,7 @@ share.
 
 The dependency edges are uneven by design: VecTeX is a runtime requirement,
 VecView and VecWire are optional, and none of the three depends on FigWorks.
-[`AGENTS.md`](AGENTS.md#the-suite) records why the four are built apart but in
-step.
+
 
 ## Development
 
@@ -340,11 +339,7 @@ zensical serve    # preview at http://localhost:8000
 zensical build    # static build into site/
 ```
 
-## Non-goals
 
-FigWorks does not currently attempt to provide a GUI, a full SVG path editor,
-an Inkscape replacement, declarative YAML figure specs, or a complete CSS
-selector engine.
 
 ## License
 

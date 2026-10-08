@@ -4,6 +4,15 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref to test when called by another workflow.
+        required: false
+        type: string
+
+permissions:
+  contents: read
 
 jobs:
   check:
@@ -22,6 +31,8 @@ jobs:
             experimental: true
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       # PDF and PNG export refuse to substitute a missing font, so the render
       # tests need the real ones, and fontconfig to find them.
       - run: |
@@ -57,6 +68,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       # dvisvgm is its own package, which texlive-binaries only recommends, and
       # it reads PDF through mutool: the runner's Ghostscript is too new.
       - run: |

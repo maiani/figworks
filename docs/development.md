@@ -19,6 +19,18 @@ pytest
 
 ## Releases
 
+Pushing a `v*` tag runs `.github/workflows/publish.yml`: it checks that the tag
+matches `figworks.__version__`, runs the whole CI workflow (including the TeX
+job) on the tagged commit, builds and `twine check`s the distributions, and
+publishes them to PyPI by trusted publishing from the `pypi` environment.
+
+1. Check that the last CI run on `main` is green.
+2. Bump `__version__` in `src/figworks/__init__.py`, move the changelog's
+   Unreleased section under the new version, repoint the README, and run
+   `uv lock`.
+3. Push `main`, then only the new tag: `git push origin v0.8.0`. Never
+   `git push --tags`: any pushed `v*` tag publishes.
+
 The README is also the PyPI project page, where relative links do not resolve,
 so its links and image are absolute and pinned to a release tag. When bumping
 the version, point them at the new tag, regenerate the README figure with

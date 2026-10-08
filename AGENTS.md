@@ -118,7 +118,11 @@ fontconfig's `fc-match`/`fc-query` on `PATH` (Debian/Ubuntu: `fonts-texgyre
 fonts-dejavu-core fontconfig`): PDF and PNG export refuse to substitute a missing
 font. Unit tests of the check itself use a fake resolver.
 
-The package is typed (`py.typed`, `ty check` over `src`). svg.py writes
+The package is typed (`py.typed`, `ty check` over `src`). Typing serves the
+code, not the other way round: type public signatures and what types
+naturally, and where precise types would contort the code use a looser
+annotation or a targeted `# ty: ignore[code]`; do not raise the Python floor
+for typing features. svg.py writes
 floats with `repr`, so numeric attributes go through `px_decimal` to keep the
 `%g` formatting; attributes FigWorks builds as strings (`transform`, `d`,
 `points`) are passed to `svg_to_lxml(..., raw=...)` rather than cast.

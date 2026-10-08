@@ -32,6 +32,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `set_style` reaches what a source styled itself. Matplotlib writes a line's
+  colour on its path and VecWire a symbol's on its strokes, and those win over
+  a style set on the group a selector finds, so restyling a plotted line by its
+  gid changed nothing. The property is now also replaced on every descendant
+  that declares it, inline or as an attribute; a declared `none` is kept.
 - The sdist ships `tests/conftest.py`; without it, tests run from the sdist
   were missing the fixtures they use.
 
@@ -87,6 +92,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `set_style` reaches what a source styled itself. Matplotlib writes a line's
+  colour on its path and VecWire a symbol's on its strokes, and those win over
+  a style set on the group a selector finds, so restyling a plotted line by its
+  gid changed nothing. The property is now also replaced on every descendant
+  that declares it, inline or as an attribute; a declared `none` is kept.
 - Importing FigWorks no longer switches Matplotlib to the Agg backend, which
   silently disabled interactive plotting in notebooks. Only the collection's
   command-line entry point selects it.
@@ -144,6 +154,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `set_style` reaches what a source styled itself. Matplotlib writes a line's
+  colour on its path and VecWire a symbol's on its strokes, and those win over
+  a style set on the group a selector finds, so restyling a plotted line by its
+  gid changed nothing. The property is now also replaced on every descendant
+  that declares it, inline or as an attribute; a declared `none` is kept.
 - Imported ids are unique across sources. A colliding id is prefixed with the
   placement id (or the slot, plane, or placeholder it fills) and its `url(#…)`
   and `href` references follow; an identical colliding definition is shared
@@ -211,6 +226,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- `set_style` reaches what a source styled itself. Matplotlib writes a line's
+  colour on its path and VecWire a symbol's on its strokes, and those win over
+  a style set on the group a selector finds, so restyling a plotted line by its
+  gid changed nothing. The property is now also replaced on every descendant
+  that declares it, inline or as an attribute; a declared `none` is kept.
 - `Figure.save(path, dpi=...)` rasterizes PNG at `dpi` whatever unit the figure
   size was given in. cairosvg applies `dpi` only to physical units, so a figure
   sized in px came out at one pixel per px regardless of the requested

@@ -80,8 +80,6 @@ def main() -> None:
     fig.label("b", anchor=potential.nw)
 
     # Ids given inside the circuit survive placement, so restyling reaches through.
-    # A label's group sets the fill its text inherits; a symbol's strokes are set
-    # on its children, so restyling a symbol group would not show.
     fig.select("#label-JJ").set_style(fill=JUNCTION)
 
     for suffix in (".svg", ".png"):

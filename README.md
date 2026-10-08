@@ -114,6 +114,7 @@ for name, curve, ylabel in (
 
 fig.label("a", panels["power"].nw)
 fig.label("b", panels["phase"].nw)
+fig.select("#phase-curve").set_style(stroke="#c2185b")  # edit by id after composing
 fig.save("resonance.svg")
 fig.save("resonance.pdf")
 fig.save("resonance.png", dpi=600)
@@ -121,8 +122,8 @@ fig.save("resonance.png", dpi=600)
 
 The two frames are the same size and sit level, however wide their tick labels.
 Coordinates and sizes accept `px`, `pt`, `mm`, `cm`, or `in`; bare numbers are
-px. `fig.select("#phase-curve")` finds the phase curve in the composed figure,
-and so does Inkscape.
+px. The curve ids survive composition, so a selector reaches the phase curve
+inside its placed plot, and Inkscape finds it by the same id.
 
 For the common case of dropping SVG into existing Matplotlib axes, `compose`
 needs no `Figure` at all:
@@ -155,7 +156,7 @@ The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
 - reserve placeholders and fill them by id later;
 - lay out many SVGs into a labelled grid;
 - select elements by `#id`, `.class`, or tag name, then delete them or set
-  attributes and inline style;
+  attributes and inline style, which reaches the leaves a source styled itself;
 - save to `.svg`, `.pdf`, and `.png`, byte-identically from run to run, and
   display figures inline in notebooks;
 - regenerate a whole set of figures from one command with `FigureCollection`.

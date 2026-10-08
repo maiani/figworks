@@ -29,10 +29,30 @@ fig.select("text").set_attr("font-family", "Arial")
 ```
 
 * `delete()` — remove every selected node from the document.
-* `set_style(**style)` — merge inline CSS into each node's `style` attribute.
+* `set_style(**style)` — merge inline CSS into each node's `style` attribute,
+  and replace the same properties wherever a descendant declares them.
 * `set_attr(name, value)` — set a raw attribute (underscores become hyphens).
 
 Operations return the `Selection` so calls can be chained.
+
+### Restyling placed content
+
+Sources style their leaves directly: Matplotlib writes a line's colour on its
+path, VecWire a symbol's on each stroke. A leaf's own declaration wins over
+anything inherited, so styling only the selected group would change nothing
+visible. `set_style` therefore also replaces the property on every descendant
+that declares it, inline or as a presentation attribute:
+
+```python
+line.set_gid("phase-curve")  # in the plotting code
+...
+fig.select("#phase-curve").set_style(stroke="#c2185b")  # the line, and its markers
+```
+
+A descendant's `none` is kept, so recolouring a line with `fill` does not fill
+it, and a symbol's unfilled parts stay unfilled. Descendants that declare
+nothing inherit the new value as before. To change one attribute on the
+selected nodes only, use `set_attr`.
 
 ## Ids across sources
 

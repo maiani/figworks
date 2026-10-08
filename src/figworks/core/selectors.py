@@ -55,11 +55,29 @@ class Selection:
         return self
 
     def set_style(self, **style: str | int | float) -> Selection:
+        """Set inline CSS on each node, and wherever a descendant declares it too.
+
+        Placed content often styles its leaves directly -- Matplotlib a line's
+        path, VecWire a symbol's strokes -- and a leaf's own declaration wins
+        over anything it would inherit.  So a descendant that declares one of
+        these properties, inline or as a presentation attribute, has it
+        replaced.  A declared ``none`` is kept: recolouring a line must not
+        fill it.
+        """
+        values = {key.replace("_", "-"): str(value) for key, value in style.items()}
         for node in self.nodes:
             current = _style_to_dict(node.get("style"))
-            for key, value in style.items():
-                current[key.replace("_", "-")] = str(value)
-            node.set("style", _dict_to_style(current))
+            node.set("style", _dict_to_style(current | values))
+            for child in node.iterdescendants(etree.Element):
+                declared = _style_to_dict(child.get("style"))
+                for key, value in values.items():
+                    if key in declared:
+                        if declared[key] != "none":
+                            declared[key] = value
+                    elif child.get(key) not in (None, "none"):
+                        child.set(key, value)
+                if declared:
+                    child.set("style", _dict_to_style(declared))
         return self
 
 

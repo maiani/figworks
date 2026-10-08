@@ -130,6 +130,7 @@ floats with `repr`, so numeric attributes go through `px_decimal` to keep the
 Examples:
 
 ```bash
+python examples/transmon_figure.py       # the README figure; vecview, vecwire, TeX
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py

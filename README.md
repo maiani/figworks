@@ -7,10 +7,49 @@ panels and elements keep stable ids, the same script writes byte-identical SVG,
 and the result opens in Inkscape for final adjustments.
 
 <p align="center">
-  <img src="docs/images/readme.svg" alt="A two-panel figure: a VecView slab with an in-plane spin texture, and a Matplotlib plot" width="720">
+  <img src="docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
 </p>
 
-<p align="center"><sub>A VecView 3D scene and a Matplotlib plot composed into one labelled figure, from <code>examples/vecview_panel.py</code>.</sub></p>
+<p align="center"><sub>A Physical Review two-column figure from <a href="examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
+
+The four sources in that figure share nothing but a method, and FigWorks
+composes them in a few lines:
+
+```python
+theme = load_theme("aps")
+fig = Figure(width=theme.page["double"], height="104mm", theme=theme)
+panels = fig.grid(
+    [["device", "device", "circuit"], ["potential", "bands", "bands"]],
+    height_ratios=(1.1, 1),
+    margins=("6mm", "3mm", "10mm", "12mm"),  # top, right, bottom, left
+    gap=("13mm", "14mm"),  # between rows, between columns
+)
+
+labels = {name: vectex.render(source, size_pt=8) for name, source in tex.items()}
+
+panels["device"].add(device_scene(labels), id="device-scene")  # a vecview.Scene
+for name in ("EJ", "CB", "Cg", "res"):
+    fig.fill_slot(f"label-{name}", labels[name])  # pinned in 3D, still 8 pt
+
+panels["circuit"].add(circuit_diagram(labels), id="circuit")  # a vecwire.Circuit
+
+mpl_fig, ax = panels["potential"].subplots()  # its axes frame is the panel
+plot_potential(ax)
+panels["potential"].add(mpl_fig, id="potential-plot", fit="axes")
+
+mpl_fig, axes = panels["bands"].subplots(1, 2, sharey=True, gridspec_kw=dict(wspace=0.12))
+plot_bands(axes)
+panels["bands"].add(mpl_fig, id="bands-plot", fit="axes")
+
+for letter, panel in zip("abcd", panels.values(), strict=True):
+    fig.label(letter, panel.nw)
+fig.save("transmon_figure.pdf")
+```
+
+`device_scene`, `circuit_diagram`, and the two plot functions are plain VecView,
+VecWire, and Matplotlib code in the example. The grid fixes the panels in
+millimetres, the plots' frames land exactly on them, the text is set at the
+style's sizes, and the export refuses to substitute a missing font.
 
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
 FigWorks is an assembly layer between plotting code and the final graphic. It
@@ -271,6 +310,7 @@ PNG exports without a warning.
 Run from the repository root:
 
 ```bash
+python examples/transmon_figure.py      # requires vecview, vecwire, and TeX
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py

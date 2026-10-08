@@ -1,276 +1,965 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 642.5196850393702 287.24409448818903" width="170mm" height="76mm" version="1.1" font-family="TeX Gyre Heros">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672.7559055118111 393.0708661417323" width="178mm" height="104mm" version="1.1" font-family="TeX Gyre Heros">
   <defs>
     <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
-    <clipPath id="p1beeee916b">
-      <rect x="34.015125" y="7.2" width="171.88" height="129.52"/>
+    <clipPath id="pa30fdd387a">
+      <rect x="0" y="0" width="127.559055" height="101.237345"/>
+    </clipPath>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    <clipPath id="pcfa25601c1">
+      <rect x="0" y="0" width="139.058089" height="101.237345"/>
+    </clipPath>
+    <clipPath id="p74949da71c">
+      <rect x="155.74506" y="0" width="139.058089" height="101.237345"/>
     </clipPath>
   </defs>
-  <rect id="background" x="0" y="0" width="642.52" height="287.244" fill="#ffffff"/>
-  <g id="slab-scene" transform="translate(45.3543 84.6916) scale(0.316315) translate(430.1 184.7)">
-    <polygon stroke="#8b96a6" stroke-width="1.6" id="slab-pz" points="-32.95,-178.7 -424.13,48.52 32.95,178.7 424.13,-48.52" stroke-linejoin="round" fill-opacity="0.86" fill="#eef1f5"/>
-    <polygon stroke="#8b96a6" stroke-width="1.6" id="slab-px" points="-424.13,99.5 32.95,229.68 32.95,178.7 -424.13,48.52" stroke-linejoin="round" fill="#cfd6e0"/>
-    <polygon stroke="#8b96a6" stroke-width="1.6" id="slab-py" points="424.13,2.45 424.13,-48.52 32.95,178.7 32.95,229.68" stroke-linejoin="round" fill="#cfd6e0"/>
-    <polygon points="-42.67,-140.28 -16.76,-143.75 -18.51,-145.91 -0.68,-144.85 -13.46,-139.68 -15.21,-141.84 -41.12,-138.36" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-73.7,-112.31 -59.65,-121.82 -64.44,-122.99 -49.23,-126.93 -50.62,-119.62 -55.4,-120.79 -69.45,-111.27" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-98.28,-87.77 -102.91,-98.7 -108.41,-98.32 -103.2,-105.34 -92.52,-99.43 -98.02,-99.04 -93.4,-88.11" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-123.47,-67.52 -144.52,-74.58 -148.07,-72.83 -155.39,-79.53 -137.82,-77.89 -141.37,-76.14 -120.31,-69.08" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-156.01,-50.38 -183.28,-50.13 -183.15,-47.86 -199.45,-50.99 -183.51,-54.42 -183.39,-52.15 -156.12,-52.4" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-199.1,-33.63 -219.36,-26.2 -215.62,-24.51 -232.99,-22.56 -226.42,-29.38 -222.68,-27.7 -202.42,-35.13" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-250.81,-14.38 -254.23,-3.37 -248.69,-3.08 -258.71,3.01 -264.69,-3.9 -259.15,-3.62 -255.73,-14.63" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-305.04,9.06 -289.96,18.31 -285.31,17.06 -283.11,24.33 -298.74,20.68 -294.09,19.43 -309.17,10.18" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-354.45,36.34 -328.19,39.34 -326.68,37.16 -313.34,42.09 -331.03,43.47 -329.53,41.28 -355.79,38.29" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="18.98,-120.82 41.01,-127.36 37.72,-129.19 55.49,-130.41 47.23,-123.9 43.94,-125.73 21.91,-119.19" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-8.48,-94.12 -2.3,-104.92 -7.74,-105.44 3.76,-111.08 7.96,-103.95 2.53,-104.47 -3.65,-93.66" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-32.39,-71.48 -45.06,-81.3 -50.0,-80.25 -50.34,-87.58 -35.72,-83.29 -40.66,-82.24 -28.0,-72.41" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-60.12,-52.86 -85.49,-56.94 -87.54,-54.82 -99.57,-60.28 -81.61,-60.92 -83.66,-58.81 -58.29,-54.73" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-97.19,-36.26 -122.96,-32.62 -121.13,-30.47 -139.0,-31.42 -126.42,-36.67 -124.59,-34.52 -98.82,-38.17" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-144.61,-18.73 -158.27,-9.12 -153.44,-7.99 -168.49,-3.95 -167.39,-11.27 -162.56,-10.13 -148.9,-19.74" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-198.33,2.27 -193.27,13.17 -187.78,12.75 -192.71,19.8 -203.62,13.97 -198.14,13.55 -203.21,2.64" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-251.29,27.56 -229.95,34.48 -226.47,32.7 -218.88,39.35 -236.51,37.83 -233.04,36.06 -254.38,29.14" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-296.76,55.91 -269.5,55.48 -269.71,53.21 -253.29,56.23 -269.09,59.76 -269.3,57.49 -296.56,57.93" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="82.47,-101.78 98.49,-110.76 93.97,-112.09 109.96,-115.48 107.02,-108.25 102.5,-109.58 86.49,-100.59" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="57.45,-76.73 55.16,-87.79 49.6,-87.6 56.28,-94.4 65.66,-88.15 60.1,-87.96 62.39,-76.9" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="32.75,-55.99 13.26,-63.76 9.36,-62.13 3.49,-69.07 20.64,-66.82 16.73,-65.2 36.22,-57.43" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="1.36,-38.59 -25.86,-39.3 -26.22,-37.04 -41.79,-40.73 -25.19,-43.58 -25.54,-41.32 1.68,-40.61" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-40.45,-21.96 -62.21,-15.27 -58.84,-13.46 -76.56,-12.12 -68.56,-18.69 -65.2,-16.88 -43.44,-23.57" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-91.38,-3.13 -97.12,7.71 -91.66,8.19 -102.94,13.91 -107.42,6.81 -101.97,7.29 -96.23,-3.56" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-145.7,19.77 -132.64,29.51 -127.74,28.43 -127.1,35.75 -141.89,31.57 -136.99,30.48 -150.06,20.74" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-196.04,46.67 -170.51,50.58 -168.54,48.46 -156.3,53.84 -174.22,54.59 -172.26,52.47 -197.79,48.56" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-236.95,75.54 -211.34,71.72 -213.26,69.59 -195.35,70.41 -207.71,75.75 -209.63,73.62 -235.24,77.43" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="147.39,-83.38 155.84,-93.93 150.54,-94.63 163.19,-99.85 165.86,-92.6 160.56,-93.3 152.11,-82.75" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="123.45,-60.2 112.91,-70.44 107.76,-69.56 108.97,-76.88 122.63,-72.09 117.49,-71.22 128.02,-60.98" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="96.55,-41.17 72.14,-46.12 69.64,-44.09 58.82,-49.95 76.84,-49.96 74.35,-47.93 98.76,-42.97" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="60.76,-24.48 34.32,-21.75 35.69,-19.55 18.08,-21.12 31.73,-25.91 33.1,-23.71 59.54,-26.44" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="14.48,-7.22 -1.17,1.87 3.4,3.17 -12.45,6.66 -9.8,-0.59 -5.23,0.71 10.42,-8.37" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-38.83,13.27 -36.09,24.31 -30.54,24.09 -36.94,30.94 -46.58,24.74 -41.03,24.52 -43.76,13.48" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-92.27,38.07 -72.48,45.71 -68.64,44.06 -62.49,50.95 -79.73,48.82 -75.89,47.17 -95.69,39.54" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-138.91,66.18 -111.66,66.7 -111.4,64.44 -95.68,68.02 -112.16,70.98 -111.9,68.72 -139.15,68.19" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-175.09,94.97 -153.6,88.13 -157.04,86.34 -139.38,84.89 -147.11,91.51 -150.55,89.72 -172.03,96.56" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="213.19,-65.76 213.26,-76.85 207.68,-76.86 215.77,-83.41 223.8,-76.84 218.22,-76.85 218.15,-65.75" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="188.85,-44.5 171.09,-52.93 166.86,-51.45 162.48,-58.56 179.09,-55.72 174.85,-54.24 192.62,-45.82" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="158.57,-26.82 131.6,-28.48 130.76,-26.24 116.03,-30.46 133.18,-32.72 132.34,-30.47 159.31,-28.81" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="118.06,-10.26 94.96,-4.35 97.93,-2.43 80.0,-1.72 89.36,-7.98 92.33,-6.06 115.42,-11.96" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="68.0,8.17 59.98,18.77 65.32,19.44 52.87,24.74 49.91,17.51 55.24,18.18 63.26,7.58" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="13.7,30.54 24.65,40.71 29.76,39.79 28.84,47.12 14.99,42.43 20.1,41.52 9.15,31.35" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-37.49,57.03 -12.88,61.82 -10.47,59.78 0.59,65.56 -17.43,65.69 -15.02,63.64 -39.63,58.85" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-79.69,85.82 -53.37,82.91 -54.83,80.72 -37.16,82.17 -50.61,87.05 -52.07,84.86 -78.39,87.76" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-111.43,113.95 -96.15,104.75 -100.77,103.48 -85.07,99.89 -87.42,107.16 -92.04,105.88 -107.32,115.08" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="279.24,-48.99 270.91,-59.56 265.6,-58.87 268.35,-66.11 280.95,-60.87 275.63,-60.18 283.96,-49.61" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="253.07,-29.52 229.8,-35.31 226.89,-33.37 217.35,-39.59 235.31,-38.97 232.39,-37.03 255.66,-31.24" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="218.56,-12.69 191.63,-10.9 192.53,-8.66 175.32,-10.84 189.93,-15.13 190.83,-12.89 217.75,-14.68" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="173.46,4.34 155.94,12.85 160.22,14.31 143.69,17.23 147.86,10.1 152.14,11.55 169.65,3.05" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="120.68,24.34 121.06,35.44 126.64,35.41 118.81,42.01 110.52,35.5 116.1,35.47 115.72,24.37" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="66.84,48.63 84.94,56.93 89.12,55.43 93.79,62.51 77.06,59.78 81.23,58.27 63.13,49.97" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="19.09,76.45 46.13,77.93 46.87,75.68 61.77,79.81 44.72,82.18 45.47,79.93 18.43,78.45" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-18.38,105.33 4.47,99.27 1.42,97.37 19.33,96.53 10.23,102.86 7.18,100.96 -15.68,107.02" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="-46.39,132.27 -38.8,121.61 -44.16,120.98 -31.93,115.6 -28.67,122.81 -34.03,122.18 -41.62,132.83" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="344.87,-33.08 328.96,-42.09 324.43,-40.76 321.57,-48.0 337.52,-44.59 332.99,-43.26 348.9,-34.25" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="315.62,-15.06 289.1,-17.66 287.8,-15.46 274.01,-20.18 291.57,-21.83 290.27,-19.62 316.79,-17.02" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="276.43,1.48 252.16,6.55 254.71,8.57 236.69,8.65 247.34,2.73 249.9,4.75 274.16,-0.32" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="227.32,19.53 217.08,29.82 222.25,30.67 208.73,35.52 207.31,28.21 212.48,29.06 222.72,18.78" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="173.14,41.38 181.9,51.88 187.18,51.16 184.72,58.42 171.91,53.26 177.2,52.53 168.44,42.02" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="121.2,67.43 144.7,73.07 147.54,71.11 157.33,77.26 139.35,76.76 142.19,74.8 118.69,69.17" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="77.72,96.08 104.57,94.11 103.58,91.87 120.87,93.94 106.44,98.33 105.45,96.09 78.61,98.07" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="44.82,124.45 61.99,115.83 57.65,114.4 74.06,111.37 70.18,118.53 65.84,117.1 48.67,125.72" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon points="19.47,149.8 18.63,138.71 13.06,138.78 20.62,132.13 29.17,138.58 23.59,138.65 24.43,149.74" fill-opacity="0.6" fill="#2f6fb0"/>
-    <polygon id="twist-arrow" points="28.52,-48.2 -17.37,36.0 -8.29,36.81 -26.84,47.54 -32.5,34.63 -23.42,35.45 22.47,-48.75" fill="#1a8f4c" style="fill: #c2185b"/>
-  </g>
-  <g id="spectrum-plot" transform="translate(347.717 45.6995) scale(1.24154)">
-    <metadata>
-      <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-        <cc:Work>
-          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-          <dc:format>image/svg+xml</dc:format>
-          <dc:creator>
-            <cc:Agent>
-              <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
-            </cc:Agent>
-          </dc:creator>
-        </cc:Work>
-      </rdf:RDF>
-    </metadata>
-    <g xmlns:xlink="http://www.w3.org/1999/xlink" id="figure_1">
-      <g id="patch_1">
-        <path d="M 0 169.92  L 213.095125 169.92  L 213.095125 0  L 0 0  L 0 169.92  z " style="fill: none"/>
+  <rect id="background" x="0" y="0" width="672.756" height="393.071" fill="#ffffff"/>
+  <g id="transmon" transform="translate(0 0) scale(1)">
+    <g id="device-scene" transform="translate(72.2912 22.6772) scale(0.440859) translate(322.3 139.2)">
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-sidem1" points="-320.34,0.67 317.05,195.68 317.05,175.32 -320.34,-19.69" stroke-linejoin="round" fill="#d8dde5"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-sidem2" points="317.05,195.68 445.05,78.19 445.05,57.84 317.05,175.32" stroke-linejoin="round" fill="#d8dde5"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-pz" points="-192.34,-137.17 -320.34,-19.69 317.05,175.32 445.05,57.84" stroke-linejoin="round" fill="#f1f3f6"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-left-sidem1" points="-250.77,-32.67 -70.64,22.44 -70.64,18.37 -250.77,-36.74" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-left-sidem2" points="-70.64,22.44 1.36,-43.64 1.36,-47.71 -70.64,18.37" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-right-sidem1" points="-1.36,43.64 178.77,98.75 178.77,94.68 -1.36,39.57" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-right-sidem2" points="178.77,98.75 250.77,32.67 250.77,28.6 178.77,94.68" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-left-sidem1" points="-37.04,-8.4 -7.94,0.51 -7.94,-3.56 -37.04,-12.47" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-left-sidem2" points="-7.94,0.51 -3.14,-3.9 -3.14,-7.97 -7.94,-3.56" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-right-sidem1" points="3.14,3.9 32.24,12.8 32.24,8.73 3.14,-0.17" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-right-sidem2" points="32.24,12.8 37.04,8.4 37.04,4.32 32.24,8.73" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem1" points="207.56,97.77 221.42,102.01 221.42,97.94 207.56,93.7" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem2" points="221.42,102.01 247.02,78.51 247.02,74.44 221.42,97.94" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem3" points="247.02,78.51 267.11,84.66 267.11,80.59 247.02,74.44" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem5" points="225.51,122.84 229.66,124.11 229.66,120.04 225.51,118.77" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem7" points="227.26,126.32 251.51,133.73 251.51,129.66 227.26,122.24" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem8" points="251.51,133.73 253.91,131.53 253.91,127.46 251.51,129.66" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem9" points="253.91,131.53 258.07,132.8 258.07,128.73 253.91,127.46" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem10" points="258.07,132.8 343.67,54.24 343.67,50.16 258.07,128.73" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem11" points="343.67,54.24 359.6,59.11 359.6,55.04 343.67,50.16" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem13" points="274.0,137.68 278.16,138.95 278.16,134.88 274.0,133.61" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem15" points="275.76,141.15 300.01,148.57 300.01,144.5 275.76,137.08" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem16" points="300.01,148.57 302.41,146.37 302.41,142.3 300.01,144.5" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem17" points="302.41,146.37 306.57,147.64 306.57,143.57 302.41,142.3" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem18" points="306.57,147.64 394.57,66.87 394.57,62.8 306.57,143.57" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem22" points="284.72,138.02 370.32,59.45 370.32,55.38 284.72,133.95" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem24" points="366.16,58.18 368.56,55.98 368.56,51.91 366.16,54.11" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem30" points="236.22,123.18 321.82,44.61 321.82,40.54 236.22,119.11" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-sidem34" points="251.82,74.11 277.42,50.61 277.42,46.54 251.82,70.03" stroke-linejoin="round" fill="#9aa5b4"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-left-pz" points="-178.77,-102.82 -250.77,-36.74 -70.64,18.37 1.36,-47.71" stroke-linejoin="round" fill="#d5dbe3"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="pad-right-pz" points="70.64,-26.51 -1.36,39.57 178.77,94.68 250.77,28.6" stroke-linejoin="round" fill="#d5dbe3"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-left-pz" points="-32.24,-16.87 -37.04,-12.47 -7.94,-3.56 -3.14,-7.97" stroke-linejoin="round" fill="#d5dbe3"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="lead-right-pz" points="7.94,-4.58 3.14,-0.17 32.24,8.73 37.04,4.32" stroke-linejoin="round" fill="#d5dbe3"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="resonator-pz" points="263.56,42.3 207.56,93.7 221.42,97.94 247.02,74.44 267.11,80.59 225.51,118.77 229.66,120.04 227.26,122.24 251.51,129.66 253.91,127.46 258.07,128.73 343.67,50.16 359.6,55.04 274.0,133.61 278.16,134.88 275.76,137.08 300.01,144.5 302.41,142.3 306.57,143.57 394.57,62.8 386.25,60.26 300.65,138.82 284.72,133.95 370.32,55.38 366.16,54.11 368.56,51.91 344.31,44.49 341.91,46.69 337.76,45.42 252.16,123.99 236.22,119.11 321.82,40.54 313.51,38.0 271.91,76.18 251.82,70.03 277.42,46.54" stroke-linejoin="round" fill="#d5dbe3"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="junction-sidem1" points="-9.54,1.98 1.54,5.37 1.54,-2.1 -9.54,-5.49" stroke-linejoin="round" fill="#8e1243"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="junction-sidem2" points="1.54,5.37 9.54,-1.98 9.54,-9.44 1.54,-2.1" stroke-linejoin="round" fill="#8e1243"/>
+      <polygon stroke="#8b96a6" stroke-width="0.8" id="junction-pz" points="-1.54,-12.83 -9.54,-5.49 1.54,-2.1 9.54,-9.44" stroke-linejoin="round" fill="#c2185b"/>
+      <g id="label-EJ" transform="translate(0.0 -12.46)" data-align="south">
+        <g transform="scale(2.2683) translate(-6.8896 -8.85653) scale(1.33333 1.33333)">
+          <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#c2185b" fill="currentColor" id="vx8abe9a8485ae-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$E_J$" textext:version="1.13.0">
+            <metadata>
+              <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 10.3344 6.6424" width="10.3344">
+                <vectex:source>$E_J$</vectex:source>
+                <vectex:options>
+                  <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                  <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                </vectex:options>
+              </vectex:fragment>
+            </metadata>
+            <g id="vx8abe9a8485ae-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+              <defs>
+                <path d="M4.16109-4.22382C4.22382-4.46777 4.23079-4.50959 4.62111-4.50959C4.70475-4.50959 4.80233-4.50959 4.80233-4.65596C4.80233-4.73263 4.74657-4.76051 4.69778-4.76051C4.5305-4.76051 4.1123-4.73263 3.94502-4.73263C3.79865-4.73263 3.56167-4.7396 3.40833-4.7396C3.23408-4.74657 3.03195-4.76051 2.8577-4.76051C2.80891-4.76051 2.70436-4.76051 2.70436-4.61414C2.70436-4.50959 2.76709-4.50959 2.97619-4.50959C3.1365-4.50959 3.16438-4.50959 3.33863-4.49565C3.54076-4.47474 3.56167-4.45383 3.56167-4.37019C3.56167-4.3214 3.56167-4.30746 3.53379-4.20988L2.73224-1.01762C2.59981-.49487 2.15373-.05576 1.70068-.05576C1.6031-.05576 1.16399-.07667 1.00368-.4182C1.40794-.4182 1.49855-.74579 1.49855-.87125C1.49855-1.06641 1.33127-1.17096 1.17793-1.17096C.98974-1.17096 .71094-1.01762 .71094-.6273C.71094-.17425 1.13611 .1394 1.72159 .1394C2.40465 .1394 3.17832-.29971 3.35257-.99671L4.16109-4.22382Z" id="vx8abe9a8485ae-0"/>
+                <path d="M7.05168-2.32068C7.0716-2.37048 7.10148-2.4402 7.10148-2.46012C7.10148-2.47008 7.10148-2.56968 6.98196-2.56968C6.89232-2.56968 6.8724-2.50992 6.85248-2.45016C6.20508-.97608 5.83656-.30876 4.1334-.30876H2.67924C2.5398-.30876 2.51988-.30876 2.46012-.31872C2.36052-.32868 2.33064-.33864 2.33064-.41832C2.33064-.4482 2.33064-.46812 2.38044-.6474L3.05772-3.36648H4.04376C4.89036-3.36648 4.89036-3.15732 4.89036-2.90832C4.89036-2.8386 4.89036-2.71908 4.82064-2.42028C4.80072-2.37048 4.79076-2.3406 4.79076-2.31072C4.79076-2.26092 4.8306-2.20116 4.92024-2.20116C4.99992-2.20116 5.0298-2.25096 5.06964-2.40036L5.63736-4.731C5.63736-4.79076 5.58756-4.84056 5.51784-4.84056C5.4282-4.84056 5.40828-4.7808 5.3784-4.66128C5.16924-3.90432 4.98996-3.67524 4.07364-3.67524H3.1374L3.735-6.0756C3.82464-6.4242 3.8346-6.46404 4.27284-6.46404H5.6772C6.89232-6.46404 7.19112-6.1752 7.19112-5.35848C7.19112-5.11944 7.19112-5.09952 7.15128-4.8306C7.15128-4.77084 7.14132-4.70112 7.14132-4.65132S7.1712-4.5318 7.26084-4.5318C7.3704-4.5318 7.38036-4.59156 7.40028-4.7808L7.59948-6.50388C7.62936-6.7728 7.57956-6.7728 7.33056-6.7728H2.30076C2.10156-6.7728 2.00196-6.7728 2.00196-6.5736C2.00196-6.46404 2.0916-6.46404 2.28084-6.46404C2.64936-6.46404 2.92824-6.46404 2.92824-6.28476C2.92824-6.24492 2.92824-6.225 2.87844-6.04572L1.56372-.77688C1.46412-.38844 1.4442-.30876 .65736-.30876C.48804-.30876 .37848-.30876 .37848-.11952C.37848 0 .46812 0 .65736 0H5.8266C6.05568 0 6.06564-.00996 6.13536-.16932L7.05168-2.32068Z" id="vx8abe9a8485ae-1"/>
+              </defs>
+              <g id="vx8abe9a8485ae-2">
+                <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                  <use x="0" y="-1.49461" xlink:href="#vx8abe9a8485ae-1"/>
+                </g>
+                <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                  <use x="7.349993" y="-.001" xlink:href="#vx8abe9a8485ae-0"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
       </g>
-      <g id="axes_1">
-        <g id="patch_2">
-          <path d="M 34.015125 136.72  L 205.895125 136.72  L 205.895125 7.2  L 34.015125 7.2  L 34.015125 136.72  z " style="fill: none"/>
-        </g>
-        <g id="matplotlib.axis_1">
-          <g id="xtick_1">
-            <g id="line2d_1">
+      <g id="label-CB" transform="translate(-88.71 -80.27)" data-align="south">
+        <g transform="scale(2.2683) translate(-7.45493 -8.85653) scale(1.33333 1.33333)">
+          <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx285b4a5fe2ab-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$C_B$" textext:version="1.13.0">
+            <metadata>
+              <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 11.1824 6.6424" width="11.1824">
+                <vectex:source>$C_B$</vectex:source>
+                <vectex:options>
+                  <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                  <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                </vectex:options>
+              </vectex:fragment>
+            </metadata>
+            <g id="vx285b4a5fe2ab-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
               <defs>
-                <path id="md37cbe1367" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.5"/>
+                <path d="M1.3243-.54366C1.26157-.30668 1.24763-.25092 .71094-.25092C.59245-.25092 .50184-.25092 .50184-.10455C.50184 0 .58548 0 .71094 0H3.40833C4.57929 0 5.47842-.80155 5.47842-1.49158C5.47842-1.98645 5.02537-2.41162 4.28655-2.48829C5.12992-2.64163 5.83389-3.17135 5.83389-3.77077C5.83389-4.30049 5.2972-4.76051 4.3911-4.76051H1.85402C1.72159-4.76051 1.63098-4.76051 1.63098-4.60717C1.63098-4.50959 1.71462-4.50959 1.85402-4.50959C1.86099-4.50959 1.99342-4.50959 2.11888-4.49565C2.26525-4.48171 2.27919-4.46777 2.27919-4.39807C2.27919-4.38413 2.27919-4.34928 2.25131-4.24473L1.3243-.54366ZM2.4395-2.57193L2.86467-4.27261C2.92043-4.48868 2.9274-4.50959 3.22014-4.50959H4.27958C4.99052-4.50959 5.15083-4.0426 5.15083-3.77774C5.15083-3.21317 4.51656-2.57193 3.58258-2.57193H2.4395ZM2.10494-.25092C1.88887-.25092 1.8819-.25789 1.8819-.32062C1.8819-.32759 1.8819-.36244 1.90978-.46699L2.39071-2.37677H3.86835C4.52353-2.37677 4.77445-1.94463 4.77445-1.54037C4.77445-.85034 4.07048-.25092 3.22711-.25092H2.10494Z" id="vx285b4a5fe2ab-0"/>
+                <path d="M7.5696-6.9222C7.5696-6.95208 7.54968-7.0218 7.46004-7.0218C7.43016-7.0218 7.4202-7.01184 7.31064-6.90228L6.61344-6.13536C6.5238-6.2748 6.06564-7.0218 4.96008-7.0218C2.739-7.0218 .498-4.82064 .498-2.50992C.498-.86652 1.67328 .21912 3.19716 .21912C4.06368 .21912 4.82064-.17928 5.34852-.63744C6.2748-1.45416 6.44412-2.36052 6.44412-2.3904C6.44412-2.49 6.34452-2.49 6.3246-2.49C6.26484-2.49 6.21504-2.47008 6.19512-2.3904C6.10548-2.10156 5.8764-1.3944 5.18916-.81672C4.50192-.25896 3.87444-.08964 3.35652-.08964C2.46012-.08964 1.40436-.60756 1.40436-2.16132C1.40436-2.72904 1.61352-4.34256 2.60952-5.50788C3.21708-6.21504 4.15332-6.71304 5.03976-6.71304C6.05568-6.71304 6.64332-5.94612 6.64332-4.79076C6.64332-4.39236 6.61344-4.3824 6.61344-4.2828S6.723-4.1832 6.76284-4.1832C6.89232-4.1832 6.89232-4.20312 6.94212-4.3824L7.5696-6.9222Z" id="vx285b4a5fe2ab-1"/>
               </defs>
-              <g>
-                <use xlink:href="#md37cbe1367" x="35.034176" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
+              <g id="vx285b4a5fe2ab-2">
+                <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                  <use x="0" y="-1.49461" xlink:href="#vx285b4a5fe2ab-1"/>
+                </g>
+                <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                  <use x="7.11712" y="-.001" xlink:href="#vx285b4a5fe2ab-0"/>
+                </g>
               </g>
-            </g>
-            <g id="text_1">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="35.034176" y="149.208" transform="rotate(-0 35.034176 149.208)">0.0</text>
-            </g>
-          </g>
-          <g id="xtick_2">
-            <g id="line2d_2">
-              <g>
-                <use xlink:href="#md37cbe1367" x="62.20888" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_2">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="62.20888" y="149.208" transform="rotate(-0 62.20888 149.208)">0.2</text>
-            </g>
-          </g>
-          <g id="xtick_3">
-            <g id="line2d_3">
-              <g>
-                <use xlink:href="#md37cbe1367" x="89.383583" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_3">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="89.383583" y="149.208" transform="rotate(-0 89.383583 149.208)">0.4</text>
-            </g>
-          </g>
-          <g id="xtick_4">
-            <g id="line2d_4">
-              <g>
-                <use xlink:href="#md37cbe1367" x="116.558287" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_4">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="116.558287" y="149.208" transform="rotate(-0 116.558287 149.208)">0.6</text>
-            </g>
-          </g>
-          <g id="xtick_5">
-            <g id="line2d_5">
-              <g>
-                <use xlink:href="#md37cbe1367" x="143.732991" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_5">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="143.732991" y="149.208" transform="rotate(-0 143.732991 149.208)">0.8</text>
-            </g>
-          </g>
-          <g id="xtick_6">
-            <g id="line2d_6">
-              <g>
-                <use xlink:href="#md37cbe1367" x="170.907694" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_6">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="170.907694" y="149.208" transform="rotate(-0 170.907694 149.208)">1.0</text>
-            </g>
-          </g>
-          <g id="xtick_7">
-            <g id="line2d_7">
-              <g>
-                <use xlink:href="#md37cbe1367" x="198.082398" y="136.72" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_7">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="198.082398" y="149.208" transform="rotate(-0 198.082398 149.208)">1.2</text>
-            </g>
-          </g>
-          <g id="text_8">
-            <!-- $\omega$ -->
-            <g transform="translate(116.915125 160.992)">
-              <text>
-                <tspan x="0" y="-0.8125" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">ω</tspan>
-              </text>
             </g>
           </g>
         </g>
-        <g id="matplotlib.axis_2">
-          <g id="ytick_1">
-            <g id="line2d_8">
+      </g>
+      <g id="label-Cg" transform="translate(256.63 35.18)" data-align="south">
+        <g transform="scale(2.2683) translate(-6.26987 -10.3029) scale(1.33333 1.33333)">
+          <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx4ee205891e91-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$C_g$" textext:version="1.13.0">
+            <metadata>
+              <vectex:fragment baseline="5.44612424778761" converter="dvisvgm" engine="pdflatex" height="7.7272" scale="0.8" version="1" viewBox="0 0 9.4048 7.7272" width="9.4048">
+                <vectex:source>$C_g$</vectex:source>
+                <vectex:options>
+                  <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                  <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                </vectex:options>
+              </vectex:fragment>
+            </metadata>
+            <g id="vx4ee205891e91-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
               <defs>
-                <path id="m06d17e5d63" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.5"/>
+                <path d="M3.70804-2.57193C3.73592-2.67648 3.73592-2.71133 3.73592-2.7183C3.73592-2.87164 3.61046-2.94134 3.49894-2.94134C3.33863-2.94134 3.2062-2.80891 3.17832-2.67648C3.05983-2.86467 2.82285-3.07377 2.46041-3.07377C1.58916-3.07377 .67609-2.13979 .67609-1.14308C.67609-.42517 1.16399 0 1.73553 0C2.05615 0 2.36283-.16031 2.60678-.37638L2.45344 .25092C2.37677 .54366 2.32798 .73185 2.06312 .96883C1.75644 1.22672 1.45673 1.22672 1.28248 1.22672C.96186 1.22672 .87125 1.20581 .74579 1.17793C.92004 1.09429 .96883 .92701 .96883 .82943C.96883 .66215 .8364 .57154 .697 .57154C.50184 .57154 .29971 .73185 .29971 .99671C.29971 1.41491 .89913 1.42188 1.28945 1.42188C2.38374 1.42188 2.85073 .86428 2.94831 .46699L3.70804-2.57193ZM2.74618-.92701C2.7183-.82246 2.7183-.80852 2.59981-.66912C2.35586-.37638 2.0213-.19516 1.75644-.19516C1.40097-.19516 1.23369-.49487 1.23369-.85731C1.23369-1.16399 1.42188-1.94463 1.6031-2.25131C1.89584-2.73921 2.22343-2.87861 2.46041-2.87861C2.94831-2.87861 3.08074-2.35586 3.08074-2.28616C3.08074-2.27222 3.08074-2.25828 3.05983-2.18161L2.74618-.92701Z" id="vx4ee205891e91-0"/>
+                <path d="M7.5696-6.9222C7.5696-6.95208 7.54968-7.0218 7.46004-7.0218C7.43016-7.0218 7.4202-7.01184 7.31064-6.90228L6.61344-6.13536C6.5238-6.2748 6.06564-7.0218 4.96008-7.0218C2.739-7.0218 .498-4.82064 .498-2.50992C.498-.86652 1.67328 .21912 3.19716 .21912C4.06368 .21912 4.82064-.17928 5.34852-.63744C6.2748-1.45416 6.44412-2.36052 6.44412-2.3904C6.44412-2.49 6.34452-2.49 6.3246-2.49C6.26484-2.49 6.21504-2.47008 6.19512-2.3904C6.10548-2.10156 5.8764-1.3944 5.18916-.81672C4.50192-.25896 3.87444-.08964 3.35652-.08964C2.46012-.08964 1.40436-.60756 1.40436-2.16132C1.40436-2.72904 1.61352-4.34256 2.60952-5.50788C3.21708-6.21504 4.15332-6.71304 5.03976-6.71304C6.05568-6.71304 6.64332-5.94612 6.64332-4.79076C6.64332-4.39236 6.61344-4.3824 6.61344-4.2828S6.723-4.1832 6.76284-4.1832C6.89232-4.1832 6.89232-4.20312 6.94212-4.3824L7.5696-6.9222Z" id="vx4ee205891e91-1"/>
               </defs>
-              <g>
-                <use xlink:href="#m06d17e5d63" x="34.015125" y="130.833166" style="stroke: #000000; stroke-width: 0.5"/>
+              <g id="vx4ee205891e91-2">
+                <g transform="matrix(1.000261 0 0 1.000261 0 9.659)">
+                  <use x="0" y="-2.850256" xlink:href="#vx4ee205891e91-1"/>
+                </g>
+                <g transform="matrix(1.000545 0 0 1.000545 0 9.659)">
+                  <use x="7.11712" y="-1.356261" xlink:href="#vx4ee205891e91-0"/>
+                </g>
               </g>
             </g>
-            <g id="text_9">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="27.015125" y="133.577166" transform="rotate(-0 27.015125 133.577166)">0</text>
-            </g>
           </g>
-          <g id="ytick_2">
-            <g id="line2d_9">
-              <g>
-                <use xlink:href="#m06d17e5d63" x="34.015125" y="104.66741" style="stroke: #000000; stroke-width: 0.5"/>
+        </g>
+      </g>
+      <g id="label-res" transform="translate(390.41 56.53)" data-align="south">
+        <g transform="scale(2.2683) translate(-14.4811 -9.32907) scale(1.33333 1.33333)">
+          <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx46e3962d8c1d-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$L_r, C_r$" textext:version="1.13.0">
+            <metadata>
+              <vectex:fragment baseline="5.44624792202999" converter="dvisvgm" engine="pdflatex" height="6.9968" scale="0.8" version="1" viewBox="0 0 21.7216 6.9968" width="21.7216">
+                <vectex:source>$L_r, C_r$</vectex:source>
+                <vectex:options>
+                  <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                  <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                </vectex:options>
+              </vectex:fragment>
+            </metadata>
+            <g id="vx46e3962d8c1d-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+              <defs>
+                <path d="M1.63795-1.40794C1.64492-1.44976 1.80523-2.07706 1.81917-2.11191C1.83311-2.16767 2.03524-2.51617 2.25828-2.68345C2.33495-2.73921 2.52314-2.87861 2.82285-2.87861C2.89255-2.87861 3.0668-2.87164 3.2062-2.78103C2.98316-2.7183 2.89952-2.52314 2.89952-2.39768C2.89952-2.24434 3.01801-2.13979 3.17832-2.13979S3.56864-2.27222 3.56864-2.56496C3.56864-2.9274 3.18529-3.07377 2.82982-3.07377C2.46738-3.07377 2.15373-2.9274 1.84705-2.5789C1.72159-3.00407 1.29642-3.07377 1.12914-3.07377C.87125-3.07377 .697-2.91346 .58548-2.7183C.42517-2.44647 .32759-2.04221 .32759-2.00736C.32759-1.91675 .42517-1.91675 .44608-1.91675C.54366-1.91675 .55063-1.93766 .59942-2.12585C.70397-2.55102 .8364-2.87861 1.10823-2.87861C1.28945-2.87861 1.33824-2.72527 1.33824-2.53708C1.33824-2.40465 1.27551-2.14676 1.22672-1.95857S1.10823-1.48461 1.07338-1.33127L.85034-.43911C.82246-.3485 .78064-.17425 .78064-.15334C.78064 0 .9061 .0697 1.01762 .0697C1.12217 .0697 1.26157 .00697 1.31733-.13243C1.33127-.17425 1.40794-.48093 1.44976-.65518L1.63795-1.40794Z" id="vx46e3962d8c1d-0"/>
+                <path d="M2.02188-.00996C2.02188-.66732 1.77288-1.05576 1.38444-1.05576C1.05576-1.05576 .85656-.80676 .85656-.52788C.85656-.25896 1.05576 0 1.38444 0C1.50396 0 1.63344-.03984 1.73304-.12948C1.76292-.1494 1.77288-.15936 1.78284-.15936S1.80276-.1494 1.80276-.00996C1.80276 .72708 1.45416 1.32468 1.12548 1.65336C1.01592 1.76292 1.01592 1.78284 1.01592 1.81272C1.01592 1.88244 1.06572 1.92228 1.11552 1.92228C1.22508 1.92228 2.02188 1.15536 2.02188-.00996Z" id="vx46e3962d8c1d-1"/>
+                <path d="M7.5696-6.9222C7.5696-6.95208 7.54968-7.0218 7.46004-7.0218C7.43016-7.0218 7.4202-7.01184 7.31064-6.90228L6.61344-6.13536C6.5238-6.2748 6.06564-7.0218 4.96008-7.0218C2.739-7.0218 .498-4.82064 .498-2.50992C.498-.86652 1.67328 .21912 3.19716 .21912C4.06368 .21912 4.82064-.17928 5.34852-.63744C6.2748-1.45416 6.44412-2.36052 6.44412-2.3904C6.44412-2.49 6.34452-2.49 6.3246-2.49C6.26484-2.49 6.21504-2.47008 6.19512-2.3904C6.10548-2.10156 5.8764-1.3944 5.18916-.81672C4.50192-.25896 3.87444-.08964 3.35652-.08964C2.46012-.08964 1.40436-.60756 1.40436-2.16132C1.40436-2.72904 1.61352-4.34256 2.60952-5.50788C3.21708-6.21504 4.15332-6.71304 5.03976-6.71304C6.05568-6.71304 6.64332-5.94612 6.64332-4.79076C6.64332-4.39236 6.61344-4.3824 6.61344-4.2828S6.723-4.1832 6.76284-4.1832C6.89232-4.1832 6.89232-4.20312 6.94212-4.3824L7.5696-6.9222Z" id="vx46e3962d8c1d-2"/>
+                <path d="M3.72504-6.0258C3.81468-6.38436 3.84456-6.49392 4.7808-6.49392C5.0796-6.49392 5.15928-6.49392 5.15928-6.68316C5.15928-6.80268 5.04972-6.80268 4.99992-6.80268C4.67124-6.80268 3.85452-6.7728 3.52584-6.7728C3.22704-6.7728 2.49996-6.80268 2.20116-6.80268C2.13144-6.80268 2.01192-6.80268 2.01192-6.60348C2.01192-6.49392 2.10156-6.49392 2.2908-6.49392C2.31072-6.49392 2.49996-6.49392 2.66928-6.474C2.84856-6.45408 2.9382-6.44412 2.9382-6.31464C2.9382-6.2748 2.92824-6.24492 2.89836-6.1254L1.56372-.77688C1.46412-.38844 1.4442-.30876 .65736-.30876C.48804-.30876 .38844-.30876 .38844-.10956C.38844 0 .47808 0 .65736 0H5.26884C5.50788 0 5.51784 0 5.5776-.16932L6.36444-2.32068C6.40428-2.43024 6.40428-2.45016 6.40428-2.46012C6.40428-2.49996 6.3744-2.56968 6.28476-2.56968S6.18516-2.51988 6.11544-2.36052C5.7768-1.4442 5.33856-.30876 3.61548-.30876H2.67924C2.5398-.30876 2.51988-.30876 2.46012-.31872C2.36052-.32868 2.33064-.33864 2.33064-.41832C2.33064-.4482 2.33064-.46812 2.38044-.6474L3.72504-6.0258Z" id="vx46e3962d8c1d-3"/>
+              </defs>
+              <g id="vx46e3962d8c1d-4">
+                <g transform="matrix(1.000261 0 0 1.000261 0 8.746)">
+                  <use x="0" y="-1.937494" xlink:href="#vx46e3962d8c1d-3"/>
+                </g>
+                <g transform="matrix(1.000545 0 0 1.000545 0 8.746)">
+                  <use x="6.776306" y="-.443758" xlink:href="#vx46e3962d8c1d-0"/>
+                </g>
+                <g transform="matrix(1.000261 0 0 1.000261 0 8.746)">
+                  <use x="11.189079" y="-1.937494" xlink:href="#vx46e3962d8c1d-1"/>
+                  <use x="15.62128" y="-1.937494" xlink:href="#vx46e3962d8c1d-2"/>
+                </g>
+                <g transform="matrix(1.000545 0 0 1.000545 0 8.746)">
+                  <use x="22.727611" y="-.443758" xlink:href="#vx46e3962d8c1d-0"/>
+                </g>
               </g>
             </g>
-            <g id="text_10">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="27.015125" y="107.41141" transform="rotate(-0 27.015125 107.41141)">10</text>
-            </g>
           </g>
-          <g id="ytick_3">
-            <g id="line2d_10">
-              <g>
-                <use xlink:href="#m06d17e5d63" x="34.015125" y="78.501653" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_11">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="27.015125" y="81.245653" transform="rotate(-0 27.015125 81.245653)">20</text>
-            </g>
-          </g>
-          <g id="ytick_4">
-            <g id="line2d_11">
-              <g>
-                <use xlink:href="#m06d17e5d63" x="34.015125" y="52.335897" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_12">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="27.015125" y="55.079897" transform="rotate(-0 27.015125 55.079897)">30</text>
-            </g>
-          </g>
-          <g id="ytick_5">
-            <g id="line2d_12">
-              <g>
-                <use xlink:href="#m06d17e5d63" x="34.015125" y="26.170141" style="stroke: #000000; stroke-width: 0.5"/>
-              </g>
-            </g>
-            <g id="text_13">
-              <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="27.015125" y="28.914141" transform="rotate(-0 27.015125 28.914141)">40</text>
-            </g>
-          </g>
-          <g id="text_14">
-            <!-- $\theta_+$ (deg) -->
-            <g transform="translate(13.472 87.44) rotate(-90)">
-              <text>
-                <tspan x="0" y="-0.078125" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">θ</tspan>
-                <tspan x="5.588892" y="1.178125" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'">+</tspan>
-                <tspan x="10.00157" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'"> </tspan>
-                <tspan x="12.225538" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'">(</tspan>
-                <tspan x="14.889509" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'">d</tspan>
-                <tspan x="19.337446" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'">e</tspan>
-                <tspan x="23.785383" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'">g</tspan>
-                <tspan x="28.23332" y="-0.078125" style="font-size: 8px; font-family: 'TeX Gyre Heros'">)</tspan>
-              </text>
-            </g>
-          </g>
-        </g>
-        <g id="line2d_13">
-          <path d="M 41.827852 130.832727  L 71.982238 130.720596  L 78.248085 130.47736  L 82.164239 130.104109  L 84.905547 129.630754  L 87.255239 128.990612  L 89.213316 128.20926  L 90.779778 127.358605  L 92.346239 126.243169  L 93.912701 124.788587  L 95.087547 123.421793  L 96.262393 121.771015  L 97.437239 119.789353  L 98.612086 117.427802  L 99.786932 114.637914  L 100.961778 111.375678  L 102.52824 106.233807  L 104.094701 100.15722  L 105.661163 93.186259  L 107.61924 83.431312  L 114.276702 48.835234  L 115.843163 42.088582  L 117.409625 36.255453  L 118.976086 31.354066  L 120.542548 27.33341  L 121.717394 24.840426  L 122.892241 22.742999  L 124.067087 20.991957  L 125.633548 19.113902  L 127.20001 17.66346  L 128.766472 16.551275  L 130.332933 15.703143  L 132.29101 14.924143  L 134.249087 14.374532  L 136.990395 13.867995  L 140.123318 13.52723  L 144.431088 13.286828  L 151.480165 13.141881  L 168.319627 13.089728  L 198.082398 13.087273  L 198.082398 13.087273  " clip-path="url(#p1beeee916b)" style="fill: none; stroke: #6a2fb5; stroke-linecap: square"/>
-        </g>
-        <g id="line2d_14">
-          <path d="M 109.764611 136.72  L 109.764611 7.2  " clip-path="url(#p1beeee916b)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #8b96a6; stroke-width: 0.9"/>
-        </g>
-        <g id="patch_3">
-          <path d="M 34.015125 136.72  L 34.015125 7.2  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
-        </g>
-        <g id="patch_4">
-          <path d="M 205.895125 136.72  L 205.895125 7.2  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
-        </g>
-        <g id="patch_5">
-          <path d="M 34.015125 136.72  L 205.895125 136.72  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
-        </g>
-        <g id="patch_6">
-          <path d="M 34.015125 7.2  L 205.895125 7.2  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
         </g>
       </g>
     </g>
+    <g id="circuit" transform="translate(491.339 30.9172) scale(1.26924)">
+      <g data-component="node" id="jj_top" data-x="16" data-y="16"/>
+      <g data-component="node" id="cb_top" data-x="48" data-y="16"/>
+      <g data-component="node" id="cr_top" data-x="86" data-y="16"/>
+      <g data-component="node" id="lr_top" data-x="114" data-y="16"/>
+      <g data-component="node" id="jj_bot" data-x="16" data-y="64"/>
+      <g data-component="node" id="cb_bot" data-x="48" data-y="64"/>
+      <g data-component="node" id="gnd" data-x="67" data-y="64"/>
+      <g data-component="node" id="cr_bot" data-x="86" data-y="64"/>
+      <g data-component="node" id="lr_bot" data-x="114" data-y="64"/>
+      <g data-component="wire" id="transmon-rail" data-from="jj_top" data-to="cb_top" data-through="phi">
+        <path d="M 16 16 L 32 16 L 48 16" fill="none" stroke="#262626" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g data-component="wire" id="resonator-rail" data-from="cr_top" data-to="lr_top">
+        <path d="M 86 16 L 114 16" fill="none" stroke="#262626" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g data-component="wire" id="ground-rail" data-from="jj_bot" data-to="lr_bot" data-through="cb_bot gnd cr_bot">
+        <path d="M 16 64 L 48 64 L 67 64 L 86 64 L 114 64" fill="none" stroke="#262626" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g data-component="josephson-junction" id="JJ" data-from="jj_top" data-to="jj_bot">
+        <line x1="16" y1="16" x2="16" y2="40" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="16" y1="40" x2="16" y2="64" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="19.6" y1="36.4" x2="12.4" y2="43.6" stroke="#c2185b" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="12.4" y1="36.4" x2="19.6" y2="43.6" stroke="#c2185b" stroke-width="0.9" stroke-linecap="round"/>
+      </g>
+      <g data-component="capacitor" id="CB" data-from="cb_top" data-to="cb_bot">
+        <line x1="48" y1="16" x2="48" y2="38" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="48" y1="42" x2="48" y2="64" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="55" y1="38" x2="41" y2="38" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="55" y1="42" x2="41" y2="42" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+      </g>
+      <g data-component="capacitor" id="Cg" data-from="cb_top" data-to="cr_top">
+        <line x1="48" y1="16" x2="65" y2="16" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="69" y1="16" x2="86" y2="16" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="65" y1="9" x2="65" y2="23" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="69" y1="9" x2="69" y2="23" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+      </g>
+      <g data-component="capacitor" id="Cr" data-from="cr_top" data-to="cr_bot">
+        <line x1="86" y1="16" x2="86" y2="38" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="86" y1="42" x2="86" y2="64" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="93" y1="38" x2="79" y2="38" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="93" y1="42" x2="79" y2="42" stroke="#262626" stroke-width="1.3" stroke-linecap="round"/>
+      </g>
+      <g data-component="inductor" id="Lr" data-from="lr_top" data-to="lr_bot">
+        <path d="M 114 16 A 6 6 0 0 1 114 28 A 6 6 0 0 1 114 40 A 6 6 0 0 1 114 52 A 6 6 0 0 1 114 64" fill="none" stroke="#262626" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <g data-component="ground" id="ground" data-node="gnd">
+        <line x1="67" y1="64" x2="67" y2="68" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="61" y1="68" x2="73" y2="68" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="63.2" y1="70.4" x2="70.8" y2="70.4" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+        <line x1="65.4" y1="72.8" x2="68.6" y2="72.8" stroke="#262626" stroke-width="0.9" stroke-linecap="round"/>
+      </g>
+      <g data-component="label" id="circuit-EJ" fill="#262626" transform="translate(-2.3344 36.6788)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#c2185b" fill="currentColor" id="circuit-vx8abe9a8485ae-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$E_J$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 10.3344 6.6424" width="10.3344">
+              <vectex:source>$E_J$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="circuit-vx8abe9a8485ae-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs/>
+            <g id="circuit-vx8abe9a8485ae-2">
+              <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                <use x="0" y="-1.49461" xlink:href="#vx8abe9a8485ae-1"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                <use x="7.349993" y="-.001" xlink:href="#vx8abe9a8485ae-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="circuit-CB" fill="#262626" transform="translate(58 36.6788)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="circuit-vx285b4a5fe2ab-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$C_B$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 11.1824 6.6424" width="11.1824">
+              <vectex:source>$C_B$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="circuit-vx285b4a5fe2ab-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs/>
+            <g id="circuit-vx285b4a5fe2ab-2">
+              <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                <use x="0" y="-1.49461" xlink:href="#vx285b4a5fe2ab-1"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                <use x="7.11712" y="-.001" xlink:href="#vx285b4a5fe2ab-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="circuit-Cg" fill="#262626" transform="translate(62.2976 -0.7272)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="circuit-vx4ee205891e91-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$C_g$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="5.44612424778761" converter="dvisvgm" engine="pdflatex" height="7.7272" scale="0.8" version="1" viewBox="0 0 9.4048 7.7272" width="9.4048">
+              <vectex:source>$C_g$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="circuit-vx4ee205891e91-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs/>
+            <g id="circuit-vx4ee205891e91-2">
+              <g transform="matrix(1.000261 0 0 1.000261 0 9.659)">
+                <use x="0" y="-2.850256" xlink:href="#vx4ee205891e91-1"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 9.659)">
+                <use x="7.11712" y="-1.356261" xlink:href="#vx4ee205891e91-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="circuit-Cr" fill="#262626" transform="translate(96 36.6788)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx63ba97edf8b6-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$C_r$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 9.2256 6.6424" width="9.2256">
+              <vectex:source>$C_r$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="vx63ba97edf8b6-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs>
+              <path d="M1.63795-1.40794C1.64492-1.44976 1.80523-2.07706 1.81917-2.11191C1.83311-2.16767 2.03524-2.51617 2.25828-2.68345C2.33495-2.73921 2.52314-2.87861 2.82285-2.87861C2.89255-2.87861 3.0668-2.87164 3.2062-2.78103C2.98316-2.7183 2.89952-2.52314 2.89952-2.39768C2.89952-2.24434 3.01801-2.13979 3.17832-2.13979S3.56864-2.27222 3.56864-2.56496C3.56864-2.9274 3.18529-3.07377 2.82982-3.07377C2.46738-3.07377 2.15373-2.9274 1.84705-2.5789C1.72159-3.00407 1.29642-3.07377 1.12914-3.07377C.87125-3.07377 .697-2.91346 .58548-2.7183C.42517-2.44647 .32759-2.04221 .32759-2.00736C.32759-1.91675 .42517-1.91675 .44608-1.91675C.54366-1.91675 .55063-1.93766 .59942-2.12585C.70397-2.55102 .8364-2.87861 1.10823-2.87861C1.28945-2.87861 1.33824-2.72527 1.33824-2.53708C1.33824-2.40465 1.27551-2.14676 1.22672-1.95857S1.10823-1.48461 1.07338-1.33127L.85034-.43911C.82246-.3485 .78064-.17425 .78064-.15334C.78064 0 .9061 .0697 1.01762 .0697C1.12217 .0697 1.26157 .00697 1.31733-.13243C1.33127-.17425 1.40794-.48093 1.44976-.65518L1.63795-1.40794Z" id="vx63ba97edf8b6-0"/>
+              <path d="M7.5696-6.9222C7.5696-6.95208 7.54968-7.0218 7.46004-7.0218C7.43016-7.0218 7.4202-7.01184 7.31064-6.90228L6.61344-6.13536C6.5238-6.2748 6.06564-7.0218 4.96008-7.0218C2.739-7.0218 .498-4.82064 .498-2.50992C.498-.86652 1.67328 .21912 3.19716 .21912C4.06368 .21912 4.82064-.17928 5.34852-.63744C6.2748-1.45416 6.44412-2.36052 6.44412-2.3904C6.44412-2.49 6.34452-2.49 6.3246-2.49C6.26484-2.49 6.21504-2.47008 6.19512-2.3904C6.10548-2.10156 5.8764-1.3944 5.18916-.81672C4.50192-.25896 3.87444-.08964 3.35652-.08964C2.46012-.08964 1.40436-.60756 1.40436-2.16132C1.40436-2.72904 1.61352-4.34256 2.60952-5.50788C3.21708-6.21504 4.15332-6.71304 5.03976-6.71304C6.05568-6.71304 6.64332-5.94612 6.64332-4.79076C6.64332-4.39236 6.61344-4.3824 6.61344-4.2828S6.723-4.1832 6.76284-4.1832C6.89232-4.1832 6.89232-4.20312 6.94212-4.3824L7.5696-6.9222Z" id="vx63ba97edf8b6-1"/>
+            </defs>
+            <g id="vx63ba97edf8b6-2">
+              <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                <use x="0" y="-1.49461" xlink:href="#vx63ba97edf8b6-1"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                <use x="7.11712" y="-.001" xlink:href="#vx63ba97edf8b6-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="circuit-Lr" fill="#262626" transform="translate(123 36.6788)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx2c4c0b231841-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$L_r$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="5.44611765163241" converter="dvisvgm" engine="pdflatex" height="6.6424" scale="0.8" version="1" viewBox="0 0 8.9536 6.6424" width="8.9536">
+              <vectex:source>$L_r$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="vx2c4c0b231841-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs>
+              <path d="M1.63795-1.40794C1.64492-1.44976 1.80523-2.07706 1.81917-2.11191C1.83311-2.16767 2.03524-2.51617 2.25828-2.68345C2.33495-2.73921 2.52314-2.87861 2.82285-2.87861C2.89255-2.87861 3.0668-2.87164 3.2062-2.78103C2.98316-2.7183 2.89952-2.52314 2.89952-2.39768C2.89952-2.24434 3.01801-2.13979 3.17832-2.13979S3.56864-2.27222 3.56864-2.56496C3.56864-2.9274 3.18529-3.07377 2.82982-3.07377C2.46738-3.07377 2.15373-2.9274 1.84705-2.5789C1.72159-3.00407 1.29642-3.07377 1.12914-3.07377C.87125-3.07377 .697-2.91346 .58548-2.7183C.42517-2.44647 .32759-2.04221 .32759-2.00736C.32759-1.91675 .42517-1.91675 .44608-1.91675C.54366-1.91675 .55063-1.93766 .59942-2.12585C.70397-2.55102 .8364-2.87861 1.10823-2.87861C1.28945-2.87861 1.33824-2.72527 1.33824-2.53708C1.33824-2.40465 1.27551-2.14676 1.22672-1.95857S1.10823-1.48461 1.07338-1.33127L.85034-.43911C.82246-.3485 .78064-.17425 .78064-.15334C.78064 0 .9061 .0697 1.01762 .0697C1.12217 .0697 1.26157 .00697 1.31733-.13243C1.33127-.17425 1.40794-.48093 1.44976-.65518L1.63795-1.40794Z" id="vx2c4c0b231841-0"/>
+              <path d="M3.72504-6.0258C3.81468-6.38436 3.84456-6.49392 4.7808-6.49392C5.0796-6.49392 5.15928-6.49392 5.15928-6.68316C5.15928-6.80268 5.04972-6.80268 4.99992-6.80268C4.67124-6.80268 3.85452-6.7728 3.52584-6.7728C3.22704-6.7728 2.49996-6.80268 2.20116-6.80268C2.13144-6.80268 2.01192-6.80268 2.01192-6.60348C2.01192-6.49392 2.10156-6.49392 2.2908-6.49392C2.31072-6.49392 2.49996-6.49392 2.66928-6.474C2.84856-6.45408 2.9382-6.44412 2.9382-6.31464C2.9382-6.2748 2.92824-6.24492 2.89836-6.1254L1.56372-.77688C1.46412-.38844 1.4442-.30876 .65736-.30876C.48804-.30876 .38844-.30876 .38844-.10956C.38844 0 .47808 0 .65736 0H5.26884C5.50788 0 5.51784 0 5.5776-.16932L6.36444-2.32068C6.40428-2.43024 6.40428-2.45016 6.40428-2.46012C6.40428-2.49996 6.3744-2.56968 6.28476-2.56968S6.18516-2.51988 6.11544-2.36052C5.7768-1.4442 5.33856-.30876 3.61548-.30876H2.67924C2.5398-.30876 2.51988-.30876 2.46012-.31872C2.36052-.32868 2.33064-.33864 2.33064-.41832C2.33064-.4482 2.33064-.46812 2.38044-.6474L3.72504-6.0258Z" id="vx2c4c0b231841-1"/>
+            </defs>
+            <g id="vx2c4c0b231841-2">
+              <g transform="matrix(1.000261 0 0 1.000261 0 8.303)">
+                <use x="0" y="-1.49461" xlink:href="#vx2c4c0b231841-1"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 8.303)">
+                <use x="6.776306" y="-.001" xlink:href="#vx2c4c0b231841-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="circuit-phi" fill="#262626" transform="translate(29.3932 8.0176)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vxc25a116cb50a-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$\\varphi$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="3.43176400794114" converter="dvisvgm" engine="pdflatex" height="4.9824" scale="0.8" version="1" viewBox="0 0 5.2136 4.9824" width="5.2136">
+              <vectex:source>$\varphi$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="vxc25a116cb50a-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs>
+              <path d="M1.6932 1.6932C1.65336 1.82268 1.6434 1.8426 1.6434 1.8924C1.6434 2.11152 1.83264 2.17128 1.93224 2.17128C1.98204 2.17128 2.20116 2.1414 2.30076 1.91232C2.33064 1.83264 2.38044 1.50396 2.64936 .08964C2.739 .0996 2.80872 .10956 2.97804 .10956C4.6314 .10956 6.16524-1.45416 6.16524-3.02784C6.16524-3.80472 5.7768-4.40232 5.0298-4.40232C3.5856-4.40232 2.988-2.47008 2.3904-.52788C1.31472-.72708 .75696-1.28484 .75696-2.00196C.75696-2.28084 .98604-3.37644 1.58364-4.06368C1.66332-4.15332 1.66332-4.17324 1.66332-4.19316C1.66332-4.233 1.6434-4.29276 1.5438-4.29276C1.26492-4.29276 .498-2.84856 .498-1.8924C.498-.95616 1.15536-.22908 2.22108 .01992L1.6932 1.6932ZM3.06768-.46812C2.988-.46812 2.96808-.46812 2.8884-.47808C2.76888-.47808 2.75892-.48804 2.75892-.51792C2.75892-.53784 2.92824-1.4442 2.95812-1.5936C3.26688-2.86848 4.04376-3.82464 4.9302-3.82464C5.61744-3.82464 5.88636-3.2868 5.88636-2.80872C5.88636-1.68324 4.60152-.46812 3.06768-.46812Z" id="vxc25a116cb50a-0"/>
+            </defs>
+            <g id="vxc25a116cb50a-1">
+              <g transform="matrix(1.000261 0 0 1.000261 0 6.228)">
+                <use x="0" y="-1.937494" xlink:href="#vxc25a116cb50a-0"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="label" id="hamiltonian" fill="#262626" transform="translate(14.7312 83.6156)" color="#262626">
+        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" id="vx0c784d87c35c-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.8" textext:texconverter="pdflatex" textext:text="$H = 4E_C(\\hat n - n_g)^2 - E_J \\cos\\hat\\varphi$" textext:version="1.13.0">
+          <metadata>
+            <vectex:fragment baseline="6.48768556096461" converter="dvisvgm" engine="pdflatex" height="8.7688" scale="0.8" version="1" viewBox="0 0 104.5376 8.7688" width="104.5376">
+              <vectex:source>$H = 4E_C(\hat n - n_g)^2 - E_J \cos\hat\varphi$</vectex:source>
+              <vectex:options>
+                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"","size_pt":8}</vectex:compiler>
+                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+              </vectex:options>
+            </vectex:fragment>
+          </metadata>
+          <g id="vx0c784d87c35c-viewport" transform="matrix(0.8 0 0 0.8 -0 -0)">
+            <defs>
+              <path d="M3.51985-1.26854H3.28287C3.26196-1.1152 3.19226-.70397 3.10165-.63427C3.04589-.59245 2.5092-.59245 2.41162-.59245H1.12914C1.86099-1.24066 2.10494-1.43582 2.52314-1.76341C3.03892-2.17464 3.51985-2.60678 3.51985-3.26893C3.51985-4.1123 2.78103-4.62808 1.88887-4.62808C1.02459-4.62808 .43911-4.02169 .43911-3.38045C.43911-3.02498 .73882-2.99013 .80852-2.99013C.9758-2.99013 1.17793-3.10862 1.17793-3.35954C1.17793-3.485 1.12914-3.72895 .7667-3.72895C.98277-4.22382 1.45673-4.37716 1.78432-4.37716C2.48132-4.37716 2.84376-3.8335 2.84376-3.26893C2.84376-2.66254 2.41162-2.18161 2.18858-1.93069L.50881-.27183C.43911-.2091 .43911-.19516 .43911 0H3.31075L3.51985-1.26854Z" id="vx0c784d87c35c-0"/>
+              <path d="M6.56364-2.2908C6.73296-2.2908 6.91224-2.2908 6.91224-2.49S6.73296-2.6892 6.56364-2.6892H1.17528C1.00596-2.6892 .82668-2.6892 .82668-2.49S1.00596-2.2908 1.17528-2.2908H6.56364Z" id="vx0c784d87c35c-1"/>
+              <path d="M5.87571-4.8093C5.87571-4.84415 5.8548-4.89991 5.7851-4.89991C5.73631-4.89991 5.72237-4.88597 5.65964-4.81627L5.15083-4.27958C5.0881-4.36322 4.69778-4.89991 3.84047-4.89991C2.14676-4.89991 .4879-3.40136 .4879-1.82614C.4879-.69003 1.38006 .1394 2.62769 .1394C3.00407 .1394 3.67319 .06273 4.3911-.54366C4.94173-1.01065 5.09507-1.61704 5.09507-1.6728C5.09507-1.76341 5.01143-1.76341 4.97658-1.76341C4.88597-1.76341 4.87203-1.72856 4.85112-1.65189C4.56535-.697 3.58955-.11152 2.74618-.11152C2.00736-.11152 1.1849-.50881 1.1849-1.61007C1.1849-1.8122 1.23369-2.91346 2.03524-3.79168C2.51617-4.32837 3.24802-4.64899 3.91017-4.64899C4.71869-4.64899 5.19265-4.06351 5.19265-3.28287C5.19265-3.08771 5.17174-3.03892 5.17174-2.9971C5.17174-2.90649 5.26235-2.90649 5.2972-2.90649C5.40872-2.90649 5.40872-2.9274 5.44357-3.05983L5.87571-4.8093Z" id="vx0c784d87c35c-2"/>
+              <path d="M4.16109-4.22382C4.22382-4.46777 4.23079-4.50959 4.62111-4.50959C4.70475-4.50959 4.80233-4.50959 4.80233-4.65596C4.80233-4.73263 4.74657-4.76051 4.69778-4.76051C4.5305-4.76051 4.1123-4.73263 3.94502-4.73263C3.79865-4.73263 3.56167-4.7396 3.40833-4.7396C3.23408-4.74657 3.03195-4.76051 2.8577-4.76051C2.80891-4.76051 2.70436-4.76051 2.70436-4.61414C2.70436-4.50959 2.76709-4.50959 2.97619-4.50959C3.1365-4.50959 3.16438-4.50959 3.33863-4.49565C3.54076-4.47474 3.56167-4.45383 3.56167-4.37019C3.56167-4.3214 3.56167-4.30746 3.53379-4.20988L2.73224-1.01762C2.59981-.49487 2.15373-.05576 1.70068-.05576C1.6031-.05576 1.16399-.07667 1.00368-.4182C1.40794-.4182 1.49855-.74579 1.49855-.87125C1.49855-1.06641 1.33127-1.17096 1.17793-1.17096C.98974-1.17096 .71094-1.01762 .71094-.6273C.71094-.17425 1.13611 .1394 1.72159 .1394C2.40465 .1394 3.17832-.29971 3.35257-.99671L4.16109-4.22382Z" id="vx0c784d87c35c-3"/>
+              <path d="M3.70804-2.57193C3.73592-2.67648 3.73592-2.71133 3.73592-2.7183C3.73592-2.87164 3.61046-2.94134 3.49894-2.94134C3.33863-2.94134 3.2062-2.80891 3.17832-2.67648C3.05983-2.86467 2.82285-3.07377 2.46041-3.07377C1.58916-3.07377 .67609-2.13979 .67609-1.14308C.67609-.42517 1.16399 0 1.73553 0C2.05615 0 2.36283-.16031 2.60678-.37638L2.45344 .25092C2.37677 .54366 2.32798 .73185 2.06312 .96883C1.75644 1.22672 1.45673 1.22672 1.28248 1.22672C.96186 1.22672 .87125 1.20581 .74579 1.17793C.92004 1.09429 .96883 .92701 .96883 .82943C.96883 .66215 .8364 .57154 .697 .57154C.50184 .57154 .29971 .73185 .29971 .99671C.29971 1.41491 .89913 1.42188 1.28945 1.42188C2.38374 1.42188 2.85073 .86428 2.94831 .46699L3.70804-2.57193ZM2.74618-.92701C2.7183-.82246 2.7183-.80852 2.59981-.66912C2.35586-.37638 2.0213-.19516 1.75644-.19516C1.40097-.19516 1.23369-.49487 1.23369-.85731C1.23369-1.16399 1.42188-1.94463 1.6031-2.25131C1.89584-2.73921 2.22343-2.87861 2.46041-2.87861C2.94831-2.87861 3.08074-2.35586 3.08074-2.28616C3.08074-2.27222 3.08074-2.25828 3.05983-2.18161L2.74618-.92701Z" id="vx0c784d87c35c-4"/>
+              <path d="M3.29676 2.3904C3.29676 2.36052 3.29676 2.3406 3.12744 2.17128C1.88244 .91632 1.56372-.96612 1.56372-2.49C1.56372-4.22304 1.9422-5.95608 3.16728-7.20108C3.29676-7.3206 3.29676-7.34052 3.29676-7.3704C3.29676-7.44012 3.25692-7.47 3.19716-7.47C3.09756-7.47 2.20116-6.79272 1.61352-5.5278C1.10556-4.4322 .98604-3.32664 .98604-2.49C.98604-1.71312 1.0956-.50796 1.6434 .61752C2.241 1.8426 3.09756 2.49 3.19716 2.49C3.25692 2.49 3.29676 2.46012 3.29676 2.3904Z" id="vx0c784d87c35c-5"/>
+              <path d="M2.87844-2.49C2.87844-3.26688 2.76888-4.47204 2.22108-5.59752C1.62348-6.8226 .76692-7.47 .66732-7.47C.60756-7.47 .56772-7.43016 .56772-7.3704C.56772-7.34052 .56772-7.3206 .75696-7.14132C1.73304-6.15528 2.30076-4.57164 2.30076-2.49C2.30076-.78684 1.93224 .96612 .6972 2.22108C.56772 2.3406 .56772 2.36052 .56772 2.3904C.56772 2.45016 .60756 2.49 .66732 2.49C.76692 2.49 1.66332 1.81272 2.25096 .5478C2.75892-.5478 2.87844-1.65336 2.87844-2.49Z" id="vx0c784d87c35c-6"/>
+              <path d="M2.92824-1.6434V-.77688C2.92824-.41832 2.90832-.30876 2.17128-.30876H1.96212V0C2.37048-.02988 2.8884-.02988 3.30672-.02988S4.25292-.02988 4.66128 0V-.30876H4.45212C3.71508-.30876 3.69516-.41832 3.69516-.77688V-1.6434H4.69116V-1.95216H3.69516V-6.48396C3.69516-6.68316 3.69516-6.74292 3.5358-6.74292C3.44616-6.74292 3.41628-6.74292 3.3366-6.6234L.27888-1.95216V-1.6434H2.92824ZM2.988-1.95216H.55776L2.988-5.66724V-1.95216Z" id="vx0c784d87c35c-7"/>
+              <path d="M6.84252-3.25692C6.99192-3.25692 7.18116-3.25692 7.18116-3.45612S6.99192-3.65532 6.85248-3.65532H.88644C.747-3.65532 .55776-3.65532 .55776-3.45612S.747-3.25692 .8964-3.25692H6.84252ZM6.85248-1.32468C6.99192-1.32468 7.18116-1.32468 7.18116-1.52388S6.99192-1.72308 6.84252-1.72308H.8964C.747-1.72308 .55776-1.72308 .55776-1.52388S.747-1.32468 .88644-1.32468H6.85248Z" id="vx0c784d87c35c-8"/>
+              <path d="M2.49-6.91224L1.15536-5.55768L1.33464-5.3784L2.49-6.39432L3.6354-5.3784L3.81468-5.55768L2.49-6.91224Z" id="vx0c784d87c35c-9"/>
+              <path d="M1.16532-2.17128C1.16532-3.79476 1.98204-4.21308 2.50992-4.21308C2.59956-4.21308 3.22704-4.20312 3.57564-3.84456C3.16728-3.81468 3.10752-3.51588 3.10752-3.3864C3.10752-3.12744 3.2868-2.92824 3.56568-2.92824C3.82464-2.92824 4.02384-3.09756 4.02384-3.39636C4.02384-4.07364 3.26688-4.46208 2.49996-4.46208C1.25496-4.46208 .33864-3.3864 .33864-2.15136C.33864-.87648 1.32468 .10956 2.48004 .10956C3.81468 .10956 4.1334-1.08564 4.1334-1.18524S4.0338-1.28484 4.00392-1.28484C3.91428-1.28484 3.89436-1.245 3.87444-1.18524C3.5856-.25896 2.9382-.13944 2.56968-.13944C2.0418-.13944 1.16532-.56772 1.16532-2.17128Z" id="vx0c784d87c35c-10"/>
+              <path d="M4.69116-2.13144C4.69116-3.40632 3.69516-4.46208 2.49-4.46208C1.245-4.46208 .27888-3.37644 .27888-2.13144C.27888-.8466 1.31472 .10956 2.48004 .10956C3.6852 .10956 4.69116-.86652 4.69116-2.13144ZM2.49-.13944C2.06172-.13944 1.62348-.3486 1.35456-.80676C1.10556-1.245 1.10556-1.85256 1.10556-2.21112C1.10556-2.59956 1.10556-3.1374 1.3446-3.57564C1.61352-4.0338 2.08164-4.24296 2.48004-4.24296C2.91828-4.24296 3.34656-4.02384 3.60552-3.59556S3.86448-2.5896 3.86448-2.21112C3.86448-1.85256 3.86448-1.31472 3.64536-.87648C3.42624-.42828 2.988-.13944 2.49-.13944Z" id="vx0c784d87c35c-11"/>
+              <path d="M2.07168-1.93224C2.2908-1.8924 3.10752-1.73304 3.10752-1.01592C3.10752-.50796 2.75892-.10956 1.98204-.10956C1.1454-.10956 .78684-.67728 .5976-1.52388C.56772-1.65336 .55776-1.6932 .45816-1.6932C.32868-1.6932 .32868-1.62348 .32868-1.4442V-.12948C.32868 .03984 .32868 .10956 .43824 .10956C.48804 .10956 .498 .0996 .68724-.08964C.70716-.10956 .70716-.12948 .88644-.31872C1.32468 .0996 1.77288 .10956 1.98204 .10956C3.12744 .10956 3.5856-.55776 3.5856-1.27488C3.5856-1.80276 3.2868-2.10156 3.16728-2.22108C2.8386-2.5398 2.45016-2.61948 2.03184-2.69916C1.47408-2.80872 .80676-2.9382 .80676-3.51588C.80676-3.86448 1.06572-4.27284 1.92228-4.27284C3.01788-4.27284 3.06768-3.37644 3.0876-3.06768C3.09756-2.97804 3.1872-2.97804 3.20712-2.97804C3.3366-2.97804 3.3366-3.02784 3.3366-3.21708V-4.22304C3.3366-4.39236 3.3366-4.46208 3.22704-4.46208C3.17724-4.46208 3.15732-4.46208 3.02784-4.34256C2.99796-4.30272 2.89836-4.21308 2.85852-4.1832C2.48004-4.46208 2.07168-4.46208 1.92228-4.46208C.70716-4.46208 .32868-3.79476 .32868-3.237C.32868-2.8884 .48804-2.60952 .75696-2.3904C1.07568-2.13144 1.35456-2.07168 2.07168-1.93224Z" id="vx0c784d87c35c-12"/>
+              <path d="M1.6932 1.6932C1.65336 1.82268 1.6434 1.8426 1.6434 1.8924C1.6434 2.11152 1.83264 2.17128 1.93224 2.17128C1.98204 2.17128 2.20116 2.1414 2.30076 1.91232C2.33064 1.83264 2.38044 1.50396 2.64936 .08964C2.739 .0996 2.80872 .10956 2.97804 .10956C4.6314 .10956 6.16524-1.45416 6.16524-3.02784C6.16524-3.80472 5.7768-4.40232 5.0298-4.40232C3.5856-4.40232 2.988-2.47008 2.3904-.52788C1.31472-.72708 .75696-1.28484 .75696-2.00196C.75696-2.28084 .98604-3.37644 1.58364-4.06368C1.66332-4.15332 1.66332-4.17324 1.66332-4.19316C1.66332-4.233 1.6434-4.29276 1.5438-4.29276C1.26492-4.29276 .498-2.84856 .498-1.8924C.498-.95616 1.15536-.22908 2.22108 .01992L1.6932 1.6932ZM3.06768-.46812C2.988-.46812 2.96808-.46812 2.8884-.47808C2.76888-.47808 2.75892-.48804 2.75892-.51792C2.75892-.53784 2.92824-1.4442 2.95812-1.5936C3.26688-2.86848 4.04376-3.82464 4.9302-3.82464C5.61744-3.82464 5.88636-3.2868 5.88636-2.80872C5.88636-1.68324 4.60152-.46812 3.06768-.46812Z" id="vx0c784d87c35c-13"/>
+              <path d="M7.05168-2.32068C7.0716-2.37048 7.10148-2.4402 7.10148-2.46012C7.10148-2.47008 7.10148-2.56968 6.98196-2.56968C6.89232-2.56968 6.8724-2.50992 6.85248-2.45016C6.20508-.97608 5.83656-.30876 4.1334-.30876H2.67924C2.5398-.30876 2.51988-.30876 2.46012-.31872C2.36052-.32868 2.33064-.33864 2.33064-.41832C2.33064-.4482 2.33064-.46812 2.38044-.6474L3.05772-3.36648H4.04376C4.89036-3.36648 4.89036-3.15732 4.89036-2.90832C4.89036-2.8386 4.89036-2.71908 4.82064-2.42028C4.80072-2.37048 4.79076-2.3406 4.79076-2.31072C4.79076-2.26092 4.8306-2.20116 4.92024-2.20116C4.99992-2.20116 5.0298-2.25096 5.06964-2.40036L5.63736-4.731C5.63736-4.79076 5.58756-4.84056 5.51784-4.84056C5.4282-4.84056 5.40828-4.7808 5.3784-4.66128C5.16924-3.90432 4.98996-3.67524 4.07364-3.67524H3.1374L3.735-6.0756C3.82464-6.4242 3.8346-6.46404 4.27284-6.46404H5.6772C6.89232-6.46404 7.19112-6.1752 7.19112-5.35848C7.19112-5.11944 7.19112-5.09952 7.15128-4.8306C7.15128-4.77084 7.14132-4.70112 7.14132-4.65132S7.1712-4.5318 7.26084-4.5318C7.3704-4.5318 7.38036-4.59156 7.40028-4.7808L7.59948-6.50388C7.62936-6.7728 7.57956-6.7728 7.33056-6.7728H2.30076C2.10156-6.7728 2.00196-6.7728 2.00196-6.5736C2.00196-6.46404 2.0916-6.46404 2.28084-6.46404C2.64936-6.46404 2.92824-6.46404 2.92824-6.28476C2.92824-6.24492 2.92824-6.225 2.87844-6.04572L1.56372-.77688C1.46412-.38844 1.4442-.30876 .65736-.30876C.48804-.30876 .37848-.30876 .37848-.11952C.37848 0 .46812 0 .65736 0H5.8266C6.05568 0 6.06564-.00996 6.13536-.16932L7.05168-2.32068Z" id="vx0c784d87c35c-14"/>
+              <path d="M7.59948-6.03576C7.68912-6.39432 7.70904-6.49392 8.43612-6.49392C8.69508-6.49392 8.77476-6.49392 8.77476-6.69312C8.77476-6.80268 8.6652-6.80268 8.63532-6.80268C8.35644-6.80268 7.63932-6.7728 7.36044-6.7728C7.0716-6.7728 6.36444-6.80268 6.0756-6.80268C5.99592-6.80268 5.88636-6.80268 5.88636-6.60348C5.88636-6.49392 5.976-6.49392 6.16524-6.49392C6.18516-6.49392 6.3744-6.49392 6.54372-6.474C6.723-6.45408 6.81264-6.44412 6.81264-6.31464C6.81264-6.2748 6.80268-6.25488 6.7728-6.1254L6.1752-3.69516H3.1374L3.72504-6.03576C3.81468-6.39432 3.84456-6.49392 4.56168-6.49392C4.82064-6.49392 4.90032-6.49392 4.90032-6.69312C4.90032-6.80268 4.79076-6.80268 4.76088-6.80268C4.482-6.80268 3.76488-6.7728 3.486-6.7728C3.19716-6.7728 2.49-6.80268 2.20116-6.80268C2.12148-6.80268 2.01192-6.80268 2.01192-6.60348C2.01192-6.49392 2.10156-6.49392 2.2908-6.49392C2.31072-6.49392 2.49996-6.49392 2.66928-6.474C2.84856-6.45408 2.9382-6.44412 2.9382-6.31464C2.9382-6.2748 2.92824-6.24492 2.89836-6.1254L1.56372-.77688C1.46412-.38844 1.4442-.30876 .65736-.30876C.47808-.30876 .38844-.30876 .38844-.10956C.38844 0 .50796 0 .52788 0C.80676 0 1.51392-.02988 1.7928-.02988C2.00196-.02988 2.22108-.01992 2.43024-.01992C2.64936-.01992 2.86848 0 3.07764 0C3.15732 0 3.27684 0 3.27684-.1992C3.27684-.30876 3.1872-.30876 2.99796-.30876C2.62944-.30876 2.35056-.30876 2.35056-.48804C2.35056-.5478 2.37048-.5976 2.38044-.65736L3.05772-3.3864H6.09552C5.6772-1.73304 5.44812-.78684 5.40828-.63744C5.30868-.31872 5.11944-.30876 4.50192-.30876C4.35252-.30876 4.26288-.30876 4.26288-.10956C4.26288 0 4.3824 0 4.40232 0C4.6812 0 5.38836-.02988 5.66724-.02988C5.8764-.02988 6.09552-.01992 6.30468-.01992C6.5238-.01992 6.74292 0 6.95208 0C7.03176 0 7.15128 0 7.15128-.1992C7.15128-.30876 7.06164-.30876 6.8724-.30876C6.50388-.30876 6.225-.30876 6.225-.48804C6.225-.5478 6.24492-.5976 6.25488-.65736L7.59948-6.03576Z" id="vx0c784d87c35c-15"/>
+              <path d="M.87648-.58764C.8466-.43824 .78684-.20916 .78684-.15936C.78684 .01992 .92628 .10956 1.07568 .10956C1.1952 .10956 1.37448 .02988 1.4442-.16932C1.45416-.18924 1.57368-.65736 1.63344-.90636L1.85256-1.80276C1.91232-2.02188 1.97208-2.241 2.02188-2.47008C2.06172-2.6394 2.1414-2.92824 2.15136-2.96808C2.30076-3.27684 2.82864-4.1832 3.77484-4.1832C4.22304-4.1832 4.31268-3.81468 4.31268-3.486C4.31268-2.86848 3.82464-1.5936 3.66528-1.16532C3.57564-.93624 3.56568-.81672 3.56568-.70716C3.56568-.23904 3.91428 .10956 4.3824 .10956C5.31864 .10956 5.68716-1.3446 5.68716-1.42428C5.68716-1.52388 5.59752-1.52388 5.56764-1.52388C5.46804-1.52388 5.46804-1.494 5.41824-1.3446C5.21904-.66732 4.89036-.10956 4.40232-.10956C4.233-.10956 4.16328-.20916 4.16328-.43824C4.16328-.68724 4.25292-.92628 4.34256-1.1454C4.5318-1.67328 4.95012-2.76888 4.95012-3.3366C4.95012-4.00392 4.52184-4.40232 3.80472-4.40232C2.90832-4.40232 2.42028-3.76488 2.25096-3.5358C2.20116-4.09356 1.7928-4.40232 1.33464-4.40232S.68724-4.01388 .58764-3.8346C.42828-3.49596 .28884-2.90832 .28884-2.86848C.28884-2.76888 .38844-2.76888 .40836-2.76888C.50796-2.76888 .51792-2.77884 .57768-2.99796C.747-3.70512 .9462-4.1832 1.30476-4.1832C1.50396-4.1832 1.61352-4.05372 1.61352-3.72504C1.61352-3.51588 1.58364-3.40632 1.45416-2.8884L.87648-.58764Z" id="vx0c784d87c35c-16"/>
+            </defs>
+            <g id="vx0c784d87c35c-17">
+              <g transform="matrix(1.000261 0 0 1.000261 0 10.961)">
+                <use x="0" y="-2.850256" xlink:href="#vx0c784d87c35c-15"/>
+                <use x="11.852401" y="-2.850256" xlink:href="#vx0c784d87c35c-8"/>
+                <use x="22.370162" y="-2.850256" xlink:href="#vx0c784d87c35c-7"/>
+                <use x="27.350162" y="-2.850256" xlink:href="#vx0c784d87c35c-14"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 10.961)">
+                <use x="34.691087" y="-1.356261" xlink:href="#vx0c784d87c35c-2"/>
+              </g>
+              <g transform="matrix(1.000261 0 0 1.000261 0 10.961)">
+                <use x="41.400193" y="-2.850256" xlink:href="#vx0c784d87c35c-5"/>
+                <use x="45.772631" y="-2.850256" xlink:href="#vx0c784d87c35c-9"/>
+                <use x="45.274631" y="-2.850256" xlink:href="#vx0c784d87c35c-16"/>
+                <use x="53.46175" y="-2.850256" xlink:href="#vx0c784d87c35c-1"/>
+                <use x="63.42175" y="-2.850256" xlink:href="#vx0c784d87c35c-16"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 10.961)">
+                <use x="69.384172" y="-1.356261" xlink:href="#vx0c784d87c35c-4"/>
+              </g>
+              <g transform="matrix(1.000261 0 0 1.000261 0 10.961)">
+                <use x="74.037673" y="-2.850256" xlink:href="#vx0c784d87c35c-6"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 10.961)">
+                <use x="77.888536" y="-6.463476" xlink:href="#vx0c784d87c35c-0"/>
+              </g>
+              <g transform="matrix(1.000261 0 0 1.000261 0 10.961)">
+                <use x="84.591918" y="-2.850256" xlink:href="#vx0c784d87c35c-1"/>
+                <use x="94.551918" y="-2.850256" xlink:href="#vx0c784d87c35c-14"/>
+              </g>
+              <g transform="matrix(1.000545 0 0 1.000545 0 10.961)">
+                <use x="101.875458" y="-1.356261" xlink:href="#vx0c784d87c35c-3"/>
+              </g>
+              <g transform="matrix(1.000261 0 0 1.000261 0 10.961)">
+                <use x="109.126513" y="-2.850256" xlink:href="#vx0c784d87c35c-10"/>
+                <use x="113.548749" y="-2.850256" xlink:href="#vx0c784d87c35c-11"/>
+                <use x="118.528749" y="-2.850256" xlink:href="#vx0c784d87c35c-12"/>
+                <use x="125.709904" y="-2.850256" xlink:href="#vx0c784d87c35c-9"/>
+                <use x="124.1163" y="-2.850256" xlink:href="#vx0c784d87c35c-13"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g data-component="node" id="phi" data-x="32" data-y="16">
+        <circle cx="32" cy="16" r="1.6" fill="#262626"/>
+      </g>
+    </g>
+    <g id="potential-plot" transform="translate(45.3543 220.292) scale(1.33333)">
+      <metadata>
+        <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <cc:Work>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:format>image/svg+xml</dc:format>
+            <dc:creator>
+              <cc:Agent>
+                <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+              </cc:Agent>
+            </dc:creator>
+          </cc:Work>
+        </rdf:RDF>
+      </metadata>
+      <g xmlns:xlink="http://www.w3.org/1999/xlink" id="figure_1">
+        <g id="patch_1">
+          <path d="M 0 101.237345  L 127.559055 101.237345  L 127.559055 0  L 0 0  L 0 101.237345  z " style="fill: none"/>
+        </g>
+        <g id="axes_1">
+          <g id="patch_2">
+            <path d="M 0 101.237345  L 127.559055 101.237345  L 127.559055 0  L 0 0  L 0 101.237345  z " style="fill: none"/>
+          </g>
+          <g id="matplotlib.axis_1">
+            <g id="xtick_1">
+              <g id="line2d_1">
+                <defs>
+                  <path id="md37cbe1367" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.5"/>
+                </defs>
+                <g>
+                  <use xlink:href="#md37cbe1367" x="0" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_1">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="0" y="113.725345" transform="rotate(-0 0 113.725345)">−1</text>
+              </g>
+            </g>
+            <g id="xtick_2">
+              <g id="line2d_2">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="63.779528" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_2">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="63.779528" y="113.725345" transform="rotate(-0 63.779528 113.725345)">0</text>
+              </g>
+            </g>
+            <g id="xtick_3">
+              <g id="line2d_3">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="127.559055" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_3">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="127.559055" y="113.725345" transform="rotate(-0 127.559055 113.725345)">1</text>
+              </g>
+            </g>
+            <g id="text_4">
+              <!-- $\varphi/\pi$ -->
+              <g transform="translate(56.539528 125.509345)">
+                <text>
+                  <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">φ</tspan>
+                  <tspan x="9.103882" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">π</tspan>
+                  <tspan x="6.879913" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">/</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="matplotlib.axis_2">
+            <g id="ytick_1">
+              <g id="line2d_4">
+                <defs>
+                  <path id="m06d17e5d63" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.5"/>
+                </defs>
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="98.826932" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_5">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="101.570932" transform="rotate(-0 -7 101.570932)">−30</text>
+              </g>
+            </g>
+            <g id="ytick_2">
+              <g id="line2d_5">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="82.757512" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_6">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="85.501512" transform="rotate(-0 -7 85.501512)">−20</text>
+              </g>
+            </g>
+            <g id="ytick_3">
+              <g id="line2d_6">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="66.688093" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_7">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="69.432093" transform="rotate(-0 -7 69.432093)">−10</text>
+              </g>
+            </g>
+            <g id="ytick_4">
+              <g id="line2d_7">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="50.618673" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_8">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="53.362673" transform="rotate(-0 -7 53.362673)">0</text>
+              </g>
+            </g>
+            <g id="ytick_5">
+              <g id="line2d_8">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="34.549253" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_9">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="37.293253" transform="rotate(-0 -7 37.293253)">10</text>
+              </g>
+            </g>
+            <g id="ytick_6">
+              <g id="line2d_9">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="18.479833" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_10">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="21.223833" transform="rotate(-0 -7 21.223833)">20</text>
+              </g>
+            </g>
+            <g id="ytick_7">
+              <g id="line2d_10">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="2.410413" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="text_11">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="5.154413" transform="rotate(-0 -7 5.154413)">30</text>
+              </g>
+            </g>
+            <g id="text_12">
+              <!-- $U/E_C$ -->
+              <g transform="translate(-24.599563 59.418673) rotate(-90)">
+                <text>
+                  <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">U</tspan>
+                  <tspan x="7.999893" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                  <tspan x="5.775925" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">/</tspan>
+                  <tspan x="13.335831" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">C</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="line2d_11">
+            <path d="M 0 2.410413  L 1.278788 2.506018  L 2.557575 2.792455  L 3.836363 3.268587  L 5.434847 4.127562  L 7.033331 5.274609  L 8.631816 6.702619  L 10.2303 8.402744  L 12.148481 10.787139  L 14.066663 13.526855  L 16.304541 17.139504  L 18.862116 21.763081  L 21.739388 27.507342  L 24.936357 34.428067  L 29.092416 43.997097  L 39.642413 68.583915  L 42.839382 75.377231  L 45.716654 80.97186  L 48.274229 85.437113  L 50.512107 88.893722  L 52.430288 91.48818  L 54.34847 93.718059  L 55.946954 95.283339  L 57.545438 96.571866  L 59.143923 97.575655  L 60.742407 98.288486  L 62.021195 98.646232  L 63.299982 98.813484  L 64.57877 98.789579  L 65.857557 98.574612  L 67.136345 98.169435  L 68.734829 97.398  L 70.333314 96.336709  L 71.931798 94.992137  L 73.530282 93.372616  L 75.448464 91.080503  L 77.366645 88.427446  L 79.604523 84.907765  L 81.842401 80.97186  L 84.399976 76.02552  L 87.277248 69.98371  L 90.793914 62.084777  L 96.868155 47.773509  L 102.303002 35.145102  L 105.819667 27.507342  L 108.696939 21.763081  L 111.254514 17.139504  L 113.492392 13.526855  L 115.730271 10.36445  L 117.648452 8.041432  L 119.566633 6.098227  L 121.165118 4.781637  L 122.763602 3.749065  L 124.362086 3.006909  L 125.640874 2.625436  L 126.919661 2.43432  L 127.559055 2.410413  L 127.559055 2.410413  " clip-path="url(#pa30fdd387a)" style="fill: none; stroke: #262626; stroke-linecap: square"/>
+          </g>
+          <g id="line2d_12">
+            <path d="M 49.120171 86.795818  L 78.438884 86.795818  " clip-path="url(#pa30fdd387a)" style="fill: none; stroke: #173f74; stroke-linecap: square"/>
+          </g>
+          <g id="line2d_13">
+            <path d="M 37.439635 63.633853  L 90.11942 63.633853  " clip-path="url(#pa30fdd387a)" style="fill: none; stroke: #2f7fc1; stroke-linecap: square"/>
+          </g>
+          <g id="line2d_14">
+            <path d="M 28.436757 42.458648  L 99.122298 42.458648  " clip-path="url(#pa30fdd387a)" style="fill: none; stroke: #62aee0; stroke-linecap: square"/>
+          </g>
+          <g id="patch_3">
+            <path d="M 0 101.237345  L 0 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_4">
+            <path d="M 127.559055 101.237345  L 127.559055 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_5">
+            <path d="M 0 101.237345  L 127.559055 101.237345  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_6">
+            <path d="M 0 0  L 127.559055 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="text_13">
+            <!-- $E_0$ -->
+            <g style="fill: #173f74" transform="translate(59.419528 83.139488)">
+              <text>
+                <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'; fill: #173f74">E</tspan>
+                <tspan x="5.335938" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'; fill: #173f74">0</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="text_14">
+            <!-- $E_1$ -->
+            <g style="fill: #2f7fc1" transform="translate(59.419528 59.977523)">
+              <text>
+                <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'; fill: #2f7fc1">E</tspan>
+                <tspan x="5.335938" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'; fill: #2f7fc1">1</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="text_15">
+            <!-- $E_2$ -->
+            <g style="fill: #62aee0" transform="translate(59.419528 38.802318)">
+              <text>
+                <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'; fill: #62aee0">E</tspan>
+                <tspan x="5.335938" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'; fill: #62aee0">2</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="bands-plot" transform="translate(268.346 220.292) scale(1.33333)">
+      <metadata>
+        <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+          <cc:Work>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:format>image/svg+xml</dc:format>
+            <dc:creator>
+              <cc:Agent>
+                <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+              </cc:Agent>
+            </dc:creator>
+          </cc:Work>
+        </rdf:RDF>
+      </metadata>
+      <g xmlns:xlink="http://www.w3.org/1999/xlink" id="bands-plot-figure_1">
+        <g id="bands-plot-patch_1">
+          <path d="M 0 101.237345  L 294.80315 101.237345  L 294.80315 0  L 0 0  L 0 101.237345  z " style="fill: none"/>
+        </g>
+        <g id="bands-plot-axes_1">
+          <g id="bands-plot-patch_2">
+            <path d="M 0 101.237345  L 139.058089 101.237345  L 139.058089 0  L 0 0  L 0 101.237345  z " style="fill: none"/>
+          </g>
+          <g id="bands-plot-matplotlib.axis_1">
+            <g id="bands-plot-xtick_1">
+              <g id="bands-plot-line2d_1">
+                <defs/>
+                <g>
+                  <use xlink:href="#md37cbe1367" x="0" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_1">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="0" y="113.725345" transform="rotate(-0 0 113.725345)">−1</text>
+              </g>
+            </g>
+            <g id="bands-plot-xtick_2">
+              <g id="bands-plot-line2d_2">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="69.529045" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_2">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="69.529045" y="113.725345" transform="rotate(-0 69.529045 113.725345)">0</text>
+              </g>
+            </g>
+            <g id="bands-plot-xtick_3">
+              <g id="bands-plot-line2d_3">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="139.058089" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_3">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="139.058089" y="113.725345" transform="rotate(-0 139.058089 113.725345)">1</text>
+              </g>
+            </g>
+            <g id="bands-plot-text_4">
+              <!-- $n_g$ -->
+              <g transform="translate(65.609045 125.509345)">
+                <text>
+                  <tspan x="0" y="-0.6875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">n</tspan>
+                  <tspan x="4.447937" y="0.56875" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">g</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="bands-plot-matplotlib.axis_2">
+            <g id="bands-plot-ytick_1">
+              <g id="bands-plot-line2d_4">
+                <defs/>
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="90.667411" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_5">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="93.411411" transform="rotate(-0 -7 93.411411)">0</text>
+              </g>
+            </g>
+            <g id="bands-plot-ytick_2">
+              <g id="bands-plot-line2d_5">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="70.597067" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_6">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="73.341067" transform="rotate(-0 -7 73.341067)">2</text>
+              </g>
+            </g>
+            <g id="bands-plot-ytick_3">
+              <g id="bands-plot-line2d_6">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="50.526723" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_7">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="53.270723" transform="rotate(-0 -7 53.270723)">4</text>
+              </g>
+            </g>
+            <g id="bands-plot-ytick_4">
+              <g id="bands-plot-line2d_7">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="30.456379" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_8">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="33.200379" transform="rotate(-0 -7 33.200379)">6</text>
+              </g>
+            </g>
+            <g id="bands-plot-ytick_5">
+              <g id="bands-plot-line2d_8">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="0" y="10.386035" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_9">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="13.130035" transform="rotate(-0 -7 13.130035)">8</text>
+              </g>
+            </g>
+            <g id="bands-plot-text_10">
+              <!-- $(E_m - E_0)/E_{01}$ -->
+              <g transform="translate(-16.651563 73.418673) rotate(-90)">
+                <text>
+                  <tspan x="0" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">(</tspan>
+                  <tspan x="14.206802" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">−</tspan>
+                  <tspan x="28.870389" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">)</tspan>
+                  <tspan x="31.53436" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">/</tspan>
+                  <tspan x="2.663971" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                  <tspan x="20.21152" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                  <tspan x="33.758328" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                  <tspan x="7.999908" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">m</tspan>
+                  <tspan x="25.547458" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="39.094266" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="42.207822" y="1.084375" style="font-size: 5.6px; font-family: 'TeX Gyre Heros'">1</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="bands-plot-line2d_9">
+            <path d="M 0 96.635648  L 3.708216 96.534079  L 7.416431 96.230988  L 11.588174 95.655969  L 15.759917 94.848981  L 20.395186 93.721246  L 31.056307 91.000958  L 33.373941 90.716692  L 35.691576 90.689418  L 38.009211 90.926127  L 40.790373 91.477958  L 44.962116 92.577262  L 52.378547 94.533368  L 57.013817 95.49587  L 61.185559 96.124253  L 65.357302 96.507143  L 69.065518 96.634059  L 72.773733 96.55786  L 76.481949 96.279755  L 80.653692 95.731714  L 84.825435 94.949289  L 89.460704 93.842888  L 100.585351 91.000958  L 102.902986 90.716692  L 105.220621 90.689418  L 107.538256 90.926127  L 110.319418 91.477958  L 114.49116 92.577262  L 121.907592 94.533368  L 126.542861 95.49587  L 130.714604 96.124253  L 134.886347 96.507143  L 138.594562 96.634059  L 139.058089 96.635648  L 139.058089 96.635648  " clip-path="url(#pcfa25601c1)" style="fill: none; stroke: #173f74; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-line2d_10">
+            <path d="M 0 55.321251  L 0.463527 55.516895  L 1.854108 56.885931  L 7.879958 63.190862  L 12.051701 67.201262  L 15.759917 70.482296  L 19.468133 73.469141  L 22.712821 75.805452  L 25.493983 77.557987  L 27.811618 78.795668  L 30.129253 79.771137  L 31.983361 80.312037  L 33.837468 80.596019  L 35.691576 80.596019  L 37.545684 80.312037  L 39.399792 79.771137  L 41.2539 79.013936  L 43.571535 77.823464  L 46.352696 76.11505  L 49.597385 73.819834  L 52.842074 71.257934  L 56.55029 68.047458  L 60.722032 64.109935  L 64.893775 59.856359  L 69.065518 55.516895  L 69.529045 55.321251  L 69.992572 55.516895  L 71.383153 56.885931  L 77.409003 63.190862  L 81.580746 67.201262  L 85.288962 70.482296  L 88.997177 73.469141  L 92.241866 75.805452  L 95.023028 77.557987  L 97.340663 78.795668  L 99.658297 79.771137  L 101.512405 80.312037  L 103.366513 80.596019  L 105.220621 80.596019  L 107.074729 80.312037  L 108.928837 79.771137  L 110.782945 79.013936  L 113.100579 77.823464  L 115.881741 76.11505  L 119.12643 73.819834  L 122.371119 71.257934  L 126.079334 68.047458  L 130.251077 64.109935  L 134.42282 59.856359  L 138.594562 55.516895  L 139.058089 55.321251  L 139.058089 55.321251  " clip-path="url(#pcfa25601c1)" style="fill: none; stroke: #2f7fc1; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-line2d_11">
+            <path d="M 0 54.09509  L 0.463527 53.895671  L 1.390581 52.986249  L 4.171743 49.744094  L 8.343485 44.537264  L 12.978755 38.387162  L 17.614025 31.867559  L 22.249294 24.98264  L 27.348091 16.989702  L 32.446888 8.558853  L 34.764522 4.601698  L 42.644481 17.734449  L 47.743277 25.687505  L 52.842074 33.200792  L 57.477344 39.646952  L 62.112613 45.722115  L 66.284356 50.853624  L 68.601991 53.475569  L 69.065518 53.895671  L 69.529045 54.09509  L 69.992572 53.895671  L 70.919626 52.986249  L 73.700787 49.744094  L 77.87253 44.537264  L 82.5078 38.387162  L 87.143069 31.867559  L 91.778339 24.98264  L 96.877136 16.989702  L 101.975932 8.558853  L 104.293567 4.601698  L 112.173525 17.734449  L 117.272322 25.687505  L 122.371119 33.200792  L 127.006388 39.646952  L 131.641658 45.722115  L 135.813401 50.853624  L 138.131036 53.475569  L 138.594562 53.895671  L 139.058089 54.09509  L 139.058089 54.09509  " clip-path="url(#pcfa25601c1)" style="fill: none; stroke: #62aee0; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-patch_3">
+            <path d="M 0 101.237345  L 0 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-patch_4">
+            <path d="M 139.058089 101.237345  L 139.058089 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-patch_5">
+            <path d="M 0 101.237345  L 139.058089 101.237345  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-patch_6">
+            <path d="M 0 0  L 139.058089 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="bands-plot-text_11">
+            <!-- $E_J/E_C = 1$ -->
+            <g transform="translate(53.529045 -6)">
+              <text>
+                <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                <tspan x="10.569249" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                <tspan x="5.335938" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">J</tspan>
+                <tspan x="15.905186" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">C</tspan>
+                <tspan x="8.34528" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">/</tspan>
+                <tspan x="21.490491" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">=</tspan>
+                <tspan x="27.495209" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">1</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g id="axes_2">
+          <g id="patch_7">
+            <path d="M 155.74506 101.237345  L 294.80315 101.237345  L 294.80315 0  L 155.74506 0  L 155.74506 101.237345  z " style="fill: none"/>
+          </g>
+          <g id="matplotlib.axis_3">
+            <g id="xtick_4">
+              <g id="bands-plot-line2d_12">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="155.74506" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_12">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="155.74506" y="113.725345" transform="rotate(-0 155.74506 113.725345)">−1</text>
+              </g>
+            </g>
+            <g id="xtick_5">
+              <g id="bands-plot-line2d_13">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="225.274105" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_13">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="225.274105" y="113.725345" transform="rotate(-0 225.274105 113.725345)">0</text>
+              </g>
+            </g>
+            <g id="xtick_6">
+              <g id="bands-plot-line2d_14">
+                <g>
+                  <use xlink:href="#md37cbe1367" x="294.80315" y="101.237345" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+              <g id="bands-plot-text_14">
+                <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="294.80315" y="113.725345" transform="rotate(-0 294.80315 113.725345)">1</text>
+              </g>
+            </g>
+            <g id="bands-plot-text_15">
+              <!-- $n_g$ -->
+              <g transform="translate(221.354105 125.509345)">
+                <text>
+                  <tspan x="0" y="-0.6875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">n</tspan>
+                  <tspan x="4.447937" y="0.56875" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">g</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="matplotlib.axis_4">
+            <g id="bands-plot-ytick_6">
+              <g id="line2d_15">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="155.74506" y="90.667411" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+            </g>
+            <g id="bands-plot-ytick_7">
+              <g id="line2d_16">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="155.74506" y="70.597067" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+            </g>
+            <g id="ytick_8">
+              <g id="line2d_17">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="155.74506" y="50.526723" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+            </g>
+            <g id="ytick_9">
+              <g id="line2d_18">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="155.74506" y="30.456379" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+            </g>
+            <g id="ytick_10">
+              <g id="line2d_19">
+                <g>
+                  <use xlink:href="#m06d17e5d63" x="155.74506" y="10.386035" style="stroke: #000000; stroke-width: 0.5"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <g id="line2d_20">
+            <path d="M 155.74506 90.667434  L 294.80315 90.667434  L 294.80315 90.667434  " clip-path="url(#p74949da71c)" style="fill: none; stroke: #173f74; stroke-linecap: square"/>
+          </g>
+          <g id="line2d_21">
+            <path d="M 155.74506 80.631014  L 294.80315 80.631014  L 294.80315 80.631014  " clip-path="url(#p74949da71c)" style="fill: none; stroke: #2f7fc1; stroke-linecap: square"/>
+          </g>
+          <g id="line2d_22">
+            <path d="M 155.74506 71.455487  L 294.80315 71.455487  L 294.80315 71.455487  " clip-path="url(#p74949da71c)" style="fill: none; stroke: #62aee0; stroke-linecap: square"/>
+          </g>
+          <g id="patch_8">
+            <path d="M 155.74506 101.237345  L 155.74506 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_9">
+            <path d="M 294.80315 101.237345  L 294.80315 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_10">
+            <path d="M 155.74506 101.237345  L 294.80315 101.237345  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="patch_11">
+            <path d="M 155.74506 0  L 294.80315 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+          </g>
+          <g id="text_16">
+            <!-- $E_J/E_C = 30$ -->
+            <g transform="translate(207.074105 -6)">
+              <text>
+                <tspan x="0" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                <tspan x="10.569249" y="-0.171875" style="font-style: italic; font-size: 8px; font-family: 'TeX Gyre Heros'">E</tspan>
+                <tspan x="5.335938" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">J</tspan>
+                <tspan x="15.905186" y="1.084375" style="font-style: italic; font-size: 5.6px; font-family: 'TeX Gyre Heros'">C</tspan>
+                <tspan x="8.34528" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">/</tspan>
+                <tspan x="21.490491" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">=</tspan>
+                <tspan x="27.495209" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">3</tspan>
+                <tspan x="31.943146" y="-0.171875" style="font-size: 8px; font-family: 'TeX Gyre Heros'">0</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text font-family="TeX Gyre Heros" font-size="9pt" font-weight="bold" class="figworks-label" x="34.0157" y="15.1181">a</text>
+    <text font-family="TeX Gyre Heros" font-size="9pt" font-weight="bold" class="figworks-label" x="480" y="15.1181">b</text>
+    <text font-family="TeX Gyre Heros" font-size="9pt" font-weight="bold" class="figworks-label" x="34.0157" y="212.733">c</text>
+    <text font-family="TeX Gyre Heros" font-size="9pt" font-weight="bold" class="figworks-label" x="257.008" y="212.733">d</text>
   </g>
-  <text font-family="TeX Gyre Heros" font-size="10pt" font-weight="bold" class="figworks-label" x="34.0157" y="37.7953">a</text>
-  <text font-family="TeX Gyre Heros" font-size="10pt" font-weight="bold" class="figworks-label" x="336.378" y="37.7953">b</text>
 </svg>

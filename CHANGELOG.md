@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Figure.grid` creates named panels with row and column ratios, rectangular
   spans, empty cells, and physical margins and gaps. Returned panels work with
   the existing placement, anchors, and Matplotlib API.
+- `examples/transmon_figure.py`, the README figure: a transmon qubit in a
+  Physical Review two-column figure, composing a VecView device with TeX labels
+  pinned in 3D, a VecWire circuit, and two Matplotlib panels on one grid. It is
+  the first example to place VecTeX output.
 
 ### Changed
 
@@ -20,6 +24,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   VecTeX 0.3 a label's glyphs use `currentColor`, so recolour a placed label
   with `color`, not `fill`, and size a VecView slot with its `width_px` and
   `height_px`.
+- `examples/vecview_panel.py` loses its `background` argument, which only the
+  README figure script used.
 
 ### Fixed
 

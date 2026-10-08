@@ -116,16 +116,9 @@ def build_plot() -> plt.Figure:
     return mpl_fig
 
 
-def build_figure(background: str | None = None) -> Figure:
-    """The composed figure: the scene in panel a, the plot in panel b.
-
-    ``background`` fills the whole canvas first, under everything else; the
-    default leaves it transparent, for placing on a page.
-    """
-    width, height = "170mm", "76mm"
-    fig = Figure(width=width, height=height)
-    if background is not None:
-        fig.rect(x=0, y=0, width=width, height=height, fill=background, id="background")
+def build_figure() -> Figure:
+    """The composed figure: the scene in panel a, the plot in panel b."""
+    fig = Figure(width="170mm", height="76mm")
     # Panels start below and right of the margin so `label`'s default -3mm/-2mm
     # offset leaves the panel letters on the canvas.
     geometry = fig.panel("geometry", x="12mm", y="12mm", w="72mm", h="56mm")

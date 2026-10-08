@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with `color`, not `fill`, and size a VecView slot with its `width_px` and
   `height_px`.
 
+### Fixed
+
+- The sdist ships `tests/conftest.py`; without it, tests run from the sdist
+  were missing the fixtures they use.
+
 ## [0.7.0] - 2026-10-05
 
 ### Added

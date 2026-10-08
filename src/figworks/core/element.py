@@ -320,16 +320,16 @@ def fit_transform(
     src_w, src_h, min_x, min_y = intrinsic
     fx, fy = align_fractions(align)
 
+    shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
     if src_w and src_h and width and height and preserve_aspect_ratio:
         scale = min(width / src_w, height / src_h)
         dx = x + (width - src_w * scale) * fx
         dy = y + (height - src_h * scale) * fy
-        shift = f" translate({-min_x:g} {-min_y:g})" if (min_x or min_y) else ""
         return f"translate({dx:g} {dy:g}) scale({scale:g}){shift}"
     if src_w and src_h and width and height:
         scale_x = width / src_w
         scale_y = height / src_h
-        return f"translate({x:g} {y:g}) scale({scale_x:g} {scale_y:g})"
+        return f"translate({x:g} {y:g}) scale({scale_x:g} {scale_y:g}){shift}"
     return f"translate({x:g} {y:g})"
 
 

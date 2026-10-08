@@ -64,6 +64,16 @@ def test_fit_content_places_the_scaled_content_by_align(
     assert placed(figure, ctm) == pytest.approx((10.0, 20.0, 40.0, 20.0), abs=1e-3)  # %g scale
 
 
+def test_stretching_honours_a_viewbox_that_does_not_start_at_the_origin(
+    ctm: Callable[[etree._Element], np.ndarray],
+) -> None:
+    """VecView fits a scene's viewBox to its content, so its origin is rarely 0, 0."""
+    figure = Figure(width=100, height=60)
+    panel = figure.panel("p", x=10, y=20, w=48, h=36)
+    panel.add(LABEL, id="label", preserve_aspect_ratio=False)  # 24 x 12 stretched 2 x 3
+    assert placed(figure, ctm) == pytest.approx((10.0, 20.0, 48.0, 36.0))
+
+
 def test_an_unknown_alignment_is_refused() -> None:
     figure = Figure(width=100, height=60)
     panel = figure.panel("p", x=0, y=0, w=10, h=10)

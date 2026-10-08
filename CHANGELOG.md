@@ -44,6 +44,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Content stretched into a box (`preserve_aspect_ratio=False`) honours a
+  viewBox that does not start at the origin. The stretching transform dropped
+  the origin shift the uniform one applies, so such content -- every VecView
+  scene, whose viewBox is fitted to its drawing -- landed offset by it.
 - `set_style` reaches what a source styled itself. Matplotlib writes a line's
   colour on its path and VecWire a symbol's on its strokes, and those win over
   a style set on the group a selector finds, so restyling a plotted line by its

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-10-08
+
+The first release on PyPI.
+
 ### Added
 
 - `Figure.grid` creates named panels with row and column ratios, rectangular

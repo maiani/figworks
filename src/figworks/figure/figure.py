@@ -34,8 +34,9 @@ class Figure:
     ) -> None:
         """A canvas of the given physical size, styled by ``theme``.
 
-        ``theme`` is a built-in style name (``"paper"``, ``"presentation"``), a
-        path to a ``style.md``, or a loaded :class:`~figworks.style.Theme`.
+        ``theme`` is a built-in style name (``"paper"``, ``"presentation"``,
+        ``"nature"``, ``"aps"``, ``"ieee"``), a path to a ``style.md``, or a
+        loaded :class:`~figworks.style.Theme`.
         """
         self.width = width
         self.height = height

@@ -11,9 +11,19 @@ python -m pip install -e ".[dev]"
 ## Validation
 
 ```bash
-pytest
+ruff format --check .
 ruff check .
+ty check
+pytest
 ```
+
+## Releases
+
+The README is also the PyPI project page, where relative links do not resolve,
+so its links and image are absolute and pinned to a release tag. When bumping
+the version, point them at the new tag, regenerate the README figure with
+`python docs/readme_figure.py`, and refresh `uv.lock`, which records the
+project's own version: `uv lock`.
 
 ## Document layout
 

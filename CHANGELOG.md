@@ -24,6 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   VecTeX 0.3 a label's glyphs use `currentColor`, so recolour a placed label
   with `color`, not `fill`, and size a VecView slot with its `width_px` and
   `height_px`.
+- The README is written for the PyPI project page: install from PyPI, absolute
+  links pinned to the release tag, and the transmon figure with the code that
+  composes it.
 - `examples/vecview_panel.py` loses its `background` argument, which only the
   README figure script used.
 

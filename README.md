@@ -7,10 +7,10 @@ panels and elements keep stable ids, the same script writes byte-identical SVG,
 and the result opens in Inkscape for final adjustments.
 
 <p align="center">
-  <img src="docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
+  <img src="https://raw.githubusercontent.com/maiani/figworks/v0.8.0/docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
 </p>
 
-<p align="center"><sub>A Physical Review two-column figure from <a href="examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
+<p align="center"><sub>A Physical Review two-column figure from <a href="https://github.com/maiani/figworks/blob/v0.8.0/examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
 
 The four sources in that figure share nothing but a method, and FigWorks
 composes them in a few lines:
@@ -60,20 +60,21 @@ still settling and a minor release may change it.
 
 ## Install
 
-FigWorks is not on PyPI yet. Install it from a checkout (Python 3.12 or newer):
+FigWorks is on PyPI and needs Python 3.12 or newer:
 
 ```bash
-python -m pip install -e /path/to/figworks
+python -m pip install figworks
 ```
 
 This pulls in Matplotlib, lxml, svg.py, CairoSVG, and VecTeX. Rendering
 equations with VecTeX also needs a TeX installation with `pdflatex` and
-`dvisvgm` on `PATH`. [VecView](https://github.com/maiani/vecview) and
-[VecWire](https://github.com/maiani/vecwire) are optional. VecView is available
-on PyPI; VecWire is installed from GitHub:
+`dvisvgm` on `PATH`, and MuPDF's `mutool` with a current Ghostscript
+(`mupdf-tools` on Debian and Ubuntu). [VecView](https://github.com/maiani/vecview)
+and [VecWire](https://github.com/maiani/vecwire) are optional. VecView is on
+PyPI; VecWire is installed from GitHub:
 
 ```bash
-python -m pip install "vecview>=0.2"
+python -m pip install "vecview>=0.3"
 python -m pip install "vecwire @ git+https://github.com/maiani/vecwire"
 ```
 
@@ -84,35 +85,44 @@ every glyph it needs, and raise `FontError` rather than substitute silently.
 
 ## Quick start
 
+Two plots in one Physical Review column, needing only Matplotlib:
+
 ```python
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 from figworks import Figure
+from figworks.matplotlib import theme_rc
 
-x = np.linspace(0, 2 * np.pi, 200)
-mpl_fig, ax = plt.subplots(figsize=(3, 2))
-(line,) = ax.plot(x, np.sin(x))
-line.set_gid("sine-line")
-ax.set_xlabel("x")
-ax.set_ylabel("sin(x)")
+plt.rcParams.update(theme_rc("aps"))  # Matplotlib in the figure's face and sizes
 
-fig = Figure(width="120mm", height="70mm", theme="paper")
-panel = fig.panel("main", x="10mm", y="10mm", w="90mm", h="45mm")
-panel.add(mpl_fig, id="sine-panel")
+fig = Figure(width="86mm", height="42mm", theme="aps")  # one Physical Review column
+panels = fig.grid([["power", "phase"]], margins=("5mm", "2mm", "10mm", "13mm"), gap="15mm")
 
-fig.label("a", anchor=panel.nw)
-fig.text("A Matplotlib SVG panel", x="10mm", y="62mm", id="caption")
-fig.arrow(id="caption-arrow", start=("45mm", "58mm"), end=("70mm", "40mm"))
+detuning = np.linspace(-4, 4, 200)
+response = 1 / (1 + 2j * detuning)
+for name, curve, ylabel in (
+    ("power", abs(response) ** 2, r"$|S_{21}|^2$"),
+    ("phase", np.angle(response), r"$\arg S_{21}$ (rad)"),
+):
+    mpl_fig, ax = panels[name].subplots()  # its axes frame is exactly the panel
+    (line,) = ax.plot(detuning, curve)
+    line.set_gid(f"{name}-curve")  # survives into the SVG, for selectors and Inkscape
+    ax.set_xlabel(r"$\Delta/\kappa$")
+    ax.set_ylabel(ylabel)
+    panels[name].add(mpl_fig, id=f"{name}-plot", fit="axes")
 
-fig.save("example.svg")
-fig.save("example.pdf")
-fig.save("example.png", dpi=300)
+fig.label("a", panels["power"].nw)
+fig.label("b", panels["phase"].nw)
+fig.save("resonance.svg")
+fig.save("resonance.pdf")
+fig.save("resonance.png", dpi=600)
 ```
 
+The two frames are the same size and sit level, however wide their tick labels.
 Coordinates and sizes accept `px`, `pt`, `mm`, `cm`, or `in`; bare numbers are
-px. The artist id `sine-line` survives into `example.svg`, so
-`fig.select("#sine-line")` and Inkscape both find it.
+px. `fig.select("#phase-curve")` finds the phase curve in the composed figure,
+and so does Inkscape.
 
 For the common case of dropping SVG into existing Matplotlib axes, `compose`
 needs no `Figure` at all:
@@ -133,8 +143,10 @@ with open("figure.svg", "w", encoding="utf-8") as output:
 The root package exports `Figure`, `Panel`, `Anchor`, `Theme`, `compose`,
 `layout_svgs`, `display_svg`, and `FigureCollection`. With them you can:
 
-- create an SVG canvas with physical dimensions and a theme (`"paper"` or
-  `"presentation"`);
+- create an SVG canvas with physical dimensions and a style: `"paper"`,
+  `"presentation"`, the journal styles `"nature"`, `"aps"`, and `"ieee"`, or
+  your own `style.md`;
+- divide it into named panels with `Figure.grid`, or place panels by hand;
 - add rectangular panels with named anchors (`panel.nw`, `panel.center`, …);
 - place Matplotlib figures, VecTeX fragments, VecView scenes, VecWire circuits,
   SVG files, and SVG strings through one call, `Panel.add`;
@@ -203,7 +215,7 @@ fig.fill_slot("label-z", label)
 ```
 
 `fill_plane` normalizes content onto the unit square, so shape the plane to the
-plot's aspect ratio. [3D scenes](docs/usage/scenes-3d.md) covers orientation,
+plot's aspect ratio. [3D scenes](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/scenes-3d.md) covers orientation,
 line weights, and export caveats.
 
 ### VecWire circuits
@@ -235,7 +247,7 @@ its style guide in prose. FigWorks generates Matplotlib settings from it
 (`theme_rc("style.md")`), styles its own elements with it
 (`Figure(..., theme="style.md")`), and builds figure sets under it
 (`FigureCollection(style=...)`). Built-in bases follow the figure guidelines of
-Nature, Physical Review, and IEEE. See [Styles](docs/usage/styles.md).
+Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/styles.md).
 
 ### Aligned Matplotlib panels
 
@@ -285,8 +297,8 @@ fig.label("b", panels["spectrum"].nw)
 Repeating a name spans a rectangle; `None` reserves an empty cell. Ratios
 divide the space remaining after margins and gaps, which keep their physical
 size when you build a figure at another width. The returned dictionary holds
-ordinary `Panel` objects in first-occurrence order. See [Grid layout](docs/usage/layout.md)
-and [the complete example](examples/panel_grid.py).
+ordinary `Panel` objects in first-occurrence order. See [Grid layout](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/layout.md)
+and [the complete example](https://github.com/maiani/figworks/blob/v0.8.0/examples/panel_grid.py).
 
 ```python
 fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")

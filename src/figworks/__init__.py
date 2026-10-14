@@ -5,10 +5,13 @@ from figworks.core.display import display_svg
 from figworks.figure import Anchor, Figure, Panel, Theme
 from figworks.figure.layout import layout_svgs
 from figworks.matplotlib import compose
+from figworks.preflight import CheckIssue, CheckReport
 from figworks.style import load_theme
 
 __all__ = [
     "Anchor",
+    "CheckIssue",
+    "CheckReport",
     "Figure",
     "FigureCollection",
     "Panel",

@@ -58,3 +58,22 @@ def test_compose_uses_the_current_matplotlib_figure():
     source = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"><circle/></svg>'
 
     assert "circle" in figworks.compose({ax: source})
+
+
+def test_inserting_matplotlib_svg_keeps_ids_unique_and_references_resolved():
+    from lxml import etree
+
+    from figworks.core.element import _references
+
+    outer, axes = plt.subplots(1, 2)
+    inner, ax = plt.subplots()
+    ax.plot([0, 1], [0, 1], marker="o")
+    for index, target in enumerate(axes):
+        connect(target, f"slot-{index}", 0.1, 0.1, 0.8, 0.8)
+    result = insert({"slot-0": inner, "slot-1": inner}, fig=outer)
+    root = etree.fromstring(result.encode())
+    ids = root.xpath("//@id")
+    assert len(ids) == len(set(ids))
+    assert _references(root) <= set(ids)
+    plt.close(inner)
+    plt.close(outer)

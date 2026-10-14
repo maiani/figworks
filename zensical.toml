@@ -24,6 +24,7 @@ nav = [
       { "Grid layout" = "usage/layout.md" },
       { "Figure collections" = "usage/collections.md" },
       { "Export & display" = "usage/export.md" },
+      { "Publication preflight" = "usage/preflight.md" },
   ] },
   { "Development" = "development.md" },
 ]

@@ -26,6 +26,7 @@ from figworks.core.element import (
     local_name,
     parse_svg,
     register_ns,
+    resolve_id_collisions,
     svg_intrinsic_size,
     svg_tag,
 )
@@ -304,6 +305,11 @@ def _swap_node(
     transform = fit_transform(
         box, svg_intrinsic_size(replacement_svg), preserve_aspect_ratio=preserve_aspect_ratio
     )
+
+    duplicates = resolve_id_collisions(replacement_root, root, node.get("id") or "insert")
+    for duplicate in duplicates:
+        if (owner := duplicate.getparent()) is not None:
+            owner.remove(duplicate)
 
     container = parent if parent is not None else root
     group = etree.Element(svg_tag("g"), {"transform": transform})

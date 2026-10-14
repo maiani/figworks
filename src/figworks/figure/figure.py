@@ -16,7 +16,8 @@ from figworks.elements.text import text_element
 from figworks.figure.anchors import Anchor
 from figworks.figure.grid import Gap, GridLayout, Margins, grid_boxes
 from figworks.figure.panel import Panel
-from figworks.fonts import check_fonts
+from figworks.fonts import Resolver, check_fonts, fontconfig_resolver
+from figworks.preflight import CheckReport, check_document
 from figworks.style import Theme, load_theme
 
 if TYPE_CHECKING:
@@ -311,6 +312,31 @@ class Figure:
             id=id,
             preserve_aspect_ratio=preserve_aspect_ratio,
             align=align,
+        )
+
+    def check(
+        self,
+        *,
+        target: Literal["svg", "pdf", "png"] = "pdf",
+        min_font_pt: float = 6,
+        min_stroke_pt: float = 0.25,
+        min_raster_dpi: float = 300,
+        resolve_fonts: Resolver = fontconfig_resolver,
+    ) -> CheckReport:
+        """Inspect publication readiness without changing or exporting the figure.
+
+        Returns errors, heuristic warnings, and explicit coverage limits. An
+        ``ok`` report has no reported errors; it is not a certification of all
+        SVG features. See :mod:`figworks.preflight` for measurement scope.
+        ``save`` does not run preflight implicitly.
+        """
+        return check_document(
+            self.document.root,
+            target=target,
+            min_font_pt=min_font_pt,
+            min_stroke_pt=min_stroke_pt,
+            min_raster_dpi=min_raster_dpi,
+            resolve_fonts=resolve_fonts,
         )
 
     def save(self, path: str | Path, dpi: int = 300) -> None:

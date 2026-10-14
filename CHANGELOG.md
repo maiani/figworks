@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Explicit `Figure.check()` publication preflight, with structured errors,
+  warnings, and coverage limits for references, fonts, physical sizes, raster
+  resolution, export features, resources, and conservative page bounds.
+
 - Theme settings for Plotly, VecTeX, VecView text, and VecWire circuits/labels,
   with explicit physical-unit conversion and custom TeX preambles in `style.md`.
 - A mixed-source typography example and a README centered on reproducible,
@@ -16,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Optional `figworks[plotly]` extra and `figworks.plotly.plotly_to_svg` converter
   for static Plotly charts, with normalized SVG ids and trace classes.
+
+### Fixed
+
+- Repeated SVG insertions into Matplotlib now resolve colliding IDs and references.
 
 ## [0.8.0] - 2026-10-08
 

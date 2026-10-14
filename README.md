@@ -363,6 +363,23 @@ grid = layout_svgs([svg_a, svg_b, svg_c], labels=["a", "b", "c"], outline=True)
 grid.save("grid.svg")
 ```
 
+## Publication preflight
+
+Inspect the assembled figure before exporting:
+
+```python
+report = figure.check(target="pdf")
+for issue in report.issues:
+    print(issue.severity, issue.code, issue.message)
+report.raise_for_errors()
+```
+
+The checker reports broken IDs/references, font problems, small placed text and
+strokes, raster resolution, external resources, and conservative page overflow.
+`report.unchecked` lists coverage limits for CSS, complex bounds, and other
+features that need visual inspection. A clean report is not a certification of
+arbitrary SVG. See the [preflight guide](https://maiani.github.io/figworks/usage/preflight/).
+
 ## Known limitations
 
 A gradient-filled `<mask>` does not survive CairoSVG and vanishes from PDF and
@@ -376,6 +393,7 @@ Run from the repository root:
 python examples/transmon_figure.py      # requires vecview, vecwire, and TeX
 python examples/shared_typography.py    # whole suite, Plotly/Kaleido, Chrome, TeX
 python examples/plotly_panel.py         # Plotly/Kaleido and Chrome
+python examples/publication_preflight.py # deliberately flawed figure and report
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py

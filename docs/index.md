@@ -4,12 +4,15 @@ icon: lucide/rocket
 
 # FigWorks
 
-FigWorks is an SVG-first Python framework for assembling **publication-quality
-scientific figures** from Matplotlib plots, native SVG elements, annotations,
-and semantic figure structure.
+**A Python suite for reproducible, reviewable, and editable scientific figures.**
+
+FigWorks composes Matplotlib and Plotly plots, VecTeX equations, VecView scenes,
+VecWire circuits, and native SVG annotations. Readable source, shared style
+settings, and semantic SVG keep figures inspectable from computation to final
+layout. Deterministic builds require the same inputs, tools, and fonts.
 
 The canonical output is **SVG**. PDF and PNG export are supported through
-CairoSVG. Every element, panel, and role carries a stable identifier so the
+CairoSVG. Named elements and panels carry stable identifiers so the
 final graphic stays editable programmatically.
 
 ## The suite

@@ -33,8 +33,9 @@ figure.save("signal.png")
 figure dictionary and returns a complete SVG string. Width and height are
 positive integer CSS pixels; omit them to use Plotly's layout/export defaults.
 The converter fixes export scale at 1 and leaves the input and global defaults
-unchanged. Configure fonts, margins, colors, and other styling on the Plotly
-figure; FigWorks themes do not configure Plotly.
+unchanged. Apply `plot.update_layout(template=theme.plotly())` to use a loaded FigWorks
+theme. Explicit Plotly settings override the template; configure margins and
+other plot-specific styling on the Plotly figure.
 
 The returned SVG works wherever an SVG string is accepted, including `add`,
 `fill`, and Matplotlib `compose` replacements. Use `fit="none"` to keep its

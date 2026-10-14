@@ -86,7 +86,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             fonts-texgyre fonts-dejavu-core fontconfig libcairo2 \
             texlive-latex-base texlive-latex-recommended texlive-latex-extra \
-            texlive-fonts-recommended texlive-binaries dvisvgm mupdf-tools
+            texlive-fonts-recommended tex-gyre texlive-binaries dvisvgm mupdf-tools
       # The tests skip when a tool is missing, so a broken install would pass.
       - run: |
           status=0

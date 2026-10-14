@@ -1,7 +1,7 @@
 [project]
 site_name = "FigWorks"
 site_url = "https://maiani.github.io/figworks/"
-site_description = "Assemble publication-quality scientific SVG figures from Matplotlib plots, native SVG elements, annotations, and semantic figure structure."
+site_description = "A Python suite for reproducible, reviewable, and editable scientific figures."
 site_author = "Andrea Maiani"
 
 repo_url = "https://github.com/maiani/figworks"

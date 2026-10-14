@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Theme settings for Plotly, VecTeX, VecView text, and VecWire circuits/labels,
+  with explicit physical-unit conversion and custom TeX preambles in `style.md`.
+- A mixed-source typography example and a README centered on reproducible,
+  reviewable, editable scientific figures.
+
 - Optional `figworks[plotly]` extra and `figworks.plotly.plotly_to_svg` converter
   for static Plotly charts, with normalized SVG ids and trace classes.
 

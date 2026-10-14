@@ -1,10 +1,28 @@
 # FigWorks
 
-FigWorks assembles multi-panel publication figures from Matplotlib and Plotly plots, VecTeX
-equations, VecView 3D scenes, VecWire circuit schematics, and native SVG
-elements. The figure is generated from code and stays editable afterwards:
-panels and elements keep stable ids, the same script writes byte-identical SVG,
-and the result opens in Inkscape for final adjustments.
+[![CI](https://github.com/maiani/figworks/actions/workflows/ci.yml/badge.svg)](https://github.com/maiani/figworks/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/figworks.svg)](https://pypi.org/project/figworks/)
+[![Python](https://img.shields.io/pypi/pyversions/figworks.svg)](https://pypi.org/project/figworks/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/maiani/figworks/blob/main/LICENSE)
+[![Documentation](https://github.com/maiani/figworks/actions/workflows/docs.yml/badge.svg)](https://maiani.github.io/figworks/)
+
+**A Python suite for reproducible, reviewable, and editable scientific figures.**
+
+FigWorks brings together Matplotlib and Plotly plots, VecTeX equations, VecView
+3D scenes, VecWire circuit schematics, and native SVG annotations on a physical
+page. Each producer is independently useful; FigWorks composes their output
+into a publication figure.
+
+- **Reproducible:** regenerate figures from source, with deterministic SVG for
+  identical inputs in the same toolchain and font environment.
+- **Reviewable:** inspect the Python, styling, and semantic SVG in version
+  control. Named panels and elements make changes traceable.
+- **Editable:** keep vector paths, text, equations, and groups available for
+  final adjustments in Inkscape. VecTeX retains TeX source for TexText editing.
+
+[Documentation](https://maiani.github.io/figworks/) ·
+[Quick start](#quick-start) · [Examples](#examples) ·
+[The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/maiani/figworks/v0.8.0/docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
@@ -171,7 +189,7 @@ figure, so selectors reach inside placed content.
 
 ## Sources
 
-Everything except Matplotlib integrates through one method: FigWorks places any
+SVG-producing objects integrate through one method: FigWorks places any
 object exposing `to_svg_document()`. VecTeX, VecView, and VecWire implement it
 without importing FigWorks, and FigWorks has no adapter for any of them.
 
@@ -261,6 +279,27 @@ its style guide in prose. FigWorks generates Matplotlib settings from it
 (`FigureCollection(style=...)`). Built-in bases follow the figure guidelines of
 Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/styles.md).
 
+### One typography across the suite
+
+In the development checkout, a loaded theme supplies ordinary keyword arguments
+for each producer, with the correct physical units:
+
+```python
+theme = load_theme("aps")
+plt.rcParams.update(theme.rc())
+plotly_figure.update_layout(template=theme.plotly())
+equation = vectex.render(r"$E = mc^2$", **theme.vectex())
+scene.text(20, (0, 0, 1), "Device", **theme.vecview_text())
+circuit = Circuit(100, 60, **theme.vecwire())
+circuit.label("C", (40, 20), **theme.vecwire_label())
+```
+
+Use `fit="none"` to retain the source's physical type size; fitting a whole
+source to a smaller panel also shrinks its labels and strokes. The helper for
+VecWire labels requires its current checkout with `font_family` support.
+See the [style guide](https://maiani.github.io/figworks/usage/styles/) and
+`examples/shared_typography.py` for a complete mixed-source figure.
+
 ### Aligned Matplotlib panels
 
 ```python
@@ -335,6 +374,8 @@ Run from the repository root:
 
 ```bash
 python examples/transmon_figure.py      # requires vecview, vecwire, and TeX
+python examples/shared_typography.py    # whole suite, Plotly/Kaleido, Chrome, TeX
+python examples/plotly_panel.py         # Plotly/Kaleido and Chrome
 python examples/minimal_svg.py
 python examples/matplotlib_panel.py
 python examples/two_panel_figure.py
@@ -362,12 +403,13 @@ independently useful:
 All four emit vector SVG with stable ids and byte-identical output for
 identical input, so a figure can be regenerated from code, diffed in version
 control, and still hand-tuned in Inkscape. All four are pre-1.0 and make no
-backward-compatibility promise; deterministic output is the one guarantee they
-share.
+backward-compatibility promise; deterministic output is a shared design contract
+within a fixed rendering environment. Pin the producer, TeX/converter,
+browser, and font versions when archiving a build. Manual SVG edits remain
+editable artifacts; they are not automatically merged into regenerated output.
 
 The dependency edges are uneven by design: VecTeX is a runtime requirement,
 VecView and VecWire are optional, and none of the three depends on FigWorks.
-
 
 ## Development
 
@@ -394,8 +436,6 @@ The docs in `docs/` are built with [Zensical](https://zensical.org):
 zensical serve    # preview at http://localhost:8000
 zensical build    # static build into site/
 ```
-
-
 
 ## License
 

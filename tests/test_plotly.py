@@ -5,7 +5,7 @@ import shutil
 import pytest
 from lxml import etree
 
-from figworks import Figure
+from figworks import Figure, load_theme
 from figworks.core.element import _references
 from figworks.plotly import plotly_to_svg
 
@@ -56,14 +56,22 @@ def test_real_export_is_repeatable_editable_and_composable(tmp_path):
     ):
         pytest.skip("Chrome/Chromium is required for the real Plotly export test")
     plot = go.Figure(go.Scatter(x=[0, 1, 2], y=[0, 1, 0], mode="lines+markers"))
-    plot.update_layout(font_family="DejaVu Sans", xaxis_title="Time", template="simple_white")
+    theme = load_theme()
+    plot.update_layout(xaxis_title="Time", template=theme.plotly())
     before = plot.to_json()
     first = plotly_to_svg(plot, width=400, height=250)
     assert first == plotly_to_svg(plot.to_dict(), width=400, height=250)
     assert plot.to_json() == before
     root = etree.fromstring(first.encode())
     assert root.get("viewBox") == "0 0 400 250"
-    assert root.xpath("//*[local-name()='text']")
+    texts = root.xpath("//*[local-name()='text']")
+    assert texts
+    assert all(theme.font.family in text.get("style", "") for text in texts)
+    time_label = next(text for text in texts if text.text == "Time")
+    size = next(part for part in time_label.get("style").split(";") if "font-size:" in part)
+    assert float(size.split(":")[1].strip().removesuffix("px")) == pytest.approx(
+        theme.px("font.label"), abs=0.005
+    )
     assert root.xpath("//*[local-name()='path']")
     assert not root.xpath("//*[local-name()='image']")
     assert _references(root) <= set(root.xpath("//@id"))

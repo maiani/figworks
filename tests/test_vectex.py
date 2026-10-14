@@ -97,3 +97,19 @@ def test_an_equation_placed_without_fitting_keeps_its_point_size(
     left, right = ctm(root) @ [x0, y0, 1], ctm(root) @ [x0 + width, y0, 1]
     assert right[0] - left[0] == pytest.approx(equation.width_px, rel=1e-4)
     assert left[1] == pytest.approx(0.0, abs=1e-3)  # flush with the panel's top
+
+
+@pytest.mark.parametrize("style", ["paper", "ieee"])
+def test_theme_tex_fonts_render_at_requested_size(style):
+    from figworks import load_theme
+
+    theme = load_theme(style)
+    options = theme.vectex()
+    fragment = vectex.render(r"Energy $E = mc^2$", **options)
+    assert fragment.width_px > 0
+    assert fragment.baseline_px is not None
+    assert options["size_pt"] == theme.font.size
+    assert (
+        fragment.to_svg_document()
+        == vectex.render(r"Energy $E = mc^2$", **options).to_svg_document()
+    )

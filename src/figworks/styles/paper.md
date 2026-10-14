@@ -28,8 +28,9 @@ The default style: figures for a journal column, printed at their final size.
 
 ## Type
 
-One face for everything, words and math alike: TeX Gyre Heros, a free Helvetica
-clone that sits well beside Computer Modern equations from VecTeX. 8 pt is the
+TeX Gyre Heros, a free Helvetica clone, is the text face. The opt-in
+`theme.vectex()` setup pairs it with sans-serif TeX mathematics; direct VecTeX
+calls retain their own defaults. 8 pt is the
 body size, used for axis labels and annotations; tick labels and legends drop to
 7 pt; panel letters are 10 pt bold.
 

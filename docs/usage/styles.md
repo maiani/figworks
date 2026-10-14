@@ -82,11 +82,85 @@ defaults:
 A misspelt setting is reported when the style is loaded, not halfway through a
 build.
 
-## Other producers
+## Shared typography and physical sizing
 
-VecView and VecWire know nothing about FigWorks, so a script hands them the
-values: `theme.color["spin_up"]` for a colour, `theme.px("line.frame")` for a
-weight in the px they draw in.
+The theme returns plain dictionaries for the producers' own APIs. No sibling
+imports FigWorks, and loading these settings does not import optional packages.
+Each call returns fresh settings; editing them does not change the theme.
+
+```python
+theme = load_theme("aps")
+plt.rcParams.update(theme.rc())
+plot.update_layout(template=theme.plotly())
+equation = vectex.render(r"$E = mc^2$", **theme.vectex())
+scene.text(20, (0, 0, 1), "Device", **theme.vecview_text())
+circuit = Circuit(100, 60, **theme.vecwire())
+circuit.label("Capacitance", (50, 20), **theme.vecwire_label())
+```
+
+| Method | Destination | Size units |
+| --- | --- | --- |
+| `theme.rc()` | Matplotlib rc settings | points |
+| `theme.plotly()` | Plotly `template` dictionary | CSS pixels |
+| `theme.vectex(role="size")` | VecTeX `render` / `render_many` options | points |
+| `theme.vecview_text(role="size")` | VecView `text` / `text2d` keywords | screen pixels |
+| `theme.vecwire(unit="pt")` | VecWire `Circuit` keywords | selected circuit unit |
+| `theme.vecwire_label(role="size", unit="pt")` | VecWire plain-text `label` keywords | selected circuit unit |
+
+Roles are `size`, `label`, `tick`, `title`, `legend`, and `panel_label`. Use
+`theme.length("line.frame", unit="mm")` for a token in `pt`, `px`, or `mm`, or
+`theme.px("line.frame")` for pixels. For VecWire, use the **same unit** for the
+circuit and its label settings; the new font setting requires the current
+VecWire checkout. Fragment labels retain their own rendered typography.
+
+Plotly templates set fonts, Cartesian axes, legend, color cycle (when specified),
+and scatter line/marker sizes. Explicit plot settings override template values.
+They do not restyle existing figures forcibly or cover every Plotly trace type.
+Matplotlib `rcparams` overrides apply only to Matplotlib.
+
+### TeX fonts
+
+The built-in Heros setup uses `tgheros` and `sansmath` with pdfLaTeX. Termes uses
+`tgtermes` and `mathptmx`. These pair text with a compatible TeX math setup;
+math glyphs are not promised to match Matplotlib mathtext glyphs exactly.
+The TeX packages must be installed (`tex-gyre`, `texlive-fonts-recommended`,
+and `texlive-latex-recommended` on Debian/Ubuntu; rendering also needs the
+standalone class from `texlive-latex-extra`). For other families, specify a complete preamble
+and, if needed, an engine in the same `style.md`:
+
+```yaml
+font:
+  family: TeX Gyre Termes
+tex:
+  engine: lualatex
+  preamble: |
+    \documentclass[10pt,border=0pt]{standalone}
+    \usepackage{fontspec}
+    \usepackage{unicode-math}
+    \setmainfont{TeX Gyre Termes}
+    \setmathfont{TeX Gyre Termes Math}
+```
+
+Custom preambles are trusted TeX source. They take precedence over the built-in
+font setup, so keeping their font choices consistent with `font.family` is the
+author's responsibility. An unrecognized family without a preamble raises an
+error. Existing `vectex.render(...)` calls keep their existing defaults; theme
+settings are opt-in.
+
+### Preserve the final type size
+
+A theme selects sizes **before placement**. `fit="content"` scales an entire
+source, including its typography and strokes. Use `fit="none"` to retain its
+physical dimensions. For Matplotlib, `panel.subplots()` with `fit="axes"`
+also preserves the intended size; keep its theme active during creation and
+export, because mathtext selects fonts at draw time. For Plotly, choose the
+export canvas dimensions in pixels (96 px = 1 inch), then place it unscaled.
+For VecView, choose camera scale to size geometry and place the document with
+`fit="none"`; its text sizes and stroke widths are screen pixels.
+
+`examples/shared_typography.py` combines a VecView device, VecWire circuit,
+VecTeX equation, and Matplotlib/Plotly response curves with one theme. It writes
+SVG, PDF, and PNG with 8 pt body labels and 7 pt ticks.
 
 ## What belongs in the prose
 

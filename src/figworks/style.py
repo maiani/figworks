@@ -33,7 +33,8 @@ Matplotlib settings are generated in four layers: Matplotlib's defaults, the
 from __future__ import annotations
 
 from collections.abc import Mapping
-from dataclasses import dataclass, fields
+from copy import deepcopy
+from dataclasses import dataclass, field, fields
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
@@ -47,7 +48,18 @@ if TYPE_CHECKING:
 STYLES_DIR = Path(__file__).resolve().parent / "styles"
 BUILT_IN = ("paper", "presentation", "nature", "aps", "ieee")
 
-_TOP_LEVEL = {"base", "matplotlib", "page", "font", "line", "color", "cycle", "marker", "rcparams"}
+_TOP_LEVEL = {
+    "base",
+    "matplotlib",
+    "page",
+    "font",
+    "line",
+    "color",
+    "cycle",
+    "marker",
+    "rcparams",
+    "tex",
+}
 
 
 @dataclass(frozen=True)
@@ -88,6 +100,7 @@ class Theme:
     marker: float
     matplotlib: tuple[str, ...]
     rcparams: Mapping[str, Any]
+    tex: Mapping[str, str] = field(default_factory=dict)
 
     # --- values FigWorks' own elements use -------------------------------
     @property
@@ -120,6 +133,123 @@ class Theme:
         if source is None or key not in {f.name for f in fields(source)} or key == "family":
             raise KeyError(f"no length token {token!r}")
         return float(getattr(source, key)) * 96 / 72
+
+    def length(self, token: str, *, unit: str = "pt") -> float:
+        """A length token in physical ``pt``, ``px``, or ``mm`` user units."""
+        if unit not in {"pt", "px", "mm"}:
+            raise ValueError("unit must be 'pt', 'px', or 'mm'")
+        return self.px(token) / to_px(f"1{unit}")
+
+    def vecview_text(self, role: str = "size") -> dict[str, Any]:
+        """Keyword arguments for VecView ``text``/``text2d``, in screen pixels."""
+        return {
+            "size": self.px(f"font.{role}"),
+            "font_family": self.font.family,
+            "fill": self.color["ink"],
+        }
+
+    def vecwire(self, *, unit: str = "pt") -> dict[str, Any]:
+        """Keyword arguments for ``Circuit``; dimensions use the returned unit."""
+        return {
+            "unit": unit,
+            "stroke": self.color["ink"],
+            "stroke_width": self.length("line.data", unit=unit),
+        }
+
+    def vecwire_label(self, role: str = "size", *, unit: str = "pt") -> dict[str, Any]:
+        """Keyword arguments for plain-text ``Circuit.label`` in the circuit's unit."""
+        return {
+            "size": self.length(f"font.{role}", unit=unit),
+            "font_family": self.font.family,
+            "color": self.color["ink"],
+        }
+
+    def vectex(self, role: str = "size") -> dict[str, Any]:
+        """Render options with physical size, ink, and a TeX font configuration.
+
+        Built-in families use pdfLaTeX. Other families require a complete
+        ``tex.preamble`` in the style; ``tex.engine`` defaults to pdflatex.
+        TeX math uses a compatible math setup, not the SVG text font itself.
+        """
+        preamble = self.tex.get("preamble")
+        if not preamble:
+            fonts = {
+                "TeX Gyre Heros": (
+                    r"\usepackage{tgheros}" + "\n"
+                    r"\renewcommand{\familydefault}{\sfdefault}" + "\n"
+                    r"\usepackage{sansmath}\sansmath"
+                ),
+                "TeX Gyre Termes": r"\usepackage{mathptmx}\usepackage{tgtermes}",
+            }
+            if self.font.family not in fonts:
+                raise ValueError(
+                    f"No TeX font setup for {self.font.family!r}; set tex.preamble in style.md"
+                )
+            if self.tex.get("engine", "pdflatex") != "pdflatex":
+                raise ValueError("tex.engine other than pdflatex requires tex.preamble")
+            preamble = (
+                r"\documentclass[10pt,border=0pt]{standalone}" + "\n"
+                r"\usepackage[T1]{fontenc}\usepackage{amsmath}" + "\n" + fonts[self.font.family]
+            )
+        return {
+            "size_pt": self.length(f"font.{role}"),
+            "color": self.color["ink"],
+            "engine": self.tex.get("engine", "pdflatex"),
+            "preamble": preamble,
+        }
+
+    def plotly(self) -> dict[str, Any]:
+        """A Plotly template dictionary; apply with ``update_layout(template=...)``.
+
+        Font and stroke sizes are CSS pixels. Explicit figure settings take
+        precedence, and Matplotlib-only rcparams do not apply.
+        """
+
+        def font(role: str) -> dict[str, Any]:
+            return {
+                "family": self.font.family,
+                "size": self.px(f"font.{role}"),
+                "color": self.color["ink"],
+            }
+
+        axis = {
+            "title": {"font": font("label")},
+            "tickfont": font("tick"),
+            "color": self.color["ink"],
+            "linecolor": self.color["ink"],
+            "tickcolor": self.color["ink"],
+            "gridcolor": self.color.get("neutral", self.color["ink"]),
+            "linewidth": self.px("line.frame"),
+            "tickwidth": self.px("line.frame"),
+            "gridwidth": self.px("line.hairline"),
+            "showline": True,
+            "showgrid": False,
+            "zeroline": False,
+            "ticks": "outside",
+        }
+        layout = {
+            "font": font("size"),
+            "title": {"font": font("title")},
+            "legend": {"font": font("legend"), "title": {"font": font("legend")}},
+            "xaxis": axis,
+            "yaxis": deepcopy(axis),
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            "plot_bgcolor": "rgba(0,0,0,0)",
+        }
+        if self.cycle:
+            layout["colorway"] = list(self.cycle)
+        return {
+            "layout": layout,
+            "data": {
+                "scatter": [
+                    {
+                        "type": "scatter",
+                        "line": {"width": self.px("line.data")},
+                        "marker": {"size": self.px("marker")},
+                    }
+                ],
+            },
+        }
 
     def rc(self) -> RcParams:
         """The Matplotlib settings this style generates, without touching Matplotlib's state.
@@ -290,6 +420,11 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
     if "ink" not in colors:
         raise ValueError("color.ink is not set anywhere in the chain")
     cycle = tuple(colors.get(str(entry), str(entry)) for entry in data.get("cycle") or ())
+    tex = data.get("tex", {})
+    if not isinstance(tex, dict) or set(tex) - {"engine", "preamble"}:
+        raise ValueError("tex must contain only engine and preamble")
+    if any(not isinstance(value, str) or not value.strip() for value in tex.values()):
+        raise ValueError("tex.engine and tex.preamble must be nonempty strings")
     return Theme(
         name=path.stem if path.parent == STYLES_DIR else str(path),
         font=_section(Font, data, "font"),
@@ -300,6 +435,7 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
         marker=_pt(data.get("marker", "3pt"), "marker"),
         matplotlib=tuple(data.get("matplotlib") or ()),
         rcparams=dict(data.get("rcparams") or {}),
+        tex=dict(tex),
     )
 
 

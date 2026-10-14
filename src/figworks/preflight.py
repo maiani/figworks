@@ -142,6 +142,21 @@ def _length(value: str) -> float:
     return number
 
 
+# Matplotlib's mathtext, like TeX, sets a first-level sub- or superscript at
+# 0.7 of its label: a 7 pt label has 4.9 pt scripts, which no label size can
+# avoid within a 5-7 pt range, so those are noted rather than warned about.
+_SCRIPT = 0.7 * (1 - 1e-6)
+
+
+def _script_base(node: etree._Element, inherited: dict[str, str]) -> float:
+    """The largest run in a ``<tspan>``'s own ``<text>``, in px; 0 for anything else."""
+    parent = node.getparent()
+    if local_name(node) != "tspan" or parent is None or local_name(parent) != "text":
+        return 0.0
+    runs = [run for run in parent if isinstance(run.tag, str) and local_name(run) == "tspan"]
+    return max(_length(_properties(run, inherited).get("font-size", "16")) for run in runs)
+
+
 def _properties(node: etree._Element, inherited: dict[str, str]) -> dict[str, str]:
     props = dict(inherited)
     for key in ("font-size", "stroke", "stroke-width", "visibility", "fill"):
@@ -344,7 +359,16 @@ def check_document(
                         node.text or any(child.tail for child in node)
                     ):
                         size = _length(props.get("font-size", "16")) * low * 72 / 96
-                        if size < min_font_pt:
+                        base = _script_base(node, inherited) * low * 72 / 96
+                        if size < min_font_pt and base >= min_font_pt and size >= base * _SCRIPT:
+                            issue(
+                                "info",
+                                "small-script",
+                                f"A sub- or superscript is {size:.3g} pt, {size / base:.2g} of "
+                                f"its {base:.3g} pt label (threshold {min_font_pt:g} pt).",
+                                node,
+                            )
+                        elif size < min_font_pt:
                             issue(
                                 "warning",
                                 "small-text",

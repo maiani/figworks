@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Preflight notes a first-level sub- or superscript (0.7 of a label that meets
+  the size threshold) as `small-script` information instead of a `small-text`
+  warning: a 7 pt label's 4.9 pt scripts cannot be avoided within 5–7 pt.
+
 - Explicit `Figure.check()` publication preflight, with structured errors,
   warnings, and coverage limits for references, fonts, physical sizes, raster
   resolution, export features, resources, and conservative page bounds.

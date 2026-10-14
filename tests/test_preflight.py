@@ -245,3 +245,26 @@ def test_findings_name_nearest_semantic_group_but_keep_exact_path():
     )
     assert issue.element_id == "spectrum"
     assert issue.path.endswith("/*") or "text" in issue.path
+
+
+def test_a_sub_or_superscript_of_a_large_enough_label_is_a_note():
+    # A 7 pt label (28/3 px) with a mathtext subscript at 0.7 of it, and one at 0.49.
+    run = '<tspan style="font-size: {}px">{}</tspan>'
+    label = run.format(28 / 3, "R") + run.format(0.7 * 28 / 3, "p")
+    nested = run.format(28 / 3, "x") + run.format(0.49 * 28 / 3, "2")
+    fig = figure(f'<text y="20">{label}</text><text y="40">{nested}</text>', "100mm", "50mm")
+    report = fig.check(min_font_pt=5, resolve_fonts=fonts)
+    notes = [item for item in report.issues if item.code == "small-script"]
+    assert len(notes) == 1 and notes[0].severity == "info" and "4.9 pt" in notes[0].message
+    # A script of a script is excused by nothing: it stays a warning.
+    assert codes(report).count("small-text") == 1
+
+
+def test_small_text_beside_small_text_is_still_a_warning():
+    run = '<tspan style="font-size: {}px">{}</tspan>'
+    body = run.format(5.5 * 4 / 3, "a") + run.format(0.7 * 5.5 * 4 / 3, "b")
+    report = figure(f'<text y="20">{body}</text>', "100mm", "50mm").check(
+        min_font_pt=6, resolve_fonts=fonts
+    )
+    assert "small-script" not in codes(report)
+    assert codes(report).count("small-text") == 2

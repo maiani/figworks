@@ -53,6 +53,7 @@ Negative or nonfinite thresholds are rejected. Targets are `svg`, `pdf`, and
 | `broken-reference` | Missing targets for local href and `url(#...)` references |
 | `font` | Missing/substituted font, generic family, missing glyph, or unavailable font checker |
 | `small-text` | Smallest transformed font size below the threshold |
+| `small-script` | A note, not a warning: a sub- or superscript at 0.7 of a label that meets the threshold, as Matplotlib's mathtext and TeX set them |
 | `thin-stroke` | Smallest nonzero transformed stroke width below the threshold |
 | `embedded-image` | Image content may be raster, even in SVG output |
 | `low-resolution` | Embedded raster's minimum effective DPI below the threshold |
@@ -62,6 +63,10 @@ Negative or nonfinite thresholds are rejected. Targets are `svg`, `pdf`, and
 | `image-unreadable` | Embedded raster dimensions could not be inspected |
 | `outside-page` | Conservative simple-shape/stroke bounds extend beyond the page |
 | `viewport` | Root physical dimensions and viewBox do not match the FigWorks pixel canvas |
+
+A 7 pt label has 4.9 pt first-level scripts, and no label size keeps both
+within a 5–7 pt range, so such a script is a `small-script` note. A script
+smaller than that, such as a script of a script, is still `small-text`.
 
 PDF/PNG feature warnings reflect the limits of
 [CairoSVG's SVG support](https://cairosvg.org/svg_support/). A filter warning does

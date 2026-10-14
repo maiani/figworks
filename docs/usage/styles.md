@@ -158,9 +158,9 @@ export canvas dimensions in pixels (96 px = 1 inch), then place it unscaled.
 For VecView, choose camera scale to size geometry and place the document with
 `fit="none"`; its text sizes and stroke widths are screen pixels.
 
-`examples/shared_typography.py` combines a VecView device, VecWire circuit,
-VecTeX equation, and Matplotlib/Plotly response curves with one theme. It writes
-SVG, PDF, and PNG with 8 pt body labels and 7 pt ticks.
+`examples/transmon_figure.py` combines a VecView device, a VecWire circuit,
+VecTeX labels, and Matplotlib panels under one theme, with every label at 8 pt.
+The other [gallery](../gallery/index.md) figures do the same with `nature`.
 
 ## What belongs in the prose
 

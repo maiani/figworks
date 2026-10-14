@@ -15,6 +15,10 @@ The canonical output is **SVG**. PDF and PNG export are supported through
 CairoSVG. Named elements and panels carry stable identifiers so the
 final graphic stays editable programmatically.
 
+The [gallery](gallery/index.md) shows journal figures from across the sciences:
+quantum devices, graphene, photonics, biophysics, neuroscience, exoplanets, and
+reaction chemistry.
+
 ## The suite
 
 FigWorks is the composition layer of a four-project suite:

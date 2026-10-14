@@ -13,3 +13,5 @@ site/
 *.png
 !examples/*.py
 !docs/images/*.svg
+
+examples/out/

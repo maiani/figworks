@@ -143,8 +143,8 @@ Give the plot a transparent background (`mpl_fig.patch.set_alpha(0)`) so the
 surface it lies on shows through, and remember it joins the layer stack — a beam
 drawn at a higher layer crosses over it.
 
-`examples/vecview_plane_plot.py` renders this, flat on a slab and upright on a
-back wall.
+`examples/energy_landscape.py` renders a contour map this way, on the floor
+beneath the potential-energy surface it maps.
 
 ## Pinning a label to the scene
 

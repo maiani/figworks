@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A gallery of seven Nature-style figures from different fields: superconducting
+  qubits, graphene, a photonic microring, optical tweezers, the Hodgkin-Huxley
+  action potential, an exoplanet transit, and a chemical energy landscape. Each
+  is one self-contained script pairing a VecView schematic with panels computed
+  from the model. `examples/gallery.py` builds them, runs the preflight on each,
+  and generates the documentation pages; CI's `tex` job builds the gallery.
+- Gallery audit supports uniform physical SVG viewports and identifies findings
+  by the nearest semantic group.
+
 - Preflight notes a first-level sub- or superscript (0.7 of a label that meets
   the size threshold) as `small-script` information instead of a `small-text`
   warning: a 7 pt label's 4.9 pt scripts cannot be avoided within 5–7 pt.
@@ -39,6 +48,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- The API-recipe examples (`minimal_svg`, `matplotlib_panel`, `two_panel_figure`,
+  `panel_grid`, `matplotlib_bridge`, `vecview_panel`, `vecview_plane_plot`,
+  `vecwire_panel`, `plotly_panel`, `shared_typography`), superseded by the
+  gallery; the usage guides keep their code snippets.
 - `figworks.matplotlib.SVG_METADATA`. The export metadata now also names the
   creator and varies by format, so it is built internally.
 

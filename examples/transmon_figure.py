@@ -30,8 +30,8 @@ from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
 
-STYLE = "aps"
-plt.rcParams.update(theme_rc(STYLE))
+THEME = load_theme("aps")
+plt.rcParams.update(theme_rc(THEME))
 
 INK = "#262626"
 JUNCTION = "#c2185b"
@@ -183,8 +183,7 @@ def plot_bands(axes: np.ndarray) -> None:
 
 
 def build_figure() -> Figure:
-    theme = load_theme(STYLE)
-    fig = Figure(width=theme.page["double"], height="104mm", theme=theme)
+    fig = Figure(width=THEME.page["double"], height="104mm", theme=THEME)
     panels = fig.grid(
         [["device", "device", "circuit"], ["potential", "bands", "bands"]],
         height_ratios=(1.1, 1),
@@ -227,6 +226,7 @@ def build_figure() -> Figure:
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     fig = build_figure()
+    print(fig.check().summary())
     for suffix in (".svg", ".pdf", ".png"):
         fig.save(OUT / f"transmon_figure{suffix}")
     print(f"wrote {OUT / 'transmon_figure.svg'}, PDF, and PNG")

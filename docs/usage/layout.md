@@ -55,9 +55,9 @@ Panels are resolved once to fixed coordinates. To change a figure's width,
 create a new figure and apply the same grid specification: margins and gaps
 keep their physical sizes while track widths change.
 
-Run `python examples/panel_grid.py` for a complete figure with a spanning
-device sketch and two unequal Matplotlib panels. It writes SVG, PDF, and PNG
-to `examples/out/`.
+Every figure in the [gallery](../gallery/index.md) is laid out this way;
+`examples/transmon_figure.py` spans a device sketch over two columns above
+unequal Matplotlib panels.
 
 ## Equal cells from SVG sources
 

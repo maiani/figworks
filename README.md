@@ -298,7 +298,7 @@ Use `fit="none"` to retain the source's physical type size; fitting a whole
 source to a smaller panel also shrinks its labels and strokes. The helper for
 VecWire labels requires its current checkout with `font_family` support.
 See the [style guide](https://maiani.github.io/figworks/usage/styles/) and
-`examples/shared_typography.py` for a complete mixed-source figure.
+`examples/transmon_figure.py` for a complete mixed-source figure.
 
 ### Aligned Matplotlib panels
 
@@ -387,21 +387,26 @@ PNG exports without a warning.
 
 ## Examples
 
-Run from the repository root:
+The [gallery](https://maiani.github.io/figworks/gallery/) holds journal figures
+from across the sciences, each one self-contained script. They need VecView and
+TeX; the transmon also needs VecWire. Run from the repository root:
 
 ```bash
-python examples/transmon_figure.py      # requires vecview, vecwire, and TeX
-python examples/shared_typography.py    # whole suite, Plotly/Kaleido, Chrome, TeX
-python examples/plotly_panel.py         # Plotly/Kaleido and Chrome
-python examples/publication_preflight.py # deliberately flawed figure and report
-python examples/minimal_svg.py
-python examples/matplotlib_panel.py
-python examples/two_panel_figure.py
-python examples/panel_grid.py
-python examples/matplotlib_bridge.py
-python examples/vecview_panel.py         # requires vecview
-python examples/vecview_plane_plot.py    # requires vecview; a plot in a 3D plane
-python examples/vecwire_panel.py         # requires vecwire
+python examples/transmon_figure.py      # superconducting qubits
+python examples/graphene_bands.py       # condensed matter
+python examples/microring_resonator.py  # photonics
+python examples/optical_tweezers.py     # biophysics
+python examples/hodgkin_huxley.py       # neuroscience
+python examples/exoplanet_transit.py    # astrophysics
+python examples/energy_landscape.py     # chemistry
+python examples/gallery.py              # all of them, with a preflight report
+```
+
+Two scripts show workflows rather than figures, with core dependencies only:
+
+```bash
+python examples/publication_preflight.py # a deliberately flawed figure and its report
+python examples/thesis_plots.py --all    # a figure collection with a shared style
 ```
 
 Each example writes its figures into `examples/out/`.

@@ -85,8 +85,7 @@ panel.add(mpl_fig, id="spectrum-plot", fit="axes")
 
 `fit="axes"` also accepts an ordinary figure, made with any `figsize` and layout
 engine. Its frame is then fitted into the panel, scaled uniformly and centred,
-which aligns frames but rescales text. `examples/two_panel_figure.py` shows two
-aligned panels with very different tick labels.
+which aligns frames but rescales text.
 
 ## Direction 2: SVG imported as a Matplotlib object
 

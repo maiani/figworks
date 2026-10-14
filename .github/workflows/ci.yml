@@ -56,10 +56,8 @@ jobs:
               env.write(f"BROWSER_PATH={kaleido.get_chrome_sync()}\n")
           PYTHON
       - run: uv run pytest
-      - run: uv run python examples/minimal_svg.py
-      - run: uv run python examples/matplotlib_panel.py
-      - run: uv run python examples/two_panel_figure.py
-      - run: uv run python examples/panel_grid.py
+      - run: uv run python examples/publication_preflight.py
+      - run: uv run python examples/thesis_plots.py --all
       # VecView and VecWire are optional, so the tests above skip them.  Here
       # they come from their public main branches, to test the
       # to_svg_document() contract against what each producer actually ships.
@@ -102,9 +100,10 @@ jobs:
           enable-cache: true
       - run: uv sync --all-extras --locked --python 3.14
       - run: uv run pytest tests/test_vectex.py
-      # The README figure: every producer at once, through the real toolchain.
+      # The gallery, the README figure among it: every producer at once, through
+      # the real toolchain, each figure checked by the publication preflight.
       - run: >-
           uv pip install
           "vecview @ git+https://github.com/maiani/vecview"
           "vecwire @ git+https://github.com/maiani/vecwire"
-      - run: uv run --no-sync python examples/transmon_figure.py
+      - run: uv run --no-sync python examples/gallery.py

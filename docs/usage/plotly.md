@@ -54,5 +54,3 @@ retained. SVG-native traces keep paths and text editable. Plotly WebGL traces
 (such as `scattergl` and 3D surfaces) can embed raster images in SVG; use SVG
 trace types when vector editability matters. Fonts must also be available to
 CairoSVG for PDF/PNG export.
-
-See `examples/plotly_panel.py` for a damped-oscillation figure.

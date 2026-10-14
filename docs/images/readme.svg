@@ -1,4 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 672.7559055118111 393.0708661417323" width="178mm" height="104mm" version="1.1" font-family="TeX Gyre Heros">
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+      <cc:Work>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>FigWorks v0.8.0, https://github.com/maiani/figworks</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <defs>
     <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
     <clipPath id="pa30fdd387a">
@@ -14,7 +26,30 @@
   </defs>
   <rect id="background" x="0" y="0" width="672.756" height="393.071" fill="#ffffff"/>
   <g id="transmon" transform="translate(0 0) scale(1)">
+    <metadata>
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+        <cc:Work>
+          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+          <dc:creator>
+            <cc:Agent>
+              <dc:title>FigWorks v0.8.0, https://github.com/maiani/figworks</dc:title>
+            </cc:Agent>
+          </dc:creator>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
     <g id="device-scene" transform="translate(72.2912 22.6772) scale(0.440859) translate(322.3 139.2)">
+      <metadata>
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+          <cc:Work>
+            <dc:creator>
+              <cc:Agent>
+                <dc:title>VecView v0.3.0, https://github.com/maiani/vecview</dc:title>
+              </cc:Agent>
+            </dc:creator>
+          </cc:Work>
+        </rdf:RDF>
+      </metadata>
       <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-sidem1" points="-320.34,0.67 317.05,195.68 317.05,175.32 -320.34,-19.69" stroke-linejoin="round" fill="#d8dde5"/>
       <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-sidem2" points="317.05,195.68 445.05,78.19 445.05,57.84 317.05,175.32" stroke-linejoin="round" fill="#d8dde5"/>
       <polygon stroke="#8b96a6" stroke-width="0.8" id="substrate-pz" points="-192.34,-137.17 -320.34,-19.69 317.05,175.32 445.05,57.84" stroke-linejoin="round" fill="#f1f3f6"/>
@@ -179,6 +214,18 @@
       </g>
     </g>
     <g id="circuit" transform="translate(492.378 27.5846) scale(1.33333 1.33333)">
+      <metadata>
+        <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+          <cc:Work>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:creator>
+              <cc:Agent>
+                <dc:title>VecWire v0.2.0, https://github.com/maiani/vecwire</dc:title>
+              </cc:Agent>
+            </dc:creator>
+          </cc:Work>
+        </rdf:RDF>
+      </metadata>
       <g data-component="node" id="jj_top" data-x="14" data-y="16"/>
       <g data-component="node" id="cb_top" data-x="44" data-y="16"/>
       <g data-component="node" id="cr_top" data-x="78" data-y="16"/>
@@ -466,7 +513,7 @@
             <dc:format>image/svg+xml</dc:format>
             <dc:creator>
               <cc:Agent>
-                <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+                <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
               </cc:Agent>
             </dc:creator>
           </cc:Work>
@@ -673,7 +720,7 @@
             <dc:format>image/svg+xml</dc:format>
             <dc:creator>
               <cc:Agent>
-                <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+                <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
               </cc:Agent>
             </dc:creator>
           </cc:Work>

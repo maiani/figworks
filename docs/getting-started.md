@@ -45,10 +45,12 @@ directory.
 
 ## Run the examples
 
+The [gallery](gallery/index.md) holds complete figures from several sciences.
+Each is one script; these need VecView and a TeX installation:
+
 ```bash
-python examples/minimal_svg.py
-python examples/matplotlib_panel.py
-python examples/two_panel_figure.py
+python examples/graphene_bands.py
+python examples/gallery.py   # every figure, with a preflight report
 ```
 
 Each example writes its figures to `examples/out/`.

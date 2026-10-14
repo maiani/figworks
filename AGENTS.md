@@ -136,14 +136,17 @@ Examples:
 
 ```bash
 python examples/transmon_figure.py       # the README figure; vecview, vecwire, TeX
-python examples/minimal_svg.py
-python examples/matplotlib_panel.py
-python examples/two_panel_figure.py
-python examples/panel_grid.py
-python examples/vecview_panel.py         # requires vecview from a checkout
-python examples/vecview_plane_plot.py    # a plot projected onto a plane in 3D
-python examples/vecwire_panel.py         # requires vecwire from a checkout
+python examples/gallery.py               # every gallery figure, with preflight
+python examples/gallery.py --docs        # also refresh docs/gallery and its images
+python examples/publication_preflight.py # core only; a deliberately flawed figure
+python examples/thesis_plots.py --all    # core only; a figure collection
 ```
+
+The gallery figures are the showcase. Each is a self-contained script (no
+shared helper module) for a 183 mm Nature-style figure from a different field:
+a schematic plus quantitative panels computed from the model in the script,
+simulated data seeded, output byte-identical between runs. A new gallery figure
+is registered in `EXAMPLES` in `examples/gallery.py`.
 
 ## Code Style
 

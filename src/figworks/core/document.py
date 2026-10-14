@@ -324,15 +324,39 @@ class SVGDocument:
         return self.select(selector).set_style(**style)
 
     def to_string(self) -> str:
-        return etree.tostring(
-            self.root,
-            encoding="unicode",
-            pretty_print=True,
-            xml_declaration=False,
-        )
+        # The credit is written, not kept: the tree stays plain SVG to select and edit.
+        credit = _credit()
+        self.root.insert(0, credit)
+        try:
+            return etree.tostring(
+                self.root,
+                encoding="unicode",
+                pretty_print=True,
+                xml_declaration=False,
+            )
+        finally:
+            self.root.remove(credit)
 
     def save(self, path: str | Path) -> None:
         Path(path).write_text(self.to_string(), encoding="utf-8")
+
+
+def _credit() -> etree._Element:
+    """Dublin Core metadata naming FigWorks the creator, as Matplotlib names itself.
+
+    Panels keep their own producer's record; this one speaks for the whole figure.
+    """
+    from figworks import __version__
+
+    return etree.fromstring(
+        '<metadata xmlns="http://www.w3.org/2000/svg">'
+        '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"'
+        ' xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">'
+        '<cc:Work><dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>'
+        "<dc:creator><cc:Agent>"
+        f"<dc:title>FigWorks v{__version__}, https://github.com/maiani/figworks</dc:title>"
+        "</cc:Agent></dc:creator></cc:Work></rdf:RDF></metadata>"
+    )
 
 
 def extract_path_box(node: etree._Element) -> tuple[float, float, float, float]:

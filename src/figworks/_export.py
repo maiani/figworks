@@ -10,14 +10,20 @@ from cairosvg.surface import PDFSurface, cairo
 
 
 class _ReproduciblePDF(PDFSurface):
-    """CairoSVG's PDF surface without the creation date cairo stamps by default.
+    """CairoSVG's PDF surface, crediting FigWorks and without cairo's creation date.
 
     The date makes every PDF differ from the last; an empty value omits it.
     """
 
     def _create_surface(self, width: float, height: float) -> tuple[Any, float, float]:
+        from figworks import __version__
+
         surface, width, height = super()._create_surface(width, height)
         surface.set_metadata(cairo.PDF_METADATA_CREATE_DATE, "")
+        surface.set_metadata(
+            cairo.PDF_METADATA_CREATOR,
+            f"FigWorks v{__version__}, https://github.com/maiani/figworks",
+        )
         return surface, width, height
 
 

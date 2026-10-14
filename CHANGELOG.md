@@ -21,9 +21,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optional `figworks[plotly]` extra and `figworks.plotly.plotly_to_svg` converter
   for static Plotly charts, with normalized SVG ids and trace classes.
 
+### Changed
+
+- Exports credit FigWorks instead of only Matplotlib. Matplotlib panels and
+  `save_figure` write "FigWorks vX (Matplotlib vY)" as the SVG and PDF creator
+  and PNG software; a composed figure's SVG carries its own Dublin Core creator,
+  added on export so the tree being edited stays plain SVG, and its PDF names
+  FigWorks as creator.
+
 ### Fixed
 
 - Repeated SVG insertions into Matplotlib now resolve colliding IDs and references.
+
+### Removed
+
+- `figworks.matplotlib.SVG_METADATA`. The export metadata now also names the
+  creator and varies by format, so it is built internally.
 
 ## [0.8.0] - 2026-10-08
 

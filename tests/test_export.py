@@ -1,6 +1,10 @@
+import re
+import zlib
+
 import pytest
 from PIL import Image
 
+import figworks
 from figworks import Figure
 
 
@@ -55,3 +59,19 @@ def test_pdf_export_is_byte_identical_across_runs(tmp_path):
     time.sleep(1.1)
     fig.save(second)
     assert first.read_bytes() == second.read_bytes()
+
+
+def test_exports_credit_figworks(tmp_path):
+    fig = Figure(width="100px", height="50px")
+    fig.text("hello", x=10, y=20, id="caption")
+    fig.save(tmp_path / "figure.svg")
+    fig.save(tmp_path / "figure.pdf")
+
+    svg = (tmp_path / "figure.svg").read_text(encoding="utf-8")
+    assert f"<dc:title>FigWorks v{figworks.__version__}," in svg
+    # cairo keeps the Info dictionary in a compressed object stream.
+    pdf = (tmp_path / "figure.pdf").read_bytes()
+    streams = re.findall(rb"stream\r?\n(.*?)endstream", pdf, re.S)
+    assert any(b"FigWorks v" in zlib.decompressobj().decompress(s) for s in streams)
+    # The record is written on export, not kept in the tree being edited.
+    assert not fig.document.root.findall(".//{http://www.w3.org/2000/svg}metadata")

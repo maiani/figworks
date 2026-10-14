@@ -8,6 +8,7 @@ from io import BytesIO
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 
+import matplotlib
 import matplotlib.pyplot as plt
 from lxml import etree
 from matplotlib import rc_context
@@ -36,9 +37,24 @@ if TYPE_CHECKING:
 
     from figworks.style import Theme
 
+
 # Matplotlib salts clip-path and marker ids with a random value unless one is set,
 # and stamps the export date, so without these two settings no export is byte-identical.
-SVG_METADATA = {"Date": None}
+# It also names itself the creator; FigWorks claims the credit and names it beside.
+def _export_metadata(kind: str) -> dict[str, str | None]:
+    """Matplotlib ``savefig`` metadata for ``kind``: no date, FigWorks as creator."""
+    from figworks import __version__
+
+    creator = (
+        f"FigWorks v{__version__} (Matplotlib v{matplotlib.__version__}), "
+        "https://github.com/maiani/figworks"
+    )
+    metadata: dict[str, dict[str, str | None]] = {
+        "svg": {"Date": None, "Creator": creator},
+        "pdf": {"CreationDate": None, "Creator": creator},
+        "png": {"Software": creator},
+    }
+    return metadata[kind]
 
 
 @contextmanager
@@ -85,7 +101,7 @@ def mpl_to_svg(
             format="svg",
             transparent=transparent,
             bbox_inches=bbox_inches,
-            metadata=SVG_METADATA,
+            metadata=_export_metadata("svg"),
         )
     svg = buffer.getvalue()
     if id:
@@ -93,11 +109,6 @@ def mpl_to_svg(
         root.set("id", id)
         svg = etree.tostring(root, encoding="unicode")
     return svg
-
-
-# Matplotlib stamps creation dates into PDF and SVG; dropping them is what lets
-# a regenerated file come out byte-identical.
-_SAVE_METADATA = {"svg": SVG_METADATA, "pdf": {"CreationDate": None}}
 
 
 def save_figure(fig: Figure, path: str | Path, *, dpi: float = 300) -> None:
@@ -116,7 +127,7 @@ def save_figure(fig: Figure, path: str | Path, *, dpi: float = 300) -> None:
         raise ValueError(f"Unsupported export format: {output.suffix}")
     check_fonts(mpl_to_svg(fig))
     with mpl_svg_context():
-        fig.savefig(output, dpi=dpi, metadata=_SAVE_METADATA.get(suffix))
+        fig.savefig(output, dpi=dpi, metadata=_export_metadata(suffix))
 
 
 def axes_frame(fig: Figure) -> tuple[float, float, float, float]:
@@ -280,7 +291,7 @@ def _current_figure_svg() -> str:
 
     buffer = io.StringIO()
     with mpl_svg_context():
-        plt.savefig(buffer, format="svg", metadata=SVG_METADATA)
+        plt.savefig(buffer, format="svg", metadata=_export_metadata("svg"))
     return buffer.getvalue()
 
 

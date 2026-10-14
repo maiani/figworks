@@ -1,7 +1,10 @@
+import matplotlib
 import matplotlib.pyplot as plt
+from PIL import Image
 
+import figworks
 from figworks import Figure
-from figworks.matplotlib import mpl_to_svg
+from figworks.matplotlib import mpl_to_svg, save_figure
 
 
 def test_matplotlib_export_contains_gid_and_text():
@@ -65,3 +68,19 @@ def test_panel_accepts_a_generic_svg_document_provider():
     node = panel.add(Provider(), id="square-plot")
 
     assert node.get("transform") == "translate(50 0) scale(1)"
+
+
+def test_matplotlib_exports_credit_figworks_and_matplotlib(tmp_path):
+    fig, ax = plt.subplots()
+    ax.plot([0, 1], [0, 1])
+    credit = f"FigWorks v{figworks.__version__} (Matplotlib v{matplotlib.__version__})"
+
+    assert credit in mpl_to_svg(fig)
+    save_figure(fig, tmp_path / "plot.svg")
+    save_figure(fig, tmp_path / "plot.pdf")
+    save_figure(fig, tmp_path / "plot.png")
+    assert credit in (tmp_path / "plot.svg").read_text(encoding="utf-8")
+    pdf_credit = credit.replace("(", "\\(").replace(")", "\\)")  # escaped in a PDF string
+    assert pdf_credit.encode() in (tmp_path / "plot.pdf").read_bytes()
+    assert Image.open(tmp_path / "plot.png").info["Software"].startswith(credit)
+    plt.close(fig)

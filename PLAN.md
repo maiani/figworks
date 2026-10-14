@@ -5,6 +5,8 @@ coordinates maintained tools instead of reproducing them:
 
 - `svg.py` constructs native annotations and shapes.
 - Matplotlib produces scientific plots as vector SVG.
+- Plotly optionally exports static SVG through `plotly_to_svg`, using Kaleido
+  and an installed Chrome/Chromium. Neither is a core dependency.
 - VecTeX produces editable TeX equations as vector SVG.
 - VecView produces layered 3D schematics as vector SVG.
 - VecWire produces editable circuit schematics as vector SVG.
@@ -42,7 +44,7 @@ Keep the core limited to:
 
 Do not add backend base classes, registries, plugin systems, schemas, or wrapper
 objects until two concrete implementations need the same behavior. A future
-Plotly or Blender integration should first be a converter that produces a full
+Blender integration should first be a converter that produces a full
 SVG document accepted by `add`. Only introduce a new abstraction when that
 contract is insufficient in a demonstrated workflow.
 

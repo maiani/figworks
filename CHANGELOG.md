@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Optional `figworks[plotly]` extra and `figworks.plotly.plotly_to_svg` converter
+  for static Plotly charts, with normalized SVG ids and trace classes.
+
 ## [0.8.0] - 2026-10-08
 
 The first release on PyPI.

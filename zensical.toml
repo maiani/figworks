@@ -18,6 +18,7 @@ nav = [
       { "Native SVG elements" = "usage/elements.md" },
       { "Selectors" = "usage/selectors.md" },
       { "Matplotlib integration" = "usage/matplotlib.md" },
+      { "Plotly integration" = "usage/plotly.md" },
       { "3D scenes" = "usage/scenes-3d.md" },
       { "Placeholders & fill" = "usage/placeholders.md" },
       { "Grid layout" = "usage/layout.md" },

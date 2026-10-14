@@ -1,6 +1,6 @@
 # FigWorks
 
-FigWorks assembles multi-panel publication figures from Matplotlib plots, VecTeX
+FigWorks assembles multi-panel publication figures from Matplotlib and Plotly plots, VecTeX
 equations, VecView 3D scenes, VecWire circuit schematics, and native SVG
 elements. The figure is generated from code and stays editable afterwards:
 panels and elements keep stable ids, the same script writes byte-identical SVG,
@@ -174,6 +174,14 @@ figure, so selectors reach inside placed content.
 Everything except Matplotlib integrates through one method: FigWorks places any
 object exposing `to_svg_document()`. VecTeX, VecView, and VecWire implement it
 without importing FigWorks, and FigWorks has no adapter for any of them.
+
+### Plotly plots
+
+Install `pip install "figworks[plotly]"` and Chrome/Chromium, then pass
+`plotly_to_svg(plot)` from `figworks.plotly` to `Panel.add` or `Figure.add`.
+This produces static SVG; WebGL traces may include raster images. See the
+[Plotly guide](https://maiani.github.io/figworks/usage/plotly/) for dimensions,
+fonts, reproducibility, and an example.
 
 ### VecTeX equations
 

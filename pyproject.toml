@@ -39,6 +39,7 @@ Source = "https://github.com/maiani/figworks"
 Issues = "https://github.com/maiani/figworks/issues"
 
 [project.optional-dependencies]
+plotly = ["plotly>=6.1.1", "kaleido>=1"]
 dev = [
     "lxml-stubs>=0.5",
     "ty>=0.0.84",
@@ -73,8 +74,8 @@ ignore = ["S603"]
 "examples/**" = ["ANN", "S101"]
 
 [tool.ty.analysis]
-# Notebook display is optional and imported only when requested.
-allowed-unresolved-imports = ["IPython.display"]
+# Notebook display and Plotly export are optional and imported only when requested.
+allowed-unresolved-imports = ["IPython.display", "plotly.*", "kaleido"]
 
 [tool.ty.src]
 include = ["src"]

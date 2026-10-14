@@ -46,6 +46,15 @@ jobs:
       - run: uv run ruff format --check .
       - run: uv run ruff check .
       - run: uv run ty check
+      # Pin browser discovery for the real optional Plotly export test.
+      - name: Install Plotly renderer
+        run: |
+          uv run python - <<'PYTHON'
+          import os
+          import kaleido
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"BROWSER_PATH={kaleido.get_chrome_sync()}\n")
+          PYTHON
       - run: uv run pytest
       - run: uv run python examples/minimal_svg.py
       - run: uv run python examples/matplotlib_panel.py

@@ -4,7 +4,6 @@
 [![PyPI](https://img.shields.io/pypi/v/figworks.svg)](https://pypi.org/project/figworks/)
 [![Python](https://img.shields.io/pypi/pyversions/figworks.svg)](https://pypi.org/project/figworks/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/maiani/figworks/blob/main/LICENSE)
-[![Documentation](https://github.com/maiani/figworks/actions/workflows/docs.yml/badge.svg)](https://maiani.github.io/figworks/)
 
 **A Python suite for reproducible, reviewable, and editable scientific figures.**
 
@@ -20,7 +19,7 @@ into a publication figure.
 - **Editable:** keep vector paths, text, equations, and groups available for
   final adjustments in Inkscape. VecTeX retains TeX source for TexText editing.
 
-[Documentation](https://maiani.github.io/figworks/) ·
+[Documentation](https://github.com/maiani/figworks/blob/main/docs/index.md) ·
 [Quick start](#quick-start) · [Examples](#examples) ·
 [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
@@ -198,7 +197,7 @@ without importing FigWorks, and FigWorks has no adapter for any of them.
 Install `pip install "figworks[plotly]"` and Chrome/Chromium, then pass
 `plotly_to_svg(plot)` from `figworks.plotly` to `Panel.add` or `Figure.add`.
 This produces static SVG; WebGL traces may include raster images. See the
-[Plotly guide](https://maiani.github.io/figworks/usage/plotly/) for dimensions,
+[Plotly guide](https://github.com/maiani/figworks/blob/main/docs/usage/plotly.md) for dimensions,
 fonts, reproducibility, and an example.
 
 ### VecTeX equations
@@ -297,7 +296,7 @@ circuit.label("C", (40, 20), **theme.vecwire_label())
 Use `fit="none"` to retain the source's physical type size; fitting a whole
 source to a smaller panel also shrinks its labels and strokes. The helper for
 VecWire labels requires its current checkout with `font_family` support.
-See the [style guide](https://maiani.github.io/figworks/usage/styles/) and
+See the [style guide](https://github.com/maiani/figworks/blob/main/docs/usage/styles.md) and
 `examples/transmon_figure.py` for a complete mixed-source figure.
 
 ### Aligned Matplotlib panels
@@ -378,7 +377,7 @@ The checker reports broken IDs/references, font problems, small placed text and
 strokes, raster resolution, external resources, and conservative page overflow.
 `report.unchecked` lists coverage limits for CSS, complex bounds, and other
 features that need visual inspection. A clean report is not a certification of
-arbitrary SVG. See the [preflight guide](https://maiani.github.io/figworks/usage/preflight/).
+arbitrary SVG. See the [preflight guide](https://github.com/maiani/figworks/blob/main/docs/usage/preflight.md).
 
 ## Known limitations
 
@@ -387,7 +386,7 @@ PNG exports without a warning.
 
 ## Examples
 
-The [gallery](https://maiani.github.io/figworks/gallery/) holds journal figures
+The [gallery](https://github.com/maiani/figworks/blob/main/docs/gallery/index.md) holds journal figures
 from across the sciences, each one self-contained script. They need VecView and
 TeX; the transmon also needs VecWire. Run from the repository root:
 
@@ -399,6 +398,7 @@ python examples/optical_tweezers.py     # biophysics
 python examples/hodgkin_huxley.py       # neuroscience
 python examples/exoplanet_transit.py    # astrophysics
 python examples/energy_landscape.py     # chemistry
+python examples/climate_energy_balance.py # climate science
 python examples/gallery.py              # all of them, with a preflight report
 ```
 

@@ -111,6 +111,17 @@ EXAMPLES = (
         "A Matplotlib contour map rendered into a plane of a VecView scene with "
         "`fill_plane`, under the surface it maps.",
     ),
+    Example(
+        "climate_energy_balance",
+        "Climate science",
+        "Earth's energy balance and the ice-albedo feedback",
+        "Where the planet gains and loses energy, why its ice edge can jump to a "
+        "snowball state and back, and how fast the surface warms after CO2 doubles: "
+        "a diffusive energy-balance model and a two-layer ocean, solved in the script.",
+        "A VecView globe with upright VecTeX labels beside stacked and single "
+        "Matplotlib panels, with one colour each for sunlight, infrared, and ice "
+        "carried from the 3D scene into every plot.",
+    ),
 )
 
 

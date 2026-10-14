@@ -48,6 +48,12 @@ Data shown as measurements are simulated, with fixed seeds; each script says whi
 
     *Chemistry.* The Müller-Brown surface in 3D, its minimum-energy path, and the barriers along the reaction coordinate.
 
+-   **[Earth's energy balance and the ice-albedo feedback](climate_energy_balance.md)**
+
+    [![Earth's energy balance and the ice-albedo feedback](../images/gallery-climate_energy_balance.svg)](climate_energy_balance.md)
+
+    *Climate science.* Where the planet gains and loses energy, why its ice edge can jump to a snowball state and back, and how fast the surface warms after CO2 doubles: a diffusive energy-balance model and a two-layer ocean, solved in the script.
+
 </div>
 
 ## Rebuild

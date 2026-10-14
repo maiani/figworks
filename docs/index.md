@@ -16,8 +16,8 @@ CairoSVG. Named elements and panels carry stable identifiers so the
 final graphic stays editable programmatically.
 
 The [gallery](gallery/index.md) shows journal figures from across the sciences:
-quantum devices, graphene, photonics, biophysics, neuroscience, exoplanets, and
-reaction chemistry.
+quantum devices, graphene, photonics, biophysics, neuroscience, exoplanets,
+reaction chemistry, and the climate.
 
 ## The suite
 

@@ -13,9 +13,26 @@ fig = Figure(width="180mm", height="100mm", theme="paper")
 * `width`, `height` — physical dimensions using any supported unit.
 * `theme` — a built-in style (`"paper"`, `"presentation"`, `"nature"`, `"aps"`,
   `"ieee"`), the path of a `style.md`, or a loaded `Theme`.
+* `background` — a colour for the page, or `None` (the default) for a
+  transparent one. See [Page background](#page-background).
 
 The theme sets the typeface, sizes, line weights, and colours of the figure's
 own elements; see [Styles](styles.md).
+
+### Page background
+
+A figure's page is transparent unless you give it a colour:
+
+```python
+fig = Figure(width="180mm", height="100mm", theme="nature", background="white")
+```
+
+The colour is a `<rect id="background">` under everything else, so the SVG,
+PDF, and PNG all show it, and it stays an ordinary shape in Inkscape. Give one
+when the figure may be seen on a dark page: black text on a transparent PNG
+or SVG vanishes in a dark viewer or a README in dark mode. Leave it out when the
+figure is placed on a coloured slide or page of its own. Panels stay
+transparent either way, so this one rectangle is the whole page.
 
 ### Adding content
 

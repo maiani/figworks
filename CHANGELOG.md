@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `Figure(..., background="white")` paints the page: a `<rect id="background">`
+  under everything else, so SVG, PDF, and PNG agree. The page stays transparent
+  by default. The gallery figures use it, replacing the white canvas the
+  gallery and README builders wrapped them in.
 - A gallery of eight Nature-style figures from different fields: superconducting
   qubits, graphene, a photonic microring, optical tweezers, the Hodgkin-Huxley
   action potential, an exoplanet transit, a chemical energy landscape, and

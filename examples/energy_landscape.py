@@ -318,7 +318,7 @@ def plot_rates(ax: plt.Axes, land: dict) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="128mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="128mm", theme=THEME, background="white")
     panels = fig.grid(
         [["surface", "surface", "map"], ["profile", "profile", "rates"]],
         width_ratios=(1, 1, 1.45),

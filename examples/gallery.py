@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 from collections import Counter
@@ -27,7 +28,6 @@ from pathlib import Path
 
 from lxml import etree
 
-from figworks import Figure
 from figworks.preflight import check_document
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -130,15 +130,8 @@ def digest(path: Path) -> str:
 
 
 def preview(example: Example) -> None:
-    """Give the preview a white page, so it reads in either site theme, without rescaling it."""
-    source = OUT / f"{example.name}.svg"
-    root = etree.parse(str(source)).getroot()
-    page = Figure(root.get("width"), root.get("height"))
-    page.rect(x=0, y=0, width=page.width, height=page.height, fill="white", stroke="none")
-    page.panel("preview", 0, 0, page.width, page.height).add(
-        source, id="artwork", fit="none", align="northwest"
-    )
-    page.save(IMAGES / f"gallery-{example.name}.svg")
+    """Copy the figure into the docs; its own white page makes it read in either site theme."""
+    shutil.copyfile(OUT / f"{example.name}.svg", IMAGES / f"gallery-{example.name}.svg")
 
 
 def detail_page(example: Example, record: dict) -> str:

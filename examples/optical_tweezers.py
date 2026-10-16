@@ -213,7 +213,7 @@ def plot_stretching(ax: plt.Axes) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="122mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="122mm", theme=THEME, background="white")
     panels = fig.grid(
         [["assay", "assay", "spectrum"], ["stretching", "stretching", "histogram"]],
         margins=("8mm", "3mm", "10mm", "12mm"),  # top, right, bottom, left

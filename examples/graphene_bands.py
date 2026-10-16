@@ -265,7 +265,7 @@ def plot_dos(ax: plt.Axes) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="121mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="121mm", theme=THEME, background="white")
     # Two rows of their own, so c and d can sit closer than a and b; margins: t, r, b, l.
     panels = fig.grid(
         [["lattice", "zone"]],

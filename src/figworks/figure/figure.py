@@ -32,12 +32,17 @@ class Figure:
         width: str | int | float,
         height: str | int | float,
         theme: str | Path | Theme = "paper",
+        background: str | None = None,
     ) -> None:
         """A canvas of the given physical size, styled by ``theme``.
 
         ``theme`` is a built-in style name (``"paper"``, ``"presentation"``,
         ``"nature"``, ``"aps"``, ``"ieee"``), a path to a ``style.md``, or a
         loaded :class:`~figworks.style.Theme`.
+
+        ``background`` paints the page in that colour: a ``<rect
+        id="background">`` under everything else, so SVG, PDF, and PNG agree.
+        By default the page is transparent.
         """
         self.width = width
         self.height = height
@@ -46,6 +51,9 @@ class Figure:
         # Inherited by every source that names no font of its own.
         self.document.root.set("font-family", self.theme.font_family)
         self.panels: dict[str, Panel] = {}
+        if background is not None:
+            page = (self.document.width_px, self.document.height_px)
+            self.rect(x=0, y=0, width=page[0], height=page[1], id="background", fill=background)
 
     def panel(
         self,

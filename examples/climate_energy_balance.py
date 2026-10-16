@@ -337,7 +337,7 @@ def plot_warming(ax: plt.Axes) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="118mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="118mm", theme=THEME, background="white")
     panels = fig.grid(
         [["globe", "globe", "budget"], ["hysteresis", "warming", "budget"]],
         width_ratios=(1, 1, 1.1),

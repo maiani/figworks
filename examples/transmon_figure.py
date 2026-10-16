@@ -183,7 +183,7 @@ def plot_bands(axes: np.ndarray) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="104mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="104mm", theme=THEME, background="white")
     panels = fig.grid(
         [["device", "device", "circuit"], ["potential", "bands", "bands"]],
         height_ratios=(1.1, 1),

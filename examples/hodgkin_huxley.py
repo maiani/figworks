@@ -311,7 +311,7 @@ def plot_phase(ax: plt.Axes) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="120mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="120mm", theme=THEME, background="white")
     panels = fig.grid(
         [["membrane", "membrane", "train"], ["spike", "rate", "phase"]],
         margins=("7.5mm", "3mm", "9mm", "11mm"),  # top, right, bottom, left

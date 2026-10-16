@@ -248,7 +248,7 @@ def plot_buildup(ax: plt.Axes) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="115mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="115mm", theme=THEME, background="white")
     panels = fig.grid(
         [["device", "spectrum"], ["resonance", "buildup"]],
         width_ratios=(1, 1.15),

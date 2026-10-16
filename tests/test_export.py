@@ -75,3 +75,28 @@ def test_exports_credit_figworks(tmp_path):
     assert any(b"FigWorks v" in zlib.decompressobj().decompress(s) for s in streams)
     # The record is written on export, not kept in the tree being edited.
     assert not fig.document.root.findall(".//{http://www.w3.org/2000/svg}metadata")
+
+
+@pytest.mark.parametrize(("background", "corner"), [(None, 0), ("white", 255), ("#000000", 255)])
+def test_background_paints_the_page_of_every_export(tmp_path, background, corner):
+    """The page is transparent unless given a colour, which then fills the raster too."""
+    fig = Figure(width="96px", height="48px", background=background)
+    fig.text("hello", x=10, y=20)
+    png = tmp_path / "figure.png"
+
+    fig.save(png, dpi=96)
+
+    with Image.open(png) as image:
+        assert image.convert("RGBA").getpixel((95, 47))[3] == corner
+
+
+def test_background_lies_under_later_content_and_stays_editable():
+    fig = Figure(width="100px", height="50px", background="#fdfcf8")
+    fig.rect(x=10, y=10, width=20, height=20, id="box")
+
+    shapes = list(fig.select("rect"))
+    assert [node.get("id") for node in shapes] == ["background", "box"]
+    assert shapes[0].get("fill") == "#fdfcf8"
+    assert fig.check().ok
+    fig.select("#background").delete()
+    assert len(fig.select("#background")) == 0

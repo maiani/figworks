@@ -13,6 +13,8 @@ fig.save("figure.png", dpi=300)
 
 * SVG is written directly as text.
 * PDF and PNG are rendered by CairoSVG.
+* The page is transparent in every format unless the figure has a
+  [background](figure.md#page-background).
 * `dpi` controls raster resolution for PNG (default `300`), whatever unit the
   figure size was given in: a px is 1/96 in, so a 96 px wide figure saved at
   `dpi=600` is 600 pixels wide.

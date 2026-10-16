@@ -51,6 +51,7 @@ call — FigWorks invokes `to_svg_document()` with no arguments:
   small value, or `0`, when the panel layout already provides spacing.
 - **`background`** should stay `None`. A white rectangle behind one scene covers a
   neighbouring panel's overhang and defeats a figure meant for a coloured page.
+  Colour the whole page with `Figure(..., background="white")` instead.
 - **`scale`** does not affect fit, since FigWorks normalizes it away. It does set
   stroke widths and font sizes *relative* to the geometry, so keep it consistent
   across scenes that share a figure — otherwise one panel's labels come out

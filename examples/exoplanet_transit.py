@@ -318,7 +318,7 @@ def plot_spectrum(ax: plt.Axes, p: float) -> None:
 
 
 def build_figure() -> Figure:
-    fig = Figure(width=THEME.page["double"], height="116mm", theme=THEME)
+    fig = Figure(width=THEME.page["double"], height="116mm", theme=THEME, background="white")
     panels = fig.grid(
         [["orbit", "orbit", "photometry"], ["sky", "spectrum", "spectrum"]],
         width_ratios=(40, 34, 64),

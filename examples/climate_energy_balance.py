@@ -210,8 +210,10 @@ def globe_scene(labels: dict[str, vectex.VectexFragment], edge: float) -> vecvie
         "olr": (2.1 * right, "west", 2, 0),
     }
     for name, (at, align, dx, dy) in slots.items():
-        w, h = labels[name].width_px, labels[name].height_px
-        scene.slot(50, at, w, h, align=align, dx=dx, dy=dy, id=f"label-{name}")
+        label = labels[name]
+        w, h = label.width_px, label.height_px
+        pin = dict(align=align, dx=dx, dy=dy, id=f"label-{name}")
+        scene.slot(50, at, w, h, content=label.to_svg_py(), **pin)
     return scene
 
 
@@ -354,8 +356,6 @@ def build_figure() -> Figure:
         "olr": vectex.render(r"$A + BT$", **tex | {"color": INFRARED}),
     }
     panels["globe"].add(globe_scene(labels, edge), id="globe-scene")
-    for name, label in labels.items():
-        fig.fill_slot(f"label-{name}", label)
 
     mpl_fig, axes = panels["budget"].subplots(2, 1, sharex=True, gridspec_kw=dict(hspace=0.1))
     plot_budget(axes, edge, temperature)

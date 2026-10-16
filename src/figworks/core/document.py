@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from pathlib import Path
 from typing import Any
 
@@ -106,6 +107,11 @@ class SVGDocument:
         colliding id is prefixed with ``namespace`` (default: ``id``) and its
         references inside the content follow.  See
         :func:`~figworks.core.element.resolve_id_collisions`.
+
+        Content the source already holds in a slot -- a group with
+        ``data-align``, such as a VecView ``Scene.slot`` given ``content`` --
+        keeps the size it has in the source, however ``transform`` scales the
+        rest, just as :meth:`fill_slot` keeps the content it adds.
         """
         if id is not None and self.root.find(f".//*[@id='{id}']") is not None:
             raise ValueError(f"Id {id!r} is already used in this figure")
@@ -125,6 +131,7 @@ class SVGDocument:
             else:
                 group.append(copy_element(child))
 
+        _keep_slot_sizes(group)
         return group
 
     def placeholder(
@@ -307,11 +314,12 @@ class SVGDocument:
             preserve_aspect_ratio=preserve_aspect_ratio,
         )
 
-        group = self.import_svg(svg_string, namespace=target.get("id"))
+        group = self.import_svg(
+            svg_string, transform=transform, parent=parent, namespace=target.get("id")
+        )
         if not preserve_aspect_ratio:
             group.set("preserveAspectRatio", "none")
         parent.insert(index, group)
-        group.set("transform", transform)
         return group
 
     def select(self, selector: str) -> Selection:
@@ -339,6 +347,23 @@ class SVGDocument:
 
     def save(self, path: str | Path) -> None:
         Path(path).write_text(self.to_string(), encoding="utf-8")
+
+
+def _keep_slot_sizes(imported: etree._Element) -> None:
+    """Undo, inside each slot that holds content, the scale its import applied.
+
+    Only the import's scale is undone, not the source's own transforms, so a
+    slot filled before -- in a FigWorks figure placed again, say -- is not
+    shrunk twice.
+    """
+    scale = accumulated_scale(imported)
+    if math.isclose(scale, 1.0):
+        return
+    for slot in [node for node in imported.iter() if node.get("data-align") is not None]:
+        if len(slot):
+            keeper = svg_to_lxml(svg.G(), raw={"transform": f"scale({1 / scale:g})"})
+            keeper.extend(list(slot))
+            slot.append(keeper)
 
 
 def _credit() -> etree._Element:

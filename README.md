@@ -44,9 +44,7 @@ panels = fig.grid(
 
 labels = {name: vectex.render(source, size_pt=8) for name, source in tex.items()}
 
-panels["device"].add(device_scene(labels), id="device-scene")  # a vecview.Scene
-for name in ("EJ", "CB", "Cg", "res"):
-    fig.fill_slot(f"label-{name}", labels[name])  # pinned in 3D, still 8 pt
+panels["device"].add(device_scene(labels), id="device-scene")  # labels pinned in 3D, still 8 pt
 
 panels["circuit"].add(circuit_diagram(labels), id="circuit", fit="none")  # at its own size
 
@@ -228,19 +226,19 @@ to fit its panel, so padding shrinks the drawing.
 
 A scene can also hold content of its own. `Scene.plane` reserves a rectangle of
 a world plane and `Figure.fill_plane` puts a plot *in* it, foreshortened with
-the geometry. `Scene.slot` pins an empty, upright group to a world point and
-`Figure.fill_slot` fills it with content kept at its own physical size, so an
-8 pt TeX label stays 8 pt however the scene was scaled:
+the geometry. `Scene.slot` pins upright content to a world point, and FigWorks
+keeps that content at its own size, so an 8 pt TeX label stays 8 pt however the
+scene was scaled:
 
 ```python
 scene.plane(15, origin=(-4.2, -2.9, 0.01), u_edge=(0, 8.4, 0), v_edge=(5.8, 0, 0), id="plot-plane")
 
 label = vectex.render(r"$\hat{z}$", size_pt=8)
-scene.slot(45, (5.5, 4.5, 0), label.width_px, label.height_px, align="west", dx=1.6, id="label-z")
+w, h = label.width_px, label.height_px
+scene.slot(45, (5.5, 4.5, 0), w, h, content=label.to_svg_py(), align="west", dx=1.6, id="label-z")
 
 panel.add(scene, id="device")
 fig.fill_plane("plot-plane", mpl_fig)
-fig.fill_slot("label-z", label)
 ```
 
 `fill_plane` normalizes content onto the unit square, so shape the plane to the

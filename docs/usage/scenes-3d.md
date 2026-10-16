@@ -154,18 +154,29 @@ document's font size. A slot pins upright content to a world point instead:
 
 ```python
 label = vectex.render(r"$x$", size_pt=8)
-scene.slot(45, axis_tip, label.width_px, label.height_px, align="west", dx=1.6, id="label-x")
+w, h = label.width_px, label.height_px
+scene.slot(45, axis_tip, w, h, content=label.to_svg_py(), align="west", dx=1.6, id="label-x")
 
 panel.add(scene, id="device")
-fig.fill_slot("label-x", label)
 ```
 
-The scene reserves an empty group at the projected point, offset by `dx`/`dy` in
-screen units, and records which point of the label's box sits there
-(`align="west"` puts the anchor at the middle of its left edge). `fill_slot`
-places the content at the size its own document declares, so an 8 pt label stays
-8 pt however the scene is scaled to fit the panel. The anchor moves with the
-scene, and with the camera under `Scene.with_camera`.
+The scene puts the label in a group at the projected point, offset by `dx`/`dy`
+in screen units, with that point of the label's box on it (`align="west"` puts
+the anchor at the middle of its left edge). When FigWorks scales the scene to
+fit the panel, it undoes that scale inside every slot that holds content, so an
+8 pt label stays 8 pt. The anchor moves with the scene, and with the camera
+under `Scene.with_camera`.
+
+A slot can also be left empty and filled once the scene is placed. That is the
+route for content that is not an svg.py element -- a Matplotlib figure, an SVG
+file or string -- since `fill_slot` accepts anything `Panel.add` does and places
+it at the size its document declares:
+
+```python
+scene.slot(45, axis_tip, w, h, align="west", dx=1.6, id="label-x")
+panel.add(scene, id="device")
+fig.fill_slot("label-x", inset)
+```
 
 Only the label's *room* is in scene units: the `w` by `h` box the scene reserves
 grows the fitted viewBox so the label is not clipped. It matches the label

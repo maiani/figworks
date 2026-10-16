@@ -205,8 +205,10 @@ def geometry_scene(labels: dict[str, vectex.VectexFragment], p: float) -> vecvie
         "orbit": (leftmost, "east", -3, 0),
     }
     for name, (at, align, dx, dy) in slots.items():
-        w, h = labels[name].width_px, labels[name].height_px
-        scene.slot(50, at, w, h, align=align, dx=dx, dy=dy, id=f"label-{name}")
+        label = labels[name]
+        w, h = label.width_px, label.height_px
+        pin = dict(align=align, dx=dx, dy=dy, id=f"label-{name}")
+        scene.slot(50, at, w, h, content=label.to_svg_py(), **pin)
     return scene
 
 
@@ -336,8 +338,6 @@ def build_figure() -> Figure:
         "orbit": vectex.render(rf"$a = {A_OVER_R:g}\,R_*$", **tex),
     }
     panels["orbit"].add(geometry_scene(labels, p), id="geometry-scene")
-    for name, label in labels.items():
-        fig.fill_slot(f"label-{name}", label)
 
     mpl_fig, axes = panels["photometry"].subplots(
         2, 1, sharex=True, gridspec_kw=dict(height_ratios=(3, 1), hspace=0.08)

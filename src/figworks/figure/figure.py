@@ -251,6 +251,10 @@ class Figure:
         The room the scene reserved for the slot matches the content exactly
         only when the scene is placed at 1:1; scaled down, the content
         overhangs its reservation by the same factor.
+
+        A scene can hold an svg.py element in the slot instead, through
+        ``Scene.slot(..., content=)``; importing the scene keeps that content
+        at its own size too, with no call here.
         """
         from figworks.core.element import resolve_svg_source
 

@@ -115,3 +115,68 @@ def test_content_without_intrinsic_size_is_rejected() -> None:
     sizeless = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0"><g/></svg>'
     with pytest.raises(ValueError, match="intrinsic size"):
         figure_with_slot().fill_slot("slot", sizeless)
+
+
+# A 100 x 50 source whose slot at (40, 20) already holds a 16 x 8 rect, aligned west.
+HELD = (
+    '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" viewBox="0 0 100 50">'
+    '<rect id="ground" width="100" height="50" fill="none"/>'
+    '<g id="pin" data-align="west" transform="translate(40 20)">'
+    '<g transform="translate(0 -4)"><rect id="held" width="16" height="8"/></g></g></svg>'
+)
+
+
+def held_box(
+    figure: Figure, ctm: Callable[[etree._Element], np.ndarray]
+) -> tuple[np.ndarray, np.ndarray]:
+    """Document-px corners of the held rect."""
+    rect = figure.document.root.find(f".//{{{SVG_NS}}}rect[@id='held']")
+    assert rect is not None
+    m = ctm(rect)
+    return (m @ [0, 0, 1])[:2], (m @ [16, 8, 1])[:2]
+
+
+@pytest.mark.parametrize("scale", [0.5, 1.0, 2.0])
+def test_held_content_keeps_its_size_while_the_source_scales(
+    scale: float, ctm: Callable[[etree._Element], np.ndarray]
+) -> None:
+    figure = Figure(width=300, height=150)
+    figure.add(HELD, x=0, y=0, w=100 * scale, h=50 * scale, id="scene")
+    lo, hi = held_box(figure, ctm)
+    assert hi - lo == pytest.approx([16.0, 8.0])
+    # The anchor still moves with the scene; the content's west edge sits on it.
+    assert lo == pytest.approx([40 * scale, 20 * scale - 4])
+
+
+def test_held_content_keeps_its_size_in_a_filled_placeholder(
+    ctm: Callable[[etree._Element], np.ndarray],
+) -> None:
+    figure = Figure(width=300, height=150)
+    figure.placeholder("box", x=0, y=0, w=50, h=25)
+    figure.fill("box", HELD)
+    lo, hi = held_box(figure, ctm)
+    assert hi - lo == pytest.approx([16.0, 8.0])
+
+
+def test_a_placed_figure_does_not_shrink_its_held_content_twice(
+    ctm: Callable[[etree._Element], np.ndarray],
+) -> None:
+    inner = Figure(width=300, height=150)
+    inner.add(HELD, x=0, y=0, w=50, h=25, id="scene")
+    outer = Figure(width=300, height=150)
+    outer.add(inner.document.to_string(), x=0, y=0, w=150, h=75, id="figure")
+    lo, hi = held_box(outer, ctm)
+    assert hi - lo == pytest.approx([16.0, 8.0])
+
+
+def test_an_empty_slot_is_left_for_fill_slot(ctm: Callable[[etree._Element], np.ndarray]) -> None:
+    empty = HELD.replace(
+        '<g transform="translate(0 -4)"><rect id="held" width="16" height="8"/></g>', ""
+    )
+    figure = Figure(width=300, height=150)
+    figure.add(empty, x=0, y=0, w=50, h=25, id="scene")
+    pin = figure.document.root.find(f".//{{{SVG_NS}}}g[@id='pin']")
+    assert pin is not None and len(pin) == 0
+    figure.fill_slot("pin", LABEL)
+    lo, hi = placed_box(figure, ctm)
+    assert hi - lo == pytest.approx([16.0, 8.0])

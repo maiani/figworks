@@ -65,8 +65,7 @@ def transmon_levels(ej_over_ec: float, ng: float | np.ndarray, count: int = 3) -
 def device_scene(labels: dict[str, vectex.VectexFragment]) -> vecview.Scene:
     """Two capacitor pads joined by a junction, a gap away from a meander resonator.
 
-    Each `slot` reserves an upright anchor, the size of its label, that the
-    figure fills with that label.
+    Each `slot` pins its label upright, at the label's own size.
     """
     cam = vecview.OrthographicCamera(azim_deg=30.0, elev_deg=32.0, scale=40.0)
     scene = vecview.Scene(cam, pad=2.0)
@@ -107,8 +106,9 @@ def device_scene(labels: dict[str, vectex.VectexFragment]) -> vecview.Scene:
         ("res", (-2.2, 10.0, 0.12)),
     ):
         label = labels[name]
+        w, h = label.width_px, label.height_px
         scene.slot(
-            40, at, label.width_px, label.height_px, align="south", dy=-5, id=f"label-{name}"
+            40, at, w, h, content=label.to_svg_py(), align="south", dy=-5, id=f"label-{name}"
         )
     return scene
 
@@ -205,8 +205,6 @@ def build_figure() -> Figure:
     labels["EJ"] = vectex.render(tex["EJ"], size_pt=8, color=JUNCTION)
 
     panels["device"].add(device_scene(labels), id="device-scene")
-    for name in ("EJ", "CB", "Cg", "res"):
-        fig.fill_slot(f"label-{name}", labels[name])
 
     panels["circuit"].add(circuit_diagram(labels), id="circuit", fit="none")
 

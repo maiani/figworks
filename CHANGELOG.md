@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Content a source already holds in a slot -- a VecView `Scene.slot` given
+  `content=`, such as a VecTeX label's `to_svg_py()` -- keeps its own size when
+  the scene is scaled into a panel, as `fill_slot` content does. Labels can be
+  pinned where the scene is drawn, with no `fill_slot` pass afterwards; the
+  gallery examples do so.
 - `Figure(..., background="white")` paints the page: a `<rect id="background">`
   under everything else, so SVG, PDF, and PNG agree. The page stays transparent
   by default. The gallery figures use it, replacing the white canvas the

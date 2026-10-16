@@ -24,6 +24,7 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import numpy as np
+import svg
 import vectex
 import vecview
 
@@ -107,7 +108,7 @@ def lorentzian(f: np.ndarray, fc: float, d: float) -> np.ndarray:
 # --- panel a: the assay ---------------------------------------------------------
 
 
-def tweezers_scene(boxes: dict[str, tuple[float, float]]) -> vecview.Scene:
+def tweezers_scene(labels: dict[str, tuple[svg.Element, float, float]]) -> vecview.Scene:
     """Two beads in two laser foci, the DNA double helix tethered between them."""
     cam = vecview.OrthographicCamera(azim_deg=-90.0, elev_deg=22.0, scale=34.0)
     scene = vecview.Scene(cam, pad=2.0)
@@ -147,7 +148,9 @@ def tweezers_scene(boxes: dict[str, tuple[float, float]]) -> vecview.Scene:
         ("x", below, "north", 0, 3),
         ("DNA", (start + end) / 2 + 0.2 * Z, "south", 0, -6),
     ):
-        scene.slot(40, at, *boxes[name], align=align, dx=dx, dy=dy, id=f"label-{name}")
+        content, w, h = labels[name]
+        pin = dict(align=align, dx=dx, dy=dy, id=f"label-{name}")
+        scene.slot(40, at, w, h, content=content, **pin)
     return scene
 
 
@@ -221,21 +224,27 @@ def build_figure() -> Figure:
     )
 
     tex = THEME.vectex()
-    labels = {
+    tex_labels = {
         "F": vectex.render(r"$F$", **tex),
         "x": vectex.render(r"$x$", **tex | {"color": DNA}),
     }
-    boxes = {name: (label.width_px, label.height_px) for name, label in labels.items()}
-    # Plain text, not TeX, so that its lambda is the same Heros glyph as in panel c.
-    labels["DNA"] = (
-        '<svg xmlns="http://www.w3.org/2000/svg" width="30pt" height="7pt" viewBox="0 0 30 7">'
-        f'<text x="15" y="5.6" font-family="{THEME.font.family}" font-size="7" fill="{DNA}"'
-        ' text-anchor="middle">λ-DNA</text></svg>'
+    labels = {
+        name: (label.to_svg_py(), label.width_px, label.height_px)
+        for name, label in tex_labels.items()
+    }
+    # Plain text, not TeX, so that its lambda is the same Heros glyph as in panel c,
+    # centred in a 30 pt by 7 pt box (40 px by 9.33 px).
+    dna = svg.Text(
+        text="λ-DNA",
+        x=svg.Length(15, "pt"),
+        y=svg.Length(5.6, "pt"),
+        font_family=THEME.font.family,
+        font_size="7pt",
+        fill=DNA,
+        text_anchor="middle",
     )
-    boxes["DNA"] = (40.0, 28 / 3)  # 30 pt by 7 pt, in px
-    panels["assay"].add(tweezers_scene(boxes), id="assay-scene")
-    for name, label in labels.items():
-        fig.fill_slot(f"label-{name}", label)
+    labels["DNA"] = (dna, 40.0, 28 / 3)
+    panels["assay"].add(tweezers_scene(labels), id="assay-scene")
 
     x = bead_trace(64 * 4096)
     f, psd = power_spectrum(x)

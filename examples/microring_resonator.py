@@ -171,8 +171,10 @@ def device_scene(labels: dict[str, vectex.VectexFragment]) -> vecview.Scene:
         "g": (leader[1], "north", 0, 1),
     }
     for name, (at, align, dx, dy) in anchors.items():
-        w, h = labels[name].width_px, labels[name].height_px
-        scene.slot(50, at, w, h, align=align, dx=dx, dy=dy, id=f"label-{name}")
+        label = labels[name]
+        w, h = label.width_px, label.height_px
+        pin = dict(align=align, dx=dx, dy=dy, id=f"label-{name}")
+        scene.slot(50, at, w, h, content=label.to_svg_py(), **pin)
     return scene
 
 
@@ -261,8 +263,6 @@ def build_figure() -> Figure:
     labels = {name: vectex.render(src, **THEME.vectex()) for name, src in tex.items()}
 
     panels["device"].add(device_scene(labels), id="device-scene")
-    for name in tex:
-        fig.fill_slot(f"label-{name}", labels[name])
     equation = vectex.render(
         r"$T = \dfrac{a^2 - 2ra\cos\varphi + r^2}{1 - 2ar\cos\varphi + (ra)^2}$",
         **THEME.vectex(),

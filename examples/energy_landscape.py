@@ -222,8 +222,11 @@ def surface_scene(land: dict, labels: dict) -> vecview.Scene:
     for name, p in land["points"].items():
         at = np.r_[p, height(energy(*p))] + 2 * lift
         scene.sphere(12, at, 0.028, fill="white", stroke=INK, stroke_width=0.6, id=f"point-{name}")
-        w, h = labels[name].width_px, labels[name].height_px
-        scene.slot(20, at, w, h, align="south", dy=-4, id=f"label-{name}")
+        label = labels[name]
+        w, h = label.width_px, label.height_px
+        scene.slot(
+            20, at, w, h, content=label.to_svg_py(), align="south", dy=-4, id=f"label-{name}"
+        )
     return scene
 
 
@@ -334,8 +337,6 @@ def build_figure() -> Figure:
     }
     panels["surface"].add(surface_scene(land, labels), id="surface-scene")
     fig.fill_plane("floor-map", floor_map(land))
-    for name in NAMES:
-        fig.fill_slot(f"label-{name}", labels[name])
 
     for name, plot in (("map", contour_map), ("profile", plot_profile), ("rates", plot_rates)):
         mpl_fig, ax = panels[name].subplots()

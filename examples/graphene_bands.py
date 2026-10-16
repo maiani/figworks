@@ -101,8 +101,9 @@ def linear_dos(energy: np.ndarray) -> np.ndarray:
 
 
 def tex_slot(scene: vecview.Scene, label: vectex.VectexFragment, at, name: str, **place) -> None:
-    """Reserve an upright slot the size of ``label`` at ``at``, for the figure to fill."""
-    scene.slot(40, at, label.width_px, label.height_px, id=f"label-{name}", **place)
+    """Pin ``label`` upright at ``at``, in a slot its own size."""
+    w, h = label.width_px, label.height_px
+    scene.slot(40, at, w, h, content=label.to_svg_py(), id=f"label-{name}", **place)
 
 
 def honeycomb_flake(radius: float) -> dict[str, np.ndarray]:
@@ -286,8 +287,6 @@ def build_figure() -> Figure:
     }
     panels["lattice"].add(lattice_scene(labels), id="lattice-scene")
     panels["zone"].add(band_scene(labels), id="band-scene")
-    for name, label in labels.items():
-        fig.fill_slot(f"label-{name}", label)
 
     for name, plot in (("bands", plot_bands), ("dos", plot_dos)):
         mpl_fig, ax = panels[name].subplots()

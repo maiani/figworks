@@ -47,16 +47,17 @@ How the source's declared size is used depends on the operation:
 | `Figure.fill` (placeholder) | fitted into the placeholder's box | ignored |
 | `Figure.fill_plane` | stretched onto the plane's unit square | ignored |
 | `Figure.fill_slot` | its declared physical size | **honoured** |
+| `Scene.slot(..., content=)`, placed by `Panel.add` | its size in the scene's document | **honoured** |
 
 Fitting reads only the viewBox: a Matplotlib figure about 3 in wide, placed in a
 40 mm wide panel, is drawn 40 mm wide, and its 10 pt tick labels shrink by the
 same factor. To keep type at its nominal size, make the panel the source's
 physical size, or size the source to the panel.
 
-`fill_slot` is the one operation that keeps the source at its own size. An 8 pt
-VecTeX label stays 8 pt however its scene was scaled to fit, because FigWorks
-divides out every scale between the slot and the page. The slot's anchor still
-moves with the scene. This relies on the source declaring its size with units;
+Slots are where a source keeps its own size. An 8 pt VecTeX label stays 8 pt
+however its scene was scaled to fit: `fill_slot` divides out every scale between
+the slot and the page, and content a scene already holds in a slot has the
+scale of its import undone. The slot's anchor still moves with the scene. This relies on the source declaring its size with units;
 VecTeX before 0.2 wrote unitless lengths, so its labels came out at 3/4 size.
 
 ## VecView scenes at 1:1

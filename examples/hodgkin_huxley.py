@@ -207,7 +207,8 @@ def membrane_scene(labels: dict[str, vectex.VectexFragment]) -> vecview.Scene:
         ("in", (-half_x, -half_y, -1.0), "northeast", -6),
     ):
         label = labels[name]
-        scene.slot(20, at, label.width_px, label.height_px, align=align, dx=dx, id=f"label-{name}")
+        w, h = label.width_px, label.height_px
+        scene.slot(20, at, w, h, content=label.to_svg_py(), align=align, dx=dx, id=f"label-{name}")
     return scene
 
 
@@ -330,8 +331,6 @@ def build_figure() -> Figure:
     fig.add(membrane_scene(labels), x=box.x, y=box.y, w=split, h=box.h, id="membrane-scene")
     eq_box = dict(x=box.x + split, y=box.y, w=box.w - split, h=box.h)
     fig.add(equations(), **eq_box, id="hh-equations", fit="none")
-    for name, label in labels.items():
-        fig.fill_slot(f"label-{name}", label)
 
     for name, plot, ratios in (("train", plot_train, (5.5, 1)), ("spike", plot_spike, (2.2, 1))):
         grid = dict(height_ratios=ratios, hspace=0.1)

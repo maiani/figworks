@@ -64,30 +64,34 @@
     <polygon id="through-arrow" points="93.73,115.43 134.35,128.12 137.16,125.01 149.11,134.33 129.28,133.73 132.09,130.61 91.48,117.92" fill-opacity="0.3" fill="#d55e00"/>
     <polyline stroke="#262626" stroke-width="1.0" id="gap-leader" points="-63.1,58.75 -94.27,93.21" fill="none"/>
     <g id="label-input" transform="translate(-260.57 -0.71)" data-align="south">
-      <g transform="scale(1.93411) translate(-5.86553 -8.18347) scale(1.33333 1.33333)">
-        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vxdcae2319e17a-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$E_\\mathrm{in}$" textext:version="1.13.0">
-          <metadata>
-            <vectex:fragment baseline="5.08760137127482" converter="dvisvgm" engine="pdflatex" height="6.1376" scale="0.7" version="1" viewBox="0 0 8.7983 6.1376" width="8.7983">
-              <vectex:source>$E_\mathrm{in}$</vectex:source>
-              <vectex:options>
-                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
-                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
-              </vectex:options>
-            </vectex:fragment>
-          </metadata>
-          <g id="vxdcae2319e17a-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
-            <defs>
-              <path d="M3.39439 0V-2.76012C3.39439-3.36651 2.94134-3.75683 2.23737-3.75683C1.69371-3.75683 1.34521-3.54773 1.02459-3.03892V-3.65228H.4879V0H1.06641V-2.01433C1.06641-2.76012 1.47067-3.24802 2.06312-3.24802C2.52314-3.24802 2.81588-2.96922 2.81588-2.53011V0H3.39439Z" id="vxdcae2319e17a-0"/>
-              <path d="M1.06641 0V-3.65228H.4879V0H1.06641ZM1.14308-4.20291V-4.92779H.4182V-4.20291H1.14308Z" id="vxdcae2319e17a-1"/>
-              <path d="M5.60748 0L5.7768-.81672H1.50396L2.0418-3.30672H5.976L6.15528-4.12344H2.21112L2.70912-6.44412H6.81264L6.98196-7.26084H1.9422L.3984 0H5.60748Z" id="vxdcae2319e17a-2"/>
-            </defs>
-            <g id="vxdcae2319e17a-3">
-              <g transform="matrix(1.000271 0 0 1.000271 0 8.768)">
-                <use x="0" y="-1.499593" xlink:href="#vxdcae2319e17a-2"/>
-              </g>
-              <g transform="matrix(1.000545 0 0 1.000545 0 8.768)">
-                <use x="6.641379" y="-.001" xlink:href="#vxdcae2319e17a-1"/>
-                <use x="8.18872" y="-.001" xlink:href="#vxdcae2319e17a-0"/>
+      <g transform="scale(1.93411)">
+        <g transform="translate(-5.87 -8.18)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vxdcae2319e17a-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$E_\\mathrm{in}$" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.08760137127482" converter="dvisvgm" engine="pdflatex" height="6.1376" scale="0.7" version="1" viewBox="0 0 8.7983 6.1376" width="8.7983">
+                  <vectex:source>$E_\mathrm{in}$</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vxdcae2319e17a-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M3.39439 0V-2.76012C3.39439-3.36651 2.94134-3.75683 2.23737-3.75683C1.69371-3.75683 1.34521-3.54773 1.02459-3.03892V-3.65228H.4879V0H1.06641V-2.01433C1.06641-2.76012 1.47067-3.24802 2.06312-3.24802C2.52314-3.24802 2.81588-2.96922 2.81588-2.53011V0H3.39439Z" id="vxdcae2319e17a-0"/>
+                  <path d="M1.06641 0V-3.65228H.4879V0H1.06641ZM1.14308-4.20291V-4.92779H.4182V-4.20291H1.14308Z" id="vxdcae2319e17a-1"/>
+                  <path d="M5.60748 0L5.7768-.81672H1.50396L2.0418-3.30672H5.976L6.15528-4.12344H2.21112L2.70912-6.44412H6.81264L6.98196-7.26084H1.9422L.3984 0H5.60748Z" id="vxdcae2319e17a-2"/>
+                </defs>
+                <g id="vxdcae2319e17a-3">
+                  <g transform="matrix(1.000271 0 0 1.000271 0 8.768)">
+                    <use x="0" y="-1.499593" xlink:href="#vxdcae2319e17a-2"/>
+                  </g>
+                  <g transform="matrix(1.000545 0 0 1.000545 0 8.768)">
+                    <use x="6.641379" y="-.001" xlink:href="#vxdcae2319e17a-1"/>
+                    <use x="8.18872" y="-.001" xlink:href="#vxdcae2319e17a-0"/>
+                  </g>
+                </g>
               </g>
             </g>
           </g>
@@ -95,28 +99,32 @@
       </g>
     </g>
     <g id="label-through" transform="translate(120.86 118.5)" data-align="south">
-      <g transform="scale(1.93411) translate(-4.25133 -8.1788) scale(1.33333 1.33333)">
-        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx3de84cb12708-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$E_\\mathrm{t}$" textext:version="1.13.0">
-          <metadata>
-            <vectex:fragment baseline="5.08734770048625" converter="dvisvgm" engine="pdflatex" height="6.1341" scale="0.7" version="1" viewBox="0 0 6.377 6.1341" width="6.377">
-              <vectex:source>$E_\mathrm{t}$</vectex:source>
-              <vectex:options>
-                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
-                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
-              </vectex:options>
-            </vectex:fragment>
-          </metadata>
-          <g id="vx3de84cb12708-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
-            <defs>
-              <path d="M1.77038 0V-.4879C1.69371-.46699 1.6031-.46002 1.49158-.46002C1.24066-.46002 1.17096-.52972 1.17096-.78761V-3.17832H1.77038V-3.65228H1.17096V-4.65596H.59245V-3.65228H.09758V-3.17832H.59245V-.52972C.59245-.16031 .84337 .04879 1.29642 .04879C1.43582 .04879 1.57522 .03485 1.77038 0Z" id="vx3de84cb12708-0"/>
-              <path d="M5.60748 0L5.7768-.81672H1.50396L2.0418-3.30672H5.976L6.15528-4.12344H2.21112L2.70912-6.44412H6.81264L6.98196-7.26084H1.9422L.3984 0H5.60748Z" id="vx3de84cb12708-1"/>
-            </defs>
-            <g id="vx3de84cb12708-2">
-              <g transform="matrix(1.000271 0 0 1.000271 0 8.763)">
-                <use x="0" y="-1.494595" xlink:href="#vx3de84cb12708-1"/>
-              </g>
-              <g transform="matrix(1.000545 0 0 1.000545 0 8.763)">
-                <use x="6.641379" y="-.001" xlink:href="#vx3de84cb12708-0"/>
+      <g transform="scale(1.93411)">
+        <g transform="translate(-4.25 -8.18)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx3de84cb12708-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$E_\\mathrm{t}$" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.08734770048625" converter="dvisvgm" engine="pdflatex" height="6.1341" scale="0.7" version="1" viewBox="0 0 6.377 6.1341" width="6.377">
+                  <vectex:source>$E_\mathrm{t}$</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx3de84cb12708-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M1.77038 0V-.4879C1.69371-.46699 1.6031-.46002 1.49158-.46002C1.24066-.46002 1.17096-.52972 1.17096-.78761V-3.17832H1.77038V-3.65228H1.17096V-4.65596H.59245V-3.65228H.09758V-3.17832H.59245V-.52972C.59245-.16031 .84337 .04879 1.29642 .04879C1.43582 .04879 1.57522 .03485 1.77038 0Z" id="vx3de84cb12708-0"/>
+                  <path d="M5.60748 0L5.7768-.81672H1.50396L2.0418-3.30672H5.976L6.15528-4.12344H2.21112L2.70912-6.44412H6.81264L6.98196-7.26084H1.9422L.3984 0H5.60748Z" id="vx3de84cb12708-1"/>
+                </defs>
+                <g id="vx3de84cb12708-2">
+                  <g transform="matrix(1.000271 0 0 1.000271 0 8.763)">
+                    <use x="0" y="-1.494595" xlink:href="#vx3de84cb12708-1"/>
+                  </g>
+                  <g transform="matrix(1.000545 0 0 1.000545 0 8.763)">
+                    <use x="6.641379" y="-.001" xlink:href="#vx3de84cb12708-0"/>
+                  </g>
+                </g>
               </g>
             </g>
           </g>
@@ -124,24 +132,28 @@
       </g>
     </g>
     <g id="label-R" transform="translate(37.3 21.39)" data-align="south">
-      <g transform="scale(1.93411) translate(-3.4776 -6.7844) scale(1.33333 1.33333)">
-        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx2fb2a732ca53-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$R$" textext:version="1.13.0">
-          <metadata>
-            <vectex:fragment baseline="5.08760259046053" converter="dvisvgm" engine="pdflatex" height="5.0883" scale="0.7" version="1" viewBox="0 0 5.2164 5.0883" width="5.2164">
-              <vectex:source>$R$</vectex:source>
-              <vectex:options>
-                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
-                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
-              </vectex:options>
-            </vectex:fragment>
-          </metadata>
-          <g id="vx2fb2a732ca53-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
-            <defs>
-              <path d="M6.31464-.22908C6.18516-.3486 6.10548-.53784 6.10548-.75696C6.10548-.87648 6.1254-1.0458 6.16524-1.25496C6.29472-1.93224 6.3744-2.45016 6.3744-2.62944C6.3744-3.06768 6.24492-3.27684 5.7768-3.5856C6.70308-4.10352 7.1712-4.71108 7.1712-5.727C7.1712-6.78276 6.59352-7.26084 5.31864-7.26084H1.97208L.42828 0H1.36452L2.03184-3.12744H4.41228C5.05968-3.12744 5.41824-2.86848 5.41824-2.38044C5.41824-2.21112 5.38836-2.00196 5.33856-1.78284C5.09952-.78684 5.09952-.78684 5.09952-.46812C5.09952-.31872 5.10948-.20916 5.13936 0H6.26484L6.31464-.22908ZM6.21504-5.55768C6.21504-4.66128 5.65728-3.94416 4.50192-3.94416H2.20116L2.739-6.44412H5.0298C5.91624-6.44412 6.21504-6.13536 6.21504-5.55768Z" id="vx2fb2a732ca53-0"/>
-            </defs>
-            <g id="vx2fb2a732ca53-1">
-              <g transform="matrix(1.000271 0 0 1.000271 0 7.269)">
-                <use x="0" y="-.001" xlink:href="#vx2fb2a732ca53-0"/>
+      <g transform="scale(1.93411)">
+        <g transform="translate(-3.48 -6.78)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx2fb2a732ca53-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$R$" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.08760259046053" converter="dvisvgm" engine="pdflatex" height="5.0883" scale="0.7" version="1" viewBox="0 0 5.2164 5.0883" width="5.2164">
+                  <vectex:source>$R$</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx2fb2a732ca53-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M6.31464-.22908C6.18516-.3486 6.10548-.53784 6.10548-.75696C6.10548-.87648 6.1254-1.0458 6.16524-1.25496C6.29472-1.93224 6.3744-2.45016 6.3744-2.62944C6.3744-3.06768 6.24492-3.27684 5.7768-3.5856C6.70308-4.10352 7.1712-4.71108 7.1712-5.727C7.1712-6.78276 6.59352-7.26084 5.31864-7.26084H1.97208L.42828 0H1.36452L2.03184-3.12744H4.41228C5.05968-3.12744 5.41824-2.86848 5.41824-2.38044C5.41824-2.21112 5.38836-2.00196 5.33856-1.78284C5.09952-.78684 5.09952-.78684 5.09952-.46812C5.09952-.31872 5.10948-.20916 5.13936 0H6.26484L6.31464-.22908ZM6.21504-5.55768C6.21504-4.66128 5.65728-3.94416 4.50192-3.94416H2.20116L2.739-6.44412H5.0298C5.91624-6.44412 6.21504-6.13536 6.21504-5.55768Z" id="vx2fb2a732ca53-0"/>
+                </defs>
+                <g id="vx2fb2a732ca53-1">
+                  <g transform="matrix(1.000271 0 0 1.000271 0 7.269)">
+                    <use x="0" y="-.001" xlink:href="#vx2fb2a732ca53-0"/>
+                  </g>
+                </g>
               </g>
             </g>
           </g>
@@ -149,24 +161,28 @@
       </g>
     </g>
     <g id="label-g" transform="translate(-94.27 94.21)" data-align="north">
-      <g transform="scale(1.93411) translate(-2.69407 -0) scale(1.33333 1.33333)">
-        <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx25edaacb4659-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$g$" textext:version="1.13.0">
-          <metadata>
-            <vectex:fragment baseline="3.68562359901366" converter="dvisvgm" engine="pdflatex" height="5.2066" scale="0.7" version="1" viewBox="0 0 4.0411 5.2066" width="4.0411">
-              <vectex:source>$g$</vectex:source>
-              <vectex:options>
-                <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
-                <vectex:converter encoding="json">{"args":[]}</vectex:converter>
-              </vectex:options>
-            </vectex:fragment>
-          </metadata>
-          <g id="vx25edaacb4659-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
-            <defs>
-              <path d="M4.56168-.8466L5.48796-5.21904H4.731L4.56168-4.44216C4.26288-5.08956 3.77484-5.36844 3.17724-5.36844C1.43424-5.36844 .23904-3.5856 .23904-1.68324C.23904-.5976 .9462 .1494 1.96212 .1494C2.5896 .1494 3.17724-.11952 3.67524-.63744L3.6354-.43824C3.34656 .91632 2.80872 1.45416 1.75296 1.45416C1.07568 1.45416 .67728 1.18524 .67728 .73704V.5976H-.15936L-.16932 .72708C-.17928 .80676-.17928 .86652-.17928 .90636C-.17928 1.67328 .51792 2.17128 1.58364 2.17128C2.37048 2.17128 3.07764 1.93224 3.52584 1.50396C4.02384 1.02588 4.29276 .41832 4.56168-.8466ZM4.17324-3.37644C4.17324-1.90236 3.3864-.56772 2.20116-.56772C1.53384-.56772 1.11552-1.05576 1.11552-1.8426C1.11552-3.237 1.9422-4.60152 3.11748-4.60152C3.75492-4.60152 4.17324-4.12344 4.17324-3.37644Z" id="vx25edaacb4659-0"/>
-            </defs>
-            <g id="vx25edaacb4659-1">
-              <g transform="matrix(1.000271 0 0 1.000271 0 7.438)">
-                <use x="0" y="-2.172411" xlink:href="#vx25edaacb4659-0"/>
+      <g transform="scale(1.93411)">
+        <g transform="translate(-2.69 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#000000" fill="currentColor" id="vx25edaacb4659-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="$g$" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="3.68562359901366" converter="dvisvgm" engine="pdflatex" height="5.2066" scale="0.7" version="1" viewBox="0 0 4.0411 5.2066" width="4.0411">
+                  <vectex:source>$g$</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx25edaacb4659-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M4.56168-.8466L5.48796-5.21904H4.731L4.56168-4.44216C4.26288-5.08956 3.77484-5.36844 3.17724-5.36844C1.43424-5.36844 .23904-3.5856 .23904-1.68324C.23904-.5976 .9462 .1494 1.96212 .1494C2.5896 .1494 3.17724-.11952 3.67524-.63744L3.6354-.43824C3.34656 .91632 2.80872 1.45416 1.75296 1.45416C1.07568 1.45416 .67728 1.18524 .67728 .73704V.5976H-.15936L-.16932 .72708C-.17928 .80676-.17928 .86652-.17928 .90636C-.17928 1.67328 .51792 2.17128 1.58364 2.17128C2.37048 2.17128 3.07764 1.93224 3.52584 1.50396C4.02384 1.02588 4.29276 .41832 4.56168-.8466ZM4.17324-3.37644C4.17324-1.90236 3.3864-.56772 2.20116-.56772C1.53384-.56772 1.11552-1.05576 1.11552-1.8426C1.11552-3.237 1.9422-4.60152 3.11748-4.60152C3.75492-4.60152 4.17324-4.12344 4.17324-3.37644Z" id="vx25edaacb4659-0"/>
+                </defs>
+                <g id="vx25edaacb4659-1">
+                  <g transform="matrix(1.000271 0 0 1.000271 0 7.438)">
+                    <use x="0" y="-2.172411" xlink:href="#vx25edaacb4659-0"/>
+                  </g>
+                </g>
               </g>
             </g>
           </g>

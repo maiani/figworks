@@ -5,7 +5,7 @@
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
         <dc:creator>
           <cc:Agent>
-            <dc:title>FigWorks v0.8.0, https://github.com/maiani/figworks</dc:title>
+            <dc:title>FigWorks v0.9.0, https://github.com/maiani/figworks</dc:title>
           </cc:Agent>
         </dc:creator>
       </cc:Work>
@@ -31,7 +31,7 @@
         <cc:Work>
           <dc:creator>
             <cc:Agent>
-              <dc:title>VecView v0.3.0, https://github.com/maiani/vecview</dc:title>
+              <dc:title>VecView v0.4.0, https://github.com/maiani/vecview</dc:title>
             </cc:Agent>
           </dc:creator>
         </cc:Work>
@@ -223,7 +223,7 @@
           <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
           <dc:creator>
             <cc:Agent>
-              <dc:title>VecWire v0.2.0, https://github.com/maiani/vecwire</dc:title>
+              <dc:title>VecWire v0.3.0, https://github.com/maiani/vecwire</dc:title>
             </cc:Agent>
           </dc:creator>
         </cc:Work>
@@ -516,7 +516,7 @@
           <dc:format>image/svg+xml</dc:format>
           <dc:creator>
             <cc:Agent>
-              <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
+              <dc:title>FigWorks v0.9.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
             </cc:Agent>
           </dc:creator>
         </cc:Work>
@@ -723,7 +723,7 @@
           <dc:format>image/svg+xml</dc:format>
           <dc:creator>
             <cc:Agent>
-              <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
+              <dc:title>FigWorks v0.9.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
             </cc:Agent>
           </dc:creator>
         </cc:Work>

@@ -28,7 +28,7 @@ publishes them to PyPI by trusted publishing from the `pypi` environment.
 2. Bump `__version__` in `src/figworks/__init__.py`, move the changelog's
    Unreleased section under the new version, repoint the README, and run
    `uv lock`.
-3. Push `main`, then only the new tag: `git push origin v0.8.0`. Never
+3. Push `main`, then only the new tag: `git push origin v0.9.0`. Never
    `git push --tags`: any pushed `v*` tag publishes.
 
 The README is also the PyPI project page, where relative links do not resolve,

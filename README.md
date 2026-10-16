@@ -29,10 +29,10 @@ changed by hand, and the figure rebuilds from source whenever you need it.
 [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/maiani/figworks/v0.8.0/docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
+  <img src="https://raw.githubusercontent.com/maiani/figworks/v0.9.0/docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
 </p>
 
-<p align="center"><sub>A Physical Review two-column figure from <a href="https://github.com/maiani/figworks/blob/v0.8.0/examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
+<p align="center"><sub>A Physical Review two-column figure from <a href="https://github.com/maiani/figworks/blob/v0.9.0/examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
 
 The four sources in that figure share nothing but a method, and FigWorks
 composes them in a few lines:
@@ -91,12 +91,10 @@ This pulls in Matplotlib, lxml, svg.py, CairoSVG, and VecTeX. Rendering
 equations with VecTeX also needs a TeX installation with `pdflatex` and
 `dvisvgm` on `PATH`, and MuPDF's `mutool` with a current Ghostscript
 (`mupdf-tools` on Debian and Ubuntu). [VecView](https://github.com/maiani/vecview)
-and [VecWire](https://github.com/maiani/vecwire) are optional. VecView is on
-PyPI; VecWire is installed from GitHub:
+and [VecWire](https://github.com/maiani/vecwire) are optional, both on PyPI:
 
 ```bash
-python -m pip install "vecview>=0.3"
-python -m pip install "vecwire @ git+https://github.com/maiani/vecwire"
+python -m pip install "vecview>=0.4" "vecwire>=0.3"
 ```
 
 Figures are set in TeX Gyre Heros by default, a free Helvetica clone that comes
@@ -247,7 +245,7 @@ fig.fill_plane("plot-plane", mpl_fig)
 ```
 
 `fill_plane` normalizes content onto the unit square, so shape the plane to the
-plot's aspect ratio. [3D scenes](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/scenes-3d.md) covers orientation,
+plot's aspect ratio. [3D scenes](https://github.com/maiani/figworks/blob/v0.9.0/docs/usage/scenes-3d.md) covers orientation,
 line weights, and export caveats.
 
 ### VecWire circuits
@@ -279,7 +277,7 @@ its style guide in prose. FigWorks generates Matplotlib settings from it
 (`theme_rc("style.md")`), styles its own elements with it
 (`Figure(..., theme="style.md")`), and builds figure sets under it
 (`FigureCollection(style=...)`). Built-in bases follow the figure guidelines of
-Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/styles.md).
+Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.9.0/docs/usage/styles.md).
 
 ### One typography across the suite
 
@@ -350,8 +348,8 @@ fig.label("b", panels["spectrum"].nw)
 Repeating a name spans a rectangle; `None` reserves an empty cell. Ratios
 divide the space remaining after margins and gaps, which keep their physical
 size when you build a figure at another width. The returned dictionary holds
-ordinary `Panel` objects in first-occurrence order. See [Grid layout](https://github.com/maiani/figworks/blob/v0.8.0/docs/usage/layout.md)
-and [the complete example](https://github.com/maiani/figworks/blob/v0.8.0/examples/panel_grid.py).
+ordinary `Panel` objects in first-occurrence order. See [Grid layout](https://github.com/maiani/figworks/blob/v0.9.0/docs/usage/layout.md)
+and [the complete example](https://github.com/maiani/figworks/blob/v0.9.0/examples/panel_grid.py).
 
 ```python
 fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")
@@ -425,7 +423,7 @@ independently useful:
 | **FigWorks** | composed, exported multi-panel figures | alpha: core API still settling |
 | [VecTeX](https://github.com/maiani/vectex) | editable TeX equations as SVG fragments | beta: on PyPI, API settled enough to build on |
 | [VecView](https://github.com/maiani/vecview) | layered 3D schematics as SVG documents | alpha: on PyPI, API may change before 1.0 |
-| [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents | pre-alpha: first version, on GitHub, not yet on PyPI |
+| [VecWire](https://github.com/maiani/vecwire) | editable circuit schematics as SVG documents | alpha: on PyPI, API may change before 1.0 |
 
 All four emit vector SVG with stable ids and byte-identical output for
 identical input, so a figure can be regenerated from code, diffed in version

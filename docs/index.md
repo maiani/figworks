@@ -15,6 +15,11 @@ The canonical output is **SVG**. PDF and PNG export are supported through
 CairoSVG. Named elements and panels carry stable identifiers so the
 final graphic stays editable programmatically.
 
+**Figures you own, even when AI helped make them.** An assistant can draft the
+script, but what you keep is plain Python in your repository and SVG with named
+parts: every number traces back to code you can check, every label can be
+changed by hand, and the figure rebuilds from source whenever you need it.
+
 The [gallery](gallery/index.md) shows journal figures from across the sciences:
 quantum devices, graphene, photonics, biophysics, neuroscience, exoplanets,
 reaction chemistry, the climate, and economics.

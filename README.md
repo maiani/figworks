@@ -19,6 +19,11 @@ into a publication figure.
 - **Editable:** keep vector paths, text, equations, and groups available for
   final adjustments in Inkscape. VecTeX retains TeX source for TexText editing.
 
+**Figures you own, even when AI helped make them.** An assistant can draft the
+script, but what you keep is plain Python in your repository and SVG with named
+parts: every number traces back to code you can check, every label can be
+changed by hand, and the figure rebuilds from source whenever you need it.
+
 [Documentation](https://github.com/maiani/figworks/blob/main/docs/index.md) ·
 [Quick start](#quick-start) · [Examples](#examples) ·
 [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)

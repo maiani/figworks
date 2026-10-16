@@ -17,7 +17,7 @@ final graphic stays editable programmatically.
 
 The [gallery](gallery/index.md) shows journal figures from across the sciences:
 quantum devices, graphene, photonics, biophysics, neuroscience, exoplanets,
-reaction chemistry, and the climate.
+reaction chemistry, the climate, and economics.
 
 ## The suite
 

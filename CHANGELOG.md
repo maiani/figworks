@@ -18,10 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   under everything else, so SVG, PDF, and PNG agree. The page stays transparent
   by default. The gallery figures use it, replacing the white canvas the
   gallery and README builders wrapped them in.
-- A gallery of eight Nature-style figures from different fields: superconducting
+- A gallery of nine Nature-style figures from different fields: superconducting
   qubits, graphene, a photonic microring, optical tweezers, the Hodgkin-Huxley
-  action potential, an exoplanet transit, a chemical energy landscape, and
-  Earth's energy balance with the ice-albedo feedback. Each
+  action potential, an exoplanet transit, a chemical energy landscape,
+  Earth's energy balance with the ice-albedo feedback, and shocks in an
+  economic production network. Each
   is one self-contained script pairing a VecView schematic with panels computed
   from the model. `examples/gallery.py` builds them, runs the preflight on each,
   and generates the documentation pages; CI's `tex` job builds the gallery.

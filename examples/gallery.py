@@ -122,6 +122,17 @@ EXAMPLES = (
         "Matplotlib panels, with one colour each for sunlight, infrared, and ice "
         "carried from the 3D scene into every plot.",
     ),
+    Example(
+        "production_network",
+        "Economics",
+        "Shocks in a production network",
+        "What a collapse of chip productivity does to every sector of a CES input-output "
+        "economy, why complementarity breaks Hulten's theorem for large shocks, how "
+        "orders swell up a supply chain, and why hub suppliers stop shocks averaging out.",
+        "A VecView map of the economy, with towers sized by the equilibrium the script "
+        "solves and flows as flat arrows on the floor, beside stacked and single "
+        "Matplotlib panels; the shock and each tier keep one colour from map to plot.",
+    ),
 )
 
 

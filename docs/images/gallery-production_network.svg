@@ -1,0 +1,1599 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 691.6535433070867 445.984251968504" width="183mm" height="118mm" version="1.1" font-family="TeX Gyre Heros">
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+      <cc:Work>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>FigWorks v0.8.0, https://github.com/maiani/figworks</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-mining-shade" x1="9.1" y1="-39.27" x2="39.1" y2="-39.27">
+      <stop offset="0" stop-color="#0f3352"/>
+      <stop offset="0.3" stop-color="#93a3b1"/>
+      <stop offset="1" stop-color="#0f3352"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-energy-shade" x1="-15.0" y1="-12.47" x2="15.0" y2="-12.47">
+      <stop offset="0" stop-color="#0f3352"/>
+      <stop offset="0.3" stop-color="#93a3b1"/>
+      <stop offset="1" stop-color="#0f3352"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-chemicals-shade" x1="-39.1" y1="32.31" x2="-9.1" y2="32.31">
+      <stop offset="0" stop-color="#0f3352"/>
+      <stop offset="0.3" stop-color="#93a3b1"/>
+      <stop offset="1" stop-color="#0f3352"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-metals-shade" x1="97.55" y1="-28.66" x2="127.55" y2="-28.66">
+      <stop offset="0" stop-color="#215f92"/>
+      <stop offset="0.3" stop-color="#9bb7ce"/>
+      <stop offset="1" stop-color="#215f92"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-chips-shade" x1="73.45" y1="9.94" x2="103.45" y2="9.94">
+      <stop offset="0" stop-color="#d55e00"/>
+      <stop offset="0.3" stop-color="#ecb78c"/>
+      <stop offset="1" stop-color="#d55e00"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-plastics-shade" x1="49.34" y1="45.07" x2="79.34" y2="45.07">
+      <stop offset="0" stop-color="#215f92"/>
+      <stop offset="0.3" stop-color="#9bb7ce"/>
+      <stop offset="1" stop-color="#215f92"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-machinery-shade" x1="186.0" y1="-11.3" x2="216.0" y2="-11.3">
+      <stop offset="0" stop-color="#3e84bb"/>
+      <stop offset="0.3" stop-color="#a8c8e0"/>
+      <stop offset="1" stop-color="#3e84bb"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-vehicles-shade" x1="161.9" y1="15.26" x2="191.9" y2="15.26">
+      <stop offset="0" stop-color="#3e84bb"/>
+      <stop offset="0.3" stop-color="#a8c8e0"/>
+      <stop offset="1" stop-color="#3e84bb"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-electronics-shade" x1="137.79" y1="53.46" x2="167.79" y2="53.46">
+      <stop offset="0" stop-color="#3e84bb"/>
+      <stop offset="0.3" stop-color="#a8c8e0"/>
+      <stop offset="1" stop-color="#3e84bb"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-construction-shade" x1="274.45" y1="-10.55" x2="304.45" y2="-10.55">
+      <stop offset="0" stop-color="#6aa5d3"/>
+      <stop offset="0.3" stop-color="#bcd6eb"/>
+      <stop offset="1" stop-color="#6aa5d3"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-retail-shade" x1="250.34" y1="13.4" x2="280.34" y2="13.4">
+      <stop offset="0" stop-color="#6aa5d3"/>
+      <stop offset="0.3" stop-color="#bcd6eb"/>
+      <stop offset="1" stop-color="#6aa5d3"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" id="sector-services-shade" x1="226.24" y1="47.38" x2="256.24" y2="47.38">
+      <stop offset="0" stop-color="#6aa5d3"/>
+      <stop offset="0.3" stop-color="#bcd6eb"/>
+      <stop offset="1" stop-color="#6aa5d3"/>
+    </linearGradient>
+    <clipPath id="lost-metals-visible">
+      <path clip-rule="evenodd" d="M 97.32 -34.36 L 97.03 -35.19 L 97.08 -37.07 L 97.75 -38.54 L 99.04 -39.94 L 100.76 -41.1 L 102.99 -42.1 L 105.55 -42.87 L 108.37 -43.39 L 111.33 -43.64 L 114.36 -43.61 L 117.31 -43.31 L 120.09 -42.74 L 122.61 -41.91 L 124.7 -40.89 L 126.35 -39.68 L 127.49 -38.33 L 128.08 -36.78 L 128.02 -34.9 L 127.78 -34.34 L 127.78 -36.77 L 127.25 -38.16 L 126.17 -39.45 L 124.58 -40.62 L 122.49 -41.64 L 120.03 -42.45 L 117.28 -43.01 L 114.35 -43.31 L 111.34 -43.34 L 108.4 -43.09 L 105.6 -42.58 L 103.08 -41.82 L 100.9 -40.84 L 99.21 -39.7 L 98.02 -38.43 L 97.38 -37.05 Z "/>
+    </clipPath>
+    <clipPath id="sector-construction-visible">
+      <path clip-rule="evenodd" d="M 275.3 -19.33 L 273.82 -19.81 L 273.82 -26.44 L 273.91 -27.98 L 274.61 -29.44 L 275.87 -30.78 L 277.63 -31.97 L 279.84 -32.96 L 282.41 -33.73 L 285.25 -34.25 L 288.24 -34.5 L 291.26 -34.47 L 294.23 -34.17 L 297.02 -33.6 L 299.53 -32.78 L 301.65 -31.74 L 303.38 -30.47 L 304.48 -29.16 L 305.07 -27.57 L 305.07 5.35 L 304.99 6.89 L 304.29 8.35 L 303.08 9.65 L 301.26 10.88 L 299.05 11.87 L 296.48 12.64 L 293.65 13.16 L 290.65 13.41 L 287.61 13.38 L 284.64 13.07 L 281.88 12.51 L 280.57 12.08 L 280.56 -14.5 L 280.04 -15.86 L 278.96 -17.15 L 277.36 -18.32 Z "/>
+    </clipPath>
+    <clipPath id="sector-retail-visible">
+      <path clip-rule="evenodd" d="M 251.19 13.81 L 249.72 13.32 L 249.72 -13.37 L 249.78 -14.8 L 250.45 -16.29 L 251.71 -17.67 L 253.53 -18.9 L 255.74 -19.89 L 258.28 -20.65 L 261.15 -21.18 L 264.14 -21.43 L 267.15 -21.4 L 270.16 -21.09 L 272.92 -20.53 L 275.42 -19.71 L 277.55 -18.67 L 279.27 -17.41 L 280.37 -16.09 L 280.97 -14.5 L 280.97 40.17 L 280.88 41.72 L 280.19 43.18 L 278.98 44.47 L 277.16 45.7 L 274.95 46.7 L 272.38 47.47 L 269.54 47.99 L 266.55 48.24 L 263.53 48.21 L 260.56 47.9 L 257.77 47.33 L 257.74 47.32 L 256.47 46.91 L 256.47 18.67 L 255.94 17.28 L 254.86 15.99 L 253.25 14.82 Z "/>
+    </clipPath>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    <clipPath id="p26283ec24f">
+      <rect x="0" y="0" width="128.747777" height="142.342823"/>
+    </clipPath>
+    <clipPath id="pb93f743c61">
+      <rect x="0" y="200.169594" width="128.747777" height="88.964264"/>
+    </clipPath>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    <clipPath id="p679da1a829">
+      <rect x="0" y="0" width="117.043434" height="124.724409"/>
+    </clipPath>
+    <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+    <clipPath id="pb89ee2ea52">
+      <rect x="0" y="0" width="117.043434" height="124.724409"/>
+    </clipPath>
+  </defs>
+  <rect id="background" x="0" y="0" width="691.654" height="445.984" fill="white"/>
+  <g id="network-scene" transform="translate(45.3543 34.1411) scale(0.754586) translate(80 72.3)">
+    <metadata>
+      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#">
+        <cc:Work>
+          <dc:creator>
+            <cc:Agent>
+              <dc:title>VecView v0.3.0, https://github.com/maiani/vecview</dc:title>
+            </cc:Agent>
+          </dc:creator>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <polygon stroke="#d9d5cc" stroke-width="0.5" id="floor-px" points="361.36,115.63 431.82,13.83 431.82,9.6 361.36,111.4" fill="#f3f1ec"/>
+    <polygon stroke="#d9d5cc" stroke-width="0.5" id="floor-my" points="-78.03,44.37 -78.03,48.61 361.36,115.63 361.36,111.4" fill="#f3f1ec"/>
+    <polygon stroke="#d9d5cc" stroke-width="0.5" id="floor-pz" points="-78.03,44.37 361.36,111.4 431.82,9.6 -7.57,-57.43" fill="#f3f1ec"/>
+    <polygon class="flow" id="flow-mining-metals" points="43.26,-32.88 67.51,-29.18 69.46,-32.0 81.17,-26.12 64.34,-24.6 66.29,-27.41 42.04,-31.11" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-chemicals-plastics" points="-5.03,36.89 19.22,40.59 21.17,37.78 32.96,43.53 16.22,44.93 18.16,42.12 -6.09,38.42" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-metals-vehicles" points="124.77,-14.13 153.34,7.32 158.68,5.76 159.4,13.85 144.22,10.0 149.57,8.43 121.0,-13.02" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-chips-vehicles" points="107.55,15.51 131.81,19.21 133.75,16.4 145.51,22.2 128.74,23.64 130.69,20.83 106.43,17.13" fill="#d55e00"/>
+    <polygon class="flow" id="flow-plastics-vehicles" points="81.79,44.15 131.75,34.68 129.39,31.93 146.3,32.78 135.39,38.91 133.03,36.17 83.07,45.64" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-chips-electronics" points="100.79,20.67 129.35,42.11 134.69,40.55 135.3,48.67 120.0,44.86 125.34,43.29 96.78,21.84" fill="#d55e00"/>
+    <polygon class="flow" id="flow-metals-construction" points="126.04,-14.8 127.19,-14.22 128.85,-13.43 130.55,-12.64 132.29,-11.86 134.07,-11.1 135.9,-10.35 137.76,-9.61 139.66,-8.88 141.6,-8.17 143.57,-7.47 145.58,-6.78 147.62,-6.1 149.69,-5.44 151.8,-4.79 153.94,-4.15 156.1,-3.53 158.3,-2.92 160.52,-2.33 162.77,-1.75 165.04,-1.18 167.34,-0.63 169.66,-0.09 172.0,0.43 174.36,0.94 176.75,1.43 179.15,1.91 181.57,2.37 184.0,2.81 186.45,3.24 188.92,3.65 191.39,4.05 193.88,4.43 196.38,4.79 198.89,5.14 201.41,5.47 203.94,5.78 206.47,6.07 209.01,6.35 211.55,6.61 214.1,6.85 216.65,7.08 219.2,7.28 221.75,7.47 224.3,7.64 226.84,7.79 229.38,7.92 231.92,8.04 234.45,8.13 236.98,8.21 239.49,8.26 242.46,8.3 242.14,5.34 257.4,9.1 242.69,13.31 242.37,10.36 239.33,10.32 236.74,10.26 234.14,10.18 231.54,10.08 228.94,9.97 226.33,9.83 223.71,9.68 221.1,9.5 218.49,9.31 215.87,9.1 213.26,8.87 210.65,8.62 208.05,8.36 205.45,8.07 202.86,7.77 200.27,7.45 197.69,7.11 195.12,6.76 192.56,6.39 190.01,6.0 187.48,5.59 184.95,5.17 182.44,4.73 179.95,4.28 177.47,3.81 175.01,3.32 172.57,2.81 170.15,2.3 167.75,1.76 165.37,1.21 163.02,0.64 160.69,0.06 158.38,-0.53 156.1,-1.14 153.85,-1.77 151.62,-2.41 149.42,-3.06 147.26,-3.73 145.12,-4.41 143.02,-5.11 140.95,-5.82 138.92,-6.54 136.92,-7.28 134.96,-8.03 133.04,-8.79 131.15,-9.57 129.31,-10.36 127.5,-11.16 125.74,-11.98 124.02,-12.8 122.84,-13.39" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-machinery-construction" points="220.12,-5.84 244.37,-2.14 246.32,-4.96 258.06,0.86 241.28,2.33 243.22,-0.48 218.97,-4.18" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-energy-retail" points="18.76,-2.87 20.36,-2.96 23.41,-3.07 26.55,-3.16 29.76,-3.21 33.06,-3.23 36.42,-3.22 39.86,-3.18 43.37,-3.11 46.95,-3.02 50.59,-2.89 54.28,-2.74 58.04,-2.56 61.85,-2.35 65.7,-2.11 69.61,-1.85 73.56,-1.57 77.55,-1.25 81.58,-0.92 85.64,-0.56 89.73,-0.18 93.85,0.23 98.0,0.66 102.17,1.11 106.36,1.58 110.56,2.07 114.78,2.58 119.0,3.12 123.23,3.67 127.47,4.24 131.7,4.83 135.93,5.44 140.15,6.07 144.37,6.71 148.56,7.37 152.75,8.04 156.91,8.73 161.05,9.44 165.17,10.16 169.25,10.89 173.3,11.64 177.32,12.4 181.3,13.18 185.24,13.96 189.13,14.76 192.97,15.57 196.76,16.39 200.5,17.22 204.18,18.06 207.8,18.91 211.35,19.77 214.83,20.64 218.25,21.51 221.59,22.39 224.86,23.28 228.04,24.18 230.64,24.93 234.23,22.5 242.11,29.59 225.17,28.78 228.76,26.35 226.19,25.6 223.05,24.72 219.83,23.84 216.53,22.97 213.15,22.11 209.7,21.25 206.19,20.4 202.61,19.56 198.96,18.73 195.26,17.9 191.5,17.09 187.69,16.29 183.83,15.5 179.92,14.72 175.98,13.95 171.99,13.19 167.97,12.45 163.91,11.72 159.82,11.01 155.71,10.3 151.58,9.62 147.42,8.95 143.25,8.29 139.07,7.65 134.87,7.03 130.67,6.43 126.47,5.84 122.27,5.28 118.06,4.73 113.87,4.2 109.69,3.69 105.51,3.2 101.36,2.73 97.22,2.29 93.11,1.86 89.02,1.46 84.96,1.08 80.94,0.72 76.95,0.39 73.0,0.08 69.09,-0.2 65.22,-0.46 61.41,-0.69 57.65,-0.9 53.94,-1.08 50.3,-1.23 46.71,-1.35 43.2,-1.45 39.75,-1.52 36.37,-1.55 33.07,-1.56 29.85,-1.54 26.71,-1.49 23.66,-1.41 20.7,-1.29 19.14,-1.21" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-vehicles-retail" points="196.71,27.99 220.96,31.69 222.9,28.87 233.96,35.69 216.48,38.15 218.43,35.34 194.18,31.64" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-electronics-retail" points="169.56,56.85 219.52,47.38 217.16,44.64 234.74,46.28 224.51,53.18 222.15,50.44 172.19,59.91" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-energy-services" points="13.93,6.29 15.11,6.8 17.36,7.73 19.72,8.65 22.18,9.59 24.74,10.52 27.41,11.46 30.16,12.4 33.01,13.34 35.95,14.29 38.97,15.24 42.07,16.19 45.25,17.14 48.5,18.09 51.82,19.05 55.21,20.0 58.66,20.96 62.17,21.92 65.73,22.88 69.35,23.84 73.01,24.81 76.72,25.77 80.47,26.74 84.26,27.7 88.08,28.67 91.93,29.64 95.81,30.61 99.71,31.57 103.64,32.54 107.58,33.51 111.53,34.48 115.49,35.45 119.46,36.43 123.43,37.4 127.4,38.37 131.36,39.34 135.31,40.31 139.26,41.28 143.19,42.25 147.1,43.22 150.98,44.19 154.84,45.16 158.68,46.13 162.47,47.1 166.24,48.07 169.96,49.04 173.64,50.01 177.27,50.97 180.85,51.94 184.38,52.9 187.85,53.87 191.26,54.83 194.61,55.79 197.89,56.75 201.1,57.71 204.23,58.67 206.97,59.53 210.7,57.15 218.17,64.33 201.28,63.31 205.0,60.92 202.27,60.07 199.17,59.12 195.99,58.17 192.74,57.21 189.42,56.26 186.03,55.3 182.58,54.34 179.07,53.38 175.51,52.42 171.89,51.46 168.23,50.5 164.52,49.53 160.77,48.57 156.98,47.6 153.16,46.63 149.31,45.67 145.43,44.7 141.53,43.73 137.6,42.76 133.66,41.79 129.71,40.82 125.75,39.85 121.78,38.88 117.81,37.91 113.85,36.93 109.88,35.96 105.93,34.99 101.98,34.02 98.06,33.05 94.15,32.08 90.26,31.11 86.4,30.14 82.57,29.17 78.77,28.2 75.0,27.23 71.28,26.26 67.6,25.3 63.97,24.33 60.39,23.36 56.86,22.4 53.39,21.44 49.98,20.47 46.63,19.51 43.35,18.55 40.14,17.59 37.01,16.63 33.96,15.67 30.98,14.71 28.09,13.76 25.29,12.8 22.59,11.85 19.97,10.9 17.46,9.94 15.04,8.99 12.74,8.04 11.52,7.52" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-vehicles-services" points="188.74,34.3 217.3,55.75 222.65,54.18 223.75,62.17 208.95,58.2 214.29,56.64 185.73,35.19" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-electronics-services" points="172.07,63.59 196.32,67.29 198.27,64.47 209.86,70.51 192.92,72.2 194.86,69.39 170.61,65.69" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-construction-households" points="306.4,11.47 334.96,32.92 340.3,31.35 336.3,40.83 316.39,38.37 321.73,36.8 293.17,15.35" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-retail-households" points="287.83,37.61 312.08,41.31 314.03,38.5 322.41,49.18 302.26,55.51 304.2,52.7 279.95,49.0" fill="#bfb7a9"/>
+    <polygon class="flow" id="flow-services-households" points="254.55,66.32 304.51,56.85 302.15,54.11 323.19,59.77 316.42,70.7 314.06,67.96 264.1,77.43" fill="#bfb7a9"/>
+    <g id="sector-mining" class="sector">
+      <path stroke="#081c2d" stroke-width="0.6" id="sector-mining-body" d="M 9.1 -34.83 L 9.1 -43.72 A 15.0 7.042 0.0 0 1 39.1 -43.72 L 39.1 -34.83 A 15.0 7.042 0.0 0 1 9.1 -34.83 Z " fill="url(#sector-mining-shade)"/>
+      <ellipse stroke="#081c2d" stroke-width="0.6" id="sector-mining-end1" cx="24.1" cy="-43.72" rx="15.0" ry="7.042" fill="#0f3352"/>
+    </g>
+    <g id="sector-metals" class="sector">
+      <path stroke="#123450" stroke-width="0.6" id="sector-metals-body" d="M 97.55 -21.33 L 97.55 -35.98 A 15.0 7.042 0.0 0 1 127.55 -35.98 L 127.55 -21.33 A 15.0 7.042 0.0 0 1 97.55 -21.33 Z " fill="url(#sector-metals-shade)"/>
+      <ellipse stroke="#123450" stroke-width="0.6" id="sector-metals-end1" cx="112.55" cy="-35.98" rx="15.0" ry="7.042" fill="#215f92"/>
+    </g>
+    <g id="sector-machinery" class="sector">
+      <path stroke="#224967" stroke-width="0.6" id="sector-machinery-body" d="M 186.0 -7.84 L 186.0 -14.75 A 15.0 7.042 0.0 0 1 216.0 -14.75 L 216.0 -7.84 A 15.0 7.042 0.0 0 1 186.0 -7.84 Z " fill="url(#sector-machinery-shade)"/>
+      <ellipse stroke="#224967" stroke-width="0.6" id="sector-machinery-end1" cx="201.0" cy="-14.75" rx="15.0" ry="7.042" fill="#3e84bb"/>
+    </g>
+    <g id="sector-energy" class="sector">
+      <path stroke="#081c2d" stroke-width="0.6" id="sector-energy-body" d="M -15.0 0.0 L -15.0 -24.95 A 15.0 7.042 0.0 0 1 15.0 -24.95 L 15.0 0.0 A 15.0 7.042 0.0 0 1 -15.0 0.0 Z " fill="url(#sector-energy-shade)"/>
+      <ellipse stroke="#081c2d" stroke-width="0.6" id="sector-energy-end1" cx="0.0" cy="-24.95" rx="15.0" ry="7.042" fill="#0f3352"/>
+    </g>
+    <g id="sector-construction" class="sector" clip-path="url(#sector-construction-visible)">
+      <path stroke="#3a5b74" stroke-width="0.6" id="sector-construction-body" d="M 274.45 5.65 L 274.45 -26.74 A 15.0 7.042 0.0 0 1 304.45 -26.74 L 304.45 5.65 A 15.0 7.042 0.0 0 1 274.45 5.65 Z " fill="url(#sector-construction-shade)"/>
+      <ellipse stroke="#3a5b74" stroke-width="0.6" id="sector-construction-end1" cx="289.45" cy="-26.74" rx="15.0" ry="7.042" fill="#6aa5d3"/>
+    </g>
+    <g id="sector-chips" class="sector">
+      <path stroke="#753400" stroke-width="0.6" id="sector-chips-body" d="M 73.45 13.49 L 73.45 6.4 A 15.0 7.042 0.0 0 1 103.45 6.4 L 103.45 13.49 A 15.0 7.042 0.0 0 1 73.45 13.49 Z " fill="url(#sector-chips-shade)"/>
+      <ellipse stroke="#753400" stroke-width="0.6" id="sector-chips-end1" cx="88.45" cy="6.4" rx="15.0" ry="7.042" fill="#d55e00"/>
+    </g>
+    <g id="sector-vehicles" class="sector">
+      <path stroke="#224967" stroke-width="0.6" id="sector-vehicles-body" d="M 161.9 26.98 L 161.9 3.54 A 15.0 7.042 0.0 0 1 191.9 3.54 L 191.9 26.98 A 15.0 7.042 0.0 0 1 161.9 26.98 Z " fill="url(#sector-vehicles-shade)"/>
+      <ellipse stroke="#224967" stroke-width="0.6" id="sector-vehicles-end1" cx="176.9" cy="3.54" rx="15.0" ry="7.042" fill="#3e84bb"/>
+    </g>
+    <g id="sector-chemicals" class="sector">
+      <path stroke="#081c2d" stroke-width="0.6" id="sector-chemicals-body" d="M -39.1 34.83 L -39.1 29.79 A 15.0 7.042 0.0 0 1 -9.1 29.79 L -9.1 34.83 A 15.0 7.042 0.0 0 1 -39.1 34.83 Z " fill="url(#sector-chemicals-shade)"/>
+      <ellipse stroke="#081c2d" stroke-width="0.6" id="sector-chemicals-end1" cx="-24.1" cy="29.79" rx="15.0" ry="7.042" fill="#0f3352"/>
+    </g>
+    <g id="sector-retail" class="sector" clip-path="url(#sector-retail-visible)">
+      <path stroke="#3a5b74" stroke-width="0.6" id="sector-retail-body" d="M 250.34 40.48 L 250.34 -13.67 A 15.0 7.042 0.0 0 1 280.34 -13.67 L 280.34 40.48 A 15.0 7.042 0.0 0 1 250.34 40.48 Z " fill="url(#sector-retail-shade)"/>
+      <ellipse stroke="#3a5b74" stroke-width="0.6" id="sector-retail-end1" cx="265.34" cy="-13.67" rx="15.0" ry="7.042" fill="#6aa5d3"/>
+    </g>
+    <g id="sector-plastics" class="sector">
+      <path stroke="#123450" stroke-width="0.6" id="sector-plastics-body" d="M 49.34 48.32 L 49.34 41.82 A 15.0 7.042 0.0 0 1 79.34 41.82 L 79.34 48.32 A 15.0 7.042 0.0 0 1 49.34 48.32 Z " fill="url(#sector-plastics-shade)"/>
+      <ellipse stroke="#123450" stroke-width="0.6" id="sector-plastics-end1" cx="64.34" cy="41.82" rx="15.0" ry="7.042" fill="#215f92"/>
+    </g>
+    <polygon stroke="#8d8576" stroke-width="0.6" id="households-sidem1" points="365.35,43.43 365.35,64.62 376.47,48.54 376.47,27.35" fill="#ebe7de"/>
+    <polygon stroke="#8d8576" stroke-width="0.6" id="households-sidem3" points="331.11,38.2 348.23,27.57 359.36,11.5 342.24,22.13" fill="#ebe7de"/>
+    <polygon stroke="#8d8576" stroke-width="0.6" id="households-sidem2" points="348.23,27.57 365.35,43.43 376.47,27.35 359.36,11.5" fill="#ebe7de"/>
+    <g id="sector-electronics" class="sector">
+      <path stroke="#224967" stroke-width="0.6" id="sector-electronics-body" d="M 137.79 61.81 L 137.79 45.11 A 15.0 7.042 0.0 0 1 167.79 45.11 L 167.79 61.81 A 15.0 7.042 0.0 0 1 137.79 61.81 Z " fill="url(#sector-electronics-shade)"/>
+      <ellipse stroke="#224967" stroke-width="0.6" id="sector-electronics-end1" cx="152.79" cy="45.11" rx="15.0" ry="7.042" fill="#3e84bb"/>
+    </g>
+    <polygon stroke="#8d8576" stroke-width="0.6" id="households-start" points="331.11,59.39 365.35,64.62 365.35,43.43 348.23,27.57 331.11,38.2" fill="#ebe7de"/>
+    <g id="sector-services" class="sector">
+      <path stroke="#3a5b74" stroke-width="0.6" id="sector-services-body" d="M 226.24 75.3 L 226.24 19.47 A 15.0 7.042 0.0 0 1 256.24 19.47 L 256.24 75.3 A 15.0 7.042 0.0 0 1 226.24 75.3 Z " fill="url(#sector-services-shade)"/>
+      <ellipse stroke="#3a5b74" stroke-width="0.6" id="sector-services-end1" cx="241.24" cy="19.47" rx="15.0" ry="7.042" fill="#6aa5d3"/>
+    </g>
+    <g id="gained-mining" class="gained">
+      <path stroke="#0f3352" stroke-width="0.5" id="gained-mining-body" d="M 9.1 -43.72 L 9.1 -44.39 A 15.0 7.042 0.0 0 1 39.1 -44.39 L 39.1 -43.72 A 15.0 7.042 0.0 0 1 9.1 -43.72 Z " fill-opacity="0.3" fill="#0f3352"/>
+      <ellipse stroke="#0f3352" stroke-width="0.5" id="gained-mining-end1" cx="24.1" cy="-44.39" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#0f3352"/>
+    </g>
+    <g id="lost-metals" class="lost" clip-path="url(#lost-metals-visible)">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-metals-body" d="M 97.55 -35.98 L 97.55 -36.0 A 15.0 7.042 0.0 0 1 127.55 -36.0 L 127.55 -35.98 A 15.0 7.042 0.0 0 1 97.55 -35.98 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-metals-end1" cx="112.55" cy="-36.0" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="gained-machinery" class="gained">
+      <path stroke="#3e84bb" stroke-width="0.5" id="gained-machinery-body" d="M 186.0 -14.75 L 186.0 -16.09 A 15.0 7.042 0.0 0 1 216.0 -16.09 L 216.0 -14.75 A 15.0 7.042 0.0 0 1 186.0 -14.75 Z " fill-opacity="0.3" fill="#3e84bb"/>
+      <ellipse stroke="#3e84bb" stroke-width="0.5" id="gained-machinery-end1" cx="201.0" cy="-16.09" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#3e84bb"/>
+    </g>
+    <g id="gained-energy" class="gained">
+      <path stroke="#0f3352" stroke-width="0.5" id="gained-energy-body" d="M -15.0 -24.95 L -15.0 -25.7 A 15.0 7.042 0.0 0 1 15.0 -25.7 L 15.0 -24.95 A 15.0 7.042 0.0 0 1 -15.0 -24.95 Z " fill-opacity="0.3" fill="#0f3352"/>
+      <ellipse stroke="#0f3352" stroke-width="0.5" id="gained-energy-end1" cx="0.0" cy="-25.7" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#0f3352"/>
+    </g>
+    <g id="lost-construction" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-construction-body" d="M 274.45 -26.74 L 274.45 -31.43 A 15.0 7.042 0.0 0 1 304.45 -31.43 L 304.45 -26.74 A 15.0 7.042 0.0 0 1 274.45 -26.74 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-construction-end1" cx="289.45" cy="-31.43" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="lost-chips" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-chips-body" d="M 73.45 6.4 L 73.45 2.82 A 15.0 7.042 0.0 0 1 103.45 2.82 L 103.45 6.4 A 15.0 7.042 0.0 0 1 73.45 6.4 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-chips-end1" cx="88.45" cy="2.82" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="lost-vehicles" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-vehicles-body" d="M 161.9 3.54 L 161.9 -1.76 A 15.0 7.042 0.0 0 1 191.9 -1.76 L 191.9 3.54 A 15.0 7.042 0.0 0 1 161.9 3.54 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-vehicles-end1" cx="176.9" cy="-1.76" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="gained-chemicals" class="gained">
+      <path stroke="#0f3352" stroke-width="0.5" id="gained-chemicals-body" d="M -39.1 29.79 L -39.1 25.83 A 15.0 7.042 0.0 0 1 -9.1 25.83 L -9.1 29.79 A 15.0 7.042 0.0 0 1 -39.1 29.79 Z " fill-opacity="0.3" fill="#0f3352"/>
+      <ellipse stroke="#0f3352" stroke-width="0.5" id="gained-chemicals-end1" cx="-24.1" cy="25.83" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#0f3352"/>
+    </g>
+    <g id="lost-plastics" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-plastics-body" d="M 49.34 41.82 L 49.34 41.07 A 15.0 7.042 0.0 0 1 79.34 41.07 L 79.34 41.82 A 15.0 7.042 0.0 0 1 49.34 41.82 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-plastics-end1" cx="64.34" cy="41.07" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="lost-retail" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-retail-body" d="M 250.34 -13.67 L 250.34 -24.42 A 15.0 7.042 0.0 0 1 280.34 -24.42 L 280.34 -13.67 A 15.0 7.042 0.0 0 1 250.34 -13.67 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-retail-end1" cx="265.34" cy="-24.42" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="lost-electronics" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-electronics-body" d="M 137.79 45.11 L 137.79 40.04 A 15.0 7.042 0.0 0 1 167.79 40.04 L 167.79 45.11 A 15.0 7.042 0.0 0 1 137.79 45.11 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-electronics-end1" cx="152.79" cy="40.04" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="lost-services" class="lost">
+      <path stroke="#d55e00" stroke-width="0.5" id="lost-services-body" d="M 226.24 19.47 L 226.24 10.41 A 15.0 7.042 0.0 0 1 256.24 10.41 L 256.24 19.47 A 15.0 7.042 0.0 0 1 226.24 19.47 Z " fill-opacity="0.3" fill="#d55e00"/>
+      <ellipse stroke="#d55e00" stroke-width="0.5" id="lost-services-end1" cx="241.24" cy="10.41" rx="15.0" ry="7.042" fill-opacity="0.3" fill="#d55e00"/>
+    </g>
+    <g id="label-tier-0" transform="translate(-37.08 53.58)" data-align="north">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-29.24 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vx04dab4359e99-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Raw materials" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16040264829077" converter="dvisvgm" engine="pdflatex" height="5.1611" scale="0.7" version="1" viewBox="0 0 43.8585 5.1611" width="43.8585">
+                  <vectex:source>Raw materials</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx04dab4359e99-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M6.76284 0V-.22908C6.41424-.46812 6.33456-.72708 6.3246-1.6932C6.30468-2.8884 6.1254-3.24696 5.33856-3.5856C6.15528-3.984 6.48396-4.49196 6.48396-5.31864C6.48396-6.5736 5.69712-7.26084 4.27284-7.26084H.92628V0H1.85256V-3.12744H4.24296C5.05968-3.12744 5.44812-2.72904 5.43816-1.83264L5.4282-1.18524C5.41824-.73704 5.50788-.2988 5.63736 0H6.76284ZM5.51784-5.18916C5.51784-4.3326 5.0796-3.94416 4.09356-3.94416H1.85256V-6.44412H4.09356C5.1294-6.44412 5.51784-6.00588 5.51784-5.18916Z" id="vx04dab4359e99-0"/>
+                  <path d="M5.3286-.01992V-.6474C5.23896-.62748 5.19912-.62748 5.14932-.62748C4.86048-.62748 4.70112-.77688 4.70112-1.03584V-3.94416C4.70112-4.87044 4.02384-5.36844 2.739-5.36844C1.47408-5.36844 .6972-4.8804 .6474-3.67524H1.48404C1.55376-4.31268 1.93224-4.60152 2.70912-4.60152C3.45612-4.60152 3.87444-4.32264 3.87444-3.82464V-3.60552C3.87444-3.25692 3.66528-3.10752 3.00792-3.02784C1.83264-2.87844 1.65336-2.8386 1.33464-2.70912C.72708-2.46012 .41832-1.992 .41832-1.35456C.41832-.40836 1.07568 .1494 2.13144 .1494C2.79876 .1494 3.44616-.12948 3.90432-.61752C3.99396-.21912 4.35252 .06972 4.76088 .06972C4.9302 .06972 5.05968 .0498 5.3286-.01992ZM3.87444-1.80276C3.87444-1.05576 3.11748-.57768 2.31072-.57768C1.66332-.57768 1.28484-.80676 1.28484-1.37448C1.28484-1.92228 1.65336-2.16132 2.5398-2.2908C3.41628-2.41032 3.59556-2.45016 3.87444-2.57964V-1.80276Z" id="vx04dab4359e99-1"/>
+                  <path d="M5.10948-2.37048C5.10948-3.12744 5.04972-3.60552 4.90032-3.99396C4.56168-4.85052 3.76488-5.36844 2.7888-5.36844C1.33464-5.36844 .3984-4.29276 .3984-2.57964S1.30476 .1494 2.76888 .1494C3.96408 .1494 4.79076-.52788 4.99992-1.58364H4.16328C3.9342-.8964 3.46608-.61752 2.79876-.61752C1.93224-.61752 1.28484-1.17528 1.26492-2.37048H5.10948ZM4.22304-3.10752C4.22304-3.10752 4.22304-3.06768 4.21308-3.04776H1.28484C1.35456-3.97404 1.9422-4.60152 2.77884-4.60152C3.59556-4.60152 4.22304-3.92424 4.22304-3.10752Z" id="vx04dab4359e99-2"/>
+                  <path d="M1.50396 0V-7.26084H.67728V0H1.50396Z" id="vx04dab4359e99-3"/>
+                  <path d="M7.5696 0V-3.91428C7.5696-4.85052 7.05168-5.36844 6.0756-5.36844C5.3784-5.36844 4.96008-5.15928 4.47204-4.57164C4.16328-5.1294 3.74496-5.36844 3.06768-5.36844C2.37048-5.36844 1.91232-5.10948 1.46412-4.482V-5.21904H.70716V0H1.53384V-3.27684C1.53384-4.0338 2.08164-4.64136 2.75892-4.64136C3.37644-4.64136 3.72504-4.26288 3.72504-3.59556V0H4.55172V-3.27684C4.55172-4.0338 5.10948-4.64136 5.78676-4.64136C6.39432-4.64136 6.74292-4.25292 6.74292-3.59556V0H7.5696Z" id="vx04dab4359e99-4"/>
+                  <path d="M3.19716-4.49196V-5.33856C3.05772-5.35848 2.988-5.36844 2.87844-5.36844C2.3406-5.36844 1.93224-5.04972 1.45416-4.27284V-5.21904H.6972V0H1.52388V-2.70912C1.52388-3.8844 1.91232-4.47204 3.19716-4.49196Z" id="vx04dab4359e99-5"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vx04dab4359e99-6"/>
+                  <path d="M2.52984 0V-.6972C2.42028-.66732 2.2908-.65736 2.13144-.65736C1.77288-.65736 1.67328-.75696 1.67328-1.12548V-4.54176H2.52984V-5.21904H1.67328V-6.65328H.8466V-5.21904H.13944V-4.54176H.8466V-.75696C.8466-.22908 1.20516 .06972 1.85256 .06972C2.05176 .06972 2.25096 .0498 2.52984 0Z" id="vx04dab4359e99-7"/>
+                  <path d="M7.05168-5.21904H6.11544L5.0796-1.15536L4.05372-5.21904H3.0378L2.0418-1.15536L.97608-5.21904H.05976L1.57368 0H2.50992L3.51588-4.09356L4.57164 0H5.51784L7.05168-5.21904Z" id="vx04dab4359e99-8"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vx04dab4359e99-9"/>
+                </defs>
+                <g id="vx04dab4359e99-10">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 7.373)">
+                    <use x="0" y="-.001" xlink:href="#vx04dab4359e99-0"/>
+                    <use x="7.041721" y="-.001" xlink:href="#vx04dab4359e99-1"/>
+                    <use x="12.430081" y="-.001" xlink:href="#vx04dab4359e99-8"/>
+                    <use x="22.390083" y="-.001" xlink:href="#vx04dab4359e99-4"/>
+                    <use x="30.686764" y="-.001" xlink:href="#vx04dab4359e99-1"/>
+                    <use x="36.224527" y="-.001" xlink:href="#vx04dab4359e99-7"/>
+                    <use x="38.844006" y="-.001" xlink:href="#vx04dab4359e99-2"/>
+                    <use x="44.381768" y="-.001" xlink:href="#vx04dab4359e99-5"/>
+                    <use x="47.698449" y="-.001" xlink:href="#vx04dab4359e99-9"/>
+                    <use x="49.909568" y="-.001" xlink:href="#vx04dab4359e99-1"/>
+                    <use x="55.447331" y="-.001" xlink:href="#vx04dab4359e99-3"/>
+                    <use x="57.658449" y="-.001" xlink:href="#vx04dab4359e99-6"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-tier-1" transform="translate(51.37 67.07)" data-align="north">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-26.38 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vx48c924f5648a-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Components" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 39.5696 6.6815" width="39.5696">
+                  <vectex:source>Components</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx48c924f5648a-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M6.74292-2.64936H5.78676C5.56764-1.27488 4.98996-.63744 3.76488-.63744C2.32068-.63744 1.40436-1.743 1.40436-3.55572C1.40436-5.41824 2.28084-6.6234 3.6852-6.6234C4.82064-6.6234 5.41824-6.11544 5.64732-5.00988H6.59352C6.30468-6.60348 5.38836-7.44012 3.79476-7.44012C1.5936-7.44012 .47808-5.66724 .47808-3.54576S1.62348 .17928 3.75492 .17928C5.5278 .17928 6.5238-.75696 6.74292-2.64936Z" id="vx48c924f5648a-0"/>
+                  <path d="M5.10948-2.37048C5.10948-3.12744 5.04972-3.60552 4.90032-3.99396C4.56168-4.85052 3.76488-5.36844 2.7888-5.36844C1.33464-5.36844 .3984-4.29276 .3984-2.57964S1.30476 .1494 2.76888 .1494C3.96408 .1494 4.79076-.52788 4.99992-1.58364H4.16328C3.9342-.8964 3.46608-.61752 2.79876-.61752C1.93224-.61752 1.28484-1.17528 1.26492-2.37048H5.10948ZM4.22304-3.10752C4.22304-3.10752 4.22304-3.06768 4.21308-3.04776H1.28484C1.35456-3.97404 1.9422-4.60152 2.77884-4.60152C3.59556-4.60152 4.22304-3.92424 4.22304-3.10752Z" id="vx48c924f5648a-1"/>
+                  <path d="M7.5696 0V-3.91428C7.5696-4.85052 7.05168-5.36844 6.0756-5.36844C5.3784-5.36844 4.96008-5.15928 4.47204-4.57164C4.16328-5.1294 3.74496-5.36844 3.06768-5.36844C2.37048-5.36844 1.91232-5.10948 1.46412-4.482V-5.21904H.70716V0H1.53384V-3.27684C1.53384-4.0338 2.08164-4.64136 2.75892-4.64136C3.37644-4.64136 3.72504-4.26288 3.72504-3.59556V0H4.55172V-3.27684C4.55172-4.0338 5.10948-4.64136 5.78676-4.64136C6.39432-4.64136 6.74292-4.25292 6.74292-3.59556V0H7.5696Z" id="vx48c924f5648a-2"/>
+                  <path d="M4.85052 0V-3.94416C4.85052-4.81068 4.20312-5.36844 3.19716-5.36844C2.42028-5.36844 1.92228-5.06964 1.46412-4.34256V-5.21904H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.10156-4.64136 2.94816-4.64136C3.60552-4.64136 4.02384-4.24296 4.02384-3.61548V0H4.85052Z" id="vx48c924f5648a-3"/>
+                  <path d="M5.0796-2.56968C5.0796-4.37244 4.21308-5.36844 2.70912-5.36844C1.245-5.36844 .35856-4.36248 .35856-2.60952S1.23504 .1494 2.71908 .1494C4.1832 .1494 5.0796-.85656 5.0796-2.56968ZM4.21308-2.57964C4.21308-1.35456 3.6354-.61752 2.71908-.61752C1.7928-.61752 1.22508-1.3446 1.22508-2.60952C1.22508-3.86448 1.7928-4.60152 2.71908-4.60152C3.65532-4.60152 4.21308-3.87444 4.21308-2.57964Z" id="vx48c924f5648a-4"/>
+                  <path d="M5.20908-2.55972C5.20908-4.31268 4.35252-5.36844 2.96808-5.36844C2.26092-5.36844 1.6932-5.04972 1.30476-4.4322V-5.21904H.5478V2.17128H1.37448V-.62748C1.81272-.08964 2.30076 .1494 2.97804 .1494C4.32264 .1494 5.20908-.8964 5.20908-2.55972ZM4.34256-2.57964C4.34256-1.3944 3.735-.62748 2.82864-.62748C1.95216-.62748 1.37448-1.3446 1.37448-2.56968S1.95216-4.59156 2.82864-4.59156C3.74496-4.59156 4.34256-3.82464 4.34256-2.57964Z" id="vx48c924f5648a-5"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vx48c924f5648a-6"/>
+                  <path d="M2.52984 0V-.6972C2.42028-.66732 2.2908-.65736 2.13144-.65736C1.77288-.65736 1.67328-.75696 1.67328-1.12548V-4.54176H2.52984V-5.21904H1.67328V-6.65328H.8466V-5.21904H.13944V-4.54176H.8466V-.75696C.8466-.22908 1.20516 .06972 1.85256 .06972C2.05176 .06972 2.25096 .0498 2.52984 0Z" id="vx48c924f5648a-7"/>
+                </defs>
+                <g id="vx48c924f5648a-8">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx48c924f5648a-0"/>
+                    <use x="7.19112" y="-2.172433" xlink:href="#vx48c924f5648a-4"/>
+                    <use x="12.728881" y="-2.172433" xlink:href="#vx48c924f5648a-2"/>
+                    <use x="21.07536" y="-2.172433" xlink:href="#vx48c924f5648a-5"/>
+                    <use x="26.613121" y="-2.172433" xlink:href="#vx48c924f5648a-4"/>
+                    <use x="32.150883" y="-2.172433" xlink:href="#vx48c924f5648a-3"/>
+                    <use x="37.688646" y="-2.172433" xlink:href="#vx48c924f5648a-1"/>
+                    <use x="43.226406" y="-2.172433" xlink:href="#vx48c924f5648a-3"/>
+                    <use x="48.764169" y="-2.172433" xlink:href="#vx48c924f5648a-7"/>
+                    <use x="51.533048" y="-2.172433" xlink:href="#vx48c924f5648a-6"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-tier-2" transform="translate(139.81 80.56)" data-align="north">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-29.41 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vx3a2474e08b72-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Manufacturing" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 44.1168 6.6815" width="44.1168">
+                  <vectex:source>Manufacturing</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx3a2474e08b72-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M7.57956 0V-7.26084H6.29472L4.1832-.93624L2.03184-7.26084H.747V0H1.62348V-6.08556L3.6852 0H4.66128L6.70308-6.08556V0H7.57956Z" id="vx3a2474e08b72-0"/>
+                  <path d="M5.3286-.01992V-.6474C5.23896-.62748 5.19912-.62748 5.14932-.62748C4.86048-.62748 4.70112-.77688 4.70112-1.03584V-3.94416C4.70112-4.87044 4.02384-5.36844 2.739-5.36844C1.47408-5.36844 .6972-4.8804 .6474-3.67524H1.48404C1.55376-4.31268 1.93224-4.60152 2.70912-4.60152C3.45612-4.60152 3.87444-4.32264 3.87444-3.82464V-3.60552C3.87444-3.25692 3.66528-3.10752 3.00792-3.02784C1.83264-2.87844 1.65336-2.8386 1.33464-2.70912C.72708-2.46012 .41832-1.992 .41832-1.35456C.41832-.40836 1.07568 .1494 2.13144 .1494C2.79876 .1494 3.44616-.12948 3.90432-.61752C3.99396-.21912 4.35252 .06972 4.76088 .06972C4.9302 .06972 5.05968 .0498 5.3286-.01992ZM3.87444-1.80276C3.87444-1.05576 3.11748-.57768 2.31072-.57768C1.66332-.57768 1.28484-.80676 1.28484-1.37448C1.28484-1.92228 1.65336-2.16132 2.5398-2.2908C3.41628-2.41032 3.59556-2.45016 3.87444-2.57964V-1.80276Z" id="vx3a2474e08b72-1"/>
+                  <path d="M4.75092-1.7928H3.91428C3.77484-.95616 3.34656-.61752 2.6394-.61752C1.72308-.61752 1.17528-1.32468 1.17528-2.55972C1.17528-3.86448 1.71312-4.60152 2.61948-4.60152C3.31668-4.60152 3.75492-4.19316 3.85452-3.46608H4.69116C4.59156-4.74096 3.79476-5.36844 2.62944-5.36844C1.22508-5.36844 .30876-4.29276 .30876-2.55972C.30876-.87648 1.20516 .1494 2.61948 .1494C3.86448 .1494 4.65132-.5976 4.75092-1.7928Z" id="vx3a2474e08b72-2"/>
+                  <path d="M2.56968-4.54176V-5.21904H1.70316V-6.03576C1.70316-6.38436 1.90236-6.56364 2.28084-6.56364C2.35056-6.56364 2.38044-6.56364 2.56968-6.55368V-7.24092C2.38044-7.28076 2.27088-7.29072 2.10156-7.29072C1.33464-7.29072 .87648-6.85248 .87648-6.10548V-5.21904H.17928V-4.54176H.87648V0H1.70316V-4.54176H2.56968Z" id="vx3a2474e08b72-3"/>
+                  <path d="M4.87044-.85656V-5.21904H4.10352V-4.46208C3.6852-5.0796 3.17724-5.36844 2.50992-5.36844C1.18524-5.36844 .28884-4.25292 .28884-2.55972C.28884-.91632 1.21512 .1494 2.4402 .1494C3.09756 .1494 3.55572-.12948 4.10352-.78684V-.43824C4.10352 .9462 3.5358 1.47408 2.56968 1.47408C1.91232 1.47408 1.40436 1.23504 1.30476 .5976H.45816C.5478 1.58364 1.31472 2.17128 2.5398 2.17128C4.17324 2.17128 4.87044 1.4442 4.87044-.85656ZM4.02384-2.57964C4.02384-1.33464 3.486-.61752 2.60952-.61752C1.70316-.61752 1.15536-1.3446 1.15536-2.60952C1.15536-3.86448 1.71312-4.60152 2.59956-4.60152C3.49596-4.60152 4.02384-3.84456 4.02384-2.57964Z" id="vx3a2474e08b72-4"/>
+                  <path d="M4.85052 0V-3.94416C4.85052-4.81068 4.20312-5.36844 3.19716-5.36844C2.42028-5.36844 1.92228-5.06964 1.46412-4.34256V-5.21904H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.10156-4.64136 2.94816-4.64136C3.60552-4.64136 4.02384-4.24296 4.02384-3.61548V0H4.85052Z" id="vx3a2474e08b72-5"/>
+                  <path d="M3.19716-4.49196V-5.33856C3.05772-5.35848 2.988-5.36844 2.87844-5.36844C2.3406-5.36844 1.93224-5.04972 1.45416-4.27284V-5.21904H.6972V0H1.52388V-2.70912C1.52388-3.8844 1.91232-4.47204 3.19716-4.49196Z" id="vx3a2474e08b72-6"/>
+                  <path d="M2.52984 0V-.6972C2.42028-.66732 2.2908-.65736 2.13144-.65736C1.77288-.65736 1.67328-.75696 1.67328-1.12548V-4.54176H2.52984V-5.21904H1.67328V-6.65328H.8466V-5.21904H.13944V-4.54176H.8466V-.75696C.8466-.22908 1.20516 .06972 1.85256 .06972C2.05176 .06972 2.25096 .0498 2.52984 0Z" id="vx3a2474e08b72-7"/>
+                  <path d="M4.80072 0V-5.21904H3.97404V-2.3406C3.97404-1.27488 3.41628-.57768 2.54976-.57768C1.8924-.57768 1.47408-.97608 1.47408-1.60356V-5.21904H.6474V-1.27488C.6474-.40836 1.2948 .1494 2.31072 .1494C3.07764 .1494 3.56568-.11952 4.05372-.80676V0H4.80072Z" id="vx3a2474e08b72-8"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vx3a2474e08b72-9"/>
+                </defs>
+                <g id="vx3a2474e08b72-10">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx3a2474e08b72-0"/>
+                    <use x="8.29668" y="-2.172433" xlink:href="#vx3a2474e08b72-1"/>
+                    <use x="13.834442" y="-2.172433" xlink:href="#vx3a2474e08b72-5"/>
+                    <use x="19.372202" y="-2.172433" xlink:href="#vx3a2474e08b72-8"/>
+                    <use x="24.909961" y="-2.172433" xlink:href="#vx3a2474e08b72-3"/>
+                    <use x="27.579242" y="-2.172433" xlink:href="#vx3a2474e08b72-1"/>
+                    <use x="33.117005" y="-2.172433" xlink:href="#vx3a2474e08b72-2"/>
+                    <use x="38.097005" y="-2.172433" xlink:href="#vx3a2474e08b72-7"/>
+                    <use x="40.865886" y="-2.172433" xlink:href="#vx3a2474e08b72-8"/>
+                    <use x="46.403647" y="-2.172433" xlink:href="#vx3a2474e08b72-6"/>
+                    <use x="49.720329" y="-2.172433" xlink:href="#vx3a2474e08b72-9"/>
+                    <use x="51.931449" y="-2.172433" xlink:href="#vx3a2474e08b72-5"/>
+                    <use x="57.469208" y="-2.172433" xlink:href="#vx3a2474e08b72-4"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-tier-3" transform="translate(228.26 94.06)" data-align="north">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-24.03 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vxea416376ce62-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Final goods" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 36.0479 6.6815" width="36.0479">
+                  <vectex:source>Final goods</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vxea416376ce62-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M5.76684-6.44412V-7.26084H.8964V0H1.82268V-3.30672H5.28876V-4.12344H1.82268V-6.44412H5.76684Z" id="vxea416376ce62-0"/>
+                  <path d="M5.3286-.01992V-.6474C5.23896-.62748 5.19912-.62748 5.14932-.62748C4.86048-.62748 4.70112-.77688 4.70112-1.03584V-3.94416C4.70112-4.87044 4.02384-5.36844 2.739-5.36844C1.47408-5.36844 .6972-4.8804 .6474-3.67524H1.48404C1.55376-4.31268 1.93224-4.60152 2.70912-4.60152C3.45612-4.60152 3.87444-4.32264 3.87444-3.82464V-3.60552C3.87444-3.25692 3.66528-3.10752 3.00792-3.02784C1.83264-2.87844 1.65336-2.8386 1.33464-2.70912C.72708-2.46012 .41832-1.992 .41832-1.35456C.41832-.40836 1.07568 .1494 2.13144 .1494C2.79876 .1494 3.44616-.12948 3.90432-.61752C3.99396-.21912 4.35252 .06972 4.76088 .06972C4.9302 .06972 5.05968 .0498 5.3286-.01992ZM3.87444-1.80276C3.87444-1.05576 3.11748-.57768 2.31072-.57768C1.66332-.57768 1.28484-.80676 1.28484-1.37448C1.28484-1.92228 1.65336-2.16132 2.5398-2.2908C3.41628-2.41032 3.59556-2.45016 3.87444-2.57964V-1.80276Z" id="vxea416376ce62-1"/>
+                  <path d="M4.9302 0V-7.26084H4.10352V-4.56168C3.75492-5.08956 3.19716-5.36844 2.49996-5.36844C1.1454-5.36844 .25896-4.32264 .25896-2.65932C.25896-.8964 1.12548 .1494 2.52984 .1494C3.24696 .1494 3.74496-.11952 4.19316-.76692V0H4.9302ZM4.10352-2.5896C4.10352-1.38444 3.52584-.62748 2.64936-.62748C1.73304-.62748 1.12548-1.3944 1.12548-2.60952S1.73304-4.59156 2.6394-4.59156C3.5358-4.59156 4.10352-3.79476 4.10352-2.5896Z" id="vxea416376ce62-2"/>
+                  <path d="M4.87044-.85656V-5.21904H4.10352V-4.46208C3.6852-5.0796 3.17724-5.36844 2.50992-5.36844C1.18524-5.36844 .28884-4.25292 .28884-2.55972C.28884-.91632 1.21512 .1494 2.4402 .1494C3.09756 .1494 3.55572-.12948 4.10352-.78684V-.43824C4.10352 .9462 3.5358 1.47408 2.56968 1.47408C1.91232 1.47408 1.40436 1.23504 1.30476 .5976H.45816C.5478 1.58364 1.31472 2.17128 2.5398 2.17128C4.17324 2.17128 4.87044 1.4442 4.87044-.85656ZM4.02384-2.57964C4.02384-1.33464 3.486-.61752 2.60952-.61752C1.70316-.61752 1.15536-1.3446 1.15536-2.60952C1.15536-3.86448 1.71312-4.60152 2.59956-4.60152C3.49596-4.60152 4.02384-3.84456 4.02384-2.57964Z" id="vxea416376ce62-3"/>
+                  <path d="M1.50396 0V-7.26084H.67728V0H1.50396Z" id="vxea416376ce62-4"/>
+                  <path d="M4.85052 0V-3.94416C4.85052-4.81068 4.20312-5.36844 3.19716-5.36844C2.42028-5.36844 1.92228-5.06964 1.46412-4.34256V-5.21904H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.10156-4.64136 2.94816-4.64136C3.60552-4.64136 4.02384-4.24296 4.02384-3.61548V0H4.85052Z" id="vxea416376ce62-5"/>
+                  <path d="M5.0796-2.56968C5.0796-4.37244 4.21308-5.36844 2.70912-5.36844C1.245-5.36844 .35856-4.36248 .35856-2.60952S1.23504 .1494 2.71908 .1494C4.1832 .1494 5.0796-.85656 5.0796-2.56968ZM4.21308-2.57964C4.21308-1.35456 3.6354-.61752 2.71908-.61752C1.7928-.61752 1.22508-1.3446 1.22508-2.60952C1.22508-3.86448 1.7928-4.60152 2.71908-4.60152C3.65532-4.60152 4.21308-3.87444 4.21308-2.57964Z" id="vxea416376ce62-6"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vxea416376ce62-7"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vxea416376ce62-8"/>
+                </defs>
+                <g id="vxea416376ce62-9">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vxea416376ce62-0"/>
+                    <use x="6.08556" y="-2.172433" xlink:href="#vxea416376ce62-8"/>
+                    <use x="8.29668" y="-2.172433" xlink:href="#vxea416376ce62-5"/>
+                    <use x="13.834442" y="-2.172433" xlink:href="#vxea416376ce62-1"/>
+                    <use x="19.372202" y="-2.172433" xlink:href="#vxea416376ce62-4"/>
+                    <use x="24.352202" y="-2.172433" xlink:href="#vxea416376ce62-3"/>
+                    <use x="29.889962" y="-2.172433" xlink:href="#vxea416376ce62-6"/>
+                    <use x="35.427722" y="-2.172433" xlink:href="#vxea416376ce62-6"/>
+                    <use x="40.965485" y="-2.172433" xlink:href="#vxea416376ce62-2"/>
+                    <use x="46.503247" y="-2.172433" xlink:href="#vxea416376ce62-7"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-households" transform="translate(316.71 107.55)" data-align="north">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-24.55 -0.0)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vxf56a176e309e-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Households" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16040264829077" converter="dvisvgm" engine="pdflatex" height="5.1611" scale="0.7" version="1" viewBox="0 0 36.8221 5.1611" width="36.8221">
+                  <vectex:source>Households</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vxf56a176e309e-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M6.41424 0V-7.26084H5.48796V-4.12344H1.75296V-7.26084H.82668V0H1.75296V-3.30672H5.48796V0H6.41424Z" id="vxf56a176e309e-0"/>
+                  <path d="M4.9302 0V-7.26084H4.10352V-4.56168C3.75492-5.08956 3.19716-5.36844 2.49996-5.36844C1.1454-5.36844 .25896-4.32264 .25896-2.65932C.25896-.8964 1.12548 .1494 2.52984 .1494C3.24696 .1494 3.74496-.11952 4.19316-.76692V0H4.9302ZM4.10352-2.5896C4.10352-1.38444 3.52584-.62748 2.64936-.62748C1.73304-.62748 1.12548-1.3944 1.12548-2.60952S1.73304-4.59156 2.6394-4.59156C3.5358-4.59156 4.10352-3.79476 4.10352-2.5896Z" id="vxf56a176e309e-1"/>
+                  <path d="M5.10948-2.37048C5.10948-3.12744 5.04972-3.60552 4.90032-3.99396C4.56168-4.85052 3.76488-5.36844 2.7888-5.36844C1.33464-5.36844 .3984-4.29276 .3984-2.57964S1.30476 .1494 2.76888 .1494C3.96408 .1494 4.79076-.52788 4.99992-1.58364H4.16328C3.9342-.8964 3.46608-.61752 2.79876-.61752C1.93224-.61752 1.28484-1.17528 1.26492-2.37048H5.10948ZM4.22304-3.10752C4.22304-3.10752 4.22304-3.06768 4.21308-3.04776H1.28484C1.35456-3.97404 1.9422-4.60152 2.77884-4.60152C3.59556-4.60152 4.22304-3.92424 4.22304-3.10752Z" id="vxf56a176e309e-2"/>
+                  <path d="M4.84056 0V-3.94416C4.84056-4.82064 4.21308-5.36844 3.19716-5.36844C2.46012-5.36844 2.01192-5.13936 1.52388-4.50192V-7.26084H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.08164-4.64136 2.9382-4.64136C3.52584-4.64136 4.01388-4.30272 4.01388-3.61548V0H4.84056Z" id="vxf56a176e309e-3"/>
+                  <path d="M1.50396 0V-7.26084H.67728V0H1.50396Z" id="vxf56a176e309e-4"/>
+                  <path d="M5.0796-2.56968C5.0796-4.37244 4.21308-5.36844 2.70912-5.36844C1.245-5.36844 .35856-4.36248 .35856-2.60952S1.23504 .1494 2.71908 .1494C4.1832 .1494 5.0796-.85656 5.0796-2.56968ZM4.21308-2.57964C4.21308-1.35456 3.6354-.61752 2.71908-.61752C1.7928-.61752 1.22508-1.3446 1.22508-2.60952C1.22508-3.86448 1.7928-4.60152 2.71908-4.60152C3.65532-4.60152 4.21308-3.87444 4.21308-2.57964Z" id="vxf56a176e309e-5"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vxf56a176e309e-6"/>
+                  <path d="M4.80072 0V-5.21904H3.97404V-2.3406C3.97404-1.27488 3.41628-.57768 2.54976-.57768C1.8924-.57768 1.47408-.97608 1.47408-1.60356V-5.21904H.6474V-1.27488C.6474-.40836 1.2948 .1494 2.31072 .1494C3.07764 .1494 3.56568-.11952 4.05372-.80676V0H4.80072Z" id="vxf56a176e309e-7"/>
+                </defs>
+                <g id="vxf56a176e309e-8">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 7.373)">
+                    <use x="0" y="-.001" xlink:href="#vxf56a176e309e-0"/>
+                    <use x="7.19112" y="-.001" xlink:href="#vxf56a176e309e-5"/>
+                    <use x="12.728881" y="-.001" xlink:href="#vxf56a176e309e-7"/>
+                    <use x="18.266642" y="-.001" xlink:href="#vxf56a176e309e-6"/>
+                    <use x="23.246642" y="-.001" xlink:href="#vxf56a176e309e-2"/>
+                    <use x="28.784402" y="-.001" xlink:href="#vxf56a176e309e-3"/>
+                    <use x="34.322165" y="-.001" xlink:href="#vxf56a176e309e-5"/>
+                    <use x="39.859925" y="-.001" xlink:href="#vxf56a176e309e-4"/>
+                    <use x="42.071047" y="-.001" xlink:href="#vxf56a176e309e-1"/>
+                    <use x="47.608808" y="-.001" xlink:href="#vxf56a176e309e-6"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-key" transform="translate(-7.57 -61.43)" data-align="southwest">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-0.0 -8.91)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#6f6a61" fill="currentColor" id="vx5da63b321ffe-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Height: output after a chip shock" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 100.5557 6.6815" width="100.5557">
+                  <vectex:source>Height: output after a chip shock</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx5da63b321ffe-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M1.90236 0V-1.03584H.86652V0H1.90236ZM1.90236-4.1832V-5.21904H.86652V-4.1832H1.90236Z" id="vx5da63b321ffe-0"/>
+                  <path d="M6.41424 0V-7.26084H5.48796V-4.12344H1.75296V-7.26084H.82668V0H1.75296V-3.30672H5.48796V0H6.41424Z" id="vx5da63b321ffe-1"/>
+                  <path d="M5.3286-.01992V-.6474C5.23896-.62748 5.19912-.62748 5.14932-.62748C4.86048-.62748 4.70112-.77688 4.70112-1.03584V-3.94416C4.70112-4.87044 4.02384-5.36844 2.739-5.36844C1.47408-5.36844 .6972-4.8804 .6474-3.67524H1.48404C1.55376-4.31268 1.93224-4.60152 2.70912-4.60152C3.45612-4.60152 3.87444-4.32264 3.87444-3.82464V-3.60552C3.87444-3.25692 3.66528-3.10752 3.00792-3.02784C1.83264-2.87844 1.65336-2.8386 1.33464-2.70912C.72708-2.46012 .41832-1.992 .41832-1.35456C.41832-.40836 1.07568 .1494 2.13144 .1494C2.79876 .1494 3.44616-.12948 3.90432-.61752C3.99396-.21912 4.35252 .06972 4.76088 .06972C4.9302 .06972 5.05968 .0498 5.3286-.01992ZM3.87444-1.80276C3.87444-1.05576 3.11748-.57768 2.31072-.57768C1.66332-.57768 1.28484-.80676 1.28484-1.37448C1.28484-1.92228 1.65336-2.16132 2.5398-2.2908C3.41628-2.41032 3.59556-2.45016 3.87444-2.57964V-1.80276Z" id="vx5da63b321ffe-2"/>
+                  <path d="M4.75092-1.7928H3.91428C3.77484-.95616 3.34656-.61752 2.6394-.61752C1.72308-.61752 1.17528-1.32468 1.17528-2.55972C1.17528-3.86448 1.71312-4.60152 2.61948-4.60152C3.31668-4.60152 3.75492-4.19316 3.85452-3.46608H4.69116C4.59156-4.74096 3.79476-5.36844 2.62944-5.36844C1.22508-5.36844 .30876-4.29276 .30876-2.55972C.30876-.87648 1.20516 .1494 2.61948 .1494C3.86448 .1494 4.65132-.5976 4.75092-1.7928Z" id="vx5da63b321ffe-3"/>
+                  <path d="M5.10948-2.37048C5.10948-3.12744 5.04972-3.60552 4.90032-3.99396C4.56168-4.85052 3.76488-5.36844 2.7888-5.36844C1.33464-5.36844 .3984-4.29276 .3984-2.57964S1.30476 .1494 2.76888 .1494C3.96408 .1494 4.79076-.52788 4.99992-1.58364H4.16328C3.9342-.8964 3.46608-.61752 2.79876-.61752C1.93224-.61752 1.28484-1.17528 1.26492-2.37048H5.10948ZM4.22304-3.10752C4.22304-3.10752 4.22304-3.06768 4.21308-3.04776H1.28484C1.35456-3.97404 1.9422-4.60152 2.77884-4.60152C3.59556-4.60152 4.22304-3.92424 4.22304-3.10752Z" id="vx5da63b321ffe-4"/>
+                  <path d="M2.56968-4.54176V-5.21904H1.70316V-6.03576C1.70316-6.38436 1.90236-6.56364 2.28084-6.56364C2.35056-6.56364 2.38044-6.56364 2.56968-6.55368V-7.24092C2.38044-7.28076 2.27088-7.29072 2.10156-7.29072C1.33464-7.29072 .87648-6.85248 .87648-6.10548V-5.21904H.17928V-4.54176H.87648V0H1.70316V-4.54176H2.56968Z" id="vx5da63b321ffe-5"/>
+                  <path d="M4.87044-.85656V-5.21904H4.10352V-4.46208C3.6852-5.0796 3.17724-5.36844 2.50992-5.36844C1.18524-5.36844 .28884-4.25292 .28884-2.55972C.28884-.91632 1.21512 .1494 2.4402 .1494C3.09756 .1494 3.55572-.12948 4.10352-.78684V-.43824C4.10352 .9462 3.5358 1.47408 2.56968 1.47408C1.91232 1.47408 1.40436 1.23504 1.30476 .5976H.45816C.5478 1.58364 1.31472 2.17128 2.5398 2.17128C4.17324 2.17128 4.87044 1.4442 4.87044-.85656ZM4.02384-2.57964C4.02384-1.33464 3.486-.61752 2.60952-.61752C1.70316-.61752 1.15536-1.3446 1.15536-2.60952C1.15536-3.86448 1.71312-4.60152 2.59956-4.60152C3.49596-4.60152 4.02384-3.84456 4.02384-2.57964Z" id="vx5da63b321ffe-6"/>
+                  <path d="M4.84056 0V-3.94416C4.84056-4.82064 4.21308-5.36844 3.19716-5.36844C2.46012-5.36844 2.01192-5.13936 1.52388-4.50192V-7.26084H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.08164-4.64136 2.9382-4.64136C3.52584-4.64136 4.01388-4.30272 4.01388-3.61548V0H4.84056Z" id="vx5da63b321ffe-7"/>
+                  <path d="M4.99992 0L2.86848-3.41628L4.6812-5.21904H3.61548L1.40436-3.00792V-7.26084H.57768V0H1.40436V-2.03184L2.21112-2.82864L3.97404 0H4.99992Z" id="vx5da63b321ffe-8"/>
+                  <path d="M5.0796-2.56968C5.0796-4.37244 4.21308-5.36844 2.70912-5.36844C1.245-5.36844 .35856-4.36248 .35856-2.60952S1.23504 .1494 2.71908 .1494C4.1832 .1494 5.0796-.85656 5.0796-2.56968ZM4.21308-2.57964C4.21308-1.35456 3.6354-.61752 2.71908-.61752C1.7928-.61752 1.22508-1.3446 1.22508-2.60952C1.22508-3.86448 1.7928-4.60152 2.71908-4.60152C3.65532-4.60152 4.21308-3.87444 4.21308-2.57964Z" id="vx5da63b321ffe-9"/>
+                  <path d="M5.20908-2.55972C5.20908-4.31268 4.35252-5.36844 2.96808-5.36844C2.26092-5.36844 1.6932-5.04972 1.30476-4.4322V-5.21904H.5478V2.17128H1.37448V-.62748C1.81272-.08964 2.30076 .1494 2.97804 .1494C4.32264 .1494 5.20908-.8964 5.20908-2.55972ZM4.34256-2.57964C4.34256-1.3944 3.735-.62748 2.82864-.62748C1.95216-.62748 1.37448-1.3446 1.37448-2.56968S1.95216-4.59156 2.82864-4.59156C3.74496-4.59156 4.34256-3.82464 4.34256-2.57964Z" id="vx5da63b321ffe-10"/>
+                  <path d="M3.19716-4.49196V-5.33856C3.05772-5.35848 2.988-5.36844 2.87844-5.36844C2.3406-5.36844 1.93224-5.04972 1.45416-4.27284V-5.21904H.6972V0H1.52388V-2.70912C1.52388-3.8844 1.91232-4.47204 3.19716-4.49196Z" id="vx5da63b321ffe-11"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vx5da63b321ffe-12"/>
+                  <path d="M2.52984 0V-.6972C2.42028-.66732 2.2908-.65736 2.13144-.65736C1.77288-.65736 1.67328-.75696 1.67328-1.12548V-4.54176H2.52984V-5.21904H1.67328V-6.65328H.8466V-5.21904H.13944V-4.54176H.8466V-.75696C.8466-.22908 1.20516 .06972 1.85256 .06972C2.05176 .06972 2.25096 .0498 2.52984 0Z" id="vx5da63b321ffe-13"/>
+                  <path d="M4.80072 0V-5.21904H3.97404V-2.3406C3.97404-1.27488 3.41628-.57768 2.54976-.57768C1.8924-.57768 1.47408-.97608 1.47408-1.60356V-5.21904H.6474V-1.27488C.6474-.40836 1.2948 .1494 2.31072 .1494C3.07764 .1494 3.56568-.11952 4.05372-.80676V0H4.80072Z" id="vx5da63b321ffe-14"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vx5da63b321ffe-15"/>
+                </defs>
+                <g id="vx5da63b321ffe-16">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx5da63b321ffe-1"/>
+                    <use x="7.19112" y="-2.172433" xlink:href="#vx5da63b321ffe-4"/>
+                    <use x="12.728881" y="-2.172433" xlink:href="#vx5da63b321ffe-15"/>
+                    <use x="14.940001" y="-2.172433" xlink:href="#vx5da63b321ffe-6"/>
+                    <use x="20.477761" y="-2.172433" xlink:href="#vx5da63b321ffe-7"/>
+                    <use x="26.015522" y="-2.172433" xlink:href="#vx5da63b321ffe-13"/>
+                    <use x="28.485603" y="-2.172433" xlink:href="#vx5da63b321ffe-0"/>
+                    <use x="34.949645" y="-2.172433" xlink:href="#vx5da63b321ffe-9"/>
+                    <use x="40.487407" y="-2.172433" xlink:href="#vx5da63b321ffe-14"/>
+                    <use x="46.025165" y="-2.172433" xlink:href="#vx5da63b321ffe-13"/>
+                    <use x="48.79405" y="-2.172433" xlink:href="#vx5da63b321ffe-10"/>
+                    <use x="54.331811" y="-2.172433" xlink:href="#vx5da63b321ffe-14"/>
+                    <use x="59.869571" y="-2.172433" xlink:href="#vx5da63b321ffe-13"/>
+                    <use x="65.407336" y="-2.172433" xlink:href="#vx5da63b321ffe-2"/>
+                    <use x="70.945099" y="-2.172433" xlink:href="#vx5da63b321ffe-5"/>
+                    <use x="73.962972" y="-2.172433" xlink:href="#vx5da63b321ffe-13"/>
+                    <use x="76.582449" y="-2.172433" xlink:href="#vx5da63b321ffe-4"/>
+                    <use x="82.120213" y="-2.172433" xlink:href="#vx5da63b321ffe-11"/>
+                    <use x="88.205764" y="-2.172433" xlink:href="#vx5da63b321ffe-2"/>
+                    <use x="96.512406" y="-2.172433" xlink:href="#vx5da63b321ffe-3"/>
+                    <use x="101.492406" y="-2.172433" xlink:href="#vx5da63b321ffe-7"/>
+                    <use x="107.030169" y="-2.172433" xlink:href="#vx5da63b321ffe-15"/>
+                    <use x="109.241292" y="-2.172433" xlink:href="#vx5da63b321ffe-10"/>
+                    <use x="117.547925" y="-2.172433" xlink:href="#vx5da63b321ffe-12"/>
+                    <use x="122.527925" y="-2.172433" xlink:href="#vx5da63b321ffe-7"/>
+                    <use x="128.065689" y="-2.172433" xlink:href="#vx5da63b321ffe-9"/>
+                    <use x="133.603444" y="-2.172433" xlink:href="#vx5da63b321ffe-3"/>
+                    <use x="138.633251" y="-2.172433" xlink:href="#vx5da63b321ffe-8"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-chips" transform="translate(88.45 -3.18)" data-align="south">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-11.88 -8.91)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#d55e00" fill="currentColor" id="vx2f7262244ec1-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="Chips" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 17.8255 6.6815" width="17.8255">
+                  <vectex:source>Chips</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx2f7262244ec1-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M6.74292-2.64936H5.78676C5.56764-1.27488 4.98996-.63744 3.76488-.63744C2.32068-.63744 1.40436-1.743 1.40436-3.55572C1.40436-5.41824 2.28084-6.6234 3.6852-6.6234C4.82064-6.6234 5.41824-6.11544 5.64732-5.00988H6.59352C6.30468-6.60348 5.38836-7.44012 3.79476-7.44012C1.5936-7.44012 .47808-5.66724 .47808-3.54576S1.62348 .17928 3.75492 .17928C5.5278 .17928 6.5238-.75696 6.74292-2.64936Z" id="vx2f7262244ec1-0"/>
+                  <path d="M4.84056 0V-3.94416C4.84056-4.82064 4.21308-5.36844 3.19716-5.36844C2.46012-5.36844 2.01192-5.13936 1.52388-4.50192V-7.26084H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.08164-4.64136 2.9382-4.64136C3.52584-4.64136 4.01388-4.30272 4.01388-3.61548V0H4.84056Z" id="vx2f7262244ec1-1"/>
+                  <path d="M5.20908-2.55972C5.20908-4.31268 4.35252-5.36844 2.96808-5.36844C2.26092-5.36844 1.6932-5.04972 1.30476-4.4322V-5.21904H.5478V2.17128H1.37448V-.62748C1.81272-.08964 2.30076 .1494 2.97804 .1494C4.32264 .1494 5.20908-.8964 5.20908-2.55972ZM4.34256-2.57964C4.34256-1.3944 3.735-.62748 2.82864-.62748C1.95216-.62748 1.37448-1.3446 1.37448-2.56968S1.95216-4.59156 2.82864-4.59156C3.74496-4.59156 4.34256-3.82464 4.34256-2.57964Z" id="vx2f7262244ec1-2"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vx2f7262244ec1-3"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vx2f7262244ec1-4"/>
+                </defs>
+                <g id="vx2f7262244ec1-5">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx2f7262244ec1-0"/>
+                    <use x="7.19112" y="-2.172433" xlink:href="#vx2f7262244ec1-1"/>
+                    <use x="12.728881" y="-2.172433" xlink:href="#vx2f7262244ec1-4"/>
+                    <use x="14.940001" y="-2.172433" xlink:href="#vx2f7262244ec1-2"/>
+                    <use x="20.477761" y="-2.172433" xlink:href="#vx2f7262244ec1-3"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-lost" transform="translate(309.45 -31.43)" data-align="west">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-0.0 -4.45)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#d55e00" fill="currentColor" id="vx5409df2f1aac-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="output lost" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 32.1426 6.6815" width="32.1426">
+                  <vectex:source>output lost</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx5409df2f1aac-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M1.50396 0V-7.26084H.67728V0H1.50396Z" id="vx5409df2f1aac-0"/>
+                  <path d="M5.0796-2.56968C5.0796-4.37244 4.21308-5.36844 2.70912-5.36844C1.245-5.36844 .35856-4.36248 .35856-2.60952S1.23504 .1494 2.71908 .1494C4.1832 .1494 5.0796-.85656 5.0796-2.56968ZM4.21308-2.57964C4.21308-1.35456 3.6354-.61752 2.71908-.61752C1.7928-.61752 1.22508-1.3446 1.22508-2.60952C1.22508-3.86448 1.7928-4.60152 2.71908-4.60152C3.65532-4.60152 4.21308-3.87444 4.21308-2.57964Z" id="vx5409df2f1aac-1"/>
+                  <path d="M5.20908-2.55972C5.20908-4.31268 4.35252-5.36844 2.96808-5.36844C2.26092-5.36844 1.6932-5.04972 1.30476-4.4322V-5.21904H.5478V2.17128H1.37448V-.62748C1.81272-.08964 2.30076 .1494 2.97804 .1494C4.32264 .1494 5.20908-.8964 5.20908-2.55972ZM4.34256-2.57964C4.34256-1.3944 3.735-.62748 2.82864-.62748C1.95216-.62748 1.37448-1.3446 1.37448-2.56968S1.95216-4.59156 2.82864-4.59156C3.74496-4.59156 4.34256-3.82464 4.34256-2.57964Z" id="vx5409df2f1aac-2"/>
+                  <path d="M4.57164-1.46412C4.57164-2.241 4.1334-2.62944 3.09756-2.87844L2.30076-3.06768C1.62348-3.22704 1.33464-3.44616 1.33464-3.81468C1.33464-4.29276 1.76292-4.60152 2.4402-4.60152C3.10752-4.60152 3.46608-4.31268 3.486-3.76488H4.36248C4.35252-4.79076 3.67524-5.36844 2.47008-5.36844C1.25496-5.36844 .46812-4.74096 .46812-3.77484C.46812-2.95812 .88644-2.56968 2.12148-2.27088L2.89836-2.08164C3.47604-1.9422 3.70512-1.77288 3.70512-1.3944C3.70512-.90636 3.21708-.61752 2.49-.61752C1.743-.61752 1.32468-.7968 1.21512-1.5936H.33864C.37848-.38844 1.05576 .1494 2.42028 .1494C3.735 .1494 4.57164-.45816 4.57164-1.46412Z" id="vx5409df2f1aac-3"/>
+                  <path d="M2.52984 0V-.6972C2.42028-.66732 2.2908-.65736 2.13144-.65736C1.77288-.65736 1.67328-.75696 1.67328-1.12548V-4.54176H2.52984V-5.21904H1.67328V-6.65328H.8466V-5.21904H.13944V-4.54176H.8466V-.75696C.8466-.22908 1.20516 .06972 1.85256 .06972C2.05176 .06972 2.25096 .0498 2.52984 0Z" id="vx5409df2f1aac-4"/>
+                  <path d="M4.80072 0V-5.21904H3.97404V-2.3406C3.97404-1.27488 3.41628-.57768 2.54976-.57768C1.8924-.57768 1.47408-.97608 1.47408-1.60356V-5.21904H.6474V-1.27488C.6474-.40836 1.2948 .1494 2.31072 .1494C3.07764 .1494 3.56568-.11952 4.05372-.80676V0H4.80072Z" id="vx5409df2f1aac-5"/>
+                </defs>
+                <g id="vx5409df2f1aac-6">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx5409df2f1aac-1"/>
+                    <use x="5.53776" y="-2.172433" xlink:href="#vx5409df2f1aac-5"/>
+                    <use x="11.075521" y="-2.172433" xlink:href="#vx5409df2f1aac-4"/>
+                    <use x="13.844401" y="-2.172433" xlink:href="#vx5409df2f1aac-2"/>
+                    <use x="19.38216" y="-2.172433" xlink:href="#vx5409df2f1aac-5"/>
+                    <use x="24.919921" y="-2.172433" xlink:href="#vx5409df2f1aac-4"/>
+                    <use x="30.457683" y="-2.172433" xlink:href="#vx5409df2f1aac-0"/>
+                    <use x="32.668802" y="-2.172433" xlink:href="#vx5409df2f1aac-1"/>
+                    <use x="38.206565" y="-2.172433" xlink:href="#vx5409df2f1aac-3"/>
+                    <use x="43.136766" y="-2.172433" xlink:href="#vx5409df2f1aac-4"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="label-gained" transform="translate(-42.1 25.83)" data-align="east">
+      <g transform="scale(1.32523)">
+        <g transform="translate(-27.87 -4.45)">
+          <g transform="scale(1.33333333333333)">
+            <g xmlns:vectex="https://vectex.dev/ns/metadata/1" xmlns:textext="http://www.iki.fi/pav/software/textext/" xmlns:xlink="http://www.w3.org/1999/xlink" color="#0f3352" fill="currentColor" id="vx440ca1a53b70-root" textext:alignment="middle center" textext:jacobian_sqrt="1.0" textext:pdfconverter="dvisvgm" textext:preamble="" textext:scale="0.7" textext:texconverter="pdflatex" textext:text="gained" textext:version="1.13.0">
+              <metadata>
+                <vectex:fragment baseline="5.16053647844693" converter="dvisvgm" engine="pdflatex" height="6.6815" scale="0.7" version="1" viewBox="0 0 20.9006 6.6815" width="20.9006">
+                  <vectex:source>gained</vectex:source>
+                  <vectex:options>
+                    <vectex:compiler encoding="json">{"args":[],"extra_packages":[],"preamble":"\\documentclass[10pt,border=0pt]{standalone}\n\\usepackage[T1]{fontenc}\\usepackage{amsmath}\n\\usepackage{tgheros}\n\\renewcommand{\\familydefault}{\\sfdefault}\n\\usepackage{sansmath}\\sansmath","size_pt":7.000000000000001}</vectex:compiler>
+                    <vectex:converter encoding="json">{"args":[]}</vectex:converter>
+                  </vectex:options>
+                </vectex:fragment>
+              </metadata>
+              <g id="vx440ca1a53b70-viewport" transform="matrix(0.7 0 0 0.7 -0 -0)">
+                <defs>
+                  <path d="M5.3286-.01992V-.6474C5.23896-.62748 5.19912-.62748 5.14932-.62748C4.86048-.62748 4.70112-.77688 4.70112-1.03584V-3.94416C4.70112-4.87044 4.02384-5.36844 2.739-5.36844C1.47408-5.36844 .6972-4.8804 .6474-3.67524H1.48404C1.55376-4.31268 1.93224-4.60152 2.70912-4.60152C3.45612-4.60152 3.87444-4.32264 3.87444-3.82464V-3.60552C3.87444-3.25692 3.66528-3.10752 3.00792-3.02784C1.83264-2.87844 1.65336-2.8386 1.33464-2.70912C.72708-2.46012 .41832-1.992 .41832-1.35456C.41832-.40836 1.07568 .1494 2.13144 .1494C2.79876 .1494 3.44616-.12948 3.90432-.61752C3.99396-.21912 4.35252 .06972 4.76088 .06972C4.9302 .06972 5.05968 .0498 5.3286-.01992ZM3.87444-1.80276C3.87444-1.05576 3.11748-.57768 2.31072-.57768C1.66332-.57768 1.28484-.80676 1.28484-1.37448C1.28484-1.92228 1.65336-2.16132 2.5398-2.2908C3.41628-2.41032 3.59556-2.45016 3.87444-2.57964V-1.80276Z" id="vx440ca1a53b70-0"/>
+                  <path d="M4.9302 0V-7.26084H4.10352V-4.56168C3.75492-5.08956 3.19716-5.36844 2.49996-5.36844C1.1454-5.36844 .25896-4.32264 .25896-2.65932C.25896-.8964 1.12548 .1494 2.52984 .1494C3.24696 .1494 3.74496-.11952 4.19316-.76692V0H4.9302ZM4.10352-2.5896C4.10352-1.38444 3.52584-.62748 2.64936-.62748C1.73304-.62748 1.12548-1.3944 1.12548-2.60952S1.73304-4.59156 2.6394-4.59156C3.5358-4.59156 4.10352-3.79476 4.10352-2.5896Z" id="vx440ca1a53b70-1"/>
+                  <path d="M5.10948-2.37048C5.10948-3.12744 5.04972-3.60552 4.90032-3.99396C4.56168-4.85052 3.76488-5.36844 2.7888-5.36844C1.33464-5.36844 .3984-4.29276 .3984-2.57964S1.30476 .1494 2.76888 .1494C3.96408 .1494 4.79076-.52788 4.99992-1.58364H4.16328C3.9342-.8964 3.46608-.61752 2.79876-.61752C1.93224-.61752 1.28484-1.17528 1.26492-2.37048H5.10948ZM4.22304-3.10752C4.22304-3.10752 4.22304-3.06768 4.21308-3.04776H1.28484C1.35456-3.97404 1.9422-4.60152 2.77884-4.60152C3.59556-4.60152 4.22304-3.92424 4.22304-3.10752Z" id="vx440ca1a53b70-2"/>
+                  <path d="M4.87044-.85656V-5.21904H4.10352V-4.46208C3.6852-5.0796 3.17724-5.36844 2.50992-5.36844C1.18524-5.36844 .28884-4.25292 .28884-2.55972C.28884-.91632 1.21512 .1494 2.4402 .1494C3.09756 .1494 3.55572-.12948 4.10352-.78684V-.43824C4.10352 .9462 3.5358 1.47408 2.56968 1.47408C1.91232 1.47408 1.40436 1.23504 1.30476 .5976H.45816C.5478 1.58364 1.31472 2.17128 2.5398 2.17128C4.17324 2.17128 4.87044 1.4442 4.87044-.85656ZM4.02384-2.57964C4.02384-1.33464 3.486-.61752 2.60952-.61752C1.70316-.61752 1.15536-1.3446 1.15536-2.60952C1.15536-3.86448 1.71312-4.60152 2.59956-4.60152C3.49596-4.60152 4.02384-3.84456 4.02384-2.57964Z" id="vx440ca1a53b70-3"/>
+                  <path d="M4.85052 0V-3.94416C4.85052-4.81068 4.20312-5.36844 3.19716-5.36844C2.42028-5.36844 1.92228-5.06964 1.46412-4.34256V-5.21904H.6972V0H1.52388V-2.87844C1.52388-3.94416 2.10156-4.64136 2.94816-4.64136C3.60552-4.64136 4.02384-4.24296 4.02384-3.61548V0H4.85052Z" id="vx440ca1a53b70-4"/>
+                  <path d="M1.52388 0V-5.21904H.6972V0H1.52388ZM1.63344-6.00588V-7.04172H.5976V-6.00588H1.63344Z" id="vx440ca1a53b70-5"/>
+                </defs>
+                <g id="vx440ca1a53b70-6">
+                  <g transform="matrix(1.000261 0 0 1.000261 0 9.545)">
+                    <use x="0" y="-2.172433" xlink:href="#vx440ca1a53b70-3"/>
+                    <use x="5.48796" y="-2.172433" xlink:href="#vx440ca1a53b70-0"/>
+                    <use x="11.025721" y="-2.172433" xlink:href="#vx440ca1a53b70-5"/>
+                    <use x="13.236841" y="-2.172433" xlink:href="#vx440ca1a53b70-4"/>
+                    <use x="18.774602" y="-2.172433" xlink:href="#vx440ca1a53b70-2"/>
+                    <use x="24.312362" y="-2.172433" xlink:href="#vx440ca1a53b70-1"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="bullwhip-plot" transform="translate(508.651 22.6772) scale(1.33333)">
+    <metadata>
+      <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <cc:Work>
+          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+          <dc:format>image/svg+xml</dc:format>
+          <dc:creator>
+            <cc:Agent>
+              <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
+            </cc:Agent>
+          </dc:creator>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <g xmlns:xlink="http://www.w3.org/1999/xlink" id="figure_1">
+      <g id="patch_1">
+        <path d="M 0 289.133858  L 128.747777 289.133858  L 128.747777 0  L 0 0  L 0 289.133858  z " style="fill: none"/>
+      </g>
+      <g id="axes_1">
+        <g id="patch_2">
+          <path d="M 0 142.342823  L 128.747777 142.342823  L 128.747777 0  L 0 0  L 0 142.342823  z " style="fill: none"/>
+        </g>
+        <g id="line2d_1">
+          <path d="M 0 122.177589  L 128.747777 122.177589  " clip-path="url(#p26283ec24f)" style="fill: none; stroke-dasharray: 0.4,0.6; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.4"/>
+        </g>
+        <g id="line2d_2">
+          <path d="M 0 96.081405  L 128.747777 96.081405  " clip-path="url(#p26283ec24f)" style="fill: none; stroke-dasharray: 0.4,0.6; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.4"/>
+        </g>
+        <g id="line2d_3">
+          <path d="M 0 69.985221  L 128.747777 69.985221  " clip-path="url(#p26283ec24f)" style="fill: none; stroke-dasharray: 0.4,0.6; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.4"/>
+        </g>
+        <g id="line2d_4">
+          <path d="M 0 43.889037  L 128.747777 43.889037  " clip-path="url(#p26283ec24f)" style="fill: none; stroke-dasharray: 0.4,0.6; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.4"/>
+        </g>
+        <g id="line2d_5">
+          <path d="M 0 17.792853  L 128.747777 17.792853  " clip-path="url(#p26283ec24f)" style="fill: none; stroke-dasharray: 0.4,0.6; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.4"/>
+        </g>
+        <g id="matplotlib.axis_1">
+          <g id="xtick_1">
+            <g id="line2d_6">
+              <defs>
+                <path id="md37cbe1367" d="M 0 0  L 0 3.5  " style="stroke: #000000; stroke-width: 0.5"/>
+              </defs>
+              <g>
+                <use xlink:href="#md37cbe1367" x="0" y="142.342823" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_1">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="0" y="154.046823" transform="rotate(-0 0 154.046823)">0</text>
+            </g>
+          </g>
+          <g id="xtick_2">
+            <g id="line2d_7">
+              <g>
+                <use xlink:href="#md37cbe1367" x="32.186944" y="142.342823" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_2">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="32.186944" y="154.046823" transform="rotate(-0 32.186944 154.046823)">13</text>
+            </g>
+          </g>
+          <g id="xtick_3">
+            <g id="line2d_8">
+              <g>
+                <use xlink:href="#md37cbe1367" x="64.373889" y="142.342823" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_3">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="64.373889" y="154.046823" transform="rotate(-0 64.373889 154.046823)">26</text>
+            </g>
+          </g>
+          <g id="xtick_4">
+            <g id="line2d_9">
+              <g>
+                <use xlink:href="#md37cbe1367" x="96.560833" y="142.342823" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_4">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="96.560833" y="154.046823" transform="rotate(-0 96.560833 154.046823)">39</text>
+            </g>
+          </g>
+          <g id="xtick_5">
+            <g id="line2d_10">
+              <g>
+                <use xlink:href="#md37cbe1367" x="128.747777" y="142.342823" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_5">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="128.747777" y="154.046823" transform="rotate(-0 128.747777 154.046823)">52</text>
+            </g>
+          </g>
+          <g id="text_6">
+            <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="64.373889" y="164.830823" transform="rotate(-0 64.373889 164.830823)">Week</text>
+          </g>
+        </g>
+        <g id="matplotlib.axis_2"/>
+        <g id="line2d_11">
+          <path d="M 0 123.083419  L 2.475919 120.931384  L 4.951838 122.61844  L 7.427756 122.45987  L 9.903675 120.959445  L 12.379594 118.714654  L 14.855513 123.531153  L 17.331432 119.618822  L 19.80735 124.512036  L 22.283269 121.845499  L 24.759188 124.397244  L 27.235107 119.612651  L 29.711026 120.594883  L 32.186944 120.018312  L 34.662863 123.858247  L 37.138782 120.878369  L 39.614701 123.162627  L 42.09062 123.045663  L 44.566538 121.21623  L 47.042457 120.513662  L 49.518376 121.789619  L 51.994295 123.369449  L 54.470214 123.74491  L 56.946132 119.436414  L 59.422051 121.050337  L 61.89797 120.811615  L 64.373889 118.033538  L 66.849808 123.726019  L 69.325726 117.319983  L 71.801645 116.197467  L 74.277564 119.105996  L 76.753483 120.60782  L 79.229402 123.43746  L 81.70532 120.290151  L 84.181239 123.017777  L 86.657158 122.21868  L 89.133077 122.728804  L 91.608996 121.638907  L 94.084914 119.732941  L 96.560833 123.232035  L 99.036752 124.047792  L 101.512671 124.081105  L 103.98859 124.015287  L 106.464508 124.893686  L 108.940427 123.910251  L 111.416346 119.723095  L 113.892265 123.303639  L 116.368184 121.689624  L 118.844102 124.487138  L 121.320021 121.855609  L 123.79594 125.481426  L 126.271859 123.503761  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #262626; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="line2d_12">
+          <path d="M 0 99.05073  L 2.475919 97.022122  L 4.951838 94.783785  L 7.427756 96.570557  L 9.903675 95.782124  L 12.379594 94.332267  L 14.855513 92.064287  L 17.331432 97.663147  L 19.80735 92.812376  L 22.283269 99.304  L 24.759188 96.532026  L 27.235107 98.517583  L 29.711026 93.514924  L 32.186944 93.519411  L 34.662863 93.465331  L 37.138782 97.627313  L 39.614701 95.098615  L 42.09062 97.708379  L 44.566538 97.706317  L 47.042457 94.459542  L 49.518376 94.326301  L 51.994295 95.350183  L 54.470214 97.354211  L 56.946132 98.280896  L 59.422051 93.070918  L 61.89797 94.769332  L 64.373889 94.075972  L 66.849808 90.509511  L 69.325726 98.702236  L 71.801645 90.291211  L 74.277564 88.947746  L 76.753483 93.277927  L 79.229402 93.732086  L 81.70532 98.870645  L 84.181239 95.217138  L 86.657158 97.899538  L 89.133077 96.525211  L 91.608996 96.455456  L 94.084914 95.879912  L 96.560833 92.815548  L 99.036752 97.389189  L 101.512671 98.281354  L 103.98859 98.59547  L 106.464508 98.989689  L 108.940427 99.212914  L 111.416346 97.779682  L 113.892265 92.537408  L 116.368184 97.029542  L 118.844102 94.792424  L 121.320021 98.535175  L 123.79594 96.292553  L 126.271859 99.929689  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #6aa5d3; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="line2d_13">
+          <path d="M 0 70.477628  L 2.475919 73.271652  L 4.951838 70.929262  L 7.427756 68.698506  L 9.903675 70.500185  L 12.379594 68.868788  L 14.855513 67.563619  L 17.331432 65.288228  L 19.80735 71.840111  L 22.283269 65.973755  L 24.759188 74.450748  L 27.235107 71.552776  L 29.711026 72.635008  L 32.186944 67.594377  L 34.662863 65.97708  L 37.138782 66.602473  L 39.614701 71.308561  L 42.09062 69.398353  L 44.566538 72.659437  L 47.042457 72.670379  L 49.518376 67.571415  L 51.994295 68.037039  L 54.470214 68.66445  L 56.946132 71.170001  L 59.422051 73.14005  L 61.89797 66.660888  L 64.373889 68.527935  L 66.849808 67.160228  L 69.325726 62.47048  L 71.801645 74.013882  L 74.277564 63.075496  L 76.753483 61.569506  L 79.229402 67.873846  L 81.70532 66.393365  L 84.181239 74.919319  L 86.657158 70.688301  L 89.133077 72.958756  L 91.608996 71.127308  L 94.084914 69.755474  L 96.560833 69.949422  L 99.036752 65.448367  L 101.512671 71.508999  L 103.98859 72.641645  L 106.464508 73.178176  L 108.940427 74.437041  L 111.416346 73.572662  L 113.892265 71.558079  L 116.368184 64.926709  L 118.844102 70.443322  L 121.320021 67.591117  L 123.79594 72.627864  L 126.271859 71.135155  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #3e84bb; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="line2d_14">
+          <path d="M 0 41.758441  L 2.475919 44.401059  L 4.951838 47.398237  L 7.427756 44.780839  L 9.903675 42.705754  L 12.379594 44.40964  L 14.855513 41.671888  L 17.331432 40.626025  L 19.80735 38.339474  L 22.283269 46.078908  L 24.759188 39.153812  L 27.235107 50.076347  L 29.711026 47.022729  L 32.186944 46.737548  L 34.662863 41.903349  L 37.138782 37.762478  L 39.614701 39.268713  L 42.09062 44.880765  L 44.566538 43.753163  L 47.042457 48.233842  L 49.518376 48.091171  L 51.994295 40.540945  L 54.470214 41.600526  L 56.946132 41.56952  L 59.422051 44.698722  L 61.89797 48.436025  L 64.373889 40.220666  L 66.849808 42.397622  L 69.325726 40.061601  L 71.801645 33.706904  L 74.277564 49.755946  L 76.753483 35.616203  L 79.229402 34.075641  L 81.70532 43.128504  L 84.181239 38.392051  L 86.657158 51.784091  L 89.133077 46.871816  L 91.608996 48.1338  L 94.084914 46.21461  L 96.560833 42.368329  L 99.036752 43.668518  L 101.512671 37.474585  L 103.98859 45.508238  L 106.464508 47.267003  L 108.940427 47.88918  L 111.416346 50.588025  L 113.892265 47.992393  L 116.368184 45.191004  L 118.844102 36.767658  L 121.320021 43.348708  L 123.79594 39.999547  L 126.271859 46.799127  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #215f92; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="line2d_15">
+          <path d="M 0 19.824115  L 2.475919 15.141747  L 4.951838 18.160995  L 7.427756 21.347585  L 9.903675 18.534605  L 12.379594 16.846399  L 14.855513 18.315601  L 17.331432 14.144117  L 19.80735 13.491137  L 22.283269 11.15172  L 24.759188 20.400041  L 27.235107 12.428109  L 29.711026 26.342743  L 32.186944 23.097359  L 34.662863 20.806024  L 37.138782 16.494549  L 39.614701 8.587827  L 42.09062 11.234025  L 44.566538 18.320386  L 47.042457 18.119433  L 49.518376 24.755498  L 51.994295 24.200601  L 54.470214 13.359806  L 56.946132 14.966182  L 59.422051 13.807255  L 61.89797 17.754425  L 64.373889 24.31361  L 66.849808 13.779517  L 69.325726 16.508464  L 71.801645 12.806136  L 74.277564 3.928439  L 76.753483 26.043582  L 79.229402 7.824664  L 81.70532 6.482967  L 84.181239 19.38772  L 86.657158 9.454894  L 89.133077 29.729879  L 91.608996 23.974676  L 94.084914 23.288939  L 96.560833 22.074066  L 99.036752 13.918204  L 101.512671 16.771509  L 103.98859 8.713597  L 106.464508 19.235461  L 108.940427 22.395488  L 111.416346 22.848161  L 113.892265 27.770201  L 116.368184 22.517248  L 118.844102 18.57582  L 121.320021 7.891093  L 123.79594 15.442694  L 126.271859 11.905151  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #0f3352; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="line2d_16">
+          <path d="M 127.509818 141.156632  L 127.509818 129.29473  " clip-path="url(#p26283ec24f)" style="fill: none; stroke: #262626; stroke-width: 0.75"/>
+        </g>
+        <g id="patch_3">
+          <path d="M 0 142.342823  L 128.747777 142.342823  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="text_7">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #262626" x="-3.713878" y="124.165589" transform="rotate(-0 -3.713878 124.165589)">Customers</text>
+        </g>
+        <g id="text_8">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #6aa5d3" x="-3.713878" y="98.069405" transform="rotate(-0 -3.713878 98.069405)">Retailer</text>
+        </g>
+        <g id="text_9">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #3e84bb" x="-3.713878" y="71.973221" transform="rotate(-0 -3.713878 71.973221)">Wholesaler</text>
+        </g>
+        <g id="text_10">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #215f92" x="-3.713878" y="45.877037" transform="rotate(-0 -3.713878 45.877037)">Distributor</text>
+        </g>
+        <g id="text_11">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #0f3352" x="-3.713878" y="19.773962" transform="rotate(-0 -3.713878 19.773962)">Factory</text>
+        </g>
+        <g id="text_12">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="125.033899" y="137.213681" transform="rotate(-0 125.033899 137.213681)">50 units</text>
+        </g>
+      </g>
+      <g id="axes_2">
+        <g id="patch_4">
+          <path d="M 0 289.133858  L 128.747777 289.133858  L 128.747777 200.169594  L 0 200.169594  L 0 289.133858  z " style="fill: none"/>
+        </g>
+        <g id="matplotlib.axis_3">
+          <g id="xtick_6">
+            <g id="line2d_17">
+              <g>
+                <use xlink:href="#md37cbe1367" x="8.396594" y="289.133858" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_13">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="8.396594" y="300.837858" transform="rotate(-0 8.396594 300.837858)">0</text>
+            </g>
+          </g>
+          <g id="xtick_7">
+            <g id="line2d_18">
+              <g>
+                <use xlink:href="#md37cbe1367" x="36.385241" y="289.133858" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_14">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="36.385241" y="300.837858" transform="rotate(-0 36.385241 300.837858)">1</text>
+            </g>
+          </g>
+          <g id="xtick_8">
+            <g id="line2d_19">
+              <g>
+                <use xlink:href="#md37cbe1367" x="64.373889" y="289.133858" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_15">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="64.373889" y="300.837858" transform="rotate(-0 64.373889 300.837858)">2</text>
+            </g>
+          </g>
+          <g id="xtick_9">
+            <g id="line2d_20">
+              <g>
+                <use xlink:href="#md37cbe1367" x="92.362536" y="289.133858" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_16">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="92.362536" y="300.837858" transform="rotate(-0 92.362536 300.837858)">3</text>
+            </g>
+          </g>
+          <g id="xtick_10">
+            <g id="line2d_21">
+              <g>
+                <use xlink:href="#md37cbe1367" x="120.351183" y="289.133858" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_17">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="120.351183" y="300.837858" transform="rotate(-0 120.351183 300.837858)">4</text>
+            </g>
+          </g>
+          <g id="text_18">
+            <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="64.373889" y="311.621858" transform="rotate(-0 64.373889 311.621858)">Stages upstream of customers</text>
+          </g>
+        </g>
+        <g id="matplotlib.axis_4">
+          <g id="ytick_1">
+            <g id="line2d_22">
+              <defs>
+                <path id="m06d17e5d63" d="M 0 0  L -3.5 0  " style="stroke: #000000; stroke-width: 0.5"/>
+              </defs>
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="282.01365" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_19">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="284.36565" transform="rotate(-0 -7 284.36565)">1</text>
+            </g>
+          </g>
+          <g id="ytick_2">
+            <g id="line2d_23">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="259.896263" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_20">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="262.248263" transform="rotate(-0 -7 262.248263)">2</text>
+            </g>
+          </g>
+          <g id="ytick_3">
+            <g id="line2d_24">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="230.658669" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_21">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="233.010669" transform="rotate(-0 -7 233.010669)">5</text>
+            </g>
+          </g>
+          <g id="ytick_4">
+            <g id="line2d_25">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="208.541282" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="text_22">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="210.893282" transform="rotate(-0 -7 210.893282)">10</text>
+            </g>
+          </g>
+          <g id="text_23">
+            <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="-19.18325" y="244.651726" transform="rotate(-90 -19.18325 244.651726)">Order variance ratio</text>
+          </g>
+        </g>
+        <g id="line2d_26">
+          <path d="M 8.396594 282.01365  L 36.385241 266.521754  L 64.373889 252.776055  L 92.362536 240.919966  L 120.351183 230.658669  " clip-path="url(#pb93f743c61)" style="fill: none; stroke-dasharray: 2.25,1.5; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.75"/>
+        </g>
+        <g id="line2d_27">
+          <path d="M 8.396594 282.01365  L 36.385241 266.521754  L 64.373889 248.752955  L 92.362536 229.143416  L 120.351183 208.146147  " clip-path="url(#pb93f743c61)" style="fill: none; stroke: #262626; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="patch_5">
+          <path d="M 0 289.133858  L 0 200.169594  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="patch_6">
+          <path d="M -0 289.133858  L 128.747777 289.133858  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="PathCollection_1">
+          <defs>
+            <path id="C0_0_8078cacc8a" d="M 0 1.870829  C 0.49615 1.870829 0.972045 1.673706 1.322876 1.322876  C 1.673706 0.972045 1.870829 0.49615 1.870829 -0  C 1.870829 -0.49615 1.673706 -0.972045 1.322876 -1.322876  C 0.972045 -1.673706 0.49615 -1.870829 0 -1.870829  C -0.49615 -1.870829 -0.972045 -1.673706 -1.322876 -1.322876  C -1.673706 -0.972045 -1.870829 -0.49615 -1.870829 0  C -1.870829 0.49615 -1.673706 0.972045 -1.322876 1.322876  C -0.972045 1.673706 -0.49615 1.870829 0 1.870829  z "/>
+          </defs>
+          <g clip-path="url(#pb93f743c61)">
+            <use xlink:href="#C0_0_8078cacc8a" x="8.396594" y="282.01365" style="fill: #262626; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+          <g clip-path="url(#pb93f743c61)">
+            <use xlink:href="#C0_0_8078cacc8a" x="36.385241" y="266.521754" style="fill: #6aa5d3; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+          <g clip-path="url(#pb93f743c61)">
+            <use xlink:href="#C0_0_8078cacc8a" x="64.373889" y="248.752955" style="fill: #3e84bb; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+          <g clip-path="url(#pb93f743c61)">
+            <use xlink:href="#C0_0_8078cacc8a" x="92.362536" y="229.143416" style="fill: #215f92; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+          <g clip-path="url(#pb93f743c61)">
+            <use xlink:href="#C0_0_8078cacc8a" x="120.351183" y="208.146147" style="fill: #0f3352; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+        </g>
+        <g id="text_24">
+          <!-- 10$\times$ -->
+          <g transform="translate(101.454021 210.134147)">
+            <text>
+              <tspan x="0" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'">1</tspan>
+              <tspan x="3.891983" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'">0</tspan>
+              <tspan x="7.783966" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'">×</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="text_25">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="85.365374" y="231.793482" transform="rotate(-0 85.365374 231.793482)">own orders only</text>
+        </g>
+        <g id="text_26">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end; fill: #9a9a9a" x="118.951751" y="259.820883" transform="rotate(-0 118.951751 259.820883)">shared sales data</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="hulten-plot" transform="translate(45.3543 241.89) scale(1.33333)">
+    <metadata>
+      <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <cc:Work>
+          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+          <dc:format>image/svg+xml</dc:format>
+          <dc:creator>
+            <cc:Agent>
+              <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
+            </cc:Agent>
+          </dc:creator>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <g xmlns:xlink="http://www.w3.org/1999/xlink" id="hulten-plot-figure_1">
+      <g id="hulten-plot-patch_1">
+        <path d="M 0 124.724409  L 117.043434 124.724409  L 117.043434 0  L 0 0  L 0 124.724409  z " style="fill: none"/>
+      </g>
+      <g id="hulten-plot-axes_1">
+        <g id="hulten-plot-patch_2">
+          <path d="M 0 124.724409  L 117.043434 124.724409  L 117.043434 0  L 0 0  L 0 124.724409  z " style="fill: none"/>
+        </g>
+        <g id="hulten-plot-matplotlib.axis_1">
+          <g id="hulten-plot-xtick_1">
+            <g id="hulten-plot-line2d_1">
+              <defs/>
+              <g>
+                <use xlink:href="#md37cbe1367" x="0" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_1">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="0" y="136.428409" transform="rotate(-0 0 136.428409)">0.0</text>
+            </g>
+          </g>
+          <g id="hulten-plot-xtick_2">
+            <g id="hulten-plot-line2d_2">
+              <g>
+                <use xlink:href="#md37cbe1367" x="23.408687" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_2">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="23.408687" y="136.428409" transform="rotate(-0 23.408687 136.428409)">0.5</text>
+            </g>
+          </g>
+          <g id="hulten-plot-xtick_3">
+            <g id="hulten-plot-line2d_3">
+              <g>
+                <use xlink:href="#md37cbe1367" x="46.817374" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_3">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="46.817374" y="136.428409" transform="rotate(-0 46.817374 136.428409)">1.0</text>
+            </g>
+          </g>
+          <g id="hulten-plot-xtick_4">
+            <g id="hulten-plot-line2d_4">
+              <g>
+                <use xlink:href="#md37cbe1367" x="70.22606" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_4">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="70.22606" y="136.428409" transform="rotate(-0 70.22606 136.428409)">1.5</text>
+            </g>
+          </g>
+          <g id="hulten-plot-xtick_5">
+            <g id="hulten-plot-line2d_5">
+              <g>
+                <use xlink:href="#md37cbe1367" x="93.634747" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_5">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="93.634747" y="136.428409" transform="rotate(-0 93.634747 136.428409)">2.0</text>
+            </g>
+          </g>
+          <g id="hulten-plot-xtick_6">
+            <g id="hulten-plot-line2d_6">
+              <g>
+                <use xlink:href="#md37cbe1367" x="117.043434" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_6">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: middle" x="117.043434" y="136.428409" transform="rotate(-0 117.043434 136.428409)">2.5</text>
+            </g>
+          </g>
+          <g id="hulten-plot-text_7">
+            <!-- Chip productivity shock $-\Delta\log A$ -->
+            <g transform="translate(9.521717 147.212409)">
+              <text>
+                <tspan x="0" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">C</tspan>
+                <tspan x="5.053986" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">h</tspan>
+                <tspan x="8.945969" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">i</tspan>
+                <tspan x="10.499969" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">p</tspan>
+                <tspan x="14.391953" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="16.337952" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">p</tspan>
+                <tspan x="20.229935" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">r</tspan>
+                <tspan x="22.560928" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="26.452911" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">d</tspan>
+                <tspan x="30.344894" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">u</tspan>
+                <tspan x="34.236877" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">c</tspan>
+                <tspan x="37.736862" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="39.682861" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">i</tspan>
+                <tspan x="41.236862" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">v</tspan>
+                <tspan x="44.736847" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">i</tspan>
+                <tspan x="46.290848" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="48.236847" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">y</tspan>
+                <tspan x="51.736832" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="53.682831" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+                <tspan x="57.182816" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">h</tspan>
+                <tspan x="61.074799" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="64.966782" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">c</tspan>
+                <tspan x="68.466766" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">k</tspan>
+                <tspan x="71.966751" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="73.91275" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">−</tspan>
+                <tspan x="78.000732" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">Δ</tspan>
+                <tspan x="82.977707" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+                <tspan x="84.531708" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="88.423691" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">g</tspan>
+                <tspan x="93.287523" y="-0.765625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">A</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g id="hulten-plot-matplotlib.axis_2">
+          <g id="hulten-plot-ytick_1">
+            <g id="hulten-plot-line2d_7">
+              <defs/>
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_8">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="127.076409" transform="rotate(-0 -7 127.076409)">0</text>
+            </g>
+          </g>
+          <g id="hulten-plot-ytick_2">
+            <g id="hulten-plot-line2d_8">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="99.779528" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_9">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="102.131528" transform="rotate(-0 -7 102.131528)">10</text>
+            </g>
+          </g>
+          <g id="hulten-plot-ytick_3">
+            <g id="hulten-plot-line2d_9">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="74.834646" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_10">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="77.186646" transform="rotate(-0 -7 77.186646)">20</text>
+            </g>
+          </g>
+          <g id="hulten-plot-ytick_4">
+            <g id="hulten-plot-line2d_10">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="49.889764" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_11">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="52.241764" transform="rotate(-0 -7 52.241764)">30</text>
+            </g>
+          </g>
+          <g id="ytick_5">
+            <g id="hulten-plot-line2d_11">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="24.944882" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_12">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="27.296882" transform="rotate(-0 -7 27.296882)">40</text>
+            </g>
+          </g>
+          <g id="ytick_6">
+            <g id="hulten-plot-line2d_12">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="0" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="hulten-plot-text_13">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="2.352" transform="rotate(-0 -7 2.352)">50</text>
+            </g>
+          </g>
+          <g id="hulten-plot-text_14">
+            <!-- GDP loss $-\Delta\log Y$ (%) -->
+            <g transform="translate(-19.21125 96.557205) rotate(-90)">
+              <text>
+                <tspan x="0" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">G</tspan>
+                <tspan x="5.445984" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">D</tspan>
+                <tspan x="10.499969" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">P</tspan>
+                <tspan x="15.168945" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="17.114944" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+                <tspan x="18.668945" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="22.560928" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+                <tspan x="26.060913" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+                <tspan x="29.560898" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="31.506897" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">−</tspan>
+                <tspan x="35.594879" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">Δ</tspan>
+                <tspan x="40.571854" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+                <tspan x="42.125854" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="46.017838" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">g</tspan>
+                <tspan x="55.550646" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="57.496645" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">(</tspan>
+                <tspan x="59.827638" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">%</tspan>
+                <tspan x="66.050615" y="-0.765625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">)</tspan>
+                <tspan x="50.88167" y="-0.765625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">Y</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g id="hulten-plot-line2d_13">
+          <path d="M 0 124.724409  L 1.170434 124.365528  L 2.340869 124.006647  L 3.511303 123.647765  L 4.681737 123.288884  L 5.852172 122.930002  L 7.022606 122.571121  L 8.19304 122.21224  L 9.363475 121.853358  L 10.533909 121.494477  L 11.704343 121.135595  L 12.874778 120.776714  L 14.045212 120.417833  L 15.215646 120.058951  L 16.386081 119.70007  L 17.556515 119.341189  L 18.726949 118.982307  L 19.897384 118.623426  L 21.067818 118.264544  L 22.238252 117.905663  L 23.408687 117.546782  L 24.579121 117.1879  L 25.749555 116.829019  L 26.91999 116.470137  L 28.090424 116.111256  L 29.260859 115.752375  L 30.431293 115.393493  L 31.601727 115.034612  L 32.772162 114.67573  L 33.942596 114.316849  L 35.11303 113.957968  L 36.283465 113.599086  L 37.453899 113.240205  L 38.624333 112.881323  L 39.794768 112.522442  L 40.965202 112.163561  L 42.135636 111.804679  L 43.306071 111.445798  L 44.476505 111.086916  L 45.646939 110.728035  L 46.817374 110.369154  L 47.987808 110.010272  L 49.158242 109.651391  L 50.328677 109.292509  L 51.499111 108.933628  L 52.669545 108.574747  L 53.83998 108.215865  L 55.010414 107.856984  L 56.180848 107.498102  L 57.351283 107.139221  L 58.521717 106.78034  L 59.692151 106.421458  L 60.862586 106.062577  L 62.03302 105.703695  L 63.203454 105.344814  L 64.373889 104.985933  L 65.544323 104.627051  L 66.714757 104.26817  L 67.885192 103.909288  L 69.055626 103.550407  L 70.22606 103.191526  L 71.396495 102.832644  L 72.566929 102.473763  L 73.737363 102.114881  L 74.907798 101.756  L 76.078232 101.397119  L 77.248666 101.038237  L 78.419101 100.679356  L 79.589535 100.320475  L 80.75997 99.961593  L 81.930404 99.602712  L 83.100838 99.24383  L 84.271273 98.884949  L 85.441707 98.526068  L 86.612141 98.167186  L 87.782576 97.808305  L 88.95301 97.449423  L 90.123444 97.090542  L 91.293879 96.731661  L 92.464313 96.372779  L 93.634747 96.013898  L 94.805182 95.655016  L 95.975616 95.296135  L 97.14605 94.937254  L 98.316485 94.578372  L 99.486919 94.219491  L 100.657353 93.860609  L 101.827788 93.501728  L 102.998222 93.142847  L 104.168656 92.783965  L 105.339091 92.425084  L 106.509525 92.066202  L 107.679959 91.707321  L 108.850394 91.34844  L 110.020828 90.989558  L 111.191262 90.630677  L 112.361697 90.271795  L 113.532131 89.912914  L 114.702565 89.554033  L 115.873 89.195151  L 117.043434 88.83627  " clip-path="url(#p679da1a829)" style="fill: none; stroke-dasharray: 2.25,1.5; stroke-dashoffset: 0; stroke: #262626; stroke-width: 0.75"/>
+        </g>
+        <g id="hulten-plot-line2d_14">
+          <path d="M 0 124.724409  L 1.170434 124.363353  L 2.340869 123.997912  L 3.511303 123.628035  L 4.681737 123.25367  L 5.852172 122.874765  L 7.022606 122.491266  L 8.19304 122.103121  L 9.363475 121.710274  L 10.533909 121.312671  L 11.704343 120.910257  L 12.874778 120.502975  L 14.045212 120.09077  L 15.215646 119.673583  L 16.386081 119.251357  L 17.556515 118.824034  L 18.726949 118.391554  L 19.897384 117.953858  L 21.067818 117.510886  L 22.238252 117.062577  L 23.408687 116.608868  L 24.579121 116.149699  L 25.749555 115.685005  L 26.91999 115.214724  L 28.090424 114.738791  L 29.260859 114.257142  L 30.431293 113.76971  L 31.601727 113.27643  L 32.772162 112.777235  L 33.942596 112.272057  L 35.11303 111.760828  L 36.283465 111.243479  L 37.453899 110.71994  L 38.624333 110.190141  L 39.794768 109.654011  L 40.965202 109.111477  L 42.135636 108.562468  L 43.306071 108.006909  L 44.476505 107.444728  L 45.646939 106.875848  L 46.817374 106.300195  L 47.987808 105.717693  L 49.158242 105.128263  L 50.328677 104.531829  L 51.499111 103.928311  L 52.669545 103.317631  L 53.83998 102.699708  L 55.010414 102.074461  L 56.180848 101.441809  L 57.351283 100.801668  L 58.521717 100.153956  L 59.692151 99.498588  L 60.862586 98.835479  L 62.03302 98.164544  L 63.203454 97.485696  L 64.373889 96.798847  L 65.544323 96.103909  L 66.714757 95.400793  L 67.885192 94.689408  L 69.055626 93.969665  L 70.22606 93.241471  L 71.396495 92.504733  L 72.566929 91.759358  L 73.737363 91.005253  L 74.907798 90.24232  L 76.078232 89.470466  L 77.248666 88.689591  L 78.419101 87.899599  L 79.589535 87.10039  L 80.75997 86.291866  L 81.930404 85.473925  L 83.100838 84.646465  L 84.271273 83.809384  L 85.441707 82.962579  L 86.612141 82.105946  L 87.782576 81.239379  L 88.95301 80.362771  L 90.123444 79.476016  L 91.293879 78.579005  L 92.464313 77.67163  L 93.634747 76.75378  L 94.805182 75.825344  L 95.975616 74.886211  L 97.14605 73.936266  L 98.316485 72.975397  L 99.486919 72.003488  L 100.657353 71.020423  L 101.827788 70.026085  L 102.998222 69.020356  L 104.168656 68.003117  L 105.339091 66.974249  L 106.509525 65.933629  L 107.679959 64.881136  L 108.850394 63.816648  L 110.020828 62.740039  L 111.191262 61.651185  L 112.361697 60.549958  L 113.532131 59.436233  L 114.702565 58.309881  L 115.873 57.170772  L 117.043434 56.018776  " clip-path="url(#p679da1a829)" style="fill: none; stroke: #f0a875; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="hulten-plot-line2d_15">
+          <path d="M 0 124.724409  L 1.170434 124.362039  L 2.340869 123.992605  L 3.511303 123.615973  L 4.681737 123.232009  L 5.852172 122.840575  L 7.022606 122.441531  L 8.19304 122.034735  L 9.363475 121.620042  L 10.533909 121.197305  L 11.704343 120.766375  L 12.874778 120.327099  L 14.045212 119.879322  L 15.215646 119.422886  L 16.386081 118.957633  L 17.556515 118.483398  L 18.726949 118.000017  L 19.897384 117.50732  L 21.067818 117.005138  L 22.238252 116.493295  L 23.408687 115.971616  L 24.579121 115.439921  L 25.749555 114.898026  L 26.91999 114.345746  L 28.090424 113.782894  L 29.260859 113.209276  L 30.431293 112.624698  L 31.601727 112.028963  L 32.772162 111.421869  L 33.942596 110.803211  L 35.11303 110.172784  L 36.283465 109.530375  L 37.453899 108.875771  L 38.624333 108.208754  L 39.794768 107.529104  L 40.965202 106.836597  L 42.135636 106.131004  L 43.306071 105.412094  L 44.476505 104.679634  L 45.646939 103.933384  L 46.817374 103.173104  L 47.987808 102.398547  L 49.158242 101.609465  L 50.328677 100.805604  L 51.499111 99.986709  L 52.669545 99.152519  L 53.83998 98.302769  L 55.010414 97.437193  L 56.180848 96.555518  L 57.351283 95.657469  L 58.521717 94.742766  L 59.692151 93.811126  L 60.862586 92.86226  L 62.03302 91.895877  L 63.203454 90.911683  L 64.373889 89.909376  L 65.544323 88.888653  L 66.714757 87.849206  L 67.885192 86.790723  L 69.055626 85.712887  L 70.22606 84.615378  L 71.396495 83.49787  L 72.566929 82.360034  L 73.737363 81.201536  L 74.907798 80.022039  L 76.078232 78.821199  L 77.248666 77.598671  L 78.419101 76.354102  L 79.589535 75.087136  L 80.75997 73.797414  L 81.930404 72.484569  L 83.100838 71.148233  L 84.271273 69.78803  L 85.441707 68.403583  L 86.612141 66.994506  L 87.782576 65.560412  L 88.95301 64.100908  L 90.123444 62.615595  L 91.293879 61.104071  L 92.464313 59.565927  L 93.634747 58.00075  L 94.805182 56.408124  L 95.975616 54.787624  L 97.14605 53.138823  L 98.316485 51.461289  L 99.486919 49.754582  L 100.657353 48.018258  L 101.827788 46.25187  L 102.998222 44.454963  L 104.168656 42.627077  L 105.339091 40.767747  L 106.509525 38.876503  L 107.679959 36.952867  L 108.850394 34.996357  L 110.020828 33.006487  L 111.191262 30.98276  L 112.361697 28.924679  L 113.532131 26.831735  L 114.702565 24.703418  L 115.873 22.539208  L 117.043434 20.33858  " clip-path="url(#p679da1a829)" style="fill: none; stroke: #e07b39; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="hulten-plot-line2d_16">
+          <path d="M 0 124.724409  L 1.170434 124.3616  L 2.340869 123.990825  L 3.511303 123.611915  L 4.681737 123.224698  L 5.852172 122.828999  L 7.022606 122.42464  L 8.19304 122.011437  L 9.363475 121.589206  L 10.533909 121.157757  L 11.704343 120.716897  L 12.874778 120.266429  L 14.045212 119.806154  L 15.215646 119.335867  L 16.386081 118.85536  L 17.556515 118.364421  L 18.726949 117.862835  L 19.897384 117.350381  L 21.067818 116.826835  L 22.238252 116.29197  L 23.408687 115.745553  L 24.579121 115.187347  L 25.749555 114.617112  L 26.91999 114.034602  L 28.090424 113.439568  L 29.260859 112.831755  L 30.431293 112.210904  L 31.601727 111.576753  L 32.772162 110.929033  L 33.942596 110.267471  L 35.11303 109.591791  L 36.283465 108.901708  L 37.453899 108.196938  L 38.624333 107.477186  L 39.794768 106.742155  L 40.965202 105.991545  L 42.135636 105.225046  L 43.306071 104.442347  L 44.476505 103.643129  L 45.646939 102.827069  L 46.817374 101.99384  L 47.987808 101.143106  L 49.158242 100.27453  L 50.328677 99.387764  L 51.499111 98.482461  L 52.669545 97.558262  L 53.83998 96.614807  L 55.010414 95.651728  L 56.180848 94.668652  L 57.351283 93.6652  L 58.521717 92.640987  L 59.692151 91.595621  L 60.862586 90.528707  L 62.03302 89.439841  L 63.203454 88.328614  L 64.373889 87.194611  L 65.544323 86.037411  L 66.714757 84.856586  L 67.885192 83.651703  L 69.055626 82.422321  L 70.22606 81.167993  L 71.396495 79.888267  L 72.566929 78.582684  L 73.737363 77.250776  L 74.907798 75.892072  L 76.078232 74.506092  L 77.248666 73.092351  L 78.419101 71.650354  L 79.589535 70.179604  L 80.75997 68.679592  L 81.930404 67.149806  L 83.100838 65.589725  L 84.271273 63.998822  L 85.441707 62.376562  L 86.612141 60.722402  L 87.782576 59.035793  L 88.95301 57.316179  L 90.123444 55.562995  L 91.293879 53.775669  L 92.464313 51.953622  L 93.634747 50.096265  L 94.805182 48.203005  L 95.975616 46.273237  L 97.14605 44.306349  L 98.316485 42.301722  L 99.486919 40.258728  L 100.657353 38.176728  L 101.827788 36.055077  L 102.998222 33.89312  L 104.168656 31.690192  L 105.339091 29.44562  L 106.509525 27.158721  L 107.679959 24.828801  L 108.850394 22.455157  L 110.020828 20.037073  L 111.191262 17.573826  L 112.361697 15.06468  L 113.532131 12.508886  L 114.702565 9.905684  L 115.873 7.254304  L 117.043434 4.55396  " clip-path="url(#p679da1a829)" style="fill: none; stroke: #b34700; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="hulten-plot-line2d_17">
+          <defs>
+            <path id="m0f02bdd0c9" d="M 0 2  C 0.530406 2 1.03916 1.789267 1.414214 1.414214  C 1.789267 1.03916 2 0.530406 2 0  C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214  C 1.03916 -1.789267 0.530406 -2 0 -2  C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214  C -1.789267 -1.03916 -2 -0.530406 -2 0  C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214  C -1.03916 1.789267 -0.530406 2 0 2  z " style="stroke: #ffffff; stroke-width: 0.5"/>
+          </defs>
+          <g clip-path="url(#p679da1a829)">
+            <use xlink:href="#m0f02bdd0c9" x="70.22606" y="84.615378" style="fill: #d55e00; stroke: #ffffff; stroke-width: 0.5"/>
+          </g>
+        </g>
+        <g id="hulten-plot-patch_3">
+          <path d="M 0 124.724409  L 0 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="hulten-plot-patch_4">
+          <path d="M 0 124.724409  L 117.043434 124.724409  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="hulten-plot-text_15">
+          <!-- $\sigma = 0.5$ -->
+          <g style="fill: #f0a875" transform="translate(119.384303 58.006776)">
+            <text>
+              <tspan x="0" y="-0.03125" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #f0a875">σ</tspan>
+              <tspan x="5.765179" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #f0a875">=</tspan>
+              <tspan x="11.019357" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #f0a875">0</tspan>
+              <tspan x="14.91134" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #f0a875">.</tspan>
+              <tspan x="16.857339" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #f0a875">5</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="hulten-plot-text_16">
+          <!-- $\sigma = 0.2$ -->
+          <g style="fill: #e07b39" transform="translate(119.384303 22.32658)">
+            <text>
+              <tspan x="0" y="-0.03125" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #e07b39">σ</tspan>
+              <tspan x="5.765179" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #e07b39">=</tspan>
+              <tspan x="11.019357" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #e07b39">0</tspan>
+              <tspan x="14.91134" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #e07b39">.</tspan>
+              <tspan x="16.857339" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #e07b39">2</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="hulten-plot-text_17">
+          <!-- $\sigma = 0.1$ -->
+          <g style="fill: #b34700" transform="translate(119.384303 6.54196)">
+            <text>
+              <tspan x="0" y="-0.03125" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #b34700">σ</tspan>
+              <tspan x="5.765179" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #b34700">=</tspan>
+              <tspan x="11.019357" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #b34700">0</tspan>
+              <tspan x="14.91134" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #b34700">.</tspan>
+              <tspan x="16.857339" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #b34700">1</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="hulten-plot-text_18">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="66.480671" y="80.595108" transform="rotate(-0 66.480671 80.595108)">map in a</text>
+        </g>
+        <g id="hulten-plot-text_19">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'" transform="translate(119.384303 86.62427)">Hulten,</text>
+          <!-- $\sigma = 1$ -->
+          <g transform="translate(119.384303 95.02427)">
+            <text>
+              <tspan x="0" y="-0.03125" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">σ</tspan>
+              <tspan x="5.765179" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'">=</tspan>
+              <tspan x="11.019357" y="-0.03125" style="font-size: 7px; font-family: 'TeX Gyre Heros'">1</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="hulten-plot-text_20">
+          <!-- slope $\lambda_\mathrm{chips} = 0.058$ -->
+          <g transform="translate(65.544323 116.351272)">
+            <text>
+              <tspan x="0" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+              <tspan x="3.499985" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+              <tspan x="5.053986" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+              <tspan x="8.945969" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">p</tspan>
+              <tspan x="12.837952" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">e</tspan>
+              <tspan x="16.729935" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+              <tspan x="36.278258" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">=</tspan>
+              <tspan x="41.532436" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">0</tspan>
+              <tspan x="45.424419" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">.</tspan>
+              <tspan x="47.370418" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">0</tspan>
+              <tspan x="51.262401" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">5</tspan>
+              <tspan x="55.154384" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">8</tspan>
+              <tspan x="18.675934" y="-0.890625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">λ</tspan>
+              <tspan x="23.491913" y="0.210938" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'">c</tspan>
+              <tspan x="25.941902" y="0.210938" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'">h</tspan>
+              <tspan x="28.66629" y="0.210938" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'">i</tspan>
+              <tspan x="29.754091" y="0.210938" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'">p</tspan>
+              <tspan x="32.478479" y="0.210938" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'">s</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g id="volatility-plot" transform="translate(277.003 241.89) scale(1.33333)">
+    <metadata>
+      <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+        <cc:Work>
+          <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+          <dc:format>image/svg+xml</dc:format>
+          <dc:creator>
+            <cc:Agent>
+              <dc:title>FigWorks v0.8.0 (Matplotlib v3.11.1), https://github.com/maiani/figworks</dc:title>
+            </cc:Agent>
+          </dc:creator>
+        </cc:Work>
+      </rdf:RDF>
+    </metadata>
+    <g xmlns:xlink="http://www.w3.org/1999/xlink" id="volatility-plot-figure_1">
+      <g id="volatility-plot-patch_1">
+        <path d="M 0 124.724409  L 117.043434 124.724409  L 117.043434 0  L 0 0  L 0 124.724409  z " style="fill: none"/>
+      </g>
+      <g id="volatility-plot-axes_1">
+        <g id="volatility-plot-patch_2">
+          <path d="M 0 124.724409  L 117.043434 124.724409  L 117.043434 0  L 0 0  L 0 124.724409  z " style="fill: none"/>
+        </g>
+        <g id="volatility-plot-matplotlib.axis_1">
+          <g id="volatility-plot-xtick_1">
+            <g id="volatility-plot-line2d_1">
+              <defs/>
+              <g>
+                <use xlink:href="#md37cbe1367" x="2.225403" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_1">
+              <!-- $\mathdefault{10^{1}}$ -->
+              <g transform="translate(-2.394597 136.944409)">
+                <text>
+                  <tspan x="0" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">1</tspan>
+                  <tspan x="3.336029" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="6.727019" y="-3.025" style="font-size: 4.2px; font-family: 'TeX Gyre Heros'">1</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="volatility-plot-xtick_2">
+            <g id="volatility-plot-line2d_2">
+              <g>
+                <use xlink:href="#md37cbe1367" x="25.18901" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_2">
+              <!-- $\mathdefault{10^{2}}$ -->
+              <g transform="translate(20.56901 136.944409)">
+                <text>
+                  <tspan x="0" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">1</tspan>
+                  <tspan x="3.336029" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="6.727019" y="-3.025" style="font-size: 4.2px; font-family: 'TeX Gyre Heros'">2</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="volatility-plot-xtick_3">
+            <g id="volatility-plot-line2d_3">
+              <g>
+                <use xlink:href="#md37cbe1367" x="48.152616" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_3">
+              <!-- $\mathdefault{10^{3}}$ -->
+              <g transform="translate(43.532616 136.944409)">
+                <text>
+                  <tspan x="0" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">1</tspan>
+                  <tspan x="3.336029" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="6.727019" y="-3.025" style="font-size: 4.2px; font-family: 'TeX Gyre Heros'">3</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="volatility-plot-xtick_4">
+            <g id="volatility-plot-line2d_4">
+              <g>
+                <use xlink:href="#md37cbe1367" x="71.116222" y="124.724409" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_4">
+              <!-- $\mathdefault{10^{4}}$ -->
+              <g transform="translate(66.496222 136.944409)">
+                <text>
+                  <tspan x="0" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">1</tspan>
+                  <tspan x="3.336029" y="-0.826563" style="font-size: 6px; font-family: 'TeX Gyre Heros'">0</tspan>
+                  <tspan x="6.727019" y="-3.025" style="font-size: 4.2px; font-family: 'TeX Gyre Heros'">4</tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <g id="volatility-plot-text_5">
+            <!-- Number of sectors $n$ -->
+            <g transform="translate(26.986717 147.728409)">
+              <text>
+                <tspan x="0" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">N</tspan>
+                <tspan x="5.053986" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">u</tspan>
+                <tspan x="8.945969" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">m</tspan>
+                <tspan x="14.776947" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">b</tspan>
+                <tspan x="18.66893" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">e</tspan>
+                <tspan x="22.560913" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">r</tspan>
+                <tspan x="24.891907" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="26.837906" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="30.729889" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">f</tspan>
+                <tspan x="32.675888" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="34.621887" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+                <tspan x="38.121872" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">e</tspan>
+                <tspan x="42.013855" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">c</tspan>
+                <tspan x="45.51384" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="47.459839" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="51.351822" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">r</tspan>
+                <tspan x="53.682816" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'">s</tspan>
+                <tspan x="57.1828" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="59.128799" y="-0.875" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">n</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g id="volatility-plot-matplotlib.axis_2">
+          <g id="volatility-plot-ytick_1">
+            <g id="volatility-plot-line2d_5">
+              <defs/>
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="98.874676" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_6">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="101.226676" transform="rotate(-0 -7 101.226676)">0.01</text>
+            </g>
+          </g>
+          <g id="volatility-plot-ytick_2">
+            <g id="volatility-plot-line2d_6">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="49.437338" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_7">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="51.789338" transform="rotate(-0 -7 51.789338)">0.1</text>
+            </g>
+          </g>
+          <g id="volatility-plot-ytick_3">
+            <g id="volatility-plot-line2d_7">
+              <g>
+                <use xlink:href="#m06d17e5d63" x="0" y="0" style="stroke: #000000; stroke-width: 0.5"/>
+              </g>
+            </g>
+            <g id="volatility-plot-text_8">
+              <text style="font-size: 6px; font-family: 'TeX Gyre Heros'; text-anchor: end" x="-7" y="2.352" transform="rotate(-0 -7 2.352)">1</text>
+            </g>
+          </g>
+          <g id="volatility-plot-text_9">
+            <!-- Aggregate volatility $\sigma_Y / \sigma_\varepsilon$ -->
+            <g transform="translate(-24.214688 101.807205) rotate(-90)">
+              <text>
+                <tspan x="0" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">A</tspan>
+                <tspan x="4.668976" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">g</tspan>
+                <tspan x="8.560959" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">g</tspan>
+                <tspan x="12.452942" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">r</tspan>
+                <tspan x="14.783936" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">e</tspan>
+                <tspan x="18.675919" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">g</tspan>
+                <tspan x="22.567902" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">a</tspan>
+                <tspan x="26.459885" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="28.405884" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">e</tspan>
+                <tspan x="32.297867" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="34.243866" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">v</tspan>
+                <tspan x="37.743851" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">o</tspan>
+                <tspan x="41.635834" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+                <tspan x="43.189835" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">a</tspan>
+                <tspan x="47.081818" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="49.027817" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">i</tspan>
+                <tspan x="50.581818" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">l</tspan>
+                <tspan x="52.135818" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">i</tspan>
+                <tspan x="53.689819" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">t</tspan>
+                <tspan x="55.635818" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">y</tspan>
+                <tspan x="59.135803" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'"> </tspan>
+                <tspan x="69.132663" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'">/</tspan>
+                <tspan x="61.081802" y="-0.890625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">σ</tspan>
+                <tspan x="71.078662" y="-0.890625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'">σ</tspan>
+                <tspan x="65.680786" y="0.210938" style="font-style: italic; font-size: 4.9px; font-family: 'TeX Gyre Heros'">Y</tspan>
+                <tspan x="75.677646" y="0.210938" style="font-style: italic; font-size: 4.9px; font-family: 'TeX Gyre Heros'">ε</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g id="volatility-plot-line2d_8">
+          <path d="M 0 14.882122  L 117.043434 14.882122  " clip-path="url(#pb89ee2ea52)" style="fill: none; stroke-dasharray: 1.5,1; stroke-dashoffset: 0; stroke: #9a9a9a; stroke-width: 0.5"/>
+        </g>
+        <g id="volatility-plot-line2d_9">
+          <path d="M 2.225403 24.718669  L 3.587651 26.180457  L 4.949899 27.651078  L 6.312147 29.117704  L 7.674395 30.58345  L 9.036642 32.045941  L 10.39889 33.514243  L 11.761138 34.9832  L 13.123386 36.447453  L 14.485634 37.915841  L 15.847882 39.38222  L 17.210129 40.847472  L 18.572377 42.314747  L 19.934625 43.78137  L 21.296873 45.247453  L 22.659121 46.713936  L 24.021369 48.180146  L 25.383616 49.646573  L 26.745864 51.113021  L 28.108112 52.579542  L 29.47036 54.04586  L 30.832608 55.512264  L 32.194855 56.978576  L 33.557103 58.44498  L 34.919351 59.911347  L 36.281599 61.377712  L 37.643847 62.844065  L 39.006095 64.310428  L 40.368342 65.776797  L 41.73059 67.243159  L 43.092838 68.709521  L 44.455086 70.175882  L 45.817334 71.642244  L 47.179581 73.108606  L 48.541829 74.574966  L 49.904077 76.041327  L 51.266325 77.507691  L 52.628573 78.974053  L 53.990821 80.440414  L 55.353068 81.906776  L 56.715316 83.373138  L 58.077564 84.8395  L 59.439812 86.305861  L 60.80206 87.772223  L 62.164308 89.238585  L 63.526555 90.704946  L 64.888803 92.171308  L 66.251051 93.63767  L 67.613299 95.104032  L 68.975547 96.570393  L 70.337794 98.036755  L 71.700042 99.503117  L 73.06229 100.969479  L 74.424538 102.43584  L 75.786786 103.902202  L 77.149034 105.368564  L 78.511281 106.834925  L 79.873529 108.301287  L 81.235777 109.767649  L 82.598025 111.234011  " clip-path="url(#pb89ee2ea52)" style="fill: none; stroke: #a59d8f; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="volatility-plot-line2d_10">
+          <defs>
+            <path id="m846e069d58" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " style="stroke: #ffffff; stroke-width: 0.4"/>
+          </defs>
+          <g clip-path="url(#pb89ee2ea52)">
+            <use xlink:href="#m846e069d58" x="2.225403" y="24.111015" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="7.517342" y="29.784441" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="13.50884" y="36.287553" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="19.406499" y="42.519717" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="25.18901" y="48.804977" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="30.88337" y="54.831645" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="36.663627" y="61.117914" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="42.405659" y="67.288628" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="48.152616" y="73.469704" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="53.89195" y="79.634796" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="59.633543" y="85.821161" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="65.374587" y="92.006369" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="71.116222" y="98.184091" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="76.856678" y="104.36001" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m846e069d58" x="82.59778" y="110.537637" style="fill: #a59d8f; stroke: #ffffff; stroke-width: 0.4"/>
+          </g>
+        </g>
+        <g id="volatility-plot-line2d_11">
+          <path d="M 2.225403 23.909915  L 3.587651 25.278813  L 4.949899 26.666551  L 6.312147 28.041246  L 7.674395 29.404334  L 9.036642 30.752427  L 10.39889 32.11503  L 11.761138 33.485657  L 13.123386 34.815304  L 14.485634 36.173916  L 15.847882 37.512209  L 17.210129 38.83067  L 18.572377 40.167606  L 19.934625 41.498448  L 21.296873 42.805181  L 22.659121 44.118964  L 24.021369 45.420586  L 25.383616 46.721921  L 26.745864 48.018864  L 28.108112 49.319229  L 29.47036 50.596675  L 30.832608 51.88029  L 32.194855 53.145933  L 33.557103 54.416972  L 34.919351 55.679161  L 36.281599 56.935681  L 37.643847 58.181936  L 39.006095 59.425711  L 40.368342 60.666444  L 41.73059 61.898228  L 43.092838 63.125056  L 44.455086 64.345017  L 45.817334 65.559659  L 47.179581 66.769247  L 48.541829 67.970266  L 49.904077 69.167501  L 51.266325 70.360861  L 52.628573 71.54722  L 53.990821 72.727498  L 55.353068 73.903119  L 56.715316 75.072506  L 58.077564 76.23782  L 59.439812 77.396951  L 60.80206 78.550866  L 62.164308 79.699152  L 63.526555 80.842265  L 64.888803 81.980984  L 66.251051 83.114662  L 67.613299 84.243627  L 68.975547 85.36748  L 70.337794 86.486782  L 71.700042 87.601122  L 73.06229 88.711377  L 74.424538 89.817176  L 75.786786 90.918863  L 77.149034 92.015907  L 78.511281 93.109338  L 79.873529 94.198449  L 81.235777 95.283737  L 82.598025 96.365144  " clip-path="url(#pb89ee2ea52)" style="fill: none; stroke: #6e675b; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="volatility-plot-line2d_12">
+          <defs>
+            <path id="ma2d80f1b86" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " style="stroke: #ffffff; stroke-width: 0.4"/>
+          </defs>
+          <g clip-path="url(#pb89ee2ea52)">
+            <use xlink:href="#ma2d80f1b86" x="2.225403" y="22.896689" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="7.517342" y="28.712375" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="13.50884" y="34.847955" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="19.406499" y="40.53966" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="25.18901" y="45.90646" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="30.88337" y="51.314636" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="36.663627" y="56.513658" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="42.405659" y="62.213854" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="48.152616" y="66.855681" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="53.89195" y="72.186316" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="59.633543" y="77.063389" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="65.374587" y="82.021911" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="71.116222" y="86.426129" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="76.856678" y="91.182247" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#ma2d80f1b86" x="82.59778" y="95.643222" style="fill: #6e675b; stroke: #ffffff; stroke-width: 0.4"/>
+          </g>
+        </g>
+        <g id="volatility-plot-line2d_13">
+          <path d="M 2.225403 23.390996  L 3.587651 24.694045  L 4.949899 26.011562  L 6.312147 27.309966  L 7.674395 28.589518  L 9.036642 29.846177  L 10.39889 31.112934  L 11.761138 32.383433  L 13.123386 33.598537  L 14.485634 34.841621  L 15.847882 36.05326  L 17.210129 37.233352  L 18.572377 38.428451  L 19.934625 39.608499  L 21.296873 40.750638  L 22.659121 41.893331  L 24.021369 43.012581  L 25.383616 44.122859  L 26.745864 45.218932  L 28.108112 46.310277  L 29.47036 47.36439  L 30.832608 48.416939  L 32.194855 49.438413  L 33.557103 50.45719  L 34.919351 51.456028  L 36.281599 52.438836  L 37.643847 53.400303  L 39.006095 54.349766  L 40.368342 55.286631  L 41.73059 56.20425  L 43.092838 57.107458  L 44.455086 57.994336  L 45.817334 58.866898  L 47.179581 59.725704  L 48.541829 60.567243  L 49.904077 61.397042  L 51.266325 62.215258  L 52.628573 63.018925  L 53.990821 63.809389  L 55.353068 64.588463  L 56.715316 65.354903  L 58.077564 66.111215  L 59.439812 66.855664  L 60.80206 67.589556  L 62.164308 68.31285  L 63.526555 69.026327  L 64.888803 69.731031  L 66.251051 70.426676  L 67.613299 71.11387  L 68.975547 71.792559  L 70.337794 72.46353  L 71.700042 73.126705  L 73.06229 73.783097  L 74.424538 74.432638  L 75.786786 75.07585  L 77.149034 75.712526  L 78.511281 76.343715  L 79.873529 76.969049  L 81.235777 77.589113  L 82.598025 78.20404  " clip-path="url(#pb89ee2ea52)" style="fill: none; stroke: #262626; stroke-width: 0.75; stroke-linecap: square"/>
+        </g>
+        <g id="volatility-plot-line2d_14">
+          <defs>
+            <path id="m570ff72589" d="M 0 1.5  C 0.397805 1.5 0.77937 1.341951 1.06066 1.06066  C 1.341951 0.77937 1.5 0.397805 1.5 0  C 1.5 -0.397805 1.341951 -0.77937 1.06066 -1.06066  C 0.77937 -1.341951 0.397805 -1.5 0 -1.5  C -0.397805 -1.5 -0.77937 -1.341951 -1.06066 -1.06066  C -1.341951 -0.77937 -1.5 -0.397805 -1.5 0  C -1.5 0.397805 -1.341951 0.77937 -1.06066 1.06066  C -0.77937 1.341951 -0.397805 1.5 0 1.5  z " style="stroke: #ffffff; stroke-width: 0.4"/>
+          </defs>
+          <g clip-path="url(#pb89ee2ea52)">
+            <use xlink:href="#m570ff72589" x="2.225403" y="23.4993" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="7.517342" y="27.416062" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="13.50884" y="33.374566" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="19.406499" y="38.567167" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="25.18901" y="43.603207" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="30.88337" y="47.826077" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="36.663627" y="51.928108" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="42.405659" y="56.775789" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="48.152616" y="59.703057" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="53.89195" y="63.333607" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="59.633543" y="66.30471" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="65.374587" y="69.46613" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="71.116222" y="72.460031" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="76.856678" y="75.177755" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+            <use xlink:href="#m570ff72589" x="82.59778" y="77.430243" style="fill: #262626; stroke: #ffffff; stroke-width: 0.4"/>
+          </g>
+        </g>
+        <g id="volatility-plot-patch_3">
+          <path d="M 0 124.724409  L 0 0  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="volatility-plot-patch_4">
+          <path d="M -0 124.724409  L 84.94169 124.724409  " style="fill: none; stroke: #000000; stroke-width: 0.5; stroke-linejoin: miter; stroke-linecap: square"/>
+        </g>
+        <g id="volatility-plot-text_10">
+          <text style="font-size: 7px; font-family: 'TeX Gyre Heros'; text-anchor: start; fill: #9a9a9a" x="4.04369" y="11.309996" transform="rotate(-0 4.04369 11.309996)">one hub supplies all</text>
+        </g>
+        <g id="volatility-plot-text_11">
+          <!-- balanced, $n^{-1/2}$ -->
+          <g style="fill: #a59d8f" transform="translate(85.953652 113.558011)">
+            <text>
+              <tspan x="0" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">b</tspan>
+              <tspan x="3.891983" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">a</tspan>
+              <tspan x="7.783966" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">l</tspan>
+              <tspan x="9.337967" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">a</tspan>
+              <tspan x="13.22995" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">n</tspan>
+              <tspan x="17.121933" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">c</tspan>
+              <tspan x="20.621918" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">e</tspan>
+              <tspan x="24.513901" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">d</tspan>
+              <tspan x="28.405884" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">,</tspan>
+              <tspan x="30.351883" y="-0.853125" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f"> </tspan>
+              <tspan x="32.297882" y="-0.853125" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">n</tspan>
+              <tspan x="36.50286" y="-3.423438" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">−</tspan>
+              <tspan x="39.364447" y="-3.423438" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">1</tspan>
+              <tspan x="42.088836" y="-3.423438" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">/</tspan>
+              <tspan x="43.451035" y="-3.423438" style="font-size: 4.9px; font-family: 'TeX Gyre Heros'; fill: #a59d8f">2</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="volatility-plot-text_12">
+          <!-- Zipf, $\beta = 1.5$ -->
+          <g style="fill: #6e675b" transform="translate(85.953652 98.304144)">
+            <text>
+              <tspan x="0" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">Z</tspan>
+              <tspan x="4.276978" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">i</tspan>
+              <tspan x="5.830978" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">p</tspan>
+              <tspan x="9.722961" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">f</tspan>
+              <tspan x="11.668961" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">,</tspan>
+              <tspan x="13.61496" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b"> </tspan>
+              <tspan x="20.570142" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">=</tspan>
+              <tspan x="25.824319" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">1</tspan>
+              <tspan x="29.716302" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">.</tspan>
+              <tspan x="31.662302" y="-0.875" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">5</tspan>
+              <tspan x="15.560959" y="-0.875" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #6e675b">β</tspan>
+            </text>
+          </g>
+        </g>
+        <g id="volatility-plot-text_13">
+          <!-- $\beta = 1.2$ -->
+          <g style="fill: #262626" transform="translate(85.953652 80.14304)">
+            <text>
+              <tspan x="0" y="-0.890625" style="font-style: italic; font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #262626">β</tspan>
+              <tspan x="5.009183" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #262626">=</tspan>
+              <tspan x="10.263361" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #262626">1</tspan>
+              <tspan x="14.155344" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #262626">.</tspan>
+              <tspan x="16.101343" y="-0.890625" style="font-size: 7px; font-family: 'TeX Gyre Heros'; fill: #262626">2</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text font-family="TeX Gyre Heros" font-size="8pt" font-weight="bold" class="figworks-label" x="34.0157" y="15.1181">a</text>
+  <text font-family="TeX Gyre Heros" font-size="8pt" font-weight="bold" class="figworks-label" x="497.313" y="15.1181">b</text>
+  <text font-family="TeX Gyre Heros" font-size="8pt" font-weight="bold" class="figworks-label" x="34.0157" y="234.331">c</text>
+  <text font-family="TeX Gyre Heros" font-size="8pt" font-weight="bold" class="figworks-label" x="265.664" y="234.331">d</text>
+</svg>

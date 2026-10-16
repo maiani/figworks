@@ -397,6 +397,7 @@ python examples/hodgkin_huxley.py       # neuroscience
 python examples/exoplanet_transit.py    # astrophysics
 python examples/energy_landscape.py     # chemistry
 python examples/climate_energy_balance.py # climate science
+python examples/production_network.py    # economics
 python examples/gallery.py              # all of them, with a preflight report
 ```
 

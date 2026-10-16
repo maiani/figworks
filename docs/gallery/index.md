@@ -54,6 +54,12 @@ Data shown as measurements are simulated, with fixed seeds; each script says whi
 
     *Climate science.* Where the planet gains and loses energy, why its ice edge can jump to a snowball state and back, and how fast the surface warms after CO2 doubles: a diffusive energy-balance model and a two-layer ocean, solved in the script.
 
+-   **[Shocks in a production network](production_network.md)**
+
+    [![Shocks in a production network](../images/gallery-production_network.svg)](production_network.md)
+
+    *Economics.* What a collapse of chip productivity does to every sector of a CES input-output economy, why complementarity breaks Hulten's theorem for large shocks, how orders swell up a supply chain, and why hub suppliers stop shocks averaging out.
+
 </div>
 
 ## Rebuild

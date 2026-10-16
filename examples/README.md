@@ -18,6 +18,7 @@ simulated with fixed seeds, so every run is byte-identical.
 | `exoplanet_transit.py` | Astrophysics | transit geometry, light curve, transmission spectrum |
 | `energy_landscape.py` | Chemistry | potential-energy surface, minimum-energy path, barriers |
 | `climate_energy_balance.py` | Climate science | energy budget, ice-albedo hysteresis, warming after CO2 doubling |
+| `production_network.py` | Economics | sector map under a chip shock, bullwhip effect, Hulten's theorem, hub suppliers |
 
 They need VecView and a TeX installation; the transmon also needs VecWire.
 `gallery.py` builds them all, runs the publication preflight on each SVG, and

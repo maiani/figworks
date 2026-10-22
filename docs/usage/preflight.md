@@ -94,10 +94,15 @@ markers, patterns, and `use` instances need visual inspection. Text rendered as
 paths cannot be checked for nominal font size. Referenced content is checked
 structurally, but not expanded for physical measurements.
 
-`report.unchecked` records encountered coverage limits. Stylesheets or inline
-font shorthand disable font and physical measurements conservatively, except
-for universal stroke-cap/join rules such as Matplotlib exports; those do not
-change fonts or physical scale and fit within the bounds padding. Nested
+`report.unchecked` records encountered coverage limits. Stylesheets disable
+font and physical measurements conservatively, except for universal
+stroke-cap/join rules such as Matplotlib exports; those do not change fonts or
+physical scale and fit within the bounds padding. An inline CSS `font`
+shorthand (`style="font: italic 8px 'cmex10'"`, as Matplotlib before 3.10
+wrote all text) counts as the longhand properties it stands for, in
+declaration order, for both the font check and text sizes, exactly as PDF and
+PNG export render it. A shorthand FigWorks cannot read, such as a system font
+(`font: caption`), is a `font` error, and its size is left unchecked. Nested
 SVG viewports, CSS transforms, relative font/geometry lengths, and unsupported
 transforms also leave relevant measurements unchecked. This is not a full CSS
 engine, SVG validator, or visual-overlap detector. A report with no findings

@@ -78,6 +78,41 @@ SVG output is not checked: its fonts are the viewer's concern.
 If a font is installed but reported as rendering as something unrelated, the
 fontconfig cache may be stale: `fc-cache -f` rebuilds it.
 
+The CSS `font` shorthand (`style="font: italic 8px 'cmex10'"`), which
+Matplotlib before 3.10 wrote for all text and other tools still write, counts
+as the longhand properties it stands for, in declaration order. CairoSVG on its
+own would apply a shorthand's family only where no ancestor sets
+`font-family`, and every FigWorks root does, so export first rewrites
+shorthands as longhands: the PDF and PNG then show what the SVG names, and the
+check tests that. A shorthand FigWorks cannot read, such as a system font
+(`font: caption`), is reported as a problem. A `font="..."` attribute is not an
+SVG presentation attribute, browsers ignore it, and so does export.
+
+### Math that the text face cannot cover
+
+A text face has letters, digits, and some symbols, not ∫, ′, ⟨⟩, or ∝.
+Matplotlib's mathtext draws what the face lacks from fonts bundled inside
+Matplotlib (Computer Modern by default, `mathtext.fallback`), and writes those
+runs as text naming them, `cmex10` or `cmsy10`, with each glyph's code in that
+font. Fontconfig cannot see those fonts, so as text they cannot render.
+
+FigWorks therefore writes a math expression as glyph outlines when any of its
+runs would fail the check above on this machine, and as live text otherwise:
+`$x^2$` in the theme face stays editable, `$\int K\,dx$` becomes paths drawn
+from the exact fonts Matplotlib laid it out with. This needs nothing installed
+beyond the text face, works the same on every machine, and keeps the
+guarantee: everything left as text is checked, everything outlined is what
+Matplotlib drew. Ordinary text is never outlined; a missing text face still
+raises `FontError`. Without fontconfig's tools all math is outlined.
+`mpl_to_svg(fig, math="text")` keeps all math live (export then raises where it
+cannot render), and `math="path"` outlines all of it.
+
+The theme takes `\mathcal` from TeX's calligraphic capitals (`cmsy10`,
+bundled with Matplotlib) rather than the generic `cursive` family, which
+fontconfig maps to whatever script face a machine happens to have. To typeset
+all plot text with LaTeX instead, set [`math: latex`](styles.md#latex-math) in
+the style; its text is glyph outlines, so only FigWorks' own labels are checked.
+
 ## Export an SVG string
 
 ```python

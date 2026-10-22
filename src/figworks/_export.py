@@ -8,6 +8,8 @@ from typing import Any
 import cairosvg
 from cairosvg.surface import PDFSurface, cairo
 
+from figworks.fonts import for_cairosvg
+
 
 class _ReproduciblePDF(PDFSurface):
     """CairoSVG's PDF surface, crediting FigWorks and without cairo's creation date.
@@ -27,8 +29,13 @@ class _ReproduciblePDF(PDFSurface):
         return surface, width, height
 
 
+# CairoSVG lets an inherited font-family override a ``font`` shorthand's family,
+# so shorthands are expanded first: the render then matches the SVG and the
+# font check, which reads them the same way.
 def svg_to_pdf(svg_string: str, path: str | Path) -> None:
-    _ReproduciblePDF.convert(bytestring=svg_string.encode("utf-8"), write_to=str(path))
+    _ReproduciblePDF.convert(
+        bytestring=for_cairosvg(svg_string).encode("utf-8"), write_to=str(path)
+    )
 
 
 def svg_to_png(svg_string: str, path: str | Path, dpi: int = 300) -> None:
@@ -36,5 +43,8 @@ def svg_to_png(svg_string: str, path: str | Path, dpi: int = 300) -> None:
     # pixel each. Resolving at the CSS 96 DPI and scaling rasterizes every unit
     # at `dpi`.
     cairosvg.svg2png(
-        bytestring=svg_string.encode("utf-8"), write_to=str(path), dpi=96, scale=dpi / 96
+        bytestring=for_cairosvg(svg_string).encode("utf-8"),
+        write_to=str(path),
+        dpi=96,
+        scale=dpi / 96,
     )

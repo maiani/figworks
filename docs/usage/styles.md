@@ -65,6 +65,8 @@ before submission; journals revise them.
 | `page` | named lengths, kept as written | `column: 86mm` |
 | `matplotlib` | Matplotlib styles or `.mplstyle` files layered underneath | `./cosmetics.mplstyle` |
 | `rcparams` | raw Matplotlib settings, applied last | `axes.grid: true` |
+| `math` | `mathtext` (default) or `latex`: how Matplotlib sets math | `math: latex` |
+| `tex` | `engine` and `preamble` for VecTeX; `matplotlib` for `math: latex` | see below |
 
 Lengths take `pt`, `mm`, `cm`, `in`, or `px`; a bare number is points. Nested
 keys merge with the base key by key; lists and values replace it.
@@ -81,6 +83,62 @@ defaults:
 
 A misspelt setting is reported when the style is loaded, not halfway through a
 build.
+
+### Mathtext
+
+By default (`math: mathtext`) Matplotlib sets math itself: letters in the text
+face (`mathtext.fontset: custom`, with `rm`, `it`, `bf`, and `sf` in the theme
+family), `\mathcal` in TeX's calligraphic capitals (`mathtext.cal: cmsy10`),
+and every symbol the face lacks (∫, ′, ⟨⟩, ∝, ...) from Matplotlib's bundled
+Computer Modern (`mathtext.fallback: cm`). Nothing beyond the text face needs
+installing: FigWorks writes math that fontconfig cannot render as glyph
+outlines, so PDF and PNG show it exactly as Matplotlib drew it; see
+[Export](export.md#math-that-the-text-face-cannot-cover). Override any of these
+in `rcparams`, for example `mathtext.fallback: stixsans`.
+
+### LaTeX math
+
+`math: latex` has Matplotlib typeset all its text, words and math, with LaTeX
+(`text.usetex`), in the theme's TeX font setup:
+
+```yaml
+font:
+  family: Latin Modern Sans
+math: latex
+```
+
+Built-in setups exist for TeX Gyre Heros (`tgheros` and `sansmath`), TeX Gyre
+Termes (`mathptmx` and `tgtermes`), Latin Modern Sans (`lmodern` and
+`sansmath`), and Latin Modern Roman (`lmodern`), each after
+`\usepackage[T1]{fontenc}\usepackage{amsmath}`. For another face, give the
+preamble as `tex.matplotlib`: packages only, no `\documentclass`. Matplotlib
+wraps every string in `\sffamily` when the preamble makes sans-serif the
+default family (`\renewcommand{\familydefault}{\sfdefault}`), and in
+`\rmfamily` otherwise. Prefer `sansmath` to `sfmath` for sans-serif math:
+`sfmath` detaches the bar of `\hbar`.
+
+Usetex text reaches the SVG as glyph outlines, so it renders the same
+everywhere and needs no font check; FigWorks' own text, such as panel labels,
+stays live in `font.family`, which fontconfig must resolve (Latin Modern ships
+with TeX Live, and on Debian and Ubuntu as `fonts-lmodern`). Building needs
+`latex` and the packages the preamble loads, plus `type1cm` and `cm-super`,
+which Matplotlib itself requires (`texlive-latex-extra` and
+`cm-super-minimal` on Debian and Ubuntu).
+
+Whenever `text.usetex` is on, from `math: latex` or from `rcparams`, the
+preamble FigWorks generates ends with
+
+```latex
+\DeclareFontShape{OMX}{cmex}{m}{n}{<->cmex10}{}
+```
+
+Matplotlib typesets each string at 100 pt for SVG and PDF and scales it down.
+amsmath, which `sansmath` and most math setups load, declares the OMX/cmex
+font of ∫, ∑, and large delimiters only up to 24.88 pt, overriding the
+scalable declaration Matplotlib's `type1cm` makes, so those symbols would come
+out at a quarter of their size (Matplotlib's own PNG, through dvipng, is not
+affected). The declaration makes `cmex10` scale freely again. Keep it last if
+you enable usetex outside a theme.
 
 ## Shared typography and physical sizing
 
@@ -121,7 +179,8 @@ Matplotlib `rcparams` overrides apply only to Matplotlib.
 ### TeX fonts
 
 The built-in Heros setup uses `tgheros` and `sansmath` with pdfLaTeX. Termes uses
-`tgtermes` and `mathptmx`. These pair text with a compatible TeX math setup;
+`tgtermes` and `mathptmx`; Latin Modern Sans and Roman use `lmodern`, the sans
+with `sansmath`. These pair text with a compatible TeX math setup;
 math glyphs are not promised to match Matplotlib mathtext glyphs exactly.
 The TeX packages must be installed (`tex-gyre`, `texlive-fonts-recommended`,
 and `texlive-latex-recommended` on Debian/Ubuntu; rendering also needs the

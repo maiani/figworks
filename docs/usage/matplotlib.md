@@ -38,7 +38,10 @@ panel.add(mpl_fig, id="sine-panel")  # embed directly
 ```
 
 `mpl_to_svg` preserves text as real SVG text (rather than paths) via an
-internal `svg.fonttype = "none"` context, so fonts stay editable.
+internal `svg.fonttype = "none"` context, so fonts stay editable. The one
+exception is math that this machine could not render as text: see
+[Math that the text face cannot cover](export.md#math-that-the-text-face-cannot-cover).
+`math="text"` keeps all math live, and `math="path"` outlines all of it.
 
 ### Setting semantic ids on artists
 

@@ -7,8 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `math: latex` in `style.md` has Matplotlib typeset all its text, words and
+  math, with LaTeX (`text.usetex`) in the theme's TeX font setup, with built-in
+  setups for TeX Gyre Heros, TeX Gyre Termes, Latin Modern Sans, and Latin
+  Modern Roman, or a `tex.matplotlib` preamble for any other face. Usetex text
+  is glyph outlines, so it renders identically everywhere.
+- `mpl_to_svg(..., math=...)` and `mpl_svg_context(math=...)`: `"auto"`
+  (default) outlines only math that cannot render as text, `"text"` keeps all
+  math live, `"path"` outlines all of it.
+- `figworks.fonts.parse_font_shorthand`, `expand_font_shorthand`, and
+  `for_cairosvg`, the CSS `font` shorthand handling the check and export share.
+
 ### Fixed
 
+- The font check ignored the CSS `font` shorthand, so substitution was silent.
+  Matplotlib before 3.10 writes every run of text as `style="font: 8px 'cmex10'"`;
+  the check read only `font-family`, took each run for the root's TeX Gyre Heros,
+  and passed. CairoSVG itself applies a shorthand's family only where no
+  ancestor sets `font-family`, and every FigWorks root does, so it drew those
+  runs in TeX Gyre Heros too: `\int` printed as "Z", the prime as "0",
+  `\langle`/`\rangle` as "®". The shorthand is now read by the CSS grammar,
+  in declaration order; PDF and PNG export rewrite it as longhands before
+  CairoSVG renders, so the render, the check, and the SVG agree. An unreadable
+  shorthand is a `FontError`. Weights follow CairoSVG: bold is `bold` or 550
+  and up.
+- Preflight read the shorthand only to give up: any `font:` in an inline style
+  skipped the font check and every physical measurement of the figure. It now
+  checks fonts and text sizes through the shorthand, and leaves only an
+  unreadable one's size unchecked.
+- Theme math had no renderable fallback. `theme.rc()` set the text face for
+  mathtext and nothing else, so ∫, ′, ⟨⟩, ∝ came from Matplotlib's bundled
+  Computer Modern, which fontconfig and CairoSVG cannot see, and `\mathcal`
+  from the generic `cursive` family. FigWorks now writes a math expression as
+  glyph outlines when any of its runs would fail the font check on this
+  machine, and as live text otherwise; ordinary text always stays live and
+  checked. Of the options, this is the one that needs no extra fonts, renders
+  the same on every machine, and keeps "no silent substitution": configuring
+  system math fonts depends on what each machine has installed, and exposing
+  Matplotlib's bundled fonts to fontconfig would mean patching the process-wide
+  font configuration. The theme also sets `mathtext.cal: cmsy10`, TeX's
+  calligraphic capitals.
+- With `text.usetex`, ∫, ∑, and large delimiters came out at about a quarter
+  size in SVG, PDF, and PNG (not in Matplotlib's own PNG). Matplotlib typesets
+  usetex text at 100 pt for paths, and amsmath caps the OMX/cmex font at
+  24.88 pt. Every usetex preamble a theme generates now ends with
+  `\DeclareFontShape{OMX}{cmex}{m}{n}{<->cmex10}{}`.
 - `mpl_to_svg` now rasterizes Matplotlib artists at 300 dpi by default (new `dpi` argument).
   Matplotlib resolves `dpi="figure"` to the creation dpi, so rasterized panels embedded
   at 100 dpi, below the preflight threshold, and `fig.set_dpi` had no effect.

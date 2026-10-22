@@ -172,3 +172,61 @@ def test_a_figure_can_be_sized_from_the_page() -> None:
     nature = load_theme("nature")
     figure = Figure(width=nature.page["column"], height="60mm", theme=nature)
     assert figure.document.root.get("width") == "89mm"
+
+
+# --- math: latex -----------------------------------------------------------
+
+
+def test_latex_math_typesets_matplotlib_text_with_the_theme_tex_setup(tmp_path) -> None:
+    from figworks.style import SCALABLE_CMEX
+
+    path = write(tmp_path / "style.md", "font:\n  family: Latin Modern Sans\nmath: latex\n")
+    theme = load_theme(path)
+    assert theme.math == "latex"
+    rc = theme.rc()
+    assert rc["text.usetex"] is True
+    assert rc["font.family"] == ["sans-serif"], "\\sffamily, which the preamble makes LM Sans"
+    preamble = rc["text.latex.preamble"]
+    assert r"\usepackage{lmodern}" in preamble
+    assert r"\sansmath" in preamble
+    assert preamble.endswith(SCALABLE_CMEX)
+    assert load_theme().math == "mathtext"
+    assert "text.usetex" not in load_theme().rc()
+
+
+def test_latex_math_in_a_serif_face_uses_rmfamily(tmp_path) -> None:
+    path = write(tmp_path / "style.md", "base: ieee\nmath: latex\n")
+    rc = load_theme(path).rc()
+    assert rc["font.family"] == ["serif"]
+    assert r"\usepackage{tgtermes}" in rc["text.latex.preamble"]
+
+
+def test_the_scalable_cmex_declaration_always_ends_a_usetex_preamble(tmp_path) -> None:
+    from figworks.style import SCALABLE_CMEX
+
+    custom = (
+        "font:\n  family: Custom Sans\nmath: latex\ntex:\n  matplotlib: |\n"
+        "    \\usepackage{amsmath}\n    \\renewcommand{\\familydefault}{\\sfdefault}\n"
+    )
+    rc = load_theme(write(tmp_path / "custom.md", custom)).rc()
+    assert rc["font.family"] == ["sans-serif"]
+    assert rc["text.latex.preamble"].startswith(r"\usepackage{amsmath}")
+    assert rc["text.latex.preamble"].endswith(SCALABLE_CMEX)
+    raw = "rcparams:\n  text.usetex: true\n  text.latex.preamble: \\usepackage{amsmath}\n"
+    rc = load_theme(write(tmp_path / "raw.md", raw)).rc()
+    assert rc["text.latex.preamble"] == "\\usepackage{amsmath}\n" + SCALABLE_CMEX
+    once = load_theme(
+        write(
+            tmp_path / "once.md",
+            f"math: latex\nrcparams:\n  text.latex.preamble: '{SCALABLE_CMEX}'\n",
+        )
+    )
+    assert once.rc()["text.latex.preamble"].count("DeclareFontShape") == 1
+
+
+def test_latex_math_needs_a_known_face_or_a_preamble(tmp_path) -> None:
+    path = write(tmp_path / "style.md", "font:\n  family: Unknown Face\nmath: latex\n")
+    with pytest.raises(ValueError, match=r"tex\.matplotlib"):
+        load_theme(path).rc()
+    with pytest.raises(ValueError, match="math must be"):
+        load_theme(write(tmp_path / "bad.md", "math: mathml\n"))

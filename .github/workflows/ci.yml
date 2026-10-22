@@ -79,18 +79,21 @@ jobs:
           ref: ${{ inputs.ref || github.sha }}
       # dvisvgm is its own package, which texlive-binaries only recommends, and
       # it reads PDF through mutool: the runner's Ghostscript is too new.
+      # Matplotlib's usetex (math: latex) checks for cm-super; lmodern and
+      # fonts-lmodern give the Latin Modern setup its TeX and system fonts.
       - run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             fonts-texgyre fonts-dejavu-core fontconfig libcairo2 \
             texlive-latex-base texlive-latex-recommended texlive-latex-extra \
-            texlive-fonts-recommended tex-gyre texlive-binaries dvisvgm mupdf-tools
+            texlive-fonts-recommended tex-gyre texlive-binaries dvisvgm mupdf-tools \
+            lmodern fonts-lmodern cm-super-minimal
       # The tests skip when a tool is missing, so a broken install would pass.
       - run: |
           status=0
-          for tool in pdflatex dvisvgm mutool; do
+          for tool in pdflatex latex kpsewhich dvisvgm mutool; do
             if ! command -v "$tool" >/dev/null; then
-              echo "::error::$tool is missing; the VecTeX tests would silently skip"
+              echo "::error::$tool is missing; the TeX tests would silently skip"
               status=1
             fi
           done
@@ -99,7 +102,7 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --all-extras --locked --python 3.14
-      - run: uv run pytest tests/test_vectex.py
+      - run: uv run pytest tests/test_vectex.py tests/test_usetex.py
       # The gallery, the README figure among it: every producer at once, through
       # the real toolchain, each figure checked by the publication preflight.
       - run: >-

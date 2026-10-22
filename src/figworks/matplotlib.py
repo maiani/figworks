@@ -57,12 +57,100 @@ def _export_metadata(kind: str) -> dict[str, str | None]:
     return metadata[kind]
 
 
-@contextmanager
-def mpl_svg_context() -> Iterator[None]:
-    """Keep text as SVG text and ids deterministic while exporting Matplotlib figures."""
+type MathText = Literal["auto", "text", "path"]
 
+
+@contextmanager
+def mpl_svg_context(math: MathText = "auto") -> Iterator[None]:
+    """Keep text as SVG text and ids deterministic while exporting Matplotlib figures.
+
+    ``math`` decides how mathtext (``$...$``) is written:
+
+    * ``"auto"`` (default): as live text when every run of it passes the
+      export font check (:func:`~figworks.fonts.check_fonts`) on this machine,
+      otherwise the whole expression as glyph outlines;
+    * ``"text"``: always as live text, even where PDF and PNG export would then
+      raise :class:`~figworks.fonts.FontError`;
+    * ``"path"``: always as glyph outlines.
+
+    Matplotlib draws a symbol missing from the text face from its own bundled
+    fonts (Computer Modern by default), which fontconfig, and so CairoSVG,
+    cannot see; as outlines it renders exactly as Matplotlib laid it out.
+    Ordinary text always stays live and checked.
+    """
+    if math not in ("auto", "text", "path"):
+        raise ValueError("math must be 'auto', 'text', or 'path'")
     with rc_context({"svg.fonttype": "none", "svg.hashsalt": "figworks"}):
+        if math == "text":
+            yield
+        else:
+            with _outlined_math(math):
+                yield
+
+
+def _math_renders_as_text(renderer: Any, args: tuple[Any, ...]) -> bool:
+    """Whether a mathtext string written as live SVG text passes the font check.
+
+    It is written into a scratch buffer exactly as Matplotlib would write it,
+    then checked as :meth:`figworks.Figure.save` would check it.
+    """
+    import io
+
+    from figworks.fonts import FontError, check_fonts
+
+    scratch = io.StringIO()
+    writer = renderer.writer
+    renderer.writer = type(writer)(scratch)
+    try:
+        renderer._draw_text_as_text(*args)
+    finally:
+        renderer.writer = writer
+    try:
+        check_fonts(f'<svg xmlns="http://www.w3.org/2000/svg">{scratch.getvalue()}</svg>')
+    except (FontError, etree.XMLSyntaxError):
+        return False
+    return True
+
+
+@contextmanager
+def _outlined_math(math: MathText) -> Iterator[None]:
+    """Draw mathtext as glyph outlines where ``math`` asks for it, for this export only.
+
+    Matplotlib reads ``svg.fonttype`` as it draws each text, so switching it to
+    ``"path"`` around one call outlines that text alone.
+    """
+    from matplotlib.backends.backend_svg import RendererSVG
+
+    original = RendererSVG.draw_text
+
+    def draw_text(
+        self: RendererSVG,
+        gc: Any,
+        x: float,
+        y: float,
+        s: str,
+        prop: Any,
+        angle: float,
+        ismath: bool | str = False,
+        mtext: Any = None,
+    ) -> None:
+        args = (gc, x, y, s, prop, angle, ismath, mtext)
+        # ``ismath`` is True for mathtext; usetex text ("TeX") is always outlines.
+        outline = (
+            ismath is True
+            and matplotlib.rcParams["svg.fonttype"] == "none"
+            and (math == "path" or not _math_renders_as_text(self, args))
+        )
+        if not outline:
+            return original(self, *args)
+        with rc_context({"svg.fonttype": "path"}):
+            return original(self, *args)
+
+    RendererSVG.draw_text = draw_text
+    try:
         yield
+    finally:
+        RendererSVG.draw_text = original
 
 
 def theme_rc(theme: str | Path | Theme = "paper") -> RcParams:
@@ -90,6 +178,7 @@ def mpl_to_svg(
     transparent: bool = True,
     bbox_inches: Literal["tight"] | Bbox | None = "tight",
     dpi: float = 300,
+    math: MathText = "auto",
 ) -> str:
     """Export a Matplotlib figure to an SVG string.
 
@@ -98,12 +187,15 @@ def mpl_to_svg(
     Matplotlib resolves ``dpi="figure"`` to the dpi the figure was created with,
     so a later ``fig.set_dpi`` would be ignored and rasters would embed at the
     creation default (100 dpi), below the preflight threshold.
+
+    Text stays live SVG text. ``math`` decides when mathtext is written as glyph
+    outlines instead; see :func:`mpl_svg_context`.
     """
 
     import io
 
     buffer = io.StringIO()
-    with mpl_svg_context():
+    with mpl_svg_context(math):
         fig.savefig(
             buffer,
             format="svg",
@@ -239,7 +331,9 @@ def svg_to_image_artist(
     """
     import cairosvg
 
-    png = cairosvg.svg2png(bytestring=svg_string.encode("utf-8"))
+    from figworks.fonts import for_cairosvg
+
+    png = cairosvg.svg2png(bytestring=for_cairosvg(svg_string).encode("utf-8"))
     image = plt.imread(BytesIO(png), format="png")
     offset = OffsetImage(image, zoom=zoom)
     if gid is not None:

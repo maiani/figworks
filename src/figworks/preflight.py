@@ -15,7 +15,14 @@ from lxml import etree
 
 from figworks.core.element import _references, local_name
 from figworks.core.units import to_px
-from figworks.fonts import FontError, Resolver, check_fonts, fontconfig_resolver
+from figworks.fonts import (
+    FontError,
+    Resolver,
+    check_fonts,
+    fontconfig_resolver,
+    parse_font_shorthand,
+    style_declarations,
+)
 
 Severity = Literal["error", "warning", "info"]
 Matrix = tuple[float, float, float, float, float, float]
@@ -162,10 +169,12 @@ def _properties(node: etree._Element, inherited: dict[str, str]) -> dict[str, st
     for key in ("font-size", "stroke", "stroke-width", "visibility", "fill"):
         if node.get(key) is not None:
             props[key] = node.get(key, "")
-    for part in node.get("style", "").split(";"):
-        key, _, value = part.partition(":")
-        if value.strip() and value.strip() != "inherit":
-            props[key.strip()] = value.strip()
+    for key, value in style_declarations(node.get("style", "")):
+        # A ``font`` shorthand counts as its longhands, as export renders it.
+        shorthand = parse_font_shorthand(value) if key == "font" else None
+        for name, item in shorthand.items() if shorthand else [(key, value)]:
+            if item != "inherit":
+                props[name] = item
     return props
 
 
@@ -225,10 +234,14 @@ def check_document(
     nodes = [node for node in root.iter() if isinstance(node.tag, str)]
     ids: set[str] = set()
     css = any(local_name(node) == "style" and _measurement_stylesheet(node) for node in nodes)
-    shorthand = any(re.search(r"(?:^|;)\s*font\s*:", node.get("style", "")) for node in nodes)
-    if shorthand:
-        unchecked.add("CSS font shorthand: font selection and physical measurements.")
-    css = css or shorthand
+    unreadable = any(
+        key == "font" and parse_font_shorthand(value) is None
+        for node in nodes
+        for key, value in style_declarations(node.get("style", ""))
+    )
+    if unreadable:
+        # The font check reports it as an error; its size is unknown here.
+        unchecked.add("Font sizes set by a CSS font shorthand that cannot be read.")
     for node in nodes:
         if name := node.get("id"):
             if name in ids:

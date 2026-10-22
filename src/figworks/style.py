@@ -17,6 +17,7 @@ weight to use for what.  Code reads only the frontmatter::
     cycle: [spin_up, spin_down]
     rcparams:                      # raw Matplotlib settings, applied last
       legend.frameon: false
+    math: latex                    # optional: Matplotlib typesets text with LaTeX
     ---
 
     # Style guide
@@ -32,6 +33,7 @@ Matplotlib settings are generated in four layers: Matplotlib's defaults, the
 
 from __future__ import annotations
 
+import re
 from collections.abc import Mapping
 from copy import deepcopy
 from dataclasses import dataclass, field, fields
@@ -59,7 +61,36 @@ _TOP_LEVEL = {
     "marker",
     "rcparams",
     "tex",
+    "math",
 }
+MATH_MODES = ("mathtext", "latex")
+
+# The TeX font setup for each family FigWorks knows, after fontenc and amsmath:
+# VecTeX's documents and Matplotlib's usetex preamble both start from it.
+TEX_FONTS = {
+    "TeX Gyre Heros": (
+        r"\usepackage{tgheros}" + "\n"
+        r"\renewcommand{\familydefault}{\sfdefault}" + "\n"
+        r"\usepackage{sansmath}\sansmath"
+    ),
+    "TeX Gyre Termes": r"\usepackage{mathptmx}\usepackage{tgtermes}",
+    "Latin Modern Sans": (
+        r"\usepackage{lmodern}" + "\n"
+        r"\renewcommand{\familydefault}{\sfdefault}" + "\n"
+        r"\usepackage{sansmath}\sansmath"
+    ),
+    "Latin Modern Roman": r"\usepackage{lmodern}",
+}
+_TEX_BASE = r"\usepackage[T1]{fontenc}\usepackage{amsmath}"
+
+# Matplotlib's usetex text-to-path route, which its SVG and PDF output take,
+# typesets every string at 100 pt and scales it down.  amsmath (and so
+# sansmath, and most math setups) declares the OMX/cmex font of the large
+# operators and delimiters only up to 24.88 pt, overriding the scalable
+# declaration Matplotlib's type1cm makes, so ∫ and ∑ would come out at a
+# quarter of their size.  Redeclared last, cmex10 scales freely again.
+SCALABLE_CMEX = r"\DeclareFontShape{OMX}{cmex}{m}{n}{<->cmex10}{}"
+_SANS_DEFAULT = re.compile(r"\\renewcommand\s*\{?\\familydefault\}?\s*\{\s*\\sfdefault\s*\}")
 
 
 @dataclass(frozen=True)
@@ -101,6 +132,7 @@ class Theme:
     matplotlib: tuple[str, ...]
     rcparams: Mapping[str, Any]
     tex: Mapping[str, str] = field(default_factory=dict)
+    math: str = "mathtext"
 
     # --- values FigWorks' own elements use -------------------------------
     @property
@@ -173,23 +205,18 @@ class Theme:
         """
         preamble = self.tex.get("preamble")
         if not preamble:
-            fonts = {
-                "TeX Gyre Heros": (
-                    r"\usepackage{tgheros}" + "\n"
-                    r"\renewcommand{\familydefault}{\sfdefault}" + "\n"
-                    r"\usepackage{sansmath}\sansmath"
-                ),
-                "TeX Gyre Termes": r"\usepackage{mathptmx}\usepackage{tgtermes}",
-            }
-            if self.font.family not in fonts:
+            if self.font.family not in TEX_FONTS:
                 raise ValueError(
                     f"No TeX font setup for {self.font.family!r}; set tex.preamble in style.md"
                 )
             if self.tex.get("engine", "pdflatex") != "pdflatex":
                 raise ValueError("tex.engine other than pdflatex requires tex.preamble")
             preamble = (
-                r"\documentclass[10pt,border=0pt]{standalone}" + "\n"
-                r"\usepackage[T1]{fontenc}\usepackage{amsmath}" + "\n" + fonts[self.font.family]
+                r"\documentclass[10pt,border=0pt]{standalone}"
+                + "\n"
+                + _TEX_BASE
+                + "\n"
+                + TEX_FONTS[self.font.family]
             )
         return {
             "size_pt": self.length(f"font.{role}"),
@@ -283,6 +310,10 @@ class Theme:
                 "mathtext.it": f"{family}:italic",
                 "mathtext.bf": f"{family}:bold",
                 "mathtext.sf": family,
+                # TeX's calligraphic capitals, bundled with Matplotlib, instead
+                # of the generic "cursive" family. Symbols missing from the text
+                # face come from Matplotlib's Computer Modern ("mathtext.fallback").
+                "mathtext.cal": "cmsy10",
                 "axes.labelsize": self.font.label,
                 "axes.titlesize": self.font.title,
                 "xtick.labelsize": self.font.tick,
@@ -307,11 +338,36 @@ class Theme:
         )
         if self.cycle:
             settings["axes.prop_cycle"] = cycler(color=list(self.cycle))
+        if self.math == "latex":
+            settings.update(self._usetex())
         settings.update(self.rcparams)
+        if settings.get("text.usetex"):
+            preamble = str(settings.get("text.latex.preamble") or "").rstrip()
+            if not preamble.endswith(SCALABLE_CMEX):
+                settings["text.latex.preamble"] = f"{preamble}\n{SCALABLE_CMEX}".lstrip()
         try:
             return mpl.RcParams(settings)
         except (KeyError, ValueError) as exc:
             raise ValueError(f"style {self.name}: {exc}") from exc
+
+    def _usetex(self) -> dict[str, Any]:
+        """Matplotlib settings that typeset all its text, words and math, with LaTeX."""
+        preamble = self.tex.get("matplotlib")
+        if not preamble:
+            if self.font.family not in TEX_FONTS:
+                raise ValueError(
+                    f"style {self.name}: no TeX font setup for {self.font.family!r}; "
+                    "set tex.matplotlib in style.md"
+                )
+            preamble = _TEX_BASE + "\n" + TEX_FONTS[self.font.family]
+        # Matplotlib wraps each string in \sffamily or \rmfamily by font.family;
+        # the preamble decides which face that is.
+        family = "sans-serif" if _SANS_DEFAULT.search(preamble) else "serif"
+        return {
+            "text.usetex": True,
+            "text.latex.preamble": preamble.strip(),
+            "font.family": [family],
+        }
 
 
 def read_frontmatter(path: Path) -> dict[str, Any]:
@@ -421,10 +477,13 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
         raise ValueError("color.ink is not set anywhere in the chain")
     cycle = tuple(colors.get(str(entry), str(entry)) for entry in data.get("cycle") or ())
     tex = data.get("tex", {})
-    if not isinstance(tex, dict) or set(tex) - {"engine", "preamble"}:
-        raise ValueError("tex must contain only engine and preamble")
+    if not isinstance(tex, dict) or set(tex) - {"engine", "preamble", "matplotlib"}:
+        raise ValueError("tex must contain only engine, preamble, and matplotlib")
     if any(not isinstance(value, str) or not value.strip() for value in tex.values()):
-        raise ValueError("tex.engine and tex.preamble must be nonempty strings")
+        raise ValueError("tex.engine, tex.preamble, and tex.matplotlib must be nonempty strings")
+    math = data.get("math", "mathtext")
+    if math not in MATH_MODES:
+        raise ValueError(f"math must be one of {', '.join(MATH_MODES)}, got {math!r}")
     return Theme(
         name=path.stem if path.parent == STYLES_DIR else str(path),
         font=_section(Font, data, "font"),
@@ -436,7 +495,18 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
         matplotlib=tuple(data.get("matplotlib") or ()),
         rcparams=dict(data.get("rcparams") or {}),
         tex=dict(tex),
+        math=str(math),
     )
 
 
-__all__ = ["BUILT_IN", "Font", "Lines", "Theme", "load_theme", "read_frontmatter"]
+__all__ = [
+    "BUILT_IN",
+    "MATH_MODES",
+    "SCALABLE_CMEX",
+    "TEX_FONTS",
+    "Font",
+    "Lines",
+    "Theme",
+    "load_theme",
+    "read_frontmatter",
+]

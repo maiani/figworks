@@ -268,3 +268,39 @@ def test_small_text_beside_small_text_is_still_a_warning():
     )
     assert "small-script" not in codes(report)
     assert codes(report).count("small-text") == 2
+
+
+def test_font_shorthand_is_checked_and_measured_like_its_longhands():
+    """Matplotlib before 3.10 writes text style only as the ``font`` shorthand."""
+    fig = figure(
+        "<text style=\"font: italic 3pt 'cmex10'\">Z</text>"
+        '<g transform="scale(4)"><text style="font: 3pt \'Heros\'">big</text></g>'
+    )
+    asked = []
+
+    def resolve(face):
+        asked.append(face)
+        return None if face.family == "cmex10" else fonts(face)
+
+    report = fig.check(resolve_fonts=resolve)
+    assert not report.ok
+    font_errors = [item.message for item in report.issues if item.code == "font"]
+    assert len(font_errors) == 1
+    assert "cmex10:weight=regular:slant=italic" in font_errors[0]
+    assert {face.family for face in asked} == {"cmex10", "Heros"}
+    small = [item for item in report.issues if item.code == "small-text"]
+    assert len(small) == 1, "3 pt is small; 3 pt scaled by 4 is not"
+    assert not any("shorthand" in item for item in report.unchecked)
+
+
+def test_shorthand_size_follows_declaration_order():
+    later = figure('<text style="font-size: 20pt; font: 3pt Heros">a</text>')
+    earlier = figure('<text style="font: 3pt Heros; font-size: 20pt">a</text>')
+    assert "small-text" in codes(later.check(resolve_fonts=fonts))
+    assert "small-text" not in codes(earlier.check(resolve_fonts=fonts))
+
+
+def test_unreadable_font_shorthand_is_an_error_and_its_size_unchecked():
+    report = figure('<text style="font: caption">a</text>').check(resolve_fonts=fonts)
+    assert "font" in codes(report)
+    assert any("shorthand" in item for item in report.unchecked)

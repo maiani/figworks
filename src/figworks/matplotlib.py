@@ -89,8 +89,16 @@ def mpl_to_svg(
     id: str | None = None,
     transparent: bool = True,
     bbox_inches: Literal["tight"] | Bbox | None = "tight",
+    dpi: float = 300,
 ) -> str:
-    """Export a Matplotlib figure to an SVG string."""
+    """Export a Matplotlib figure to an SVG string.
+
+    ``dpi`` sets the resolution of rasterized artists and embedded images only;
+    vector paths and text are unaffected. It is passed explicitly because
+    Matplotlib resolves ``dpi="figure"`` to the dpi the figure was created with,
+    so a later ``fig.set_dpi`` would be ignored and rasters would embed at the
+    creation default (100 dpi), below the preflight threshold.
+    """
 
     import io
 
@@ -101,6 +109,7 @@ def mpl_to_svg(
             format="svg",
             transparent=transparent,
             bbox_inches=bbox_inches,
+            dpi=dpi,
             metadata=_export_metadata("svg"),
         )
     svg = buffer.getvalue()

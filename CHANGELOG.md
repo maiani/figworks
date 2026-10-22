@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `mpl_to_svg` now rasterizes Matplotlib artists at 300 dpi by default (new `dpi` argument).
+  Matplotlib resolves `dpi="figure"` to the creation dpi, so rasterized panels embedded
+  at 100 dpi, below the preflight threshold, and `fig.set_dpi` had no effect.
+
 ## [0.9.0] - 2026-10-16
 
 ### Added

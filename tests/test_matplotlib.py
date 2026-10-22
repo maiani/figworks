@@ -84,3 +84,24 @@ def test_matplotlib_exports_credit_figworks_and_matplotlib(tmp_path):
     assert pdf_credit.encode() in (tmp_path / "plot.pdf").read_bytes()
     assert Image.open(tmp_path / "plot.png").info["Software"].startswith(credit)
     plt.close(fig)
+
+
+def test_matplotlib_export_rasterizes_at_print_resolution():
+    """Rasterized artists embed at 300 dpi by default, not the 100 dpi figure default."""
+    import base64
+    import io
+    import re
+
+    import numpy as np
+
+    mpl_fig, ax = plt.subplots(figsize=(2, 1), dpi=100)
+    ax.pcolormesh(np.random.default_rng(0).random((20, 20)), rasterized=True)
+    widths = {}
+    for dpi in (None, 150):
+        svg = mpl_to_svg(mpl_fig) if dpi is None else mpl_to_svg(mpl_fig, dpi=dpi)
+        data = re.search(r'xlink:href="data:image/png;base64,([^"]+)"', svg).group(1)
+        widths[dpi] = Image.open(io.BytesIO(base64.b64decode(data))).size[0]
+    plt.close(mpl_fig)
+    axes_inches = 2 * mpl_fig.subplotpars.right - 2 * mpl_fig.subplotpars.left
+    assert widths[None] >= 0.95 * 300 * axes_inches
+    assert widths[150] < widths[None]

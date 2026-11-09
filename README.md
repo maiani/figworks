@@ -34,11 +34,11 @@ changed by hand, and the figure rebuilds from source whenever you need it.
 
 <p align="center">
   <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/hodgkin_huxley.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-hodgkin_huxley.svg" alt="The action potential: sodium and potassium channels in a membrane, the Hodgkin-Huxley equations, a spike train, the conductances, and the firing threshold" width="248"></a>
-  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/climate_energy_balance.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-climate_energy_balance.svg" alt="Earth's energy balance: the radiation budget of the globe, the ice-albedo hysteresis, and the warming after CO2 doubles" width="248"></a>
   <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/production_network.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-production_network.svg" alt="Shocks in a production network: the network map under a chip shock, the bullwhip effect, and aggregate volatility" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/vacuum_triode.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-vacuum_triode.svg" alt="A vacuum triode as a mid-century tube manual drew it: the electrode assembly cut away in ink, and its plate and mutual characteristics on graph paper" width="248"></a>
 </p>
 
-<p align="center"><sub>Dirac electrons in graphene, styled for Physical Review, then the action potential, Earth's energy balance, and shocks in a production network, styled for Nature: journal figures from physics, neuroscience, climate science, and economics, each built by one self-contained script.</sub></p>
+<p align="center"><sub>Dirac electrons in graphene, styled for Physical Review; the action potential and shocks in a production network, styled for Nature; and a vacuum triode in a style of its own, a mid-century engineering handbook's. Figures from physics, neuroscience, economics, and electronics, each built by one self-contained script.</sub></p>
 
 <p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all ten figures and their code in the gallery →</a></b></p>
 

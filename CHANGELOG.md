@@ -41,8 +41,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   The transmon gallery figure sets its VecTeX labels to match.
 - The graphene gallery figure is styled for Physical Review too, so the gallery,
   and the top of the README, show both journal styles.
-- The README leads with the graphene figure and three more from neuroscience,
-  climate science, and economics, links the gallery prominently, and walks
+- The README leads with the graphene figure and three more, from neuroscience,
+  economics, and electronics, so it shows all three styles: Physical Review,
+  Nature, and the triode's vintage. It links the gallery prominently and walks
   through the graphene figure's code. Its images are the gallery previews, so
   `docs/readme_figure.py` and `docs/images/readme.svg` are gone.
 - The transmon gallery figure gives each charge-dispersion plot its own panel

@@ -162,6 +162,41 @@ def test_aps_lines_meet_the_half_point_minimum() -> None:
     assert min(line.data, line.frame, line.hairline) >= 0.5
 
 
+def test_panel_letters_are_set_as_the_style_says(tmp_path: Path) -> None:
+    paper = load_theme("paper").panel_label
+    assert (paper("a"), paper.weight) == ("a", "bold")
+
+    style = write(tmp_path / "style.md", "panel_label:\n  format: '({})'\n  weight: normal\n")
+    figure = Figure(width="86mm", height="40mm", theme=style)
+    letter = figure.label("b", ("6mm", "6mm"))
+    assert (letter.text, letter.get("font-weight")) == ("(b)", "normal")
+    assert figure.label("c", ("40mm", "6mm"), font_weight="bold").get("font-weight") == "bold"
+    assert float(letter.get("x")) == pytest.approx((6 - 3) * 96 / 25.4, abs=1e-3), "the offset"
+
+
+def test_a_style_can_letter_its_panels(tmp_path: Path) -> None:
+    style = write(tmp_path / "style.md", "base: nature\npanel_label:\n  format: '{}.'\n")
+    label = load_theme(style).panel_label
+    assert (label("A"), label.weight) == ("A.", "bold"), "the weight comes from the base"
+
+
+@pytest.mark.parametrize(
+    ("token", "value"),
+    [
+        ("format", "a"),
+        ("format", "{}{}"),
+        ("format", "({0})"),
+        ("weight", "heavy"),
+        ("dx", "left"),
+        ("size", "8pt"),
+    ],
+)
+def test_panel_label_tokens_are_validated(tmp_path: Path, token: str, value: str) -> None:
+    style = write(tmp_path / "style.md", f"panel_label:\n  {token}: '{value}'\n")
+    with pytest.raises(ValueError, match="panel_label"):
+        load_theme(style)
+
+
 def test_page_lengths_are_validated(tmp_path: Path) -> None:
     style = write(tmp_path / "style.md", "page:\n  column: wide\n")
     with pytest.raises(ValueError, match=r"page\.column"):

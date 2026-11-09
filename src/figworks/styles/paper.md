@@ -15,6 +15,11 @@ line:
   frame: 0.5pt
   hairline: 0.25pt
 marker: 3pt
+panel_label:
+  format: "{}"
+  weight: bold
+  dx: -3mm   # from the corner a letter labels to its baseline start
+  dy: -2mm
 color:
   ink: "#000000"
   neutral: "#737373"

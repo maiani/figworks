@@ -135,18 +135,26 @@ class Figure:
         text: str,
         anchor: Anchor | tuple[str | int | float, str | int | float],
         id: str | None = None,
-        dx: str | int | float = "-3mm",
-        dy: str | int | float = "-2mm",
+        dx: str | int | float | None = None,
+        dy: str | int | float | None = None,
         **attrs: Any,
     ) -> etree._Element:
+        """Letter a panel: ``text`` set as the theme sets panel letters.
+
+        The theme's ``panel_label`` format wraps the letter -- ``(a)`` under ``aps``,
+        a bare bold ``a`` under ``nature`` -- at its weight and ``font.panel_label``
+        size, offset from ``anchor`` by its ``dx`` and ``dy``. Arguments override the
+        offset and ``attrs`` the weight, size, or family.
+        """
         x, y = self._point(anchor)
+        style = self.theme.panel_label
         attrs.setdefault("font_family", self.theme.font_family)
         attrs.setdefault("font_size", self.theme.panel_label_font_size)
-        attrs.setdefault("font_weight", "bold")
+        attrs.setdefault("font_weight", style.weight)
         return self.text(
-            text,
-            x + to_px(dx),
-            y + to_px(dy),
+            style(text),
+            x + to_px(f"{style.dx}pt" if dx is None else dx),
+            y + to_px(f"{style.dy}pt" if dy is None else dy),
             id=id,
             class_="figworks-label",
             **attrs,

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A style's `panel_label` sets the panel letters: `format`, with `{}` for the
+  letter (`"({})"` gives (a)), CSS `weight`, and the offset `dx`, `dy` from the
+  labelled corner. `Figure.label` no longer forces bold or a fixed offset;
+  `paper` keeps bold letters 3 mm left of and 2 mm above the corner.
+
 ### Changed
 
 - The README leads with the graphene figure and three more from neuroscience,

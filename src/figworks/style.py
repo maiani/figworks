@@ -59,11 +59,14 @@ _TOP_LEVEL = {
     "color",
     "cycle",
     "marker",
+    "panel_label",
     "rcparams",
     "tex",
     "math",
 }
 MATH_MODES = ("mathtext", "latex")
+_FONT_WEIGHT = re.compile(r"normal|bold|[1-9]00")
+_LETTER_FORMAT = re.compile(r"[^{}]*\{\}[^{}]*")
 
 # The TeX font setup for each family FigWorks knows, after fontenc and amsmath:
 # VecTeX's documents and Matplotlib's usetex preamble both start from it.
@@ -116,6 +119,26 @@ class Lines:
 
 
 @dataclass(frozen=True)
+class PanelLabel:
+    """How panel letters are set; their size is ``font.panel_label``.
+
+    ``format`` places the letter at its ``{}``: ``"({})"`` turns ``a`` into
+    ``(a)``.  ``weight`` is a CSS font weight: ``normal``, ``bold``, or 100-900.
+    ``dx`` and ``dy``, in pt, place the letter's baseline start from the corner
+    it labels; negative is left and up.
+    """
+
+    format: str
+    weight: str
+    dx: float
+    dy: float
+
+    def __call__(self, letter: str) -> str:
+        """The letter as this style sets it."""
+        return self.format.replace("{}", letter)
+
+
+@dataclass(frozen=True)
 class Theme:
     """A loaded style: its tokens, its Matplotlib layers, and where it came from.
 
@@ -131,6 +154,7 @@ class Theme:
     marker: float
     matplotlib: tuple[str, ...]
     rcparams: Mapping[str, Any]
+    panel_label: PanelLabel
     tex: Mapping[str, str] = field(default_factory=dict)
     math: str = "mathtext"
 
@@ -463,6 +487,35 @@ def _section[T: (Font, Lines)](cls: type[T], data: Mapping[str, Any], name: str)
     return cls(**tokens)
 
 
+def _panel_label(data: Mapping[str, Any]) -> PanelLabel:
+    values = dict(data.get("panel_label") or {})
+    names = [f.name for f in fields(PanelLabel)]
+    unknown = sorted(set(values) - set(names))
+    if unknown:
+        raise ValueError(f"unknown panel_label token(s) {', '.join(unknown)}; expected {names}")
+    missing = sorted(set(names) - set(values))
+    if missing:
+        raise ValueError(
+            f"panel_label token(s) {', '.join(missing)} are not set anywhere in the chain"
+        )
+    label = PanelLabel(
+        format=str(values["format"]),
+        weight=str(values["weight"]),
+        dx=_pt(values["dx"], "panel_label.dx"),
+        dy=_pt(values["dy"], "panel_label.dy"),
+    )
+    if not _LETTER_FORMAT.fullmatch(label.format):
+        raise ValueError(
+            f"panel_label.format must hold one {{}} for the letter, such as '({{}})', "
+            f"got {label.format!r}"
+        )
+    if not _FONT_WEIGHT.fullmatch(label.weight):
+        raise ValueError(
+            f"panel_label.weight must be normal, bold, or 100-900, got {label.weight!r}"
+        )
+    return label
+
+
 def load_theme(source: str | Path | Theme = "paper") -> Theme:
     """Load a style: a :class:`Theme`, a built-in name, or a path to a ``style.md``."""
     if isinstance(source, Theme):
@@ -494,6 +547,7 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
         marker=_pt(data.get("marker", "3pt"), "marker"),
         matplotlib=tuple(data.get("matplotlib") or ()),
         rcparams=dict(data.get("rcparams") or {}),
+        panel_label=_panel_label(data),
         tex=dict(tex),
         math=str(math),
     )
@@ -506,6 +560,7 @@ __all__ = [
     "TEX_FONTS",
     "Font",
     "Lines",
+    "PanelLabel",
     "Theme",
     "load_theme",
     "read_frontmatter",

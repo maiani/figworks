@@ -68,11 +68,23 @@ keeps its ids unless one is already taken:
 - **References follow the rename**: `url(#…)` in any attribute or style, and
   `href`/`xlink:href`, so the second source keeps its own gradient.
 - **Identical definitions are shared**: a colliding `<defs>` entry that matches
-  the existing one exactly is dropped and both sources use it. Matplotlib
+  the existing one exactly is dropped and both sources use it, including its
+  nested IDs. Definitions with ancestor styling or renamed dependencies stay
+  separate to preserve their appearance. Matplotlib
   content-hashes its marker and clip-path ids, so identical plots share them.
 
 The first source to claim an id keeps it, so the names depend on placement
 order, which a script fixes. Reusing a *placement* id raises `ValueError`.
+
+Imported SVG roots become groups inside the placement transform, retaining
+their IDs, classes, styles, and transforms. Definitions stay with their source
+so inherited colours still apply. Input must be well-formed XML with an SVG
+root, a finite positive viewport, and unique nonempty IDs without whitespace.
+A failed import leaves existing content and placeholder labels intact.
+
+Stylesheet selectors are not scoped to their source or rewritten when an ID
+changes. Use presentation attributes or inline styles in composable SVG;
+rules targeting `svg`, `:root`, or reused IDs can change meaning after placement.
 
 ## Error handling
 

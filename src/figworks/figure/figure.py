@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING, Any, Literal
 
 from figworks._export import svg_to_pdf, svg_to_png
 from figworks.core.document import SVGDocument
+from figworks.core.element import svg_to_lxml, validate_ids
 from figworks.core.selectors import Selection
 from figworks.core.units import to_px
 from figworks.elements.arrows import ensure_arrow_marker, line_arrow
@@ -21,6 +22,7 @@ from figworks.preflight import CheckReport, check_document
 from figworks.style import Theme, load_theme
 
 if TYPE_CHECKING:
+    import svg
     from lxml import etree
 
 
@@ -182,6 +184,30 @@ class Figure:
 
     def path(self, **attrs: Any) -> etree._Element:
         return self.document.append(path(**attrs))
+
+    def define(self, element: svg.Element) -> str:
+        """Put an svg.py element in ``<defs>`` and return ``url(#id)``.
+
+        For whatever is referenced rather than drawn -- a gradient, pattern,
+        clip path, or marker.  The element needs an id not yet in the figure::
+
+            fade = fig.define(svg.LinearGradient(id="lead-fade", elements=[
+                svg.Stop(offset=0, stop_color="#e0af72"),
+                svg.Stop(offset=1, stop_color="#e0af72", stop_opacity=0),
+            ]))
+            fig.rect(x=0, y=0, width=40, height=20, fill=fade)
+        """
+        id = element.id
+        if not id:
+            raise ValueError("a definition needs an id to be referenced by")
+        node = svg_to_lxml(element)
+        validate_ids(node)
+        existing = {child.get("id") for child in self.document.root.iter()}
+        for child in node.iter():
+            if (name := child.get("id")) is not None and name in existing:
+                raise ValueError(f"Id {name!r} is already used in this figure")
+        self.document.defs().append(node)
+        return f"url(#{id})"
 
     def placeholder(
         self,

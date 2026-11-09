@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import re
 from decimal import Decimal
 
@@ -20,7 +21,10 @@ def to_px(value: str | float) -> float:
     """Convert a supported unit value to CSS/SVG pixels."""
 
     if isinstance(value, (int, float)) and not isinstance(value, bool):
-        return float(value)
+        result = float(value)
+        if not math.isfinite(result):
+            raise ValueError("Lengths must be finite")
+        return result
     if not isinstance(value, str):
         raise TypeError(f"Expected a string or number, got {type(value).__name__}")
 
@@ -30,15 +34,18 @@ def to_px(value: str | float) -> float:
 
     magnitude = float(match.group(1))
     unit = match.group(2) or "px"
-    return magnitude * _UNIT_TO_PX[unit]
+    result = magnitude * _UNIT_TO_PX[unit]
+    if not math.isfinite(result):
+        raise ValueError("Lengths must be finite")
+    return result
 
 
 def svg_length(value: str | float) -> str:
     """Return a value suitable for an SVG length attribute."""
 
+    converted = to_px(value)
     if not isinstance(value, str):
-        return f"{float(value):g}px"
-    to_px(value)
+        return f"{converted:g}px"
     return value.strip()
 
 

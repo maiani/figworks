@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-11-09
+
 ### Added
 
+- `Figure.define(element)` puts an svg.py definition -- a gradient, pattern,
+  clip path, or marker -- in `<defs>` and returns its `url(#id)` reference,
+  to pass as `fill`, `stroke`, or `clip_path`.
 - `math: latex` in `style.md` has Matplotlib typeset all its text, words and
   math, with LaTeX (`text.usetex`) in the theme's TeX font setup, with built-in
   setups for TeX Gyre Heros, TeX Gyre Termes, Latin Modern Sans, and Latin
@@ -21,6 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `for_cairosvg`, the CSS `font` shorthand handling the check and export share.
 
 ### Fixed
+
+- SVG imports preserve root IDs, classes, styling, and transforms; definitions
+  retain their source inheritance in both figure placement and Matplotlib insertion.
+- Sharing identical definitions now preserves nested IDs and keeps separate
+  copies when ancestor styling or renamed dependencies change their meaning.
+- Comments and processing instructions no longer crash SVG import or preflight,
+  and significant whitespace between text spans survives parsing.
+- Malformed SVG, duplicate or empty source IDs, nonfinite lengths, and nonpositive
+  viewports fail explicitly. Failed placeholder fills keep the previous content
+  and label; `Figure.define` checks nested IDs before adding a definition.
 
 - The font check ignored the CSS `font` shorthand, so substitution was silent.
   Matplotlib before 3.10 writes every run of text as `style="font: 8px 'cmex10'"`;
@@ -57,6 +72,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `mpl_to_svg` now rasterizes Matplotlib artists at 300 dpi by default (new `dpi` argument).
   Matplotlib resolves `dpi="figure"` to the creation dpi, so rasterized panels embedded
   at 100 dpi, below the preflight threshold, and `fig.set_dpi` had no effect.
+
+### Changed
+
+- FigWorks requires Matplotlib 3.11 or newer and VecTeX 0.5 or newer.
 
 ## [0.9.0] - 2026-10-16
 

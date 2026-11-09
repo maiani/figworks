@@ -135,7 +135,7 @@ def test_invalid_layout_does_not_create_panels(layout, message):
         ({"width_ratios": (1e-300, 1e300)}, "too extreme"),
         ({"width_ratios": (1, 1e-30)}, "too extreme"),
         ({"margins": -1}, "non-negative"),
-        ({"gap": float("inf")}, "non-negative"),
+        ({"gap": float("inf")}, "finite"),
         ({"margins": (1, 2)}, "top, right, bottom, left"),
         ({"gap": (1, 2, 3)}, "row_gap, column_gap"),
         ({"margins": 50}, "no room"),
@@ -165,7 +165,8 @@ def test_large_ratios_do_not_overflow():
 
 @pytest.mark.parametrize("width", [0, -10, float("inf"), float("nan")])
 def test_grid_rejects_invalid_canvas_dimensions(width):
-    figure = Figure(width, 50)
+    figure = Figure(100, 50)
+    figure.document.width_px = width
     with pytest.raises(ValueError, match="positive figure dimensions"):
         figure.grid([["main"]])
     assert figure.panels == {}

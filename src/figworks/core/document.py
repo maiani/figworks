@@ -12,12 +12,12 @@ from lxml import etree
 from figworks.core.element import (
     ALIGN,
     accumulated_scale,
-    copy_element,
     ensure_defs,
     fit_transform,
     local_name,
     parse_svg,
     resolve_id_collisions,
+    svg_content,
     svg_intrinsic_size,
     svg_kwargs,
     svg_physical_size,
@@ -36,6 +36,8 @@ class SVGDocument:
         self.height = svg_length(height)
         self.width_px = to_px(width)
         self.height_px = to_px(height)
+        if self.width_px <= 0 or self.height_px <= 0:
+            raise ValueError("Figure dimensions must be positive")
         # The canvas is declared in physical units but every element is placed in
         # px user units, so the root needs a viewBox to bind the two.  Without it
         # a renderer maps one user unit to one px at its own default 96 DPI while
@@ -113,25 +115,34 @@ class SVGDocument:
         keeps the size it has in the source, however ``transform`` scales the
         rest, just as :meth:`fill_slot` keeps the content it adds.
         """
-        if id is not None and self.root.find(f".//*[@id='{id}']") is not None:
+        if id is not None and any(node.get("id") == id for node in self.root.iter()):
             raise ValueError(f"Id {id!r} is already used in this figure")
-        imported_root = parse_svg(svg_string)
-        group = self.group(id=id, transform=transform, parent=parent)
-        self._imports += 1
-        prefix = namespace or id or f"import{self._imports}"
-        for duplicate in resolve_id_collisions(imported_root, self.root, prefix):
+        if id is not None and (not id or any(c.isspace() for c in id)):
+            raise ValueError("Placement ids must be nonempty and contain no whitespace")
+        imported_root = svg_content(parse_svg(svg_string))
+        group = svg_to_lxml(svg.G(id=id), raw={"transform": transform})
+        prefix = namespace or id or f"import{self._imports + 1}"
+        for duplicate in resolve_id_collisions(
+            imported_root,
+            self.root,
+            prefix,
+            reserved_ids=() if id is None else (id,),
+            # A nested destination can supply different inherited styling.
+            share_definitions=parent is None or parent is self.root,
+        ):
             # Identical to a definition already in the document: share that one.
-            parent = duplicate.getparent()
-            if parent is not None:
-                parent.remove(duplicate)
-
-        for child in imported_root:
-            if local_name(child) == "defs":
-                self.defs().extend(copy_element(definition) for definition in child)
-            else:
-                group.append(copy_element(child))
-
-        _keep_slot_sizes(group)
+            owner = duplicate.getparent()
+            if owner is not None:
+                owner.remove(duplicate)
+        group.append(imported_root)
+        self.append(group, parent)
+        try:
+            _keep_slot_sizes(group)
+        except (ValueError, ZeroDivisionError, IndexError):
+            if (owner := group.getparent()) is not None:
+                owner.remove(group)
+            raise
+        self._imports += 1
         return group
 
     def placeholder(
@@ -198,12 +209,13 @@ class SVGDocument:
             raise KeyError(f"No element with id {id!r} in document")
         target = targets.nodes[0]
         box = element_box(target)
+        group = self._place_in_placeholder(target, box, svg_string, preserve_aspect_ratio)
         for label in self.root.iter():
             if label.get("data-figworks-placeholder") == id:
                 parent = label.getparent()
                 if parent is not None:
                     parent.remove(label)
-        return self._place_in_placeholder(target, box, svg_string, preserve_aspect_ratio)
+        return group
 
     def fill_plane(self, id: str, svg_string: str) -> etree._Element:
         """Fill a unit-square group with SVG content, normalized to fit it.
@@ -306,17 +318,21 @@ class SVGDocument:
         if parent is None:
             parent = self.root
         index = list(parent).index(target)
-        parent.remove(target)
-
         transform = fit_transform(
             (x, y, w, h),
             svg_intrinsic_size(svg_string),
             preserve_aspect_ratio=preserve_aspect_ratio,
         )
 
-        group = self.import_svg(
-            svg_string, transform=transform, parent=parent, namespace=target.get("id")
-        )
+        # Do not share definitions with the subtree being replaced.
+        parent.remove(target)
+        try:
+            group = self.import_svg(
+                svg_string, transform=transform, parent=parent, namespace=target.get("id")
+            )
+        except Exception:
+            parent.insert(index, target)
+            raise
         if not preserve_aspect_ratio:
             group.set("preserveAspectRatio", "none")
         parent.insert(index, group)
@@ -404,7 +420,7 @@ def extract_path_box(node: etree._Element) -> tuple[float, float, float, float]:
 
 def element_box(node: etree._Element) -> tuple[float, float, float, float]:
     """Return (x, y, width, height) for an element's layout box."""
-    name = etree.QName(node).localname
+    name = local_name(node)
     if name in {"image", "rect"}:
         x = float(node.get("x", 0.0))
         y = float(node.get("y", 0.0))

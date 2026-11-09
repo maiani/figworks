@@ -21,13 +21,11 @@ from matplotlib.transforms import Bbox
 
 from figworks.core.document import element_box
 from figworks.core.element import (
-    copy_element,
-    ensure_defs,
     fit_transform,
-    local_name,
     parse_svg,
     register_ns,
     resolve_id_collisions,
+    svg_content,
     svg_intrinsic_size,
     svg_tag,
 )
@@ -412,7 +410,7 @@ def _swap_node(
         parent.remove(node)
 
     try:
-        replacement_root = parse_svg(replacement_svg)
+        replacement_root = svg_content(parse_svg(replacement_svg))
     except etree.XMLSyntaxError as err:
         raise ValueError("Replacement is not valid SVG") from err
 
@@ -420,7 +418,12 @@ def _swap_node(
         box, svg_intrinsic_size(replacement_svg), preserve_aspect_ratio=preserve_aspect_ratio
     )
 
-    duplicates = resolve_id_collisions(replacement_root, root, node.get("id") or "insert")
+    duplicates = resolve_id_collisions(
+        replacement_root,
+        root,
+        node.get("id") or "insert",
+        share_definitions=parent is None or parent is root,
+    )
     for duplicate in duplicates:
         if (owner := duplicate.getparent()) is not None:
             owner.remove(duplicate)
@@ -429,11 +432,4 @@ def _swap_node(
     group = etree.Element(svg_tag("g"), {"transform": transform})
     container.insert(index, group)
 
-    for child in replacement_root:
-        copied = copy_element(child)
-        if local_name(child) == "defs":
-            ensure_defs(root).extend(list(copied))
-        else:
-            group.append(copied)
-            if not preserve_aspect_ratio:
-                copied.set("preserveAspectRatio", "none")
+    group.append(replacement_root)

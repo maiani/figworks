@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import math
 import re
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from copy import deepcopy
 from dataclasses import fields
 from pathlib import Path
@@ -28,13 +28,41 @@ def svg_tag(name: str) -> str:
 
 def local_name(node: etree._Element) -> str:
     """Return the local (unprefixed) element name."""
-    return etree.QName(node).localname
+    return etree.QName(node).localname if isinstance(node.tag, str) else ""
 
 
-def parse_svg(svg_string: str, *, recover: bool = True) -> etree._Element:
+def parse_svg(svg_string: str, *, recover: bool = False) -> etree._Element:
     """Parse an SVG string into an lxml element tree."""
-    parser = etree.XMLParser(remove_blank_text=True, recover=recover)
-    return etree.fromstring(svg_string.encode("utf-8"), parser=parser)
+    parser = etree.XMLParser(recover=recover, resolve_entities=False)
+    root = etree.fromstring(svg_string.encode("utf-8"), parser=parser)
+    if root is None or any(isinstance(node, etree._Entity) for node in root.iter()):
+        raise ValueError("SVG must contain an element tree without entity references")
+    return root
+
+
+def validate_ids(root: etree._Element) -> None:
+    """Reject ambiguous reference targets before editing a document."""
+    seen: set[str] = set()
+    for node in root.iter():
+        name = node.get("id")
+        if name is None:
+            continue
+        if not name or any(character.isspace() for character in name):
+            raise ValueError("SVG ids must be nonempty and contain no whitespace")
+        if name in seen:
+            raise ValueError(f"Duplicate SVG id {name!r}")
+        seen.add(name)
+
+
+def svg_content(root: etree._Element) -> etree._Element:
+    """Keep an imported root's identity and styling inside the placement transform."""
+    if local_name(root) != "svg":
+        raise ValueError("Expected an SVG document with an <svg> root")
+    root.tag = svg_tag("g")
+    # The caller has already mapped the source viewport into the placement box.
+    for name in ("width", "height", "x", "y", "viewBox", "preserveAspectRatio", "version"):
+        root.attrib.pop(name, None)
+    return root
 
 
 def _attr_name(field: str) -> str:
@@ -182,7 +210,12 @@ def _canonical(node: etree._Element) -> bytes:
 
 
 def resolve_id_collisions(
-    fragment: etree._Element, document: etree._Element, namespace: str
+    fragment: etree._Element,
+    document: etree._Element,
+    namespace: str,
+    *,
+    reserved_ids: Iterable[str] = (),
+    share_definitions: bool = True,
 ) -> set[etree._Element]:
     """Rename ids in ``fragment`` that already exist in ``document``, in place.
 
@@ -194,10 +227,12 @@ def resolve_id_collisions(
     unless it points at an id that is renamed, since the document's copy points
     at the document's own.
     """
+    validate_ids(fragment)
     existing = {key: node for node in document.iter() if (key := node.get("id"))}
+    collisions = set(existing) | set(reserved_ids)
     # A new name must avoid the fragment's own ids as well as the document's.
-    taken = set(existing) | {key for node in fragment.iter() if (key := node.get("id"))}
-    duplicates: dict[etree._Element, str] = {}
+    taken = collisions | {key for node in fragment.iter() if (key := node.get("id"))}
+    duplicates: dict[etree._Element, set[str]] = {}
     renamed: dict[str, str] = {}
 
     def rename(node: etree._Element, old: str) -> None:
@@ -210,33 +245,69 @@ def resolve_id_collisions(
         old = node.get("id")
         if not old or old not in existing:
             continue
+        if any(ancestor in duplicates for ancestor in node.iterancestors()):
+            continue
         parent = node.getparent()
         if (
-            parent is not None
+            share_definitions
+            and parent is not None
             and local_name(parent) == "defs"
             and _canonical(node) == _canonical(existing[old])
+            and not _definition_has_context(node, fragment, include_root=True)
+            and not _definition_has_context(existing[old], document, include_root=False)
         ):
-            duplicates[node] = old
-            continue
-        rename(node, old)
-    while stale := [node for node in duplicates if _references(node) & renamed.keys()]:
+            duplicates[node] = {key for child in node.iter() if (key := child.get("id"))}
+    # Sharing an entire definition also shares every id inside it. Decide which
+    # subtrees can be shared before renaming any of their descendants.
+    while True:
+        shared = set().union(*duplicates.values()) if duplicates else set()
+        changing = collisions - shared
+        stale = [node for node in duplicates if _references(node) & changing]
+        if not stale:
+            break
         for node in stale:
-            rename(node, duplicates.pop(node))
+            duplicates.pop(node)
+    for node in fragment.iter():
+        if (old := node.get("id")) is not None and old in changing:
+            rename(node, old)
     _rewrite_references(fragment, renamed)
     return set(duplicates)
+
+
+def _definition_has_context(
+    node: etree._Element, root: etree._Element, *, include_root: bool
+) -> bool:
+    """Share only definitions that do not depend on source ancestor styling."""
+    neutral = {"id", "transform", "viewBox", "width", "height", "x", "y", "version"}
+    for ancestor in node.iterancestors():
+        if ancestor is root and not include_root:
+            break
+        if any(name not in neutral for name in ancestor.attrib):
+            return True
+        if ancestor is root:
+            break
+    return False
 
 
 def svg_intrinsic_size(svg_string: str) -> tuple[float, float, float, float]:
     """Return (width, height, min_x, min_y) of an SVG string."""
     root = parse_svg(svg_string)
+    if local_name(root) != "svg":
+        raise ValueError("Expected an SVG document with an <svg> root")
     view_box = root.get("viewBox")
     if view_box:
         min_x, min_y, width, height = [float(value) for value in view_box.replace(",", " ").split()]
+        if not all(math.isfinite(v) for v in (min_x, min_y, width, height)):
+            raise ValueError("SVG viewBox values must be finite")
+        if width <= 0 or height <= 0:
+            raise ValueError("SVG intrinsic size must be positive")
         return width, height, min_x, min_y
     from figworks.core.units import to_px
 
     width = to_px(root.get("width", "1px"))
     height = to_px(root.get("height", "1px"))
+    if width <= 0 or height <= 0:
+        raise ValueError("SVG dimensions must be positive")
     return width, height, 0.0, 0.0
 
 

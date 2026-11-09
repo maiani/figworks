@@ -28,10 +28,10 @@ classifiers = [
 dependencies = [
     "svg.py",
     "lxml",
-    "matplotlib",
+    "matplotlib>=3.11",
     "CairoSVG",
     "PyYAML>=6",
-    "vectex>=0.4",
+    "vectex>=0.5",
 ]
 
 [project.urls]

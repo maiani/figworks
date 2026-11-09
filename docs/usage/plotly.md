@@ -12,6 +12,17 @@ Kaleido uses a local Chrome/Chromium process to render static images. See
 [Plotly's export documentation](https://plotly.com/python/static-image-export/)
 for browser discovery and setup.
 
+If a system browser launcher cannot start under Kaleido (for example a Snap
+wrapper), install Chrome into the project's virtual environment and select its
+executable explicitly. On Linux:
+
+```bash
+python -c 'from pathlib import Path; import kaleido; print(kaleido.get_chrome_sync(path=Path(".venv/plotly-browser")))'
+export BROWSER_PATH="$PWD/.venv/plotly-browser/chrome-linux64/chrome"
+```
+
+On other platforms, set `BROWSER_PATH` to the path printed by the installer.
+
 ```python
 import plotly.graph_objects as go
 

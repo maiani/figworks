@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-11-09
+
 ### Added
 
 - A tenth gallery figure, a vacuum triode drawn as a mid-century tube manual
@@ -14,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   VecView's turned solids and line art, beside plate and mutual
   characteristics on graph paper. Its look is a style of its own,
   `examples/vintage_style.md`, so the script makes no design choice. It needs
-  VecView's `revolve` and `Scene.line_art`, on its `main` branch, and no TeX.
+  VecView 0.5 or later, for `revolve` and `Scene.line_art`, and no TeX.
 
 - A harness-independent figure-authoring skill ships with the Python package,
   including planning/review guidance and a portable starter. Install a copy with

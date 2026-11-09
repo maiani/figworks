@@ -20,7 +20,7 @@ through the rated point E_b = 250 V, E_c = -8 V. The points marked as measured
 in FIG. 3 are simulated: the model with 2 % scatter, seeded.
 
 Usage:
-    python examples/vacuum_triode.py     # requires vecview
+    python examples/vacuum_triode.py     # requires vecview 0.5 or later
 """
 
 from __future__ import annotations

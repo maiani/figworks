@@ -25,7 +25,7 @@ simulated with fixed seeds, so every run is byte-identical.
 | `vacuum_triode.py` | Electronics | cutaway of the electrode assembly, plate and mutual characteristics, in a vintage style |
 
 They need VecView and a TeX installation; the transmon also needs VecWire, and
-the triode needs no TeX.
+the triode needs VecView 0.5 or later and no TeX.
 `gallery.py` builds them all, runs the publication preflight on each SVG, and
 writes `out/gallery-report.json`; `--docs` also refreshes the documentation
 gallery.

@@ -3,7 +3,7 @@
 [![CI](https://github.com/maiani/figworks/actions/workflows/ci.yml/badge.svg)](https://github.com/maiani/figworks/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/figworks.svg)](https://pypi.org/project/figworks/)
 [![Python](https://img.shields.io/pypi/pyversions/figworks.svg)](https://pypi.org/project/figworks/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/maiani/figworks/blob/v0.10.0/LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/maiani/figworks/blob/v0.11.0/LICENSE)
 
 **A Python suite for reproducible, reviewable, and editable scientific figures.**
 
@@ -24,23 +24,23 @@ script, but what you keep is plain Python in your repository and SVG with named
 parts: every number traces back to code you can check, every label can be
 changed by hand, and the figure rebuilds from source whenever you need it.
 
-[Documentation](https://github.com/maiani/figworks/blob/v0.10.0/docs/index.md) ·
-[Gallery](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md) · [Quick start](#quick-start) ·
+[Documentation](https://github.com/maiani/figworks/blob/v0.11.0/docs/index.md) ·
+[Gallery](https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/index.md) · [Quick start](#quick-start) ·
 [Examples](#examples) · [Agent skill](#agent-skill) · [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
 <p align="center">
-  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/graphene_bands.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-graphene_bands.svg" alt="A four-panel graphene figure: the honeycomb lattice with its unit cell, both bands as 3D surfaces touching at the Dirac points, the band structure along high-symmetry lines, and the density of states" width="760"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/graphene_bands.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.11.0/docs/images/gallery-graphene_bands.svg" alt="A four-panel graphene figure: the honeycomb lattice with its unit cell, both bands as 3D surfaces touching at the Dirac points, the band structure along high-symmetry lines, and the density of states" width="760"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/hodgkin_huxley.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-hodgkin_huxley.svg" alt="The action potential: sodium and potassium channels in a membrane, the Hodgkin-Huxley equations, a spike train, the conductances, and the firing threshold" width="248"></a>
-  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/production_network.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-production_network.svg" alt="Shocks in a production network: the network map under a chip shock, the bullwhip effect, and aggregate volatility" width="248"></a>
-  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/vacuum_triode.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-vacuum_triode.svg" alt="A vacuum triode as a mid-century tube manual drew it: the electrode assembly cut away in ink, and its plate and mutual characteristics on graph paper" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/hodgkin_huxley.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.11.0/docs/images/gallery-hodgkin_huxley.svg" alt="The action potential: sodium and potassium channels in a membrane, the Hodgkin-Huxley equations, a spike train, the conductances, and the firing threshold" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/production_network.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.11.0/docs/images/gallery-production_network.svg" alt="Shocks in a production network: the network map under a chip shock, the bullwhip effect, and aggregate volatility" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/vacuum_triode.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.11.0/docs/images/gallery-vacuum_triode.svg" alt="A vacuum triode as a mid-century tube manual drew it: the electrode assembly cut away in ink, and its plate and mutual characteristics on graph paper" width="248"></a>
 </p>
 
 <p align="center"><sub>Dirac electrons in graphene, styled for Physical Review; the action potential and shocks in a production network, styled for Nature; and a vacuum triode in a style of its own, a mid-century engineering handbook's. Figures from physics, neuroscience, economics, and electronics, each built by one self-contained script.</sub></p>
 
-<p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all ten figures and their code in the gallery →</a></b></p>
+<p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/index.md">See all ten figures and their code in the gallery →</a></b></p>
 
 The graphene figure is two VecView scenes and two Matplotlib plots, labelled
 with VecTeX. The sources share nothing but a method, and FigWorks composes
@@ -80,12 +80,12 @@ fig.save("graphene_bands.pdf")
 
 `lattice_scene` and `band_scene` return `vecview.Scene` objects and the plot
 functions are plain Matplotlib, all in the
-[example](https://github.com/maiani/figworks/blob/v0.10.0/examples/graphene_bands.py).
+[example](https://github.com/maiani/figworks/blob/v0.11.0/examples/graphene_bands.py).
 The grid fixes the panels in millimetres, the plots' frames land exactly on
 them, the labels pinned into the 3D scenes keep their size however a scene is
 scaled, so every label prints at the style's 8 pt, and the export refuses to
 substitute a missing font. The
-[transmon](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/transmon_figure.md)
+[transmon](https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/transmon_figure.md)
 adds a VecWire circuit to the same recipe.
 
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
@@ -121,7 +121,7 @@ every glyph it needs, and raise `FontError` rather than substitute silently.
 ## Agent skill
 
 FigWorks 0.10 and newer bundle a harness-agnostic
-[figure-authoring skill](https://github.com/maiani/figworks/blob/v0.10.0/src/figworks/_skills/figworks/SKILL.md)
+[figure-authoring skill](https://github.com/maiani/figworks/blob/v0.11.0/src/figworks/_skills/figworks/SKILL.md)
 with panel planning, scientific provenance, composition, rendering, and visual
 review guidance, plus a runnable starter. Installing the Python package makes
 it available; the explicit command below registers a copy where your agent
@@ -282,7 +282,7 @@ without importing FigWorks, and FigWorks has no adapter for any of them.
 Install `pip install "figworks[plotly]"` and Chrome/Chromium, then pass
 `plotly_to_svg(plot)` from `figworks.plotly` to `Panel.add` or `Figure.add`.
 This produces static SVG; WebGL traces may include raster images. See the
-[Plotly guide](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/plotly.md) for dimensions,
+[Plotly guide](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/plotly.md) for dimensions,
 fonts, reproducibility, and an example.
 
 ### VecTeX equations
@@ -329,7 +329,7 @@ fig.fill_plane("plot-plane", mpl_fig)
 ```
 
 `fill_plane` normalizes content onto the unit square, so shape the plane to the
-plot's aspect ratio. [3D scenes](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/scenes-3d.md) covers orientation,
+plot's aspect ratio. [3D scenes](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/scenes-3d.md) covers orientation,
 line weights, and export caveats.
 
 ### VecWire circuits
@@ -361,7 +361,7 @@ its style guide in prose. FigWorks generates Matplotlib settings from it
 (`theme_rc("style.md")`), styles its own elements with it
 (`Figure(..., theme="style.md")`), and builds figure sets under it
 (`FigureCollection(style=...)`). Built-in bases follow the figure guidelines of
-Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/styles.md).
+Nature, Physical Review, and IEEE. See [Styles](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/styles.md).
 
 ### One typography across the suite
 
@@ -381,7 +381,7 @@ circuit.label("C", (40, 20), **theme.vecwire_label())
 Use `fit="none"` to retain the source's physical type size; fitting a whole
 source to a smaller panel also shrinks its labels and strokes. The helper for
 VecWire labels requires its current checkout with `font_family` support.
-See the [style guide](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/styles.md) and
+See the [style guide](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/styles.md) and
 `examples/transmon_figure.py` for a complete mixed-source figure.
 
 ### Aligned Matplotlib panels
@@ -432,8 +432,8 @@ fig.label("b", panels["spectrum"].nw)
 Repeating a name spans a rectangle; `None` reserves an empty cell. Ratios
 divide the space remaining after margins and gaps, which keep their physical
 size when you build a figure at another width. The returned dictionary holds
-ordinary `Panel` objects in first-occurrence order. See [Grid layout](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/layout.md)
-and [the complete example](https://github.com/maiani/figworks/blob/v0.10.0/examples/panel_grid.py).
+ordinary `Panel` objects in first-occurrence order. See [Grid layout](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/layout.md)
+and [the complete example](https://github.com/maiani/figworks/blob/v0.11.0/examples/panel_grid.py).
 
 ```python
 fig.placeholder("main-slot", x="10mm", y="10mm", w="80mm", h="60mm", label="x")
@@ -462,7 +462,7 @@ The checker reports broken IDs/references, font problems, small placed text and
 strokes, raster resolution, external resources, and conservative page overflow.
 `report.unchecked` lists coverage limits for CSS, complex bounds, and other
 features that need visual inspection. A clean report is not a certification of
-arbitrary SVG. See the [preflight guide](https://github.com/maiani/figworks/blob/v0.10.0/docs/usage/preflight.md).
+arbitrary SVG. See the [preflight guide](https://github.com/maiani/figworks/blob/v0.11.0/docs/usage/preflight.md).
 
 ## Known limitations
 
@@ -471,10 +471,10 @@ PNG exports without a warning.
 
 ## Examples
 
-The [gallery](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md) holds journal figures
+The [gallery](https://github.com/maiani/figworks/blob/v0.11.0/docs/gallery/index.md) holds journal figures
 from across the sciences, each one self-contained script. They need VecView and
-TeX; the transmon also needs VecWire, and the triode needs no TeX. Run from
-the repository root:
+TeX; the transmon also needs VecWire, and the triode needs VecView 0.5 or
+later and no TeX. Run from the repository root:
 
 ```bash
 python examples/transmon_figure.py      # superconducting qubits

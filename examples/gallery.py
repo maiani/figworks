@@ -144,7 +144,7 @@ EXAMPLES = (
         "A VecView scene of solids turned on a lathe and inked as a technical drawing, beside "
         "Matplotlib graph paper, in a style of its own (vintage_style.md) that sets the "
         "lettering, the FIG. 1 panel labels, and the drafting arrowheads.",
-        "VecView",
+        "VecView 0.5 or later",
     ),
 )
 

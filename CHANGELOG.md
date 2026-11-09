@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A harness-independent figure-authoring skill ships with the Python package,
+  including planning/review guidance and a portable starter. Install a copy with
+  `python -m figworks.skill install DESTINATION`; `--overwrite` refreshes bundled
+  files, and `python -m figworks.skill path` locates the source for development.
 - A style's `panel_label` sets the panel letters: `format`, with `{}` for the
   letter (`"({})"` gives (a)), CSS `weight`, and the offset `dx`, `dy` from the
   labelled corner. `Figure.label` no longer forces bold or a fixed offset;

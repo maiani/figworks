@@ -53,7 +53,13 @@ dev = [
 where = ["src"]
 
 [tool.setuptools.package-data]
-figworks = ["py.typed", "styles/*.md"]
+figworks = [
+    "py.typed",
+    "styles/*.md",
+    "_skills/figworks/SKILL.md",
+    "_skills/figworks/references/*.md",
+    "_skills/figworks/assets/*.py",
+]
 
 [tool.setuptools.dynamic]
 version = { attr = "figworks.__version__" }

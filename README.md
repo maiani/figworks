@@ -26,7 +26,7 @@ changed by hand, and the figure rebuilds from source whenever you need it.
 
 [Documentation](https://github.com/maiani/figworks/blob/v0.10.0/docs/index.md) ·
 [Gallery](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md) · [Quick start](#quick-start) ·
-[Examples](#examples) · [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
+[Examples](#examples) · [Agent skill](#agent-skill) · [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
 <p align="center">
   <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/graphene_bands.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-graphene_bands.svg" alt="A four-panel graphene figure: the honeycomb lattice with its unit cell, both bands as 3D surfaces touching at the Dirac points, the band structure along high-symmetry lines, and the density of states" width="760"></a>
@@ -117,6 +117,74 @@ Figures are set in TeX Gyre Heros by default, a free Helvetica clone that comes
 with TeX Live and as `fonts-texgyre` on Debian and Ubuntu. PDF and PNG export
 check, through fontconfig, that every font a figure uses is installed and has
 every glyph it needs, and raise `FontError` rather than substitute silently.
+
+## Agent skill
+
+FigWorks 0.10 and newer bundle a harness-agnostic
+[figure-authoring skill](https://github.com/maiani/figworks/blob/v0.10.0/src/figworks/_skills/figworks/SKILL.md)
+with panel planning, scientific provenance, composition, rendering, and visual
+review guidance, plus a runnable starter. Installing the Python package makes
+it available; the explicit command below registers a copy where your agent
+looks for skills. No checkout or symlink is needed for normal use.
+
+### Install for an agent
+
+```bash
+python -m pip install --upgrade "figworks>=0.10"
+
+# Codex: available across research projects
+python -m figworks.skill install ~/.agents/skills/figworks
+
+# Claude Code: available across research projects
+python -m figworks.skill install ~/.claude/skills/figworks
+```
+
+Use either destination or both. For another harness, pass its skill directory
+with `figworks` as the final folder name. For project-only installation, use a
+path such as `.agents/skills/figworks` or `.claude/skills/figworks` inside the
+research project. These commands copy the complete bundle and create parents
+as needed; they do not alter other agent settings.
+
+After upgrading the Python package, rerun each installation with `--overwrite`:
+
+```bash
+python -m figworks.skill install ~/.agents/skills/figworks --overwrite
+```
+
+Without this flag, an existing destination is left unchanged. With it, bundled
+files are replaced, including any local edits to those files; extra files are
+kept. Symlink destinations are refused even with `--overwrite`, so updating a
+normal installation cannot overwrite a development link's source.
+
+Invoke the skill as `$figworks` in Codex or `/figworks` in Claude Code. Start a
+new session if discovery or loaded instructions are stale; Claude Code also
+supports `/reload-skills` for discovery. See the official
+[Codex skill locations](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+and [Claude Code skill documentation](https://code.claude.com/docs/en/skills).
+A harness without skill discovery can read `SKILL.md` directly from the copied
+folder. `python -m figworks.skill path` prints the bundled source directory if
+only direct access is needed.
+
+### Editable installation for development
+
+For contributors, link to the skill in an editable Python checkout. Run from
+the FigWorks repository root, using your development environment (Linux/macOS):
+
+```bash
+python -m pip install -e .
+figworks_skill="$(python -m figworks.skill path)"
+
+# Choose either or both
+mkdir -p "$HOME/.agents/skills"
+ln -s "$figworks_skill" "$HOME/.agents/skills/"
+mkdir -p "$HOME/.claude/skills"
+ln -s "$figworks_skill" "$HOME/.claude/skills/"
+```
+
+Both agents then read the same source files, so edits need no copy or reinstall.
+Keep the checkout at that path or update the links when moving it. If `figworks`
+already exists in a destination, inspect and move the old copy/link aside before
+switching installation modes; the commands above do not force replacement.
 
 ## Quick start
 

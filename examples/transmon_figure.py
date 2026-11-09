@@ -225,8 +225,9 @@ def build_figure() -> Figure:
         "phi": r"$\varphi$",
         "H": r"$H = 4E_C(\hat n - n_g)^2 - E_J \cos\hat\varphi$",
     }
-    labels = {name: vectex.render(source, size_pt=8) for name, source in tex.items()}
-    labels["EJ"] = vectex.render(tex["EJ"], size_pt=8, color=JUNCTION)
+    style = THEME.vectex()  # the plots' Times and size, so a symbol reads the same everywhere
+    labels = {name: vectex.render(source, **style) for name, source in tex.items()}
+    labels["EJ"] = vectex.render(tex["EJ"], **style | {"color": JUNCTION})
 
     panels["device"].add(device_scene(labels), id="device-scene")
 

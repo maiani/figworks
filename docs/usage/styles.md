@@ -46,11 +46,14 @@ chain ends at `paper`, which sets every token.
 | `paper` | the default: any journal column | (none) | 8 / 7 pt | TeX Gyre Heros |
 | `presentation` | slides | (none) | 11 / 10 pt | TeX Gyre Heros |
 | `nature` | Nature and its research journals | 89 mm, 183 mm | 7 / 6 pt | TeX Gyre Heros |
-| `aps` | Physical Review, PRL, PRX | 86 mm, 178 mm | 8 / 7 pt | TeX Gyre Heros |
+| `aps` | Physical Review, PRL, PRX | 86 mm, 178 mm | 8 / 7 pt | TeX Gyre Termes |
 | `ieee` | IEEE transactions and proceedings | 88.9 mm, 182 mm | 8 / 8 pt | TeX Gyre Termes |
 
 The journal styles follow each journal's published figure guidelines, cited in
-their own prose (`src/figworks/styles/*.md`). Check the current guidelines
+their own prose (`src/figworks/styles/*.md`). Where a guideline leaves the look
+open, each takes the one its journal's figures share: `nature` sets bold sans
+letters a, b on clean axes; `aps` sets serif type matching the text, roman
+letters (a), (b), and inward ticks on all four sides. Check the current guidelines
 before submission; journals revise them.
 
 ## Tokens

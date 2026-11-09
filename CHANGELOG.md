@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `aps` looks like Physical Review: TeX Gyre Termes with math in its italic,
+  roman letters (a), (b), and inward ticks, with minor ticks, on all four sides.
+  The transmon gallery figure sets its VecTeX labels to match.
+
 - The README leads with the graphene figure and three more from neuroscience,
   climate science, and economics, links the gallery prominently, and walks
   through the graphene figure's code. Its images are the gallery previews, so

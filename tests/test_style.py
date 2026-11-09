@@ -142,7 +142,7 @@ def test_a_cycle_of_bases_is_reported(tmp_path: Path) -> None:
     ("name", "column", "family", "smallest"),
     [
         ("nature", "89mm", "TeX Gyre Heros", 5.0),
-        ("aps", "86mm", "TeX Gyre Heros", 7.0),
+        ("aps", "86mm", "TeX Gyre Termes", 7.0),
         ("ieee", "88.9mm", "TeX Gyre Termes", 6.0),
     ],
 )
@@ -155,6 +155,14 @@ def test_journal_styles_meet_their_guidelines(
     sizes = [theme.font.size, theme.font.label, theme.font.tick, theme.font.legend]
     assert min(sizes) >= smallest, "no text below the journal's minimum"
     theme.rc()
+
+
+def test_aps_looks_like_physical_review() -> None:
+    aps = load_theme("aps")
+    assert (aps.panel_label("a"), aps.panel_label.weight) == ("(a)", "normal")
+    rc = aps.rc()
+    assert (rc["xtick.direction"], rc["ytick.direction"]) == ("in", "in")
+    assert rc["xtick.top"] and rc["ytick.right"] and rc["xtick.minor.visible"]
 
 
 def test_aps_lines_meet_the_half_point_minimum() -> None:

@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- The README leads with the graphene figure and three more from neuroscience,
+  climate science, and economics, links the gallery prominently, and walks
+  through the graphene figure's code. Its images are the gallery previews, so
+  `docs/readme_figure.py` and `docs/images/readme.svg` are gone.
 - The transmon gallery figure gives each charge-dispersion plot its own panel
   letter, d and e, and draws the three lowest states on their levels in c.
 

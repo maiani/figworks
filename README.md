@@ -25,52 +25,68 @@ parts: every number traces back to code you can check, every label can be
 changed by hand, and the figure rebuilds from source whenever you need it.
 
 [Documentation](https://github.com/maiani/figworks/blob/v0.10.0/docs/index.md) ·
-[Quick start](#quick-start) · [Examples](#examples) ·
-[The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
+[Gallery](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md) · [Quick start](#quick-start) ·
+[Examples](#examples) · [The suite](#the-suite) · [Report an issue](https://github.com/maiani/figworks/issues)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/readme.svg" alt="A four-panel transmon figure: a 3D device with TeX labels, its circuit and Hamiltonian, the cosine potential with its levels, and the charge dispersion at two values of E_J/E_C" width="760">
+  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/graphene_bands.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-graphene_bands.svg" alt="A four-panel graphene figure: the honeycomb lattice with its unit cell, both bands as 3D surfaces touching at the Dirac points, the band structure along high-symmetry lines, and the density of states" width="760"></a>
 </p>
 
-<p align="center"><sub>A Physical Review two-column figure from <a href="https://github.com/maiani/figworks/blob/v0.10.0/examples/transmon_figure.py"><code>examples/transmon_figure.py</code></a>: a VecView device, a VecWire circuit, and two Matplotlib panels, labelled with VecTeX.</sub></p>
+<p align="center">
+  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/hodgkin_huxley.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-hodgkin_huxley.svg" alt="The action potential: sodium and potassium channels in a membrane, the Hodgkin-Huxley equations, a spike train, the conductances, and the firing threshold" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/climate_energy_balance.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-climate_energy_balance.svg" alt="Earth's energy balance: the radiation budget of the globe, the ice-albedo hysteresis, and the warming after CO2 doubles" width="248"></a>
+  <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/production_network.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-production_network.svg" alt="Shocks in a production network: the network map under a chip shock, the bullwhip effect, and aggregate volatility" width="248"></a>
+</p>
 
-The four sources in that figure share nothing but a method, and FigWorks
-composes them in a few lines:
+<p align="center"><sub>Dirac electrons in graphene, then the action potential, Earth's energy balance, and shocks in a production network: journal figures from physics, neuroscience, climate science, and economics, each built by one self-contained script.</sub></p>
+
+<p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all nine figures and their code in the gallery →</a></b></p>
+
+The graphene figure is two VecView scenes and two Matplotlib plots, labelled
+with VecTeX. The sources share nothing but a method, and FigWorks composes
+them in a few lines:
 
 ```python
-theme = load_theme("aps")
-fig = Figure(width=theme.page["double"], height="104mm", theme=theme)
-panels = fig.grid(
-    [["device", "device", "circuit"], ["potential", "bands", "bands"]],
-    height_ratios=(1.1, 1),
-    margins=("6mm", "3mm", "10mm", "12mm"),  # top, right, bottom, left
-    gap=("13mm", "14mm"),  # between rows, between columns
+theme = load_theme("nature")
+fig = Figure(width=theme.page["double"], height="121mm", theme=theme)
+panels = fig.grid(  # a and b
+    [["lattice", "zone"]],
+    width_ratios=(1, 1.15),
+    margins=("7mm", "3mm", "60mm", "6mm"),  # top, right, bottom, left
+    gap="8mm",
+)
+panels |= fig.grid(  # c and d: a row of their own, with a closer gap
+    [["bands", "dos"]],
+    width_ratios=(3, 1),
+    margins=("71mm", "6mm", "10mm", "14mm"),
+    gap="4mm",
 )
 
-labels = {name: vectex.render(source, size_pt=8) for name, source in tex.items()}
+labels = {name: vectex.render(source, **theme.vectex()) for name, source in tex.items()}
+panels["lattice"].add(lattice_scene(labels), id="lattice-scene")  # labels pinned in 3D, still 7 pt
+panels["zone"].add(band_scene(labels), id="band-scene")
 
-panels["device"].add(device_scene(labels), id="device-scene")  # labels pinned in 3D, still 8 pt
+for name, plot in (("bands", plot_bands), ("dos", plot_dos)):
+    mpl_fig, ax = panels[name].subplots()  # its axes frame is the panel
+    plot(ax)
+    panels[name].add(mpl_fig, id=f"{name}-plot", fit="axes")
 
-panels["circuit"].add(circuit_diagram(labels), id="circuit", fit="none")  # at its own size
-
-mpl_fig, ax = panels["potential"].subplots()  # its axes frame is the panel
-plot_potential(ax)
-panels["potential"].add(mpl_fig, id="potential-plot", fit="axes")
-
-mpl_fig, axes = panels["bands"].subplots(1, 2, sharey=True, gridspec_kw=dict(wspace=0.12))
-plot_bands(axes)
-panels["bands"].add(mpl_fig, id="bands-plot", fit="axes")
-
-for letter, panel in zip("abcd", panels.values(), strict=True):
-    fig.label(letter, panel.nw)
-fig.save("transmon_figure.pdf")
+fig.label("a", panels["lattice"].nw)
+fig.label("b", panels["zone"].nw)
+fig.label("c", (panels["lattice"].x, panels["bands"].y))  # in line with a
+fig.label("d", panels["dos"].nw)
+fig.save("graphene_bands.pdf")
 ```
 
-`device_scene` returns a `vecview.Scene`, `circuit_diagram` a `vecwire.Circuit`,
-and the plot functions are plain Matplotlib, all in the example. The grid fixes
-the panels in millimetres, the plots' frames land exactly on them, the circuit
-is placed at the size it was drawn, so every label prints at the style's 8 pt,
-and the export refuses to substitute a missing font.
+`lattice_scene` and `band_scene` return `vecview.Scene` objects and the plot
+functions are plain Matplotlib, all in the
+[example](https://github.com/maiani/figworks/blob/v0.10.0/examples/graphene_bands.py).
+The grid fixes the panels in millimetres, the plots' frames land exactly on
+them, the labels pinned into the 3D scenes keep their size however a scene is
+scaled, so every label prints at the style's 7 pt, and the export refuses to
+substitute a missing font. The
+[transmon](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/transmon_figure.md)
+adds a VecWire circuit to the same recipe.
 
 SVG is the canonical output; PDF and PNG are exported through CairoSVG.
 FigWorks is an assembly layer between plotting code and the final graphic. It

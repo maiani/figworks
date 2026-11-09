@@ -36,10 +36,10 @@ publishes them to PyPI by trusted publishing from the `pypi` environment.
    `git push --tags`: any pushed `v*` tag publishes.
 
 The README is also the PyPI project page, where relative links do not resolve,
-so its links and image are absolute and pinned to a release tag. When bumping
-the version, point them at the new tag, regenerate the README figure with
-`python docs/readme_figure.py`, and refresh `uv.lock`, which records the
-project's own version: `uv lock`.
+so its links and images are absolute and pinned to a release tag. Its images
+are gallery previews. When bumping the version, point the links at the new tag,
+refresh the previews with `python examples/gallery.py --docs`, and refresh
+`uv.lock`, which records the project's own version: `uv lock`.
 
 ## Document layout
 

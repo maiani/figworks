@@ -134,7 +134,7 @@ floats with `repr`, so numeric attributes go through `px_decimal` to keep the
 Examples:
 
 ```bash
-python examples/transmon_figure.py       # the README figure; vecview, vecwire, TeX
+python examples/graphene_bands.py        # the README figure; vecview, TeX
 python examples/gallery.py               # every gallery figure, with preflight
 python examples/gallery.py --docs        # also refresh docs/gallery and its images
 python examples/publication_preflight.py # core only; a deliberately flawed figure

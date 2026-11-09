@@ -1,6 +1,6 @@
 # Gallery
 
-Figures from across the sciences, each built by one self-contained script at its printed size, two journal columns wide, in the style of a journal that would print it: the qubit and graphene in Physical Review's (`aps`, 178 mm), the rest in Nature's (`nature`, 183 mm). Every one pairs a schematic with quantitative panels computed from the model it illustrates, and every element of the SVG stays editable.
+Figures from across the sciences, each built by one self-contained script at its printed size, two journal columns wide, in the style of a journal that would print it: the qubit and graphene in Physical Review's (`aps`, 178 mm), the triode in an engineering handbook's (`vintage_style.md`, beside its script), the rest in Nature's (`nature`, 183 mm). Every one pairs a schematic with quantitative panels computed from the model it illustrates, and every element of the SVG stays editable.
 
 Data shown as measurements are simulated, with fixed seeds; each script says which.
 
@@ -59,6 +59,12 @@ Data shown as measurements are simulated, with fixed seeds; each script says whi
     [![Shocks in a production network](../images/gallery-production_network.svg)](production_network.md)
 
     *Economics.* What a collapse of chip productivity does to every sector of a CES input-output economy, why complementarity breaks Hulten's theorem for large shocks, how orders swell up a supply chain, and why hub suppliers stop shocks averaging out.
+
+-   **[A vacuum triode, from the drafting table](vacuum_triode.md)**
+
+    [![A vacuum triode, from the drafting table](../images/gallery-vacuum_triode.svg)](vacuum_triode.md)
+
+    *Electronics.* A plate in the manner of a mid-century tube manual: the electrode assembly with a quarter cut away, the plate characteristics on graph paper with a load line, and the transconductance constructed on the mutual characteristics, all from Child's law.
 
 </div>
 

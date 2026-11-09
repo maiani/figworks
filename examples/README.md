@@ -5,7 +5,8 @@
 Journal figures from across the sciences, each one self-contained script that
 writes SVG, PDF, and PNG to `out/` at its printed size, two journal columns
 wide, in the style of a journal that would print it: Physical Review (`aps`,
-178 mm) for the qubit and graphene, Nature (`nature`, 183 mm) for the rest.
+178 mm) for the qubit and graphene, an engineering handbook of its own
+(`vintage_style.md`) for the triode, Nature (`nature`, 183 mm) for the rest.
 Every figure pairs a schematic with quantitative panels computed from the
 model it illustrates. Data shown as measurements are
 simulated with fixed seeds, so every run is byte-identical.
@@ -21,8 +22,10 @@ simulated with fixed seeds, so every run is byte-identical.
 | `energy_landscape.py` | Chemistry | potential-energy surface, minimum-energy path, barriers |
 | `climate_energy_balance.py` | Climate science | energy budget, ice-albedo hysteresis, warming after CO2 doubling |
 | `production_network.py` | Economics | sector map under a chip shock, bullwhip effect, Hulten's theorem, hub suppliers |
+| `vacuum_triode.py` | Electronics | cutaway of the electrode assembly, plate and mutual characteristics, in a vintage style |
 
-They need VecView and a TeX installation; the transmon also needs VecWire.
+They need VecView and a TeX installation; the transmon also needs VecWire, and
+the triode needs no TeX.
 `gallery.py` builds them all, runs the publication preflight on each SVG, and
 writes `out/gallery-report.json`; `--docs` also refreshes the documentation
 gallery.

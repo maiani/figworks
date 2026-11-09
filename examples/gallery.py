@@ -10,8 +10,9 @@ Usage:
     python examples/gallery.py --only graphene_bands
     python examples/gallery.py --docs              # also refresh docs/gallery
 
-Every figure needs VecView and a TeX installation; the transmon also needs
-VecWire. A missing producer fails the build; nothing is skipped silently.
+Every figure needs VecView, and all but the triode a TeX installation; the
+transmon also needs VecWire. A missing producer fails the build; nothing is
+skipped silently.
 """
 
 from __future__ import annotations
@@ -133,6 +134,18 @@ EXAMPLES = (
         "solves and flows as flat arrows on the floor, beside stacked and single "
         "Matplotlib panels; the shock and each tier keep one colour from map to plot.",
     ),
+    Example(
+        "vacuum_triode",
+        "Electronics",
+        "A vacuum triode, from the drafting table",
+        "A plate in the manner of a mid-century tube manual: the electrode assembly with a "
+        "quarter cut away, the plate characteristics on graph paper with a load line, and the "
+        "transconductance constructed on the mutual characteristics, all from Child's law.",
+        "A VecView scene of solids turned on a lathe and inked as a technical drawing, beside "
+        "Matplotlib graph paper, in a style of its own (vintage_style.md) that sets the "
+        "lettering, the FIG. 1 panel labels, and the drafting arrowheads.",
+        "VecView",
+    ),
 )
 
 
@@ -178,6 +191,7 @@ def index_page() -> str:
         "Figures from across the sciences, each built by one self-contained script "
         "at its printed size, two journal columns wide, in the style of a journal "
         "that would print it: the qubit and graphene in Physical Review's (`aps`, 178 mm), "
+        "the triode in an engineering handbook's (`vintage_style.md`, beside its script), "
         "the rest in Nature's (`nature`, 183 mm). "
         "Every one pairs a schematic with quantitative panels computed from the "
         "model it illustrates, and every element of the SVG stays editable.\n\n"

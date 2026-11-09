@@ -225,7 +225,11 @@ For VecView, choose camera scale to size geometry and place the document with
 `examples/transmon_figure.py` combines a VecView device, a VecWire circuit,
 VecTeX labels, and Matplotlib panels under one theme, with every label at 8 pt.
 The graphene figure does the same; the other [gallery](../gallery/index.md)
-figures use `nature`.
+figures use `nature`, except the vacuum triode, whose look is a style of its own
+beside the script: `examples/vintage_style.md` builds an engineering handbook
+on `paper` -- template lettering, `FIG. 1` panel labels through `panel_label`,
+slender drafting heads through `arrow`, and graph-paper rules through
+`rcparams` -- with no design choice left in the script.
 
 ## What belongs in the prose
 

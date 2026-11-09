@@ -139,11 +139,13 @@ python examples/gallery.py               # every gallery figure, with preflight
 python examples/gallery.py --docs        # also refresh docs/gallery and its images
 python examples/publication_preflight.py # core only; a deliberately flawed figure
 python examples/thesis_plots.py --all    # core only; a figure collection
+python examples/vacuum_triode.py         # vecview, no TeX; its own vintage_style.md
 ```
 
 The gallery figures are the showcase. Each is a self-contained script (no
 shared helper module) for a two-column figure from a different field, in the
-style of a journal that would print it (`aps` at 178 mm or `nature` at 183 mm):
+style of a journal that would print it (`aps` at 178 mm or `nature` at 183 mm)
+or of its own, beside the script (the triode's `vintage_style.md`):
 a schematic plus quantitative panels computed from the model in the script,
 simulated data seeded, output byte-identical between runs. A new gallery figure
 is registered in `EXAMPLES` in `examples/gallery.py`.

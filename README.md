@@ -40,7 +40,7 @@ changed by hand, and the figure rebuilds from source whenever you need it.
 
 <p align="center"><sub>Dirac electrons in graphene, styled for Physical Review, then the action potential, Earth's energy balance, and shocks in a production network, styled for Nature: journal figures from physics, neuroscience, climate science, and economics, each built by one self-contained script.</sub></p>
 
-<p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all nine figures and their code in the gallery →</a></b></p>
+<p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all ten figures and their code in the gallery →</a></b></p>
 
 The graphene figure is two VecView scenes and two Matplotlib plots, labelled
 with VecTeX. The sources share nothing but a method, and FigWorks composes
@@ -473,7 +473,8 @@ PNG exports without a warning.
 
 The [gallery](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md) holds journal figures
 from across the sciences, each one self-contained script. They need VecView and
-TeX; the transmon also needs VecWire. Run from the repository root:
+TeX; the transmon also needs VecWire, and the triode needs no TeX. Run from
+the repository root:
 
 ```bash
 python examples/transmon_figure.py      # superconducting qubits
@@ -485,6 +486,7 @@ python examples/exoplanet_transit.py    # astrophysics
 python examples/energy_landscape.py     # chemistry
 python examples/climate_energy_balance.py # climate science
 python examples/production_network.py    # economics
+python examples/vacuum_triode.py         # electronics, in a vintage style
 python examples/gallery.py              # all of them, with a preflight report
 ```
 

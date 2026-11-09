@@ -1,10 +1,11 @@
 """Graphene's Dirac electrons, from nearest-neighbour tight binding.
 
-A Nature double-column figure in four panels: the honeycomb lattice with its
+A Physical Review double-column figure in four panels: the honeycomb lattice with its
 two-atom unit cell (a VecView scene), the two bands over the Brillouin zone,
 touching in cones at its corners (a second scene), and two Matplotlib panels
 sharing an energy axis: the bands along Gamma-K-M-Gamma and the density of
-states. Every label in the scenes is a VecTeX fragment pinned upright at 7 pt.
+states. Every label in the scenes is a VecTeX fragment pinned upright at 8 pt,
+in the Times of the plots.
 
 Everything is computed here from the two-site Bloch Hamiltonian, whose
 off-diagonal element is -t f(k), with t = 2.7 eV and a carbon-carbon distance
@@ -36,9 +37,8 @@ from figworks.matplotlib import theme_rc
 
 OUT = Path(__file__).resolve().parent / "out"
 
-THEME = load_theme("nature")
+THEME = load_theme("aps")
 plt.rcParams.update(theme_rc(THEME))
-plt.rcParams.update({"axes.spines.top": False, "axes.spines.right": False})
 
 INK = "#262626"
 GREY = "#8a9099"
@@ -238,9 +238,10 @@ def plot_bands(ax: plt.Axes) -> None:
         ax.plot(stops[1] + q, sign * HBAR_VF * np.abs(q), **DASHED)
     ax.text(stops[1] + 0.52, HBAR_VF * 0.5, r"$E = \pm\hbar v_F|q|$", va="bottom")
     for d in stops[1:-1]:
-        ax.axvline(d, color=GREY, lw=0.25, zorder=0)
-    ax.axhline(0, color=GREY, lw=0.25, zorder=0)
+        ax.axvline(d, color=GREY, lw=THEME.line.hairline, zorder=0)
+    ax.axhline(0, color=GREY, lw=THEME.line.hairline, zorder=0)
     ax.set_xticks(stops, [r"$\Gamma$", "K", "M", r"$\Gamma$"])
+    ax.xaxis.set_minor_locator(plt.NullLocator())  # a path through k-space, not a scale
     ax.set_xlim(stops[0], stops[-1])
     ax.set_ylabel("Energy (eV)")
     energy_axis(ax, labelled=True)

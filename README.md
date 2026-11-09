@@ -38,7 +38,7 @@ changed by hand, and the figure rebuilds from source whenever you need it.
   <a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/production_network.md"><img src="https://raw.githubusercontent.com/maiani/figworks/v0.10.0/docs/images/gallery-production_network.svg" alt="Shocks in a production network: the network map under a chip shock, the bullwhip effect, and aggregate volatility" width="248"></a>
 </p>
 
-<p align="center"><sub>Dirac electrons in graphene, then the action potential, Earth's energy balance, and shocks in a production network: journal figures from physics, neuroscience, climate science, and economics, each built by one self-contained script.</sub></p>
+<p align="center"><sub>Dirac electrons in graphene, styled for Physical Review, then the action potential, Earth's energy balance, and shocks in a production network, styled for Nature: journal figures from physics, neuroscience, climate science, and economics, each built by one self-contained script.</sub></p>
 
 <p align="center"><b><a href="https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/index.md">See all nine figures and their code in the gallery →</a></b></p>
 
@@ -47,7 +47,7 @@ with VecTeX. The sources share nothing but a method, and FigWorks composes
 them in a few lines:
 
 ```python
-theme = load_theme("nature")
+theme = load_theme("aps")
 fig = Figure(width=theme.page["double"], height="121mm", theme=theme)
 panels = fig.grid(  # a and b
     [["lattice", "zone"]],
@@ -63,7 +63,7 @@ panels |= fig.grid(  # c and d: a row of their own, with a closer gap
 )
 
 labels = {name: vectex.render(source, **theme.vectex()) for name, source in tex.items()}
-panels["lattice"].add(lattice_scene(labels), id="lattice-scene")  # labels pinned in 3D, still 7 pt
+panels["lattice"].add(lattice_scene(labels), id="lattice-scene")  # labels pinned in 3D, still 8 pt
 panels["zone"].add(band_scene(labels), id="band-scene")
 
 for name, plot in (("bands", plot_bands), ("dos", plot_dos)):
@@ -83,7 +83,7 @@ functions are plain Matplotlib, all in the
 [example](https://github.com/maiani/figworks/blob/v0.10.0/examples/graphene_bands.py).
 The grid fixes the panels in millimetres, the plots' frames land exactly on
 them, the labels pinned into the 3D scenes keep their size however a scene is
-scaled, so every label prints at the style's 7 pt, and the export refuses to
+scaled, so every label prints at the style's 8 pt, and the export refuses to
 substitute a missing font. The
 [transmon](https://github.com/maiani/figworks/blob/v0.10.0/docs/gallery/transmon_figure.md)
 adds a VecWire circuit to the same recipe.

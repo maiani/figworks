@@ -19,8 +19,6 @@ python examples/graphene_bands.py
 Recorded by `python examples/gallery.py`; findings are for review, not a certification.
 
 - `small-script`: 6
-- `small-text`: 12
-- `thin-stroke`: 3
 
 Not checked:
 

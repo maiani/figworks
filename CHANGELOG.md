@@ -19,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `aps` looks like Physical Review: TeX Gyre Termes with math in its italic,
   roman letters (a), (b), and inward ticks, with minor ticks, on all four sides.
   The transmon gallery figure sets its VecTeX labels to match.
+- The graphene gallery figure is styled for Physical Review too, so the gallery,
+  and the top of the README, show both journal styles.
 
 - The README leads with the graphene figure and three more from neuroscience,
   climate science, and economics, links the gallery prominently, and walks

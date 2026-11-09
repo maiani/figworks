@@ -3,9 +3,11 @@
 ## Gallery
 
 Journal figures from across the sciences, each one self-contained script that
-writes SVG, PDF, and PNG to `out/` at its printed size (183 mm, Nature's
-two-column width). Every figure pairs a schematic with quantitative panels
-computed from the model it illustrates. Data shown as measurements are
+writes SVG, PDF, and PNG to `out/` at its printed size, two journal columns
+wide, in the style of a journal that would print it: Physical Review (`aps`,
+178 mm) for the qubit and graphene, Nature (`nature`, 183 mm) for the rest.
+Every figure pairs a schematic with quantitative panels computed from the
+model it illustrates. Data shown as measurements are
 simulated with fixed seeds, so every run is byte-identical.
 
 | Script | Field | Figure |

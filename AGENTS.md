@@ -142,7 +142,8 @@ python examples/thesis_plots.py --all    # core only; a figure collection
 ```
 
 The gallery figures are the showcase. Each is a self-contained script (no
-shared helper module) for a 183 mm Nature-style figure from a different field:
+shared helper module) for a two-column figure from a different field, in the
+style of a journal that would print it (`aps` at 178 mm or `nature` at 183 mm):
 a schematic plus quantitative panels computed from the model in the script,
 simulated data seeded, output byte-identical between runs. A new gallery figure
 is registered in `EXAMPLES` in `examples/gallery.py`.

@@ -1,6 +1,6 @@
 # Gallery
 
-Figures from across the sciences, each built by one self-contained script at its printed size: 183 mm wide, the two-column width of Nature. Every one pairs a schematic with quantitative panels computed from the model it illustrates, and every element of the SVG stays editable.
+Figures from across the sciences, each built by one self-contained script at its printed size, two journal columns wide, in the style of a journal that would print it: the qubit and graphene in Physical Review's (`aps`, 178 mm), the rest in Nature's (`nature`, 183 mm). Every one pairs a schematic with quantitative panels computed from the model it illustrates, and every element of the SVG stays editable.
 
 Data shown as measurements are simulated, with fixed seeds; each script says which.
 

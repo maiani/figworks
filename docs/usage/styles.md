@@ -223,7 +223,8 @@ For VecView, choose camera scale to size geometry and place the document with
 
 `examples/transmon_figure.py` combines a VecView device, a VecWire circuit,
 VecTeX labels, and Matplotlib panels under one theme, with every label at 8 pt.
-The other [gallery](../gallery/index.md) figures do the same with `nature`.
+The graphene figure does the same; the other [gallery](../gallery/index.md)
+figures use `nature`.
 
 ## What belongs in the prose
 

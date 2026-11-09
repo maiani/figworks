@@ -51,6 +51,7 @@ STYLES_DIR = Path(__file__).resolve().parent / "styles"
 BUILT_IN = ("paper", "presentation", "nature", "aps", "ieee")
 
 _TOP_LEVEL = {
+    "arrow",
     "base",
     "matplotlib",
     "page",
@@ -119,6 +120,17 @@ class Lines:
 
 
 @dataclass(frozen=True)
+class Arrow:
+    """The head of :meth:`Figure.arrow <figworks.Figure.arrow>`, in stroke widths.
+
+    Measured in its line's width, a head grows with a heavier line.
+    """
+
+    head_length: float
+    head_width: float
+
+
+@dataclass(frozen=True)
 class PanelLabel:
     """How panel letters are set; their size is ``font.panel_label``.
 
@@ -155,6 +167,7 @@ class Theme:
     matplotlib: tuple[str, ...]
     rcparams: Mapping[str, Any]
     panel_label: PanelLabel
+    arrow: Arrow
     tex: Mapping[str, str] = field(default_factory=dict)
     math: str = "mathtext"
 
@@ -487,6 +500,26 @@ def _section[T: (Font, Lines)](cls: type[T], data: Mapping[str, Any], name: str)
     return cls(**tokens)
 
 
+def _arrow(data: Mapping[str, Any]) -> Arrow:
+    values = dict(data.get("arrow") or {})
+    names = [f.name for f in fields(Arrow)]
+    unknown = sorted(set(values) - set(names))
+    if unknown:
+        raise ValueError(f"unknown arrow token(s) {', '.join(unknown)}; expected {names}")
+    missing = sorted(set(names) - set(values))
+    if missing:
+        raise ValueError(f"arrow token(s) {', '.join(missing)} are not set anywhere in the chain")
+    sizes = {}
+    for name in names:
+        value = values[name]
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or value <= 0:
+            raise ValueError(
+                f"arrow.{name}: expected a positive number of stroke widths, got {value!r}"
+            )
+        sizes[name] = float(value)
+    return Arrow(**sizes)
+
+
 def _panel_label(data: Mapping[str, Any]) -> PanelLabel:
     values = dict(data.get("panel_label") or {})
     names = [f.name for f in fields(PanelLabel)]
@@ -548,6 +581,7 @@ def load_theme(source: str | Path | Theme = "paper") -> Theme:
         matplotlib=tuple(data.get("matplotlib") or ()),
         rcparams=dict(data.get("rcparams") or {}),
         panel_label=_panel_label(data),
+        arrow=_arrow(data),
         tex=dict(tex),
         math=str(math),
     )
@@ -558,6 +592,7 @@ __all__ = [
     "MATH_MODES",
     "SCALABLE_CMEX",
     "TEX_FONTS",
+    "Arrow",
     "Font",
     "Lines",
     "PanelLabel",

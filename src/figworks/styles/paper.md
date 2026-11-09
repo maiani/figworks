@@ -15,6 +15,9 @@ line:
   frame: 0.5pt
   hairline: 0.25pt
 marker: 3pt
+arrow:
+  head_length: 8   # in stroke widths, so a head grows with its line
+  head_width: 8
 panel_label:
   format: "{}"
   weight: bold

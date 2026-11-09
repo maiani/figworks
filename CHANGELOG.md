@@ -13,21 +13,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   letter (`"({})"` gives (a)), CSS `weight`, and the offset `dx`, `dy` from the
   labelled corner. `Figure.label` no longer forces bold or a fixed offset;
   `paper` keeps bold letters 3 mm left of and 2 mm above the corner.
+- A style's `arrow` shapes the head of `Figure.arrow`: `head_length` and
+  `head_width`, in stroke widths. `paper` keeps the 8 by 8 head.
+- `layout_svgs(theme=...)`: cell labels and outlines take the style, the labels
+  at its `font.label` size unless `fontsize` is given.
 
 ### Changed
 
+- Placeholders are outlined in the style's `neutral` colour at its hairline
+  weight, with their label in its family and size, not a fixed grey and the
+  renderer's default font.
+- `ensure_arrow_marker(document, stroke, length=..., width=...)` takes the
+  head's shape, and `line_arrow` the id of the head it ends in (`marker=`).
 - `aps` looks like Physical Review: TeX Gyre Termes with math in its italic,
   roman letters (a), (b), and inward ticks, with minor ticks, on all four sides.
   The transmon gallery figure sets its VecTeX labels to match.
 - The graphene gallery figure is styled for Physical Review too, so the gallery,
   and the top of the README, show both journal styles.
-
 - The README leads with the graphene figure and three more from neuroscience,
   climate science, and economics, links the gallery prominently, and walks
   through the graphene figure's code. Its images are the gallery previews, so
   `docs/readme_figure.py` and `docs/images/readme.svg` are gone.
 - The transmon gallery figure gives each charge-dispersion plot its own panel
   letter, d and e, and draws the three lowest states on their levels in c.
+
+### Fixed
+
+- Every `Figure.arrow` ends in a head of its own colour; all heads used to take
+  the colour of the figure's first arrow.
 
 ## [0.10.0] - 2026-11-09
 

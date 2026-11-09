@@ -33,12 +33,14 @@ text_element("Line one\nLine two", x=10, y=20, font_size="8pt")
 ```python
 from figworks.elements.arrows import line_arrow, ensure_arrow_marker
 
-ensure_arrow_marker(document)
-line_arrow(0, 0, 10, 10, stroke="black")
+head = ensure_arrow_marker(document, "#c2185b", length=8, width=8)
+line_arrow(0, 0, 10, 10, marker=head.get("id"), stroke="#c2185b")
 ```
 
-The arrowhead marker is defined once in the document's `<defs>` and shared by
-all arrows.
+A head is defined once in the document's `<defs>` for each colour and shape,
+in stroke widths so it grows with its line, and shared by the arrows that use
+it. `fig.arrow` does this for you, shaping the head by the style's `arrow`
+tokens.
 
 ## Adding through the figure
 

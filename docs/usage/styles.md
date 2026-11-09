@@ -65,6 +65,7 @@ before submission; journals revise them.
 | `color` | colours named by meaning; `ink` is required | `spin_up: "#d62828"` |
 | `cycle` | the plot colour cycle, by colour name or literal colour | `[spin_up, spin_down]` |
 | `marker` | marker size | `3pt` |
+| `arrow` | `head_length` and `head_width` of `Figure.arrow`, in stroke widths | `head_width: 6` |
 | `panel_label` | panel letters: `format` with `{}` for the letter, CSS `weight`, offset `dx`, `dy` from the labelled corner | `format: "({})"` |
 | `page` | named lengths, kept as written | `column: 86mm` |
 | `matplotlib` | Matplotlib styles or `.mplstyle` files layered underneath | `./cosmetics.mplstyle` |

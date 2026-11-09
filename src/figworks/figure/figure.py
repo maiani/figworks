@@ -10,7 +10,7 @@ from figworks._export import svg_to_pdf, svg_to_png
 from figworks.core.document import SVGDocument
 from figworks.core.element import svg_to_lxml, validate_ids
 from figworks.core.selectors import Selection
-from figworks.core.units import to_px
+from figworks.core.units import px_decimal, to_px
 from figworks.elements.arrows import ensure_arrow_marker, line_arrow
 from figworks.elements.shapes import circle, ellipse, line, path, polyline, rect
 from figworks.elements.text import text_element
@@ -168,12 +168,21 @@ class Figure:
         class_: str | None = None,
         **attrs: Any,
     ) -> etree._Element:
-        ensure_arrow_marker(self.document, stroke=attrs.get("stroke", self.theme.stroke))
+        """A straight arrow from ``start`` to ``end``, its head shaped by the theme's ``arrow``.
+
+        The head takes the line's colour and scales with its width.
+        """
         x1, y1 = self._point(start)
         x2, y2 = self._point(end)
         attrs.setdefault("stroke", self.theme.stroke)
         attrs.setdefault("stroke_width", self.theme.stroke_width)
-        return self.document.append(line_arrow(x1, y1, x2, y2, id=id, class_=class_, **attrs))
+        head = self.theme.arrow
+        marker = ensure_arrow_marker(
+            self.document, attrs["stroke"], length=head.head_length, width=head.head_width
+        )
+        return self.document.append(
+            line_arrow(x1, y1, x2, y2, marker=str(marker.get("id")), id=id, class_=class_, **attrs)
+        )
 
     def line(self, **attrs: Any) -> etree._Element:
         return self.document.append(line(**attrs))
@@ -226,8 +235,23 @@ class Figure:
         h: str | int | float,
         label: str | None = None,
     ) -> etree._Element:
+        """A dashed box to fill later by id, drawn in the theme's neutral colour."""
         x_px, y_px, w_px, h_px = to_px(x), to_px(y), to_px(w), to_px(h)
-        return self.document.placeholder(id, x_px, y_px, w_px, h_px, label=label)
+        neutral = self.theme.color.get("neutral", self.theme.stroke)
+        return self.document.placeholder(
+            id,
+            x_px,
+            y_px,
+            w_px,
+            h_px,
+            label=label,
+            outline={"stroke": neutral, "stroke_width": px_decimal(self.theme.px("line.hairline"))},
+            label_style={
+                "font_family": self.theme.font_family,
+                "font_size": self.theme.base_font_size,
+                "fill": neutral,
+            },
+        )
 
     def fill(
         self,

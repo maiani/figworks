@@ -6,6 +6,7 @@ import math
 from collections.abc import Sequence
 
 from figworks.figure.figure import Figure
+from figworks.style import Theme
 
 
 def layout_svgs(
@@ -15,7 +16,8 @@ def layout_svgs(
     shape: tuple[int, int] | None = None,
     cell: tuple[float, float] = (200.0, 140.0),
     gap: float = 20.0,
-    fontsize: str = "10pt",
+    fontsize: str | None = None,
+    theme: str | Theme = "paper",
 ) -> Figure:
     """Assemble multiple SVG strings into a single grid figure.
 
@@ -30,7 +32,8 @@ def layout_svgs(
     :param shape: optional ``(nrows, ncols)``; inferred from the count otherwise.
     :param cell: ``(width, height)`` of each cell in points.
     :param gap: spacing between cells in points.
-    :param fontsize: label font size.
+    :param fontsize: label font size; the theme's ``font.label`` by default.
+    :param theme: the style the labels and outlines take.
     :returns: a populated :class:`figworks.Figure`.
     """
     from figworks.core.units import to_px
@@ -48,7 +51,9 @@ def layout_svgs(
     cell_w = to_px(f"{cell[0]}pt")
     cell_h = to_px(f"{cell[1]}pt")
     gap_px = to_px(f"{gap}pt")
-    label_gap = to_px("14pt")
+    fig = Figure(width="1px", height="1px", theme=theme)  # resized below
+    size = fontsize or f"{fig.theme.font.label:g}pt"
+    label_gap = 1.4 * to_px(size)  # the label's line, above its cell
 
     has_label = any(label is not None for label in labels)
     width_total = ncols * cell_w + (ncols - 1) * gap_px
@@ -56,7 +61,7 @@ def layout_svgs(
     if has_label:
         height_total += label_gap
 
-    fig = Figure(width=f"{width_total}px", height=f"{height_total}px")
+    fig = Figure(width=f"{width_total}px", height=f"{height_total}px", theme=fig.theme)
 
     outlines = _outline_list(outline, count)
     for index, (svg, label, draw_outline) in enumerate(zip(svgs, labels, outlines, strict=True)):
@@ -72,7 +77,8 @@ def layout_svgs(
                 height=cell_h,
                 class_="figworks-cell-outline",
                 fill="none",
-                stroke="black",
+                stroke=fig.theme.stroke,
+                stroke_width=fig.theme.px("line.frame"),
             )
         if label is not None:
             fig.text(
@@ -81,7 +87,7 @@ def layout_svgs(
                 y=cell_y - 3,
                 class_="figworks-cell-label",
                 text_anchor="middle",
-                font_size=fontsize,
+                font_size=size,
             )
         fig.add(svg, x=cell_x, y=cell_y, w=cell_w, h=cell_h, id=pid)
 

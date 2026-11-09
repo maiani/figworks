@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from typing import TYPE_CHECKING, Any
 
 import svg
@@ -14,18 +15,26 @@ if TYPE_CHECKING:
     from lxml import etree
 
 
-def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._Element:
-    marker_id = "figworks-arrowhead"
+def ensure_arrow_marker(
+    document: SVGDocument, stroke: str, *, length: float, width: float
+) -> etree._Element:
+    """The arrowhead for ``stroke``-coloured lines, defined once per colour and shape.
+
+    ``length`` and ``width`` are in stroke widths, so the head scales with its
+    line. The id is stable, such as ``figworks-arrowhead-c2185b-8x8``.
+    """
+    shape = f"{length:g}x{width:g}".replace(".", "_")
+    marker_id = f"figworks-arrowhead-{re.sub(r'[^0-9A-Za-z]+', '', stroke) or 'none'}-{shape}"
     existing = document.root.find(f".//*[@id='{marker_id}']")
     if existing is not None:
         return existing
     marker = svg_to_lxml(
         svg.Marker(
             id=marker_id,
-            markerWidth=8,
-            markerHeight=8,
-            refX=7,
-            refY=4,
+            markerWidth=px_decimal(length),
+            markerHeight=px_decimal(width),
+            refX=px_decimal(length - 1),  # the line's butt end stays hidden in the head
+            refY=px_decimal(width / 2),
             orient="auto",
             markerUnits="strokeWidth",
         )
@@ -33,7 +42,7 @@ def ensure_arrow_marker(document: SVGDocument, stroke: str = "black") -> etree._
     marker.append(
         svg_to_lxml(
             svg.Path(fill=stroke, class_=["figworks-arrowhead-path"]),
-            raw={"d": "M 0 0 L 8 4 L 0 8 z"},
+            raw={"d": f"M 0 0 L {length:g} {width / 2:g} L 0 {width:g} z"},
         )
     )
     document.defs().append(marker)
@@ -45,9 +54,12 @@ def line_arrow(
     y1: str | int | float,
     x2: str | int | float,
     y2: str | int | float,
+    *,
+    marker: str,
     **attrs: Any,
 ) -> etree._Element:
-    attrs.setdefault("marker_end", "url(#figworks-arrowhead)")
+    """A line ending in the arrowhead with id ``marker``, from :func:`ensure_arrow_marker`."""
+    attrs["marker_end"] = f"url(#{marker})"
     return svg_to_lxml(
         svg.Line(
             x1=px_decimal(x1),

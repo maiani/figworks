@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
@@ -153,11 +154,15 @@ class SVGDocument:
         w: float,
         h: float,
         label: str | None = None,
+        *,
+        outline: Mapping[str, Any] | None = None,
+        label_style: Mapping[str, Any] | None = None,
     ) -> etree._Element:
         """Create a rectangular placeholder that can be filled later by id.
 
         The placeholder is drawn with a dashed outline so it is visible while
-        composing a figure.
+        composing a figure; ``outline`` and ``label_style`` are its look, as svg.py
+        attributes (``stroke``, ``font_family``, ...).
         """
         rect = svg_to_lxml(
             svg.Rect(
@@ -168,9 +173,8 @@ class SVGDocument:
                 width=px_decimal(w),
                 height=px_decimal(h),
                 fill="none",
-                stroke="#999999",
-                stroke_width=px_decimal(0.5),
                 stroke_dasharray=[4, 3],
+                **dict(outline or {}),
             )
         )
         self.append(rect)
@@ -185,6 +189,7 @@ class SVGDocument:
                         extra={"data-figworks-placeholder": id},
                         text_anchor="middle",
                         dominant_baseline="middle",
+                        **dict(label_style or {}),
                     )
                 )
             )

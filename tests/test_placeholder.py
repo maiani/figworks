@@ -70,3 +70,16 @@ def test_layout_svgs_grid_with_labels_and_outlines():
         assert label in out
     assert out.count("figworks-cell-label") == 4
     assert out.count("figworks-cell-outline") == 4
+
+
+def test_placeholder_and_cell_labels_take_the_theme():
+    fig = Figure(width="200px", height="100px", theme="aps")
+    box = fig.placeholder("slot", x=10, y=10, w=80, h=70, label="reserved")
+    assert box.get("stroke") == fig.theme.color["neutral"]
+    (label,) = fig.document.root.iter("{*}text")
+    assert (label.get("font-family"), label.get("font-size")) == ("TeX Gyre Termes", "8pt")
+
+    grid = layout_svgs([_svg("A"), _svg("B")], labels=["a", "b"], outline=True, theme="nature")
+    cells = grid.select(".figworks-cell-label")
+    assert {cell.get("font-family") for cell in cells} == {"TeX Gyre Heros"}
+    assert {cell.get("font-size") for cell in cells} == {"7pt"}, "the style's label size"

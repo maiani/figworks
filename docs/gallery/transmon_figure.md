@@ -1,6 +1,6 @@
 # A transmon, from device to spectrum
 
-*Superconducting qubits.* The device, its circuit and Hamiltonian, the cosine potential with its lowest levels, and the charge dispersion that vanishes as E_J/E_C grows.
+*Superconducting qubits.* The device, its circuit and Hamiltonian, the cosine potential with its lowest states, and the charge dispersion that vanishes as E_J/E_C grows.
 
 ![A transmon, from device to spectrum](../images/gallery-transmon_figure.svg)
 
@@ -18,7 +18,7 @@ python examples/transmon_figure.py
 
 Recorded by `python examples/gallery.py`; findings are for review, not a certification.
 
-- `small-script`: 14
+- `small-script`: 20
 
 Not checked:
 

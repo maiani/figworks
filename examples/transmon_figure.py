@@ -41,6 +41,7 @@ EDGE = "#8b96a6"
 LEVELS = ("#173f74", "#2f7fc1", "#62aee0")
 
 EJ_OVER_EC = 30.0
+PSI_SCALE = 5.5  # wavefunction height in panel c, in E_C per unit amplitude
 
 
 # --- physics --------------------------------------------------------------------
@@ -57,6 +58,23 @@ def transmon_levels(ej_over_ec: float, ng: float | np.ndarray, count: int = 3) -
     return np.array(
         [np.linalg.eigvalsh(np.diag(4 * (n - g) ** 2) + hopping)[:count] for g in np.atleast_1d(ng)]
     )
+
+
+def transmon_states(ej_over_ec: float, phi: np.ndarray, count: int = 3):
+    """The lowest levels at n_g = 0 and their wavefunctions psi_m(phi), normalized.
+
+    psi(phi) = sum_n c_n exp(i n phi) / sqrt(2 pi) from the charge-basis eigenvectors.
+    Parity makes each one real or purely imaginary; the outermost lobe on the right
+    is taken positive.
+    """
+    n = np.arange(-20, 21)
+    hopping = -ej_over_ec / 2 * (np.eye(n.size, k=1) + np.eye(n.size, k=-1))
+    energies, vectors = np.linalg.eigh(np.diag(4.0 * n**2) + hopping)
+    psi = np.exp(1j * np.outer(phi, n)) @ vectors[:, :count] / np.sqrt(2 * np.pi)
+    psi = (psi.real + psi.imag).T
+    turns = np.arccos(-energies[:count] / ej_over_ec)
+    signs = [np.sign(np.interp(t, phi, p)) for t, p in zip(turns, psi, strict=True)]
+    return energies[:count], psi * np.array(signs)[:, None]
 
 
 # --- panel a: the device --------------------------------------------------------
@@ -144,19 +162,25 @@ def circuit_diagram(labels: dict[str, vectex.VectexFragment]) -> Circuit:
     return circuit
 
 
-# --- panels c and d: the plots --------------------------------------------------
+# --- panels c to e: the plots -------------------------------------------------
 
 
 def plot_potential(ax: plt.Axes) -> None:
-    """The cosine well and its lowest levels, each drawn between its turning points."""
-    phi = np.linspace(-np.pi, np.pi, 400)
-    ax.plot(phi / np.pi, -EJ_OVER_EC * np.cos(phi), color=INK)
-    for m, (energy, color) in enumerate(
-        zip(transmon_levels(EJ_OVER_EC, 0.0)[0], LEVELS, strict=True)
-    ):
+    """The cosine well, its lowest levels between their turning points, and their states."""
+    phi = np.linspace(-np.pi, np.pi, 601)
+    x = phi / np.pi
+    ax.plot(x, -EJ_OVER_EC * np.cos(phi), color=INK)
+    energies, states = transmon_states(EJ_OVER_EC, phi)
+    for m, (energy, psi, color) in enumerate(zip(energies, states, LEVELS, strict=True)):
         turn = np.arccos(-energy / EJ_OVER_EC) / np.pi
-        ax.plot([-turn, turn], [energy, energy], color=color)
-        ax.text(0, energy + 1.2, rf"$E_{m}$", ha="center", va="bottom", color=color)
+        ax.plot([-turn, turn], [energy, energy], color=color, lw=0.5)
+        shown = np.abs(psi) > 0.2 * np.abs(psi).max()  # drop the flat tails
+        span = slice(np.argmax(shown), len(shown) - np.argmax(shown[::-1]))
+        wave = energy + PSI_SCALE * psi[span]
+        ax.fill_between(x[span], energy, wave, color=color, alpha=0.25, lw=0)
+        ax.plot(x[span], wave, color=color)
+        ax.text(x[span][-1] + 0.04, energy, rf"$E_{m}$", va="center", color=color)
+    ax.set_title(rf"$E_J/E_C = {EJ_OVER_EC:g}$")
     ax.set_xlim(-1, 1)
     ax.set_xticks([-1, 0, 1])
     ax.set_ylim(-EJ_OVER_EC * 1.05, EJ_OVER_EC * 1.05)
@@ -164,19 +188,19 @@ def plot_potential(ax: plt.Axes) -> None:
     ax.set_ylabel(r"$U/E_C$")
 
 
-def plot_bands(axes: np.ndarray) -> None:
+def plot_dispersion(ax: plt.Axes, ej_over_ec: float) -> None:
     """Charge dispersion: the levels flatten as E_J/E_C grows, which is the transmon."""
     ng = np.linspace(-1, 1, 301)
-    for ax, ratio in zip(axes, (1.0, EJ_OVER_EC), strict=True):
-        levels = transmon_levels(ratio, ng)
-        sweet = transmon_levels(ratio, 0.5)[0]
-        for m, color in enumerate(LEVELS):
-            ax.plot(ng, (levels[:, m] - sweet[0]) / (sweet[1] - sweet[0]), color=color)
-        ax.set_title(rf"$E_J/E_C = {ratio:g}$")
-        ax.set_xlabel(r"$n_g$")
-        ax.set_xlim(-1, 1)
-        ax.set_xticks([-1, 0, 1])
-    axes[0].set_ylabel(r"$(E_m - E_0)/E_{01}$")
+    levels = transmon_levels(ej_over_ec, ng)
+    sweet = transmon_levels(ej_over_ec, 0.5)[0]
+    for m, color in enumerate(LEVELS):
+        ax.plot(ng, (levels[:, m] - sweet[0]) / (sweet[1] - sweet[0]), color=color)
+    ax.set_title(rf"$E_J/E_C = {ej_over_ec:g}$")
+    ax.set_xlabel(r"$n_g$")
+    ax.set_ylabel(r"$(E_m - E_0)/E_{01}$")
+    ax.set_xlim(-1, 1)
+    ax.set_xticks([-1, 0, 1])
+    ax.set_ylim(-1, 9)  # shared by both regimes, so the flattening shows
 
 
 # --- the figure -----------------------------------------------------------------
@@ -185,7 +209,7 @@ def plot_bands(axes: np.ndarray) -> None:
 def build_figure() -> Figure:
     fig = Figure(width=THEME.page["double"], height="104mm", theme=THEME, background="white")
     panels = fig.grid(
-        [["device", "device", "circuit"], ["potential", "bands", "bands"]],
+        [["device", "device", "circuit"], ["potential", "charge-regime", "transmon-regime"]],
         height_ratios=(1.1, 1),
         margins=("6mm", "3mm", "10mm", "12mm"),  # top, right, bottom, left
         gap=("13mm", "14mm"),  # between rows, between columns
@@ -212,11 +236,12 @@ def build_figure() -> Figure:
     plot_potential(ax)
     panels["potential"].add(mpl_fig, id="potential-plot", fit="axes")
 
-    mpl_fig, axes = panels["bands"].subplots(1, 2, sharey=True, gridspec_kw=dict(wspace=0.12))
-    plot_bands(axes)
-    panels["bands"].add(mpl_fig, id="bands-plot", fit="axes")
+    for name, ratio in (("charge-regime", 1.0), ("transmon-regime", EJ_OVER_EC)):
+        mpl_fig, ax = panels[name].subplots()
+        plot_dispersion(ax, ratio)
+        panels[name].add(mpl_fig, id=f"{name}-plot", fit="axes")
 
-    for letter, panel in zip("abcd", panels.values(), strict=True):
+    for letter, panel in zip("abcde", panels.values(), strict=True):
         fig.label(letter, panel.nw)
     return fig
 

@@ -57,7 +57,7 @@ keep their physical sizes while track widths change.
 
 Every figure in the [gallery](../gallery/index.md) is laid out this way;
 `examples/transmon_figure.py` spans a device sketch over two columns above
-unequal Matplotlib panels.
+three Matplotlib panels.
 
 ## Equal cells from SVG sources
 

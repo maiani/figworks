@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The transmon gallery figure gives each charge-dispersion plot its own panel
+  letter, d and e, and draws the three lowest states on their levels in c.
+
 ## [0.10.0] - 2026-11-09
 
 ### Added

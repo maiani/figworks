@@ -10,7 +10,7 @@ Data shown as measurements are simulated, with fixed seeds; each script says whi
 
     [![A transmon, from device to spectrum](../images/gallery-transmon_figure.svg)](transmon_figure.md)
 
-    *Superconducting qubits.* The device, its circuit and Hamiltonian, the cosine potential with its lowest levels, and the charge dispersion that vanishes as E_J/E_C grows.
+    *Superconducting qubits.* The device, its circuit and Hamiltonian, the cosine potential with its lowest states, and the charge dispersion that vanishes as E_J/E_C grows.
 
 -   **[Dirac electrons in graphene](graphene_bands.md)**
 

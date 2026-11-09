@@ -53,7 +53,7 @@ EXAMPLES = (
         "Superconducting qubits",
         "A transmon, from device to spectrum",
         "The device, its circuit and Hamiltonian, the cosine potential with its "
-        "lowest levels, and the charge dispersion that vanishes as E_J/E_C grows.",
+        "lowest states, and the charge dispersion that vanishes as E_J/E_C grows.",
         "All four producers in one figure: a VecView device, a VecWire circuit, "
         "VecTeX labels pinned into both, and Matplotlib panels aligned on the grid.",
         "VecView, VecWire, and TeX",
